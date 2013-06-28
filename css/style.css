@@ -315,6 +315,10 @@ body{ font:16px/26px Helvetica, Helvetica Neue, Arial; }
 	padding:30px 0;
 }
 
+#main #intro p{
+	font-family: 'Atomic Age', cursive;
+}
+
 #customize-section label{
 	background:white;
 	-webkit-border-radius:4px;
