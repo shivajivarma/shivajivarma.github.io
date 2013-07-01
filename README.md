@@ -1,4 +1,4 @@
-my-personal-website
+SHIVAJIVARMA.COM
 ===================
 
-This is My Personal Website. Thanks to Verekia(https://github.com/verekia) for his work.
+This is My Personal Website. (www.shivajivarma.com)
