@@ -5,4 +5,4 @@ server: true
 exclude:
 - README.md
 - Rakefile
-mystring: "testing"
+author: "shivaji varma"
