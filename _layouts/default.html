@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shivaji Varma's Website - A mix of coding and creative writing!" />
-	<meta name="author" content="Shivaji Varma" />
-	<meta name="keywords" content="Shivaji Varma,shivajivarma,shivaji,varma,programmer,music" />
-	<meta property="og:title" content="shivaji varma" />
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="{{ site.author }}" />
+	<meta property="og:title" content="{{ site.author }}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c38.37.460.460/s160x160/523703_267097653395851_737552565_n.jpg" />
 	<meta property="og:site_name" content="Shivaji Varma" />
 	<meta property="fb:admins" content="100002868559363" />
-    
-    <title>{{ page.title }}</title>
-    
-    <!-- Latest compiled CSS -->
-    <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/common/common.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/common/shared.css">
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <style type="text/css">
-      @import url(http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps);
-    </style>
-  </head>
+	
+	<meta name="description" content="Shivaji Varma's Website - A mix of coding and creative writing!" />
+	<meta name="keywords" content="Shivaji Varma,shivajivarma,shivaji,varma,programmer,music" />
+	
+	<title>{{ page.title }}</title>
+
+	<!-- Latest compiled CSS -->
+	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/common/common.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/common/shared.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+	<style type="text/css">
+		@import url(http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps);
+	</style>
+</head>
   
   <body>
     {% include header.html %}
-    <div>{{ site.mystring }}</div>
     <div class="container">
         {{ content }}
     </div>
