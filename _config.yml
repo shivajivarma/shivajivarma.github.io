@@ -5,3 +5,4 @@ server: true
 exclude:
 - README.md
 - Rakefile
+mystring: "testing"
