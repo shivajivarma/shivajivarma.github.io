@@ -4,9 +4,6 @@ testing: <%= page.title %>
 ---
 asdlkfh
 asdf
-{% capture page.title %}
+{% capture page.testing %}
 {{page.title}} testing
-{%endcapture%}
-
-{% assign page.testing = "site.pages" %}
-{{testing}}
+{% endcapture %}
