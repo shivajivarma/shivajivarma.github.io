@@ -10,16 +10,14 @@ exclude:
 name: Sample Jekyll Blog
 
 # Site description
-description: This is a sample Jekyll Blog.
+description: Programmer by day, designer by noon and dreamer by night
 
 # Author name
-author: "Shivaji Varma"
+author: Shivaji Varma
 
 # Author email
 author_email: contact@shivajivarma.com
 
-
-# Uncomment if you are planning to run the blog in a subdirectory
 # Note - if you enable this, and attempt to view your site locally you have to use the baseurl in your local path.
 # Example, you must use http://localhost:4000/path/to/blog
 #baseurl: /path/to/blog 
@@ -28,5 +26,10 @@ baseurl:
 # Domain name
 url: http://shivajivarma.com/
 
+domain: shivajivarma.com
+
 # Time zone
 timezone: Asia/Kolkata
+
+# Google analytics track id
+google_analytics: "UA-42422649-1"
