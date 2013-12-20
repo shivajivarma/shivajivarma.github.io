@@ -4,12 +4,12 @@
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="{{ site.data.site-config.author }}" />
-	<meta name="description" content="{{ site.data.site-config.description }}" />
-	<meta property="og:title" content="{{ site.data.site-config.author }}" />
-	<meta property="og:type" content="website" />
+	<meta name="author" content="{{ site.author }}" />
+	<meta name="description" content="{{ site.description }}" />
+	<meta property="og:title" content="{{ site.author }}" />
+	<meta property="og:type" content="{{ site.site_type }}" />
 	<meta property="og:image" content="https://lh5.googleusercontent.com/-kZ3c5QxIBOE/UYsCy4FBjQI/AAAAAAAAA8w/YUYMtZwYcnU/w420-h419-no/308519_371554049616877_2082085681_n%255B1%255D.jpg" />
-	<meta property="og:site_name" content="{{ site.data.site-config.author }}" />
+	<meta property="og:site_name" content="{{ site.author }}" />
 	<meta property="fb:admins" content="100002868559363" />
 	
 	<meta name="keywords" content="Shivaji Varma,shivajivarma,shivaji,varma,programmer,music" />
@@ -33,10 +33,7 @@
  </head>
   
  <body>
-	{% include header.html %}
-	<div class="container">{{ content }}</div>
-	<div class="container">{{ page.testing }}</div>
-	{% include footer.html %}
+	{{ content }}
     	
 	<!--Placed at the end of the document so the pages load faster-->
 	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -48,7 +45,7 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		
-		ga('create', '{{ site.data.site-config.google_analytics }}', '{{ site.data.site-config.domain }}');
+		ga('create', '{{ site.google_analytics }}', '{{ site.domain }}');
 		ga('send', 'pageview');
 	</script><!--/ANALYTICS CODE-->
  </body>
