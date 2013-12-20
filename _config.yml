@@ -2,6 +2,7 @@ auto: true
 permalink: /blog/:year/:month/:day/:title
 pygments: true
 server: true
+baseurl: 
 exclude:
 - README.md
 - Rakefile
