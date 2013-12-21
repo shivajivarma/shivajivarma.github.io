@@ -35,3 +35,9 @@ timezone: Asia/Kolkata
 
 # Google analytics track id
 google_analytics: "UA-42422649-1"
+
+# Path to CSS files
+css: assets\stylesheets\
+
+# Path to image files
+images: assets\images\

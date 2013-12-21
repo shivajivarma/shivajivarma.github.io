@@ -8,7 +8,7 @@
 	<meta name="description" content="{{ site.description }}" />
 	<meta property="og:title" content="{{ site.author }}" />
 	<meta property="og:type" content="{{ site.site_type }}" />
-	<meta property="og:image" content="https://lh5.googleusercontent.com/-kZ3c5QxIBOE/UYsCy4FBjQI/AAAAAAAAA8w/YUYMtZwYcnU/w420-h419-no/308519_371554049616877_2082085681_n%255B1%255D.jpg" />
+	<meta property="og:image" content="{{ site.baseurl }}{{ site.css }}author.jpg" />
 	<meta property="og:site_name" content="{{ site.author }}" />
 	<meta property="fb:admins" content="100002868559363" />
 	
@@ -24,8 +24,8 @@
 
 	<!-- Latest compiled CSS -->
 	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/common/common.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/common/shared.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ site.baseurl }}{{ site.css }}common.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ site.baseurl }}{{ site.css }}shared.css">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +39,8 @@
  </head>
   
  <body>
-	{{ content }}
+	
+    {{ content }}
     	
 	<!--Placed at the end of the document so the pages load faster-->
 	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
