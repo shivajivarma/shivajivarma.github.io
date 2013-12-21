@@ -6,6 +6,8 @@
 
 .no-margin{margin: 0px;}
 
+.text-justify{text-align: justify;}
+
 /* Start: Reserved class name. Only used for selection. */
 .first{}
 .last{}
