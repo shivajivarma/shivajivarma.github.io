@@ -1,6 +1,4 @@
-{% assign sides = "top|right|left|bottom" | split: "|" %}
-{% for side in sides %}
-  {% for i in (1..10) %}
+{% assign sides = "top|right|left|bottom" | split: "|" %}{% for side in sides %}{% for i in (1..10) %}
 .margin-{{ side }}-{{ i }}px{padding-{{ side }}: {{ i }}px;}{% endfor %}
 .margin-{{ side }}-15px{padding-{{ side }}: 15px;}
 .margin-{{ side }}-20px{padding-{{ side }}: 20px;}
