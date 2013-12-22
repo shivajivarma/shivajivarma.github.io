@@ -1,8 +1,4 @@
----
-sides: ['top','right','left','bottom']
----
-
-{% for side in sides %}
+{% for side in ['top','right','left','bottom'] %}
   {% for i in (1..10) %}
 .padding-{{ side }}-{{ i }}px{padding-{{ side }}: {{ i }}px;}
   {% endfor %}
