@@ -1,37 +1,15 @@
-{% for i in (1..10) %}
-.padding-top-{{ i }}px{padding-top: {{ i }}px;}
-.padding-bottom-{{ i }}px{padding-bottom: {{ i }}px;}
-.padding-left-{{ i }}px{padding-left: {{ i }}px;}
-.padding-right-{{ i }}px{padding-right: {{ i }}px;}
+---
+sides: ['top','right','left','bottom']
+---
+
+{% for side in sides %}
+  {% for i in (1..10) %}
+.padding-{{ side }}-{{ i }}px{padding-{{ side }}: {{ i }}px;}
+  {% endfor %}
+.padding-{{ side }}-15px{padding-{{ side }}: 15px;}
+.padding-{{ side }}-20px{padding-{{ side }}: 20px;}
+.padding-{{ side }}-25px{padding-{{ side }}: 25px;}
+.padding-{{ side }}-30px{padding-{{ side }}: 30px;}
+.padding-{{ side }}-40px{padding-{{ side }}: 40px;}
+.padding-{{ side }}-50px{padding-{{ side }}: 50px;}
 {% endfor %}
-
-.padding-top-15px{padding-top: 15px;}
-.padding-top-20px{padding-top: 20px;}
-.padding-top-25px{padding-top: 25px;}
-.padding-top-30px{padding-top: 30px;}
-.padding-top-40px{padding-top: 40px;}
-.padding-top-50px{padding-top: 50px;}
-
-.padding-bottom-10px{padding-bottom: 10px;}
-.padding-bottom-15px{padding-bottom: 15px;}
-.padding-bottom-20px{padding-bottom: 20px;}
-.padding-bottom-25px{padding-bottom: 25px;}
-.padding-bottom-30px{padding-bottom: 30px;}
-.padding-bottom-40px{padding-bottom: 40px;}
-.padding-bottom-50px{padding-bottom: 50px;}
-
-.padding-left-10px{padding-left: 10px;}
-.padding-left-15px{padding-left: 15px;}
-.padding-left-20px{padding-left: 20px;}
-.padding-left-25px{padding-left: 25px;}
-.padding-left-30px{padding-left: 30px;}
-.padding-left-40px{padding-left: 40px;}
-.padding-left-50px{padding-left: 50px;}
-
-.padding-right-10px{padding-right: 10px;}
-.padding-right-15px{padding-right: 15px;}
-.padding-right-20px{padding-right: 20px;}
-.padding-right-25px{padding-right: 25px;}
-.padding-right-30px{padding-right: 30px;}
-.padding-right-40px{padding-right: 40px;}
-.padding-right-50px{padding-right: 50px;}
