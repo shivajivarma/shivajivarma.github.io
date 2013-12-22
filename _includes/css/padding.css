@@ -1,5 +1,5 @@
-{% assign array = 1,2,3,4 %}
-{% for side in array %}
+{% assign myArray = "one|two|three" | split: "|" %}
+{% for side in myArray %}
 
 .padding-{{ side }}-15px{padding-{{ side }}: 15px;}
 .padding-{{ side }}-20px{padding-{{ side }}: 20px;}
