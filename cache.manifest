@@ -1,4 +1,6 @@
 CACHE MANIFEST
 # 2013-12-22 v1.0.0
+CACHE:
 /index.html
-index.html
+/assets/stylesheets/common/common.css
+/assets/stylesheets/common/shared.css
