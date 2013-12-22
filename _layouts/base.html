@@ -4,25 +4,25 @@
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<META HTTP-EQUIV="Cache-Control" CONTENT="max-age=365000">
-	<META HTTP-EQUIV="Expires" CONTENT="Wed, 01 Jan 2014 1:00:00 GMT">
-	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"
+	<meta http-equiv="cache-control" content="max-age=0">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="-1">
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
 	
-	<meta name="author" content="{{ site.author }}" />
-	<META NAME="copyright" CONTENT="&copy; {{ site.time | date: '%Y' }} {{ site.author }}">
-	<meta name="description" content="{{ site.description }}" />
-	<meta property="og:title" content="{{ site.author }}" />
-	<meta property="og:type" content="{{ site.site_type }}" />
-	<meta property="og:image" content="{{ site.baseurl }}{{ site.css }}author.jpg" />
-	<meta property="og:site_name" content="{{ site.author }}" />
-	<meta property="fb:admins" content="100002868559363" />
+	<meta name="author" content="{{ site.author }}">
+	<META NAME="copyright" content="&copy; {{ site.time | date: '%Y' }} {{ site.author }}">
+	<meta name="description" content="{{ site.description }}">
+	<meta property="og:title" content="{{ site.author }}">
+	<meta property="og:type" content="{{ site.site_type }}">
+	<meta property="og:image" content="{{ site.baseurl }}{{ site.css }}author.jpg">
+	<meta property="og:site_name" content="{{ site.author }}">
+	<meta property="fb:admins" content="100002868559363">
 	
-	
-	<meta name="keywords" content="{{ site.author }},shivajivarma,shivaji,varma,programmer,music" />
+	<meta name="keywords" content="{{ site.author }},shivajivarma,shivaji,varma,programmer,music">
+	<link rel="icon" type="image/png" href="favicon.png" />
 	
 	{% if page.title %}<title>{{ page.title }} | {{ site.author }}</title>{% else %}<title>{{ site.author }}</title>{% endif %}
-	
-	<link rel="icon" type="image/png" href="favicon.png" />
 
 	<!-- Latest compiled CSS -->
 	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/css/bootstrap.css">
