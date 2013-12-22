@@ -100,6 +100,7 @@ footer #copyright a:hover{
 /* End : Blue navigation bar */
 body{
 	padding-top: 70px;
+	overflow-y: scroll;
 }
 
 footer{
