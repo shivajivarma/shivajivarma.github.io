@@ -1,4 +1,4 @@
-{% for side in [top,right,left,bottom] %}
+{% for side in [top, right, left, bottom] %}
 
 .padding-{{ side }}-15px{padding-{{ side }}: 15px;}
 .padding-{{ side }}-20px{padding-{{ side }}: 20px;}
