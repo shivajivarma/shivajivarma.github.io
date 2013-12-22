@@ -12,13 +12,13 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li {% if post.navLink == "Home" %}class="active"{% endif %}><a href="#">Home</a></li>
-					<li {% if post.navLink == "Posts" %}class="active"{% endif %}><a href="#">Posts</a></li>
-					<li {% if post.navLink == "Projects" %}class="active"{% endif %}><a href="#">Projects</a></li>
+					<li {% if page.navLink == 'Home' %}class="active"{% endif %}><a href="#">Home</a></li>
+					<li {% if page.navLink == 'Posts' %}class="active"{% endif %}><a href="#">Posts</a></li>
+					<li {% if page.navLink == 'Projects' %}class="active"{% endif %}><a href="#">Projects</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li {% if post.navLink == "About" %}class="active"{% endif %}><a href="/about.html">About</a></li>
-					<li {% if post.navLink == "About" %}class="active"{% endif %}><a href="/about.html#contact">Contact</a></li>
+					<li {% if page.navLink == 'About' %}class="active"{% endif %}><a href="/about.html">About</a></li>
+					<li {% if page.navLink == 'About' %}class="active"{% endif %}><a href="/about.html#contact">Contact</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
