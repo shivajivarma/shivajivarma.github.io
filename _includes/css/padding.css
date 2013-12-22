@@ -5,4 +5,5 @@
 .padding-{{ side }}-25px{padding-{{ side }}: 25px;}
 .padding-{{ side }}-30px{padding-{{ side }}: 30px;}
 .padding-{{ side }}-40px{padding-{{ side }}: 40px;}
-.padding-{{ side }}-50px{padding-{{ side }}: 50px;}{% endfor %}
+.padding-{{ side }}-50px{padding-{{ side }}: 50px;}
+{% endfor %}
