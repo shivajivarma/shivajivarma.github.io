@@ -62,11 +62,6 @@ footer{
 	margin-top: 15px;
 }
 
-.navbar-brand{
+.navbar-brand, .post, .post h1{
 	font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
 }
-
-.post{
-	font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-
