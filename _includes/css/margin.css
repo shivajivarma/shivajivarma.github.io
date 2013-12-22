@@ -1,13 +1,10 @@
 {% assign sides = "top|right|left|bottom" | split: "|" %}
 {% for side in sides %}
   {% for i in (1..10) %}
-.margin-{{ side }}-{{ i }}px{padding-{{ side }}: {{ i }}px;}
-  {% endfor %}
+.margin-{{ side }}-{{ i }}px{padding-{{ side }}: {{ i }}px;}{% endfor %}
 .margin-{{ side }}-15px{padding-{{ side }}: 15px;}
 .margin-{{ side }}-20px{padding-{{ side }}: 20px;}
 .margin-{{ side }}-25px{padding-{{ side }}: 25px;}
 .margin-{{ side }}-30px{padding-{{ side }}: 30px;}
 .margin-{{ side }}-40px{padding-{{ side }}: 40px;}
-.margin-{{ side }}-50px{padding-{{ side }}: 50px;}
-{% endfor %}
-  
+.margin-{{ side }}-50px{padding-{{ side }}: 50px;}{% endfor %}
