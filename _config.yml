@@ -4,7 +4,6 @@ pygments: true
 server: true
 exclude:
 - README.md
-- Rakefile
 
 # Name of site
 name: Sample Jekyll Blog
@@ -23,7 +22,7 @@ site_type: website
 # Note - if you enable this, and attempt to view your site locally you have to use the baseurl in your local path.
 # Example, you must use http://localhost:4000/path/to/blog
 #baseurl: /path/to/blog 
-baseurl: /
+baseurl: 
 
 # Domain name
 url: http://shivajivarma.com/
@@ -37,7 +36,7 @@ timezone: Asia/Kolkata
 google_analytics: "UA-42422649-1"
 
 # Path to CSS files
-css: assets/stylesheets/
+css: /assets/stylesheets
 
 # Path to image files
-images: assets/images/
+images: /assets/images
