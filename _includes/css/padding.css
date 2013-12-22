@@ -1,6 +1,8 @@
-{% assign myArray = "one|two|three" | split: "|" %}
-{% for side in myArray %}
-
+{% assign sides = "top|right|left|bottom" | split: "|" %}
+{% for side in sides %}
+  {% for i in (1..10) %}
+.padding-{{ side }}-{{ i }}px{padding-{{ side }}: {{ i }}px;}
+  {% endfor %}
 .padding-{{ side }}-15px{padding-{{ side }}: 15px;}
 .padding-{{ side }}-20px{padding-{{ side }}: 20px;}
 .padding-{{ side }}-25px{padding-{{ side }}: 25px;}
@@ -8,6 +10,4 @@
 .padding-{{ side }}-40px{padding-{{ side }}: 40px;}
 .padding-{{ side }}-50px{padding-{{ side }}: 50px;}
 {% endfor %}
-  {% for i in (1..10) %}
-.padding-{{ side }}-{{ i }}px{padding-{{ side }}: {{ i }}px;}
-  {% endfor %}
+  
