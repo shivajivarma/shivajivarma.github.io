@@ -1,4 +1,5 @@
-{% for side in ['top', 'right', 'left', 'bottom'] %}
+{% assign sides = ['top', 'right', 'left', 'bottom'] %}
+{% for side in  sides %}
 
 .padding-{{ side }}-15px{padding-{{ side }}: 15px;}
 .padding-{{ side }}-20px{padding-{{ side }}: 20px;}
