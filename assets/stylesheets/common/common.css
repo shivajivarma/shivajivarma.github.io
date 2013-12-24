@@ -2,6 +2,12 @@
 ---
 @charset "utf-8";
 
+/* Start: Reserved class name. Only used for selection. */
+.first{}
+.last{}
+.middle{}
+/* End: Reserved class name. Only used for selection. */
+
 .clear{clear: both;}
 
 .hide{display: none;}
@@ -10,20 +16,8 @@
 
 .text-justify{text-align: justify;}
 
-/* Start: Reserved class name. Only used for selection. */
-.first{}
-.last{}
-.middle{}
-/* End: Reserved class name. Only used for selection. */
+.font-weight-bold{font-weight: bold;}
 
-/*
-
-
-a[class=full_block]{
-	display: block;
-	height: 100%;
-}
-*/
 .border-top{border-top: 1px solid #d6d6d6;}
 .border-right{border-right: 1px solid #d6d6d6;}
 .border-bottom{border-bottom: 1px solid #d6d6d6;}
