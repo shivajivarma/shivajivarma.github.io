@@ -12,8 +12,14 @@ sitemap:
   <li class="active">{{ page.title }}</li>
 </ol>
 <!-- MAIN CONTENT -->
-  <div id="main_content_wrap" class="outer" style="height:450px">
+  <div id="main_content_wrap" class="outer">
     <section id="main_content" class="inner">
-      <h2>Opening shortly...... :)</h2>
+    <ul>
+     {% for post in site.posts %}
+    <li>
+        <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li>
+      {% endfor %}
+      </ul>
    </section>
   </div>
