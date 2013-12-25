@@ -12,6 +12,8 @@
 
 .hide{display: none;}
 
+.invisible{visibility:none;}
+
 .no-margin{margin: 0px;}
 
 .text-justify{text-align: justify;}
