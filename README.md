@@ -1,4 +1,4 @@
 SHIVAJIVARMA.COM
 ===================
 
-This is My Personal Website. (www.shivajivarma.com)
+Source code for SHIVAJIVARMA.com
