@@ -1,5 +1,5 @@
 auto: true
-permalink: /blog/:year/:month/:day/:title
+permalink: pretty
 pygments: true
 server: true
 exclude:
