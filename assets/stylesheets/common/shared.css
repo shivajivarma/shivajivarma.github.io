@@ -62,13 +62,15 @@ footer{
 	margin-top: 15px;
 }
 
-.navbar-brand, .post, .post h1{
+.post, .post h1{
 	font-family: 'Open Sans', sans-serif;
 }
 
 .font-open-sans{
 	font-family: 'Open Sans', sans-serif;
 }
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
