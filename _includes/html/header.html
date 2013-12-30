@@ -8,11 +8,12 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand font-weight-bold font-open-sans" href="#">{{ site.author }}</a>
+		<a class="navbar-brand margin-top-5px" href="#">
+			<img alt="Logo" title="Logo" src="{{ site.baseurl }}/pages/projects/images/logo.png">
+		</a>
 	</div><!--/.nav-header -->
 	<div class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
-			<li {% if page.title == null %}class="active"{% endif %}><a href="{{ site.baseurl }}/#">Home</a></li>
 			<li {% if page.title == 'Posts' %}class="active"{% endif %}><a href="{{ site.baseurl }}/pages/posts">Posts</a></li>
 			<li {% if page.title == 'Projects' %}class="active"{% endif %}><a href="{{ site.baseurl }}/pages/projects">Projects</a></li>
 		</ul>
