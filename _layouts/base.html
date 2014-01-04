@@ -48,7 +48,7 @@
 	
 </head>
   
-<body name>
+<body>
 	
 {{ content }}
     	
@@ -59,17 +59,16 @@
 var $root = $('html, body');
 $('a').click(function() {
     var href = $.attr(this, 'href');
-    var element;
-	console.log(href.match(/#[a-zA-Z0-9]+$/g));
+    var hash;
     if(href == '#'){
-	element = $('body');
+	hash = $('body');
      }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
-	var name = href.substring(1);
-    	element = $('[name='+name+']');
-     }else return true;
+    	hash = $('[name='+href.substring(1)+']');
+     }else 
+	return true;
 	
     $root.animate({
-        scrollTop: $(element).offset().top
+        scrollTop: $(hash).offset().top
     }, 500, function () {
         window.location.hash = href;
     });
