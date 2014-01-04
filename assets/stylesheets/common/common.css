@@ -30,5 +30,5 @@
 .border-bottom{border-bottom: 1px solid #d6d6d6;}
 .border-left{border-left: 1px solid #d6d6d6;}
 
-{% include css/padding.css %}
-{% include css/margin.css %}
+{% include stylesheets/padding.css %}
+{% include stylesheets/margin.css %}

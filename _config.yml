@@ -39,7 +39,10 @@ timezone: Asia/Kolkata
 google_analytics: "UA-42422649-1"
 
 # Path to CSS files
-css: /assets/stylesheets
+stylesheets: /assets/stylesheets
 
 # Path to image files
 images: /assets/images
+
+# Path to javascript files
+javascripts: /assets/javascripts
