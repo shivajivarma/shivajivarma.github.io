@@ -56,18 +56,15 @@
 <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/bootstrap.js"></script>
 <script type="text/javascript">
-var scrollFrom = 0;
-
-$('a[href*=#]').click(function(e){
-    scrollFrom = $(window).scrollTop();
-});
-
-$(window).bind('hashchange',function(){
-    $(window).scrollTop(scrollFrom);
-    var target = '#' + location.hash.replace(/#/,'');
-    $('html,body').animate({
-        scrollTop: $(target).offset().top-170 // modification
-    },1000);
+var $root = $('html, body');
+$('a').click(function() {
+    var href = $.attr(this, 'href');
+    $root.animate({
+        scrollTop: $(href).offset().top
+    }, 500, function () {
+        window.location.hash = href;
+    });
+    return false;
 });
 </script>
 <script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
