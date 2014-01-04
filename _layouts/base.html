@@ -48,7 +48,7 @@
 	
 </head>
   
-<body>
+<body name>
 	
 {{ content }}
     	
@@ -59,8 +59,12 @@
 var $root = $('html, body');
 $('a').click(function() {
     var href = $.attr(this, 'href');
-    var name = href.substring(1);
-    var element = $('[name='+name+']');
+    var element;
+    if(href != '#'){
+    	var name = href.substring(1);
+    	element = $('[name='+name+']');
+     }else 
+	element = $('body');
     $root.animate({
         scrollTop: $(element).offset().top
     }, 500, function () {
