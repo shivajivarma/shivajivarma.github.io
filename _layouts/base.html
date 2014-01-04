@@ -60,11 +60,13 @@ var $root = $('html, body');
 $('a').click(function() {
     var href = $.attr(this, 'href');
     var element;
-    if(href != '#'){
-    	var name = href.substring(1);
-    	element = $('[name='+name+']');
-     }else 
+    if(href == '#'){
 	element = $('body');
+     }else if(href[0] == '#'){
+	var name = href.substring(1);
+    	element = $('[name='+name+']');
+     }else return true;
+	
     $root.animate({
         scrollTop: $(element).offset().top
     }, 500, function () {
