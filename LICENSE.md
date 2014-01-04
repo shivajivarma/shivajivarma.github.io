@@ -1,4 +1,4 @@
-The MIT License (MIT)
+# Released under MIT License
 
 Copyright (c) 2013 Pusapati Venkata Shivaji Varma
 
