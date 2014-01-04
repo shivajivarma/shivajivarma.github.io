@@ -56,9 +56,13 @@
 <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/bootstrap.js"></script>
 <script type="text/javascript">
+var href;
 $('a').click(function(){
+	href=$(this).attr('href');
+	console.log(href);
+
     $('html, body').animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
+        scrollTop: $( href ).offset().top
     }, 500);
     return false;
 });
