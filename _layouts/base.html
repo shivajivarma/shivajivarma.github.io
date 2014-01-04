@@ -60,6 +60,7 @@ var href;
 $('a').click(function(){
 	href=$(this).attr('href');
 	console.log(href);
+console.log($( '#contact' ).offset());
 
     $('html, body').animate({
         scrollTop: $( '#contact' ).offset().top
