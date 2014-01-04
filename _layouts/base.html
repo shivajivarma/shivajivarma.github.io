@@ -60,9 +60,10 @@ var $root = $('html, body');
 $('a').click(function() {
     var href = $.attr(this, 'href');
     var element;
+	console.log(href.match(/#[a-zA-Z0-9]$/g));
     if(href == '#'){
 	element = $('body');
-     }else if(href[0] == '#'){
+     }else if(href.match(/#[a-zA-Z0-9]$/g)){
 	var name = href.substring(1);
     	element = $('[name='+name+']');
      }else return true;
