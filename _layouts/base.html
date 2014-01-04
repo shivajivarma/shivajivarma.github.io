@@ -56,14 +56,10 @@
 <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/bootstrap.js"></script>
 <script type="text/javascript">
-var $root = $('html, body');
-$('a').click(function() {
-    var href = $.attr(this, 'href');
-    $root.animate({
-        scrollTop: $(href).offset().top
-    }, 500, function () {
-        window.location.hash = href;
-    });
+$('a').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500);
     return false;
 });
 </script>
