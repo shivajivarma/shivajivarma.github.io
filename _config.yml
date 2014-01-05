@@ -1,48 +1,42 @@
-auto: true
-permalink: pretty
-pygments: true
-server: true
+# Dependencies
+pygments:         true
+server:           true
 exclude:
 - README.md
 
-# Name of site
-name: Sample Jekyll Blog
+# Permalinks
+permalink:        pretty
 
-# Site description
-description: Developer by day, designer by noon and dreamer by night
-
-# Author name
-author: Shivaji Varma
-
-# Author image
-author_image: http://shivajivarma.com/assets/images/author.jpg
-
-# Author email
-author_email: contact@shivajivarma.com
-
-site_type: website
-
-# Note - if you enable this, and attempt to view your site locally you have to use the baseurl in your local path.
-# Example, you must use http://localhost:4000/path/to/blog
-#baseurl: /path/to/blog 
+# Setup
+title:            'Shivaji Varma'
+tagline:          'Developer by day, designer by noon and dreamer by night'
+description:      'Developer by day, designer by noon and dreamer by night'
+url:              http://shivajivarma.com
+domain:           shivajivarma.com
 baseurl: 
+type:             website
 
-# Domain name
-url: http://shivajivarma.com
+# Author
+author:
+  name:           'Shivaji Varma'
+  url:            https://plus.google.com/116941078508380009042
+  email:          contact@shivajivarma.com
+  avatar:         http://shivajivarma.com/assets/images/author.jpg
+  fbid:           100002868559363
 
-domain: shivajivarma.com
+paginate:         5
 
-# Time zone
-timezone: Asia/Kolkata
+# Custom vars
+version:          1.0.0
+
+github:
+  repo:           https://github.com/shivajivarma/shivajivarma.github.io
 
 # Google analytics track id
 google_analytics: "UA-42422649-1"
 
-# Path to CSS files
-stylesheets: /assets/stylesheets
-
-# Path to image files
-images: /assets/images
-
-# Path to javascript files
-javascripts: /assets/javascripts
+# Path to assets
+stylesheets:      /assets/stylesheets
+images:           /assets/images
+javascripts:      /assets/javascripts
+fonts:            /assets/fonts
