@@ -23,23 +23,21 @@
   <meta property="fb:admins" content="{{ site.author.fbid }}">
 
 
-  {% if page.title %}
-    <meta property="og:title" content="{{ page.title }} &middot; {{ site.title }}">
-  {% else %}
-    <meta property="og:title" content="{{ site.title }} &middot; {{ site.tagline }}">
-  {% endif %}
-  
-  {% if page.description %}
-    <meta name="description"  property="og:description" content="{{ page.description }}">
-  {% else %}
-    <meta name="description"  property="og:description" content="{{ site.description }}">
-  {% endif %}
-  
-  {% if page.tags %}
-    <meta name="keywords" content="{{ site.author.name }}{% for tag in page.tags %},{{ tag }}{% endfor %}">
-  {% else %}
-    <meta name="keywords" content="{{ site.author.name }}">
-  {% endif %}
+{% if page.title %}
+  <meta property="og:title" content="{{ page.title }} &middot; {{ site.title }}">
+{% else %}
+  <meta property="og:title" content="{{ site.title }} &middot; {{ site.tagline }}">
+{% endif %}
+{% if page.description %}
+  <meta name="description"  property="og:description" content="{{ page.description }}">
+{% else %}
+  <meta name="description"  property="og:description" content="{{ site.description }}">
+{% endif %}
+{% if page.tags %}
+  <meta name="keywords" content="{{ site.author.name }}{% for tag in page.tags %},{{ tag }}{% endfor %}">
+{% else %}
+  <meta name="keywords" content="{{ site.author.name }}">
+{% endif %}
   
 	
   <!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
