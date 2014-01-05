@@ -14,12 +14,12 @@
 	</div><!--/.nav-header -->
 	<div class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
-			<li {% if page.title == 'Posts' %}class="active"{% endif %} itemprop="url"><a href="{{ site.baseurl }}/pages/posts"><span itemprop="name">Posts</span></a></li>
-			<li {% if page.title == 'Projects' %}class="active"{% endif %} itemprop="url"><a href="{{ site.baseurl }}/pages/projects"><span itemprop="name">Projects</span></a></li>
+			<li {% if page.title == 'Posts' %}class="active"{% endif %}><a href="{{ site.baseurl }}/pages/posts" itemprop="url"><span itemprop="name">Posts</span></a></li>
+			<li {% if page.title == 'Projects' %}class="active"{% endif %}><a href="{{ site.baseurl }}/pages/projects" itemprop="url"><span itemprop="name">Projects</span></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li {% if page.title == 'About' %}class="active"{% endif %} itemprop="url"><a href="{% if page.title != 'About' %}{{ site.baseurl }}/pages/about{% endif %}#"><span itemprop="name">About</span></a></li>
-			<li itemprop="url"><a href="{{ site.baseurl }}{% if page.title != 'About' %}/pages/about{% endif %}#contact"><span itemprop="name">Contact</span></a></li>
+			<li {% if page.title == 'About' %}class="active"{% endif %}><a href="{% if page.title != 'About' %}{{ site.baseurl }}/pages/about{% endif %}#" itemprop="url"><span itemprop="name">About</span></a></li>
+			<li><a href="{{ site.baseurl }}{% if page.title != 'About' %}/pages/about{% endif %}#contact" itemprop="url"><span itemprop="name">Contact</span></a></li>
 		</ul>
 	</div><!--/.nav-collapse -->
 </div>

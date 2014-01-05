@@ -6,13 +6,13 @@ css: ['/common/shared.css']
 {% include html/header.html %}
 <div id="wrap" class="container">
   <!-- Breadcrumb -->
-  <ol class="breadcrumb">
-    <li><a href="{{ site.baseurl }}/">Home</a></li>
-    <li><a href="{{ site.baseurl }}/pages/posts">Posts</a></li>
-    <li class="active">{{ page.title }}</li>
+  <ol class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <li><a href="{{ site.baseurl }}/" itemprop="url"><span itemprop="title">Home</span></a></li>
+    <li><a href="{{ site.baseurl }}/pages/posts" itemprop="url"><span itemprop="title">Posts</span></a></li>
+    <li class="active" itemprop="title">{{ page.title }}</li>
   </ol>
 
-  <div class="post">
+  <div class="post" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
   {{content}}
   </div>
 
