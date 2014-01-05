@@ -10,24 +10,29 @@ sitemap:
 <h1>Smooth Scrolling To Internal Links With jQuery</h1>
 <p>JQuery allows smooth scrooling to hashtag</p>
 <h3>Code</h3>
-<pre><code class="language-javascript">var $root = $('html, body');
+<pre>
+<code class="language-javascript">var $root = $('html, body');
+
 $('a').click(function() {
-    var href = $.attr(this, 'href');
-    var hash;
-    if(href == '#'){
-	hash = $('body');
-     }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
-    	hash = $('[name='+href.substring(1)+']');
-     }else 
+  var href = $.attr(this, 'href');
+  var hash;
+    
+  if(href == '#'){
+    hash = $('body');
+  }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
+    hash = $('[name='+href.substring(1)+']');
+  }else 
 	return true;
 	
-    $root.animate({
-        scrollTop: $(hash).offset().top
+  $root.animate({
+      scrollTop: $(hash).offset().top
     }, 500, function () {
-        window.location.hash = href;
-    });
-    return false;
-});</code></pre>
+      window.location.hash = href;
+  });
+ 
+  return false;
+});</code>
+</pre>
 
 <h3>Example</h3>
 <p class="padding-bottom-50px">Paragraph. <a href="#par10">Go to pragraph 10</a></p>
