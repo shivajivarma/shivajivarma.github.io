@@ -18,7 +18,7 @@
 			<li {% if page.title == 'Projects' %}class="active"{% endif %}><a href="{{ site.baseurl }}/pages/projects">Projects</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li {% if page.title == 'About' %}class="active"{% endif %}><a href="{{ site.baseurl }}/pages/about">About</a></li>
+			<li {% if page.title == 'About' %}class="active"{% endif %}><a href="{% if page.title != 'About' %}{{ site.baseurl }}/pages/about{% endif %}#">About</a></li>
 			<li><a href="{{ site.baseurl }}{% if page.title != 'About' %}/pages/about{% endif %}#contact">Contact</a></li>
 		</ul>
 	</div><!--/.nav-collapse -->
