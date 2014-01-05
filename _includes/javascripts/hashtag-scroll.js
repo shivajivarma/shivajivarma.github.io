@@ -13,20 +13,28 @@ $('a').click(function() {
         scrollTop: $(hash).offset().top - 90
     }, 500, function () {
         window.location.hash = href;
+        if(href == '#contact'){
+            $('.navbar-right li:first').removeClass('active');
+            $('.navbar-right li:last').addClass('active');
+        }
     });
     return false;
 });
 
 $(document).ready(function(){
   
-  var hash = window.location.hash;
+  var href = window.location.hash;
   
-  if(window.location.hash != ''){
-    hash = $('[name='+hash.substring(1)+']');
+  if(href != ''){
+    hash = $('[name='+href.substring(1)+']');
 
     $root.animate({
         scrollTop: $(hash).offset().top - 90
       }, 500, function () {
+        if(href == '#contact'){
+            $('.navbar-right li:first').removeClass('active');
+            $('.navbar-right li:last').addClass('active');
+        }
     });
   }
 
