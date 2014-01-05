@@ -7,9 +7,9 @@ sitemap:
     lastmod: 2013-12-23T12:00:00-00:00
 ---
 <!-- Breadcrumb -->
-<ol class="breadcrumb">
-  <li><a href="{{ site.baseurl }}/">Home</a></li>
-  <li class="active">{{ page.title }}</li>
+<ol class="breadcrumb" itemscope itemtype="http://schema.org/Breadcrumb">
+  <li><a href="{{ site.baseurl }}/" itemprop="url"><span itemprop="title">Home</span></a></li>
+  <li class="active" itemprop="title">{{ page.title }}</li>
 </ol>
 <!-- MAIN CONTENT -->
   <div id="main_content_wrap" class="outer">
