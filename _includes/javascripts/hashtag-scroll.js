@@ -16,3 +16,19 @@ $('a').click(function() {
     });
     return false;
 });
+
+$(document).ready(function(){
+  
+  var hash = window.location.hash;
+  
+  if(window.location.hash != ''){
+    hash = $('[name='+hash.substring(1)+']');
+
+    $root.animate({
+        scrollTop: $(hash).offset().top - 90
+      }, 500, function () {
+        window.location.hash = href;
+    });
+  }
+
+});
