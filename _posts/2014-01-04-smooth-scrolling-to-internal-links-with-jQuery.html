@@ -9,6 +9,7 @@ sitemap:
 ---
 <h1>Smooth Scrolling To Internal Links With jQuery</h1>
 <p>JQuery allows smooth scrooling to hashtag</p>
+<h3>Code</h3>
 <pre><code class="language-javascript">var $root = $('html, body');
 $('a').click(function() {
     var href = $.attr(this, 'href');
@@ -27,3 +28,25 @@ $('a').click(function() {
     });
     return false;
 });</code></pre>
+
+<h3>Example</h3>
+<p class="padding-bottom-50px">Paragraph . <a href="#par10">Go to pragraph 10</a></p>
+<p class="padding-bottom-50px">Paragraph 2</p>
+<p class="padding-bottom-50px"><a name="par3" class="invisible"></a>Paragraph 3</p>
+<p class="padding-bottom-50px">Paragraph 4</p>
+<p class="padding-bottom-50px">Paragraph 5</p>
+<p class="padding-bottom-50px">Paragraph 6</p>
+<p class="padding-bottom-50px">Paragraph 7</p>
+<p class="padding-bottom-50px">Paragraph 8</p>
+<p class="padding-bottom-50px">Paragraph 9</p>
+<p class="padding-bottom-50px"><a name="par10" class="invisible"></a>Paragraph 10</p>
+<p class="padding-bottom-50px">Paragraph 11</p>
+<p class="padding-bottom-50px">Paragraph 12. <a href="#par3">Go to pragraph 3</a></p>
+<p class="padding-bottom-50px">Paragraph 13</p>
+<p class="padding-bottom-50px">Paragraph 14</p>
+<p class="padding-bottom-50px">Paragraph 15</p>
+<p class="padding-bottom-50px">Paragraph 16</p>
+<p class="padding-bottom-50px">Paragraph 17</p>
+<p class="padding-bottom-50px">Paragraph 18</p>
+<p class="padding-bottom-50px">Paragraph 19</p>
+<p class="padding-bottom-50px">Paragraph 20</p>
