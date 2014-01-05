@@ -10,7 +10,7 @@ $('a').click(function() {
 	return true;
 	
     $root.animate({
-        scrollTop: $(hash).offset().top - 50
+        scrollTop: $(hash).offset().top - 90
     }, 500, function () {
         window.location.hash = href;
     });
