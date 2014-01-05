@@ -19,10 +19,11 @@ type:             website
 # Author
 author:
   name:           'Shivaji Varma'
-  url:            https://plus.google.com/116941078508380009042
+  gpage:          +ShivajivarmaDotCom
   email:          contact@shivajivarma.com
   avatar:         http://shivajivarma.com/assets/images/author-bw.jpg
   fbid:           100002868559363
+  gplusid:        116941078508380009042
 
 paginate:         5
 
