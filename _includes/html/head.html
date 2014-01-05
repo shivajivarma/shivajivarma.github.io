@@ -16,14 +16,31 @@
   <!-- Page meta data -->
   <meta name="author" content="{{ site.author.name }}">
   <meta name="copyright" content="&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}">
-  <meta name="description"  property="og:description" content="{{ site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:title" content="{{ site.title }}">
   <meta property="og:type" content="{{ site.type }}">
   <meta property="og:image" content="{{ site.author.avatar }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="fb:admins" content="{{ site.author.fbid }}">
-  <meta name="keywords" content="{{ site.author.name }},shivajivarma,shivaji,varma,programmer,music">
+
+
+  {% if page.title %}
+    <meta property="og:title" content="{{ page.title }} &middot; {{ site.title }}">
+  {% else %}
+    <meta property="og:title" content="{{ site.title }} &middot; {{ site.tagline }}">
+  {% endif %}
+  
+  {% if page.description %}
+    <meta name="description"  property="og:description" content="{{ page.description }}">
+  {% else %}
+    <meta name="description"  property="og:description" content="{{ site.description }}">
+  {% endif %}
+  
+  {% if page.tags %}
+    <meta name="keywords" content="{{ site.author.name }},">
+  {% else %}
+    <meta name="keywords" content="{{ site.author.name }}{% for tag in page.tags %},{{ tag }}{% endfor %}">
+  {% endif %}
+  
 	
   <!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
 
