@@ -36,9 +36,9 @@
   {% endif %}
   
   {% if page.tags %}
-    <meta name="keywords" content="{{ site.author.name }},">
-  {% else %}
     <meta name="keywords" content="{{ site.author.name }}{% for tag in page.tags %},{{ tag }}{% endfor %}">
+  {% else %}
+    <meta name="keywords" content="{{ site.author.name }}">
   {% endif %}
   
 	
