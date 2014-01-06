@@ -24,6 +24,7 @@
 
 .no-underline, .no-underline:hover{text-decoration: none;}
 
+.text-align-center{text-align: center;}
 
 .border-top{border-top: 1px solid #d6d6d6;}
 .border-right{border-right: 1px solid #d6d6d6;}
