@@ -1,4 +1,6 @@
 var $root = $('html, body');
+var contact = false;
+
 $('a').click(function() {
     var href = $.attr(this, 'href');
     var hash;
@@ -16,6 +18,12 @@ $('a').click(function() {
         if(href == '#contact'){
             $('.navbar-right li:first').removeClass('active');
             $('.navbar-right li:last').addClass('active');
+            contact = true;
+        }
+        else if(contact){
+           $('.navbar-right li:first').addClass('active');
+           $('.navbar-right li:last').removeClass('active');
+           contact = false;
         }
     });
     return false;
@@ -32,8 +40,9 @@ $(document).ready(function(){
         scrollTop: $(hash).offset().top - 90
       }, 500, function () {
         if(href == '#contact'){
-            $('.navbar-right li:first').removeClass('active');
-            $('.navbar-right li:last').addClass('active');
+           $('.navbar-right li:first').removeClass('active');
+           $('.navbar-right li:last').addClass('active');
+           contact = true;
         }
     });
   }
