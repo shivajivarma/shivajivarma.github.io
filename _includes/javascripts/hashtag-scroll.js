@@ -1,12 +1,14 @@
 var $root = $('html, body');
 var contact = false;
 
-$('a').click(function() {
+$('a').click(function(e) {
     var href = $.attr(this, 'href');
     var hash;
     if(href == '#'){
+    	 e.preventDefault();
 	hash = $('body');
      }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
+     	 e.preventDefault();
     	hash = $('[name='+href.substring(1)+']');
      }else 
 	return true;
