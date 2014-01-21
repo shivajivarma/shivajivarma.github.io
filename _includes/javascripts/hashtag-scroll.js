@@ -6,10 +6,10 @@ $('a').click(function(e) {
     var hash;
     if(href == '#'){
     	e.preventDefault();
-	hash = $('body');
+    	hash = $('body');
      }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
      	e.preventDefault();
-    	hash = $('[name='+href.substring(1)+']');
+     	hash = $('[name='+href.substring(1)+']');
      }else 
 	return true;
 	
