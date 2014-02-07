@@ -14,11 +14,9 @@ sitemap:
 <!-- MAIN CONTENT -->
 <h1 class="category">{{ page.title }}</h1>
 <div id="main_content_wrap" class="outer">
-    <ul id="post-list">
+    <div id="post-list">
     {% for post in site.categories['post'] %}
-    <li>
         <h3><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-    </li>
     {% endfor %}
-    </ul>
+    </div>
 </div>

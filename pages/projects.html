@@ -4,7 +4,7 @@ title: Projects
 sitemap:
     priority: 0.9
     changefreq: yearly
-    lastmod: 2013-12-23T12:00:00-00:00
+    lastmod: 2014-02-08T12:00:00-00:00
 ---
 <!-- Breadcrumb -->
 <ol class="breadcrumb" itemscope itemtype="http://schema.org/Breadcrumb">
@@ -12,8 +12,11 @@ sitemap:
   <li class="active" itemprop="title">{{ page.title }}</li>
 </ol>
 <!-- MAIN CONTENT -->
-  <div id="main_content_wrap" class="outer" style="height:450px">
-    <section id="main_content" class="inner">
-      <h2>Opening shortly...... :)</h2>
-   </section>
-  </div>
+<h1 class="category">{{ page.title }}</h1>
+<div id="main_content_wrap" class="outer">
+    <div id="post-list">
+    {% for post in site.categories['project'] %}
+        <h3><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+    {% endfor %}
+    </div>
+</div>

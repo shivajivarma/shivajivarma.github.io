@@ -1,0 +1,61 @@
+---
+layout: post
+title: Sum of two numbers
+sitemap:
+    changefreq: Yearly
+    lastmod: 2013-12-22T12:00:00-00:00
+---
+<h1>Application to calculate sum of two number.</h1>
+<p>Small and short application. Fetches values of a & b from URL parameters and computes there sum.</p>
+<div>
+<form role="form" name="SumCalculator">
+<p><label for="a">Enter value of A:</label><input id="a" class="form-control" type="text" name="a" placeholder="Enter a number" /></p>
+<p><label for="b">Enter value of B:</label><input id="b" class="form-control" type="text" name="b" placeholder="Enter a number" /></p>
+<p><input class="btn btn-default" type="submit" Value="ADD"/></p>
+<h4 class="margin-top-10px">Output (A+B): <span id="output"></span></h4>
+</form>
+</div>
+<hr/>
+<script type=""text/javascript"">
+$(document).ready(function(){
+	var a = getUrlParameter("a");
+	var b = getUrlParameter("b");
+	if(a!="" && b!=""){
+		if($.isNumeric(a) && $.isNumeric(b)){
+			$("#output").html(+a + +b);
+		}
+		else  $("#output").html("Enter only numbers.");
+	}
+	else $("#output").html("Please fill the input and hit on add button");
+});
+function getUrlParameter( key ){  
+		key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+		var regexExpression = "[\\?&]"+key+"=([^&#]*)";  
+		var regex = new RegExp( regexExpression );  
+		var results = regex.exec( window.location.href );  
+		if( results == null )    return "";  
+			else    return unescape(results[1]).replace(/<script.*>.*<\/script>/g, "");
+}
+</script>
+<h3>Code</h3>
+<pre>
+<code class="language-javascript">$(document).ready(function(){
+	var a = getUrlParameter("a");
+	var b = getUrlParameter("b");
+	if(a!="" && b!=""){
+		if($.isNumeric(a) && $.isNumeric(b)){
+			$("#output").html(+a + +b);
+		}
+		else  $("#output").html("Enter only numbers.");
+	}
+	else $("#output").html("Please fill the input and hit on add button");
+});
+function getUrlParameter( key ){  
+		key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+		var regexExpression = "[\\?&]"+key+"=([^&#]*)";  
+		var regex = new RegExp( regexExpression );  
+		var results = regex.exec( window.location.href );  
+		if( results == null )    return "";  
+			else    return unescape(results[1]).replace(/<script.*>.*<\/script>/g, "");
+}</code>
+</pre>
