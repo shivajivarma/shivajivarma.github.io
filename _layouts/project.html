@@ -8,7 +8,7 @@ css: ['/common/shared.css']
   <!-- Breadcrumb -->
   <ol class="breadcrumb" itemscope itemtype="http://schema.org/Breadcrumb">
     <li><a href="{{ site.baseurl }}/" itemprop="url"><span itemprop="title">Home</span></a></li>
-    <li><a href="{{ site.baseurl }}/pages/posts" itemprop="url"><span itemprop="title">Posts</span></a></li>
+    <li><a href="{{ site.baseurl }}/pages/projects" itemprop="url"><span itemprop="title">Projects</span></a></li>
     <li class="active" itemprop="title">{{ page.title }}</li>
   </ol>
 
@@ -18,23 +18,24 @@ css: ['/common/shared.css']
 
   <div id="push"></div>
 </div>
+
 <div class="container">
   <div id="page-navigation"> 
     <div class="clear">&nbsp;</div> 
   
     <div class="pull-left"> 
     {% if page.previous.url %}
-	{% if page.previous.categories[0] == "post" %}
-	<a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a> 
-    	{% endif %} 
+	{% if page.previous.categories[0] == "project" %}
+      	<a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a> 
+	{% endif %}
     {% endif %} 
     </div> 
   
     <div class="pull-right"> 
     {% if page.next.url %}
-	{% if page.next.categories[0] == "post" %}
-	<a href="{{page.next.url}}" title="Next Post: {{page.next.title}}">{{page.next.title}} &raquo; </a>
-	{% endif %}  
+      	{% if page.next.categories[0] == "project" %}
+	<a href="{{page.next.url}}" title="Next Post: {{page.next.title}}">{{page.next.title}} &raquo; </a> 
+	{% endif %}
     {% endif %} 
     </div>
 

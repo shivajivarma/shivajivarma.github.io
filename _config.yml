@@ -1,6 +1,7 @@
 # Dependencies
 pygments:         true
 server:           true
+auto:             off
 exclude:
 - README.md
 
