@@ -1,0 +1,55 @@
+---
+layout: post
+title: Selection Sort Using C
+description: 'C program to perform sort set of numbering select sort technique.'
+tags: [JavaScript, 'Sum of two numbers', 'URL parameters', HTML]
+sitemap:
+    changefreq: Yearly
+    lastmod: 2013-12-22T12:00:00-00:00
+---
+<h1>Selection sort using c language</h1>
+<p>
+  <small class="text-muted">Posted on {{ page.date | date: "%B %-d, %Y" }} by <a href="https://plus.google.com/{{ site.author.gplusid }}?rel=author" rel="author">{{ site.author.name }}</a></small>
+</p>
+<p>Program to perform sort set of numbering select sort technique.</p>
+
+<h3>Code</h3>
+<pre>
+<code class="language-c">#include<stdio.h>
+
+void selectionSort(int arr[],int arrSize)
+{
+ int i,j,k;
+     // Algorithm for sorting.
+     for(i=0; i < =arrSize-2; i++)
+      for(j=i+1; j < =arrSize-1; j++)
+        if(arr[i]>arr[j])
+        {
+          int temp=arr[i];
+              arr[i]=arr[j];
+              arr[j]=temp;
+        }
+       //End of algorithm.
+}
+
+int main()
+{
+    int arr[' '],arrSize,i;
+    
+    printf("Enter size of the array :: ");
+    scanf("%d",&arrSize);
+    
+    printf("\nEnter elements of the array ::\n");
+    for(i=0; i < arrSize; i++)
+       scanf("%d",&arr[i]);
+    
+    selectionSort(&arr,arrSize); 
+         
+    printf("\nSorted array ::");
+    for(i=0; i < arrSize; i++)
+        printf("  %d",arr[i]);
+        
+  return 0;
+}</code>
+</pre>
+<p>[<a title="Raw Code" href="https://raw.github.com/shivajivarma/code-base/master/C/sorting-techniques/seletion-sort.c">download code</a>]</p>
