@@ -1,0 +1,82 @@
+---
+layout: post
+title: Merge Sort Using C
+description: 'C program to perform sort set of numbering select sort technique.'
+tags: [JavaScript, 'Sum of two numbers', 'URL parameters', HTML]
+sitemap:
+    changefreq: Yearly
+    lastmod: 2013-12-22T12:00:00-00:00
+---
+<h1>Merge sort using c language</h1>
+<p>
+  <small class="text-muted">Posted on {{ page.date | date: "%B %-d, %Y" }} by <a href="https://plus.google.com/{{ site.author.gplusid }}?rel=author" rel="author">{{ site.author.name }}</a></small>
+</p>
+<p>Merge sort is a sorting algorithm that sorts data items into ascending or descending order, which comes under the category of comparison-based sorting.
+Here we apply the divide-and-conquer strategy to sort a given sequence of data items, which can be described as follows:</p>
+<ul>
+ <li>Recursively split the sequence into two halves (i.e. subsequences) until the subsequence contains only a single data item (i.e. singleton subsequence)</li>
+ <li>2. Now, recursively merge these subsequences back together preserving their required order (i.e. ascending or descending order)</li>
+</ul>
+
+<h3>Code</h3>
+<pre>
+<code class="language-c">#include&lt;stdio.h&gt;
+
+void swap(int *m,int *n)
+{
+ int temp=*m;
+     *m=*n;
+     *n=temp;
+}
+
+int partition(int *a,int lower,int upper)
+{
+  int key,i,j;
+  i=lower+1;
+  j=upper;
+  key=a[lower];
+  
+   while(1)
+  {
+      while(a[i] <= key) i++;
+      while(a[j]>key) j--;
+       if(j>i) swap(&a[i],&a[j]);
+       else { swap(&a[lower],&a[j]); break;}
+       
+   }
+   return j;
+}
+ 
+void quickSort(int *arr,int lower,int upper)
+{
+   int i=0;
+   if(upper>lower)
+   {
+        i=partition(arr,lower,upper);
+        quickSort(arr,lower,i-1);
+        quickSort(arr,i+1,upper);
+   }
+}
+
+
+int main()
+{
+    int arr[' '],arrSize,i;
+    
+    printf("Enter size of the array :: ");
+    scanf("%d",&arrSize);
+    
+    printf("\nEnter elements of the array ::\n");
+    for(i=0; i < arrSize;i++)
+       scanf("%d",&arr[i]);
+    
+    quickSort(arr,0,arrSize-1);
+         
+    printf("\nSorted array ::");
+    for(i=0; i < arrSize;i++)
+        printf("  %d",arr[i]);
+        
+  return 0;
+}</code>
+</pre>
+<p>[<a title="Raw Code" href="https://raw.github.com/shivajivarma/code-base/master/C/sorting-techniques/seletion-sort.c">download code</a>]</p>
