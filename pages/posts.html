@@ -16,7 +16,10 @@ sitemap:
 <div id="main_content_wrap" class="outer">
     <div id="post-list">
     {% for post in site.categories['post'] %}
-        <h3><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+    <blockquote>
+        <h3 class="no-margin"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+        <small class="text-muted">Posted on {{ post.date | date: "%B %-d, %Y" }}</a></small>
+    </blockquote>
     {% endfor %}
     </div>
 </div>
