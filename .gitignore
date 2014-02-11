@@ -2,7 +2,7 @@
 _gh_pages
 _site
 .ruby-version
-local/
+archive/
 build.bat
 
 # Numerous always-ignore extensions
