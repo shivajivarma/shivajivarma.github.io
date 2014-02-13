@@ -3,7 +3,6 @@ _gh_pages
 _site
 .ruby-version
 archive/
-build.bat
 
 # Numerous always-ignore extensions
 *.diff
@@ -15,6 +14,7 @@ build.bat
 *.swp
 *.zip
 *.vi
+*.bat
 *~
 
 # OS or Editor folders

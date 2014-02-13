@@ -22,21 +22,33 @@ css: ['/common/shared.css']
 <div class="container">
   <div id="page-navigation"> 
     <div class="clear">&nbsp;</div> 
+    {% assign flag = false %}
+    <div class="pull-left">
+    {% for post in site.categories['project'] %}
   
-    <div class="pull-left"> 
-    {% if page.previous.url %}
-	{% if page.previous.categories[0] == "project" %}
-      	<a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a> 
-	{% endif %}
-    {% endif %} 
+  {% if flag %}
+    <a href="{{ post.url }}" title="Previous Post: {{ post.title }}">&laquo; {{ post.title }}</a>
+    {% break %}
+  {% endif %}
+  {% if post.url == page.url %}
+    {% assign flag = true %}  
+  {% endif %}
+  
+    {% endfor %} 
     </div> 
-  
+    {% assign flag = false %}
     <div class="pull-right"> 
-    {% if page.next.url %}
-      	{% if page.next.categories[0] == "project" %}
-	<a href="{{page.next.url}}" title="Next Post: {{page.next.title}}">{{page.next.title}} &raquo; </a> 
-	{% endif %}
-    {% endif %} 
+    {% for post in site.categories['project'] reversed %}
+  
+  {% if flag %}
+    <a href="{{ post.url }}" title="Previous Post: {{ post.title }}">{{ post.title }} &raquo;</a>
+    {% break %}
+  {% endif %}
+  {% if post.url == page.url %}
+    {% assign flag = true %}  
+  {% endif %}
+  
+    {% endfor %} 
     </div>
 
     <div class="clear">&nbsp;</div> 

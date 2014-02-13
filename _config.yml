@@ -1,9 +1,12 @@
 # Dependencies
 pygments:         true
 server:           true
-auto:             off
+auto:             on
 exclude:
 - README.md
+- LICENSE.md
+- build.bat
+- archive
 
 # Permalinks
 permalink:        pretty
@@ -25,8 +28,6 @@ author:
   avatar:         http://shivajivarma.com/assets/images/author-bw.jpg
   fbid:           100002868559363
   gplusid:        116941078508380009042
-
-paginate:         5
 
 # Custom vars
 version:          1.0.0
