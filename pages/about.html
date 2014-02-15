@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About
+javascripts: about.js
 sitemap:
   priority: 0.9
   changefreq: Monthly
@@ -58,8 +59,40 @@ plugins:
         <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fshivajivarma&color=orange_white&size=32" style="width: 32px; height: 32px;"></iframe>
      </p>   
     </div>
-    <div class="col-md-6">
-      <img class="img-responsive margin-auto" alt="Contact" src="{{ site.baseurl }}{{ site.images }}/pages/mail.png">
+    <div class="col-md-6 contact-form">
+		<form id="contact" method="post" class="form" role="form" action="javascript:contactForm()">
+			<div class="row">
+				<div class="col-xs-6 col-md-6 form-group">
+					<input class="form-control" id="name" name="name" placeholder="Name" type="text" required autofocus />
+				</div>
+				<div class="col-xs-6 col-md-6 form-group">
+					<input class="form-control" id="sender" name="sender" placeholder="Email" type="email" required />
+				</div>
+			</div>
+			<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+			<br />
+			<div class="row">
+				<div class="col-xs-12 col-md-12 form-group">
+					<button class="btn btn-primary pull-right" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Status</h4>
+			  </div>
+			  <div class="modal-body">
+				
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
     </div>
     
 </div>

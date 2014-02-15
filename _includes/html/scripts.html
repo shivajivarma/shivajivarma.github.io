@@ -3,6 +3,10 @@
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.javascripts }}/prism.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.javascripts }}/main.js"></script>
 
+{% for javascript in page.javascripts %}
+<script type="text/javascript" src="{{ site.baseurl }}{{ site.javascripts }}/{{ javascript }}"></script>
+{% endfor %}
+
 {% if page.plugins.gplus %}
 <script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
 {% endif %}
