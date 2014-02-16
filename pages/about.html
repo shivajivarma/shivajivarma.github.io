@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About
+keywords: ['Shivaji Varma About Me', 'Conact Shivaji Varma', 'Shivaji Varma Profile']
 javascripts: about.js
 sitemap:
   priority: 0.9
@@ -18,11 +19,11 @@ plugins:
 <!-- MAIN CONTENT -->
 <div class="row">
     
-    <div class="col-md-4">
+    <div class="col-md-4 col-xs-12">
       <img class="img-circle img-responsive margin-auto" alt="{{ site.author.name }}" src="{{ site.author.avatar }}">
     </div>
     
-    <div class="col-md-8 font-open-sans">
+    <div class="col-md-8 col-xs-12 font-open-sans">
       <h2>Hi,I'm {{ site.author.name }}. <span class="text-muted">{{ site.tagline }}</span></h2>
       <p class="lead text-justify">
         <strong><span style="color:#ff0000;">H</span></strong>ey, this is my personal website, so I have to say something about myself. Sometimes it is hard to introduce yourself because you know yourself so well that you do not know where to start with. Let me give a try to see what kind of image you have about me through my self-description. I hope that my impression about myself and your impression about me are not so different. Here it goes.
@@ -62,17 +63,17 @@ plugins:
     <div class="col-md-6 contact-form">
 		<form id="contact" method="post" class="form" role="form" action="javascript:contactForm()">
 			<div class="row">
-				<div class="col-xs-6 col-md-6 form-group">
+				<div class="col-xs-3 col-md-6 form-group">
 					<input class="form-control" id="name" name="name" placeholder="Name" type="text" required autofocus />
 				</div>
-				<div class="col-xs-6 col-md-6 form-group">
+				<div class="col-xs-3 col-md-6 form-group">
 					<input class="form-control" id="sender" name="sender" placeholder="Email" type="email" required />
 				</div>
 			</div>
 			<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
 			<br />
 			<div class="row">
-				<div class="col-xs-12 col-md-12 form-group">
+				<div class="col-xs-6 col-md-12 form-group">
 					<button class="btn btn-primary pull-right" type="submit">Submit</button>
 				</div>
 			</div>

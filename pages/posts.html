@@ -16,7 +16,7 @@ sitemap:
 <div id="main_content_wrap" class="outer">
     <div id="post-list">
     {% for post in site.categories['post'] %}
-    <blockquote>
+    <blockquote class="{% for tag in post.tags %}tag-{{ tag | downcase | replace: ' ', '-'}} {% endfor %}">
         <h3 class="no-margin"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
         <small class="text-muted">Posted on {{ post.date | date: "%B %-d, %Y" }}</a></small>
     </blockquote>
