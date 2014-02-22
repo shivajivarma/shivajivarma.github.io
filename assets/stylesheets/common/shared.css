@@ -53,7 +53,6 @@
 }
 /* End : Blue navigation bar */
 body{
-	padding-top: 90px;
 	overflow-y: scroll;
 }
 
@@ -103,6 +102,7 @@ body {
 	height: 100%;
 	/* Negative indent footer by it's height */
 	margin: 0 auto -121px;
+	padding-top:91px;
 }
 
 /* Set the fixed height of the footer here */
@@ -145,4 +145,4 @@ body {
     height: 100%;
 }
 
-a.anchor{display: block; position: relative; top: -250px; visibility: hidden;}
+a.anchor{display: block; margin-top:-91px;padding-top:91px; visibility: hidden;}
