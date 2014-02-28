@@ -1,0 +1,47 @@
+---
+layout: post
+title: 'Computing Greatest Common Divisor using c'
+description: 'C program to compute greatest common divisor. The greatest common divisor (GCD) of two or more integers (at least one of which is not zero), 
+is the largest positive integer that divides the numbers without a remainder.'
+keywords: [c, 'selection sort','sort technique']
+sitemap:
+    changefreq: Yearly
+    lastmod: 2014-2-28T12:00:00-00:00
+---
+<h1>Computing Greatest Common Divisor using c language</h1>
+<p>
+  <small class="text-muted">Posted on {{ page.date | date: "%B %-d, %Y" }} by <a href="https://plus.google.com/{{ site.author.gplusid }}?rel=author" rel="author">{{ site.author.name }}</a></small>
+</p>
+<p>The <b>greatest common divisor</b> (GCD) of two or more integers (at least one of which is not zero), 
+is the largest positive integer that divides the numbers without a remainder.</p>
+<p>For example, the GCD of 8 and 12 is 4.</p>
+
+
+<h3>Code</h3>
+<pre>
+<code class="language-c">#include&lt;stdio.h&gt;
+
+  int gcd(int a,int b){  
+    int c=b%a;
+    
+    if(c == 0) return a;
+    else return gcd(c,a);
+  }
+
+int main(){
+  
+    int x,y;
+    
+    printf("GCD of two numbers\nEnter x and y:: ");
+    scanf("%d%d",&amp;x,&amp;y);
+    
+    if(x==0 &amp;&amp; y==0) printf("Error: Atleast one of the interger must not be zero.");
+    else{
+      if(x &lt; y) printf("\n GCD:: %d",gcd(x,y));
+      else
+        printf("\n GCD:: %d",gcd(y,x));
+    }
+    return 0;
+}</code>
+</pre>
+<p>[<a title="Raw Code" href="https://raw.github.com/shivajivarma/code-base/master/C/gcd.c">download code</a>]</p>
