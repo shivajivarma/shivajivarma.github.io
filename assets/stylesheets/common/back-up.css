@@ -1,0 +1,54 @@
+/* Start: Blue navigation bar */
+/*
+.navBlue ul {
+    width: 98%;
+    display: table;
+    table-layout: fixed;
+    list-style: none;
+    margin:auto 1%;
+    padding: 0px;
+    border: 0px;
+}
+.navBlue ul li {
+    display: table-cell;
+    background-color: #0A3151;
+    text-align: center;
+    border-right: 1px dotted white;
+	
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.navBlue ul li[class=first]{
+	-moz-border-radius: 20px;
+    	-webkit-border-radius: 20px;
+    	-khtml-border-radius: 20px;
+	border-radius: 5px 0px 0px 5px;
+}
+
+.navBlue ul li[class=last]{
+ 	-moz-border-radius: 0px 5px 5px 0px;
+    	-webkit-border-radius: 0px 5px 5px 0px;
+    	-khtml-border-radius: 0px 5px 5px 0px;
+	border-radius:	0px 5px 5px 0px;
+	border-right: 0px;
+}
+.navBlue ul li:hover{
+	background-color: #fff;
+}
+.navBlue ul li a{
+	text-decoration: none;
+	padding: 15px 0px;
+	display: block;
+	height: 100%;
+	color: #fff;
+	font: normal normal 13px arial,tahoma,verdana,sans-serif;
+}
+.navBlue ul li a:hover{
+	text-decoration: none;
+	color: #000; 
+	cursor:	pointer;
+}
+/* End : Blue navigation bar */
