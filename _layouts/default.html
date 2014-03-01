@@ -3,8 +3,11 @@ layout: base
 css: ['/common/shared.css']
 ---
 {% include html/header.html %}
+<div id="loading">loading</div>
+<div class="hidden">
 <div id="wrap" class="container">
 	{{ content }}
 	<div id="push"></div>
 </div>
 {% include html/footer.html %}
+</div>
