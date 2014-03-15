@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-Disallow: /no-search/
-Sitemap: http://shivajivarma.com/sitemap.xml

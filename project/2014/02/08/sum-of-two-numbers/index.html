@@ -1,121 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset='utf-8'>
-  <!--[if IE]>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <![endif]-->
-  
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-  <!-- Page meta data -->
-  <meta name="author" content="Shivaji Varma">
-
-  <meta name="copyright" content="&copy; 2014 Shivaji Varma">
-  <meta property="og:url" content="http://shivajivarma.com/project/2014/02/08/sum-of-two-numbers/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="http://shivajivarma.com/assets/images/author-bw.jpg">
-  <meta property="og:site_name" content="Shivaji Varma">
-  <meta property="fb:admins" content="100002868559363">
-
-
-
-  <meta property="og:title" content="Sum Of Two Numbers &middot; Shivaji Varma">
-
-
-  <meta name="description"  property="og:description" content="Application to calculate sum of two number.">
-
-  <meta name="keywords" content="Shivaji Varma,javascript,sum of two numbers,url parameters,html">
-	
-  <!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
-
-  <!-- Page title -->
-  <title>
-  
-    Sum Of Two Numbers &middot; Shivaji Varma
-  
-  </title>
-
-  <!-- Icons -->
-  <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
-  <link rel="author" href="https://plus.google.com/116941078508380009042?rel=author">
-  <link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom">
-  
-  <!-- Latest compiled CSS -->
-  <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="/assets/stylesheets/frameworks/prism.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="/assets/stylesheets/common/common.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="/assets/stylesheets/common/shared.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Sum Of Two Numbers &middot; Shivaji Varma</title><!-- Enable responsiveness on mobile devices--><meta name=viewport content="width=device-width, initial-scale=1"><!-- Page meta data --><meta name=author content="Shivaji Varma"><meta name=copyright content="(c) 2014 Shivaji Varma"><meta property=og:url content="http://shivajivarma.com/project/2014/02/08/sum-of-two-numbers/"><meta property=og:type content=""><meta property=og:image content=http://shivajivarma.com/assets/img/author-bw.jpg><meta property=og:site_name content="Shivaji Varma"><meta property=fb:admins content=100002868559363><meta property=og:title content="Sum Of Two Numbers &middot; Shivaji Varma"><meta name=description property=og:description content="Application to calculate sum of two number."><meta name=keywords content="Shivaji Varma,javascript,sum of two numbers,url parameters,html"><!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"--><!-- Icons --><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=author href="https://plus.google.com/116941078508380009042?rel=author"><link rel=publisher href=https://plus.google.com/+ShivajivarmaDotCom><!-- Latest compiled css, includes bootstrap and prismjs --><link rel=stylesheet href=/assets/css/global.a8c6.css><link rel=stylesheet href=/assets/css/main.79f4.css media=screen><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
-  <style type="text/css">
-   @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url(/assets/fonts/opensans.woff) format('woff');
-   }
-  </style>
- 
-<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
-</head>
-<body itemscope itemtype="http://schema.org/WebPage">	
-<!-- Fixed navbar -->
-<div id="header" class="navbar navbar-default navbar-fixed-top" role="navigation" itemscope itemtype="http://schema.org/WPHeader">
-<div class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="/#">
-			<img alt="Logo" title="Logo" src="/assets/images/logo.png">
-		</a>
-	</div><!--/.nav-header -->
-	<div class="navbar-collapse collapse">
-		<ul class="nav navbar-nav">
-			<li ><a href="/pages/posts" itemprop="url"><span itemprop="name">Posts</span></a></li>
-			<li ><a href="/pages/projects" itemprop="url"><span itemprop="name">Projects</span></a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li ><a href="/pages/about#" itemprop="url"><span itemprop="name">About</span></a></li>
-		</ul>
-	</div><!--/.nav-collapse -->
-</div>
-</div><!--/.navbar -->
-
-<div id="content"  class="container">
-  <!-- Breadcrumb -->
-  <ol class="breadcrumb" itemscope itemtype="http://schema.org/Breadcrumb">
-    <li><a href="/" itemprop="url"><span itemprop="title">Home</span></a></li>
-    <li><a href="/pages/projects" itemprop="url"><span itemprop="title">Projects</span></a></li>
-    <li class="active" itemprop="title">Sum Of Two Numbers</li>
-  </ol>
-
-  <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <h1>Application to calculate sum of two number</h1>
-<p>
-  <small class="text-muted">Posted on February 8, 2014 by <a href="https://plus.google.com/116941078508380009042?rel=author" rel="author">Shivaji Varma</a></small>
-</p>
-<p>Short and sweet application. Fetches values of a & b using GET Method [from URL] and computes there sum.</p>
-<div>
-<form role="form" name="SumCalculator">
-<p><label for="a">Enter value of A:</label><input id="a" class="form-control" type="number" name="a" placeholder="Enter a number" /></p>
-<p><label for="b">Enter value of B:</label><input id="b" class="form-control" type="number" name="b" placeholder="Enter a number" /></p>
-<p><input class="btn btn-default" type="submit" Value="ADD"/></p>
-<h4 class="margin-top-10px">Output (A+B): <span id="output"></span></h4>
-</form>
-</div>
-<hr/>
-<script type=""text/javascript"">
-$(document).ready(function(){
+  <![endif]--></head><body><!-- Fixed navbar --><header id=header class="navbar navbar-default navbar-fixed-top" role=navigation itemscope itemtype=http://schema.org/WPHeader><nav class=container itemscope itemtype=http://schema.org/SiteNavigationElement><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button> <a class=navbar-brand href=/#><img alt=Logo title=Logo src=/assets/img/logo.1ef9.png></a></div><!--/.nav-header --><div class="navbar-collapse collapse"><ul class="nav navbar-nav"><li class=dropdown><a href=# class=dropdown-toggle data-toggle=dropdown itemprop=url><i class="fa fa-pencil margin-right-5px"></i><span itemprop=name>Blog</span> <b class=caret></b></a><ul class=dropdown-menu><li><a href=/blog/# itemprop=url><i class="fa fa-archive margin-right-5px"></i><span itemprop=name>Archives</span></a></li><li><a href=/blog/categories/# itemprop=url><i class="fa fa-list margin-right-5px"></i><span itemprop=name>Categaries</span></a></li><li><a href=/blog/tags/# itemprop=url><i class="fa fa-tags margin-right-5px"></i><span itemprop=name>Tags</span></a></li></ul></li><!--li ><a href="/blog/#" itemprop="url"><span itemprop="name">Blog</span></a></li--><li><a href=/project/# itemprop=url><i class="fa fa-code margin-right-5px"></i><span itemprop=name>Projects</span></a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href=/about/# itemprop=url><span itemprop=name>About</span></a></li></ul></div><!--/.nav-collapse --></nav></header><!--/.navbar --><div id=content><!-- Breadcrumb --><ol class="breadcrumb container margin-top-10px" itemscope itemtype=http://schema.org/Breadcrumb><li><a href="/" itemprop=url><span itemprop=title>Home</span></a></li><li><a href="/project/" itemprop=url><span itemprop=title>Projects</span></a></li><li class=active itemprop=title>Sum Of Two Numbers</li></ol><div class=container><h1>Application to calculate sum of two number</h1><p><small class=text-muted>Posted on February 8, 2014 by <a href="https://plus.google.com/116941078508380009042?rel=author" rel=author>Shivaji Varma</a></small></p><p>Short and sweet application. Fetches values of a & b using GET Method [from URL] and computes there sum.</p><div><form role=form name=SumCalculator><p><label for=a>Enter value of A:</label><input id=a class=form-control type=number name=a placeholder="Enter a number"></p><p><label for=b>Enter value of B:</label><input id=b class=form-control type=number name=b placeholder="Enter a number"></p><p><input class="btn btn-default" type=submit value=ADD></p><h4 class=margin-top-10px>Output (A+B): <span id=output></span></h4></form></div><hr><h3>Code</h3><pre><code class=language-javascript>$(document).ready(function(){
 	var a = getUrlParameter("a");
 	var b = getUrlParameter("b");
 	if(a!="" && b!=""){
@@ -132,107 +18,18 @@ function getUrlParameter( key ){
 		var regex = new RegExp( regexExpression );  
 		var results = regex.exec( window.location.href );  
 		if( results == null )    return "";  
-			else    return unescape(results[1]).replace(/<script.*>.*<\/script>/g, "");
-}
-</script>
-<h3>Code</h3>
-<pre>
-<code class="language-javascript">$(document).ready(function(){
-	var a = getUrlParameter("a");
-	var b = getUrlParameter("b");
-	if(a!="" && b!=""){
-		if($.isNumeric(a) && $.isNumeric(b)){
-			$("#output").html(+a + +b);
-		}
-		else  $("#output").html("Enter only numbers.");
-	}
-	else $("#output").html("Please fill the input and hit add button.");
-});
-function getUrlParameter( key ){  
-		key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
-		var regexExpression = "[\\?&]"+key+"=([^&#]*)";  
-		var regex = new RegExp( regexExpression );  
-		var results = regex.exec( window.location.href );  
-		if( results == null )    return "";  
-			else    return unescape(results[1]).replace(/<script.*>.*<\/script>/g, "");
+			else    return unescape(results[1]).replace(/&lt;script.*&gt;.*&lt;\/script&gt;/g, "");
 }</code>
-</pre>
-  </div>
+</pre></div><!-- comments --><div id=comments class="container margin-bottom-10px"><div id=disqus_thread></div><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=# class=dsq-brlink>loading comments...</a></div><div id=push></div></div><!-- Footer --><div id=footer class=border-top><footer class=container itemscope itemtype=http://schema.org/WPFooter><p class=pull-right><a href=#>Back to top</a></p><p>&copy; 2014 shivajivarma &middot; <a href=/pages/privacy>Privacy</a> &middot; <a href=#>Terms</a> &middot; <a href=/pages/LICENSE>License</a></p><p class=no-margin>Built by <a target=_blank href="https://plus.google.com/116941078508380009042?rel=author" rel=author>Shivaji Varma</a>. Based on <a target=_blank href=http://getbootstrap.com>Bootstrap</a>. Web fonts from <a target=_blank href=http://www.google.com/webfonts>Google</a>. View source on <a target=_blank href=http://github.com/shivajivarma/shivajivarma.github.io>Github</a></p></footer></div><script src=/assets/js/global.8b87.js></script><script src=/assets/js/main.9108.js></script><script type=text/javascript src=/assets/js/sum-of-two-numbers.c36b.js></script><script type=text/javascript>var disqus_shortname = 'shivajivarma'; // required: replace example with your forum shortname
 
-  <div id="push"></div>
-</div>
-
-<div class="container">
-  <div id="page-navigation"> 
-    <div class="clear">&nbsp;</div> 
-    
-    <div class="pull-left">
-    
-  
-  
-  
-  
-    
-  
-  
-  
-      
-  
-  
-     
-    </div> 
-    
-    <div class="pull-right"> 
-    
-  
-  
-  
-      
-  
-  
-    
-  
-  
-    <a href="/project/2014/02/09/bus-reservation-system/" title="Previous Post: Bus Reservation System">Bus Reservation System &raquo;</a>
-     
-    </div>
-
-    <div class="clear">&nbsp;</div> 
-  </div>
-</div>
-
-<!-- Footer -->
-<div id="footer" class="container border-top">  
-  <footer itemscope itemtype="http://schema.org/WPFooter">
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2014 shivajivarma &middot; <a href="/pages/privacy">Privacy</a> &middot; <a href="/pages/terms">Terms</a></p>
-    <p class="no-margin">Made by <a target="_blank" href="https://plus.google.com/116941078508380009042?rel=author" rel="author">Shivaji Varma</a>. Contact him at <a href="mailto:contact@shivajivarma.com">contact@shivajivarma.com</a>.</p>
-    <p class="no-margin">Code licensed under the <a href="/pages/LICENSE">The MIT License (MIT)</a>.</p>
-    <p class="no-margin">Based on <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>. Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>. View source on <a target="_blank" href="https://github.com/shivajivarma/shivajivarma.github.io">Github</a></p>
-  </footer>
-</div>
-
-<!-- Placed at the end of the document so the pages load faster-->
-<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/bootstrap.js"></script>
-<script type="text/javascript" src="/assets/javascripts/prism.js"></script>
-<script type="text/javascript" src="/assets/javascripts/main.js"></script>
-
-
-
-
-
-
-
-<!--ANALYTICS CODE-->
-<script type="text/javascript">
- (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();</script><!--ANALYTICS CODE--><script type=text/javascript>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
- ga('create', 'UA-42422649-1', 'shivajivarma.com');
- ga('send', 'pageview');
-</script><!--/ANALYTICS CODE-->
-
-</body>
-</html>
+ ga('create', '', 'shivajivarma.com');
+ ga('send', 'pageview');</script><!--/ANALYTICS CODE--></body></html>
