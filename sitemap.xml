@@ -2,111 +2,111 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2013/12/22/first-post/</loc>
-        <lastmod>2014-03-13T22:50:45+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://shivajivarma.com/blog/programming/2014/01/04/smooth-scrolling-to-internal-links-with-jQuery/
         </loc>
-        <lastmod>2014-03-15T23:28:20+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/01/21/object-cookie/</loc>
-        <lastmod>2014-03-16T08:33:20+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/02/08/merge-sort-using-c/</loc>
-        <lastmod>2014-03-16T08:33:35+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/02/08/selection-sort-using-c/</loc>
-        <lastmod>2014-03-16T08:33:47+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/2014/02/08/sum-of-two-numbers/</loc>
-        <lastmod>2014-03-16T09:27:00+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/2014/02/09/bus-reservation-system/</loc>
-        <lastmod>2014-03-15T10:25:27+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/2014/02/12/om-namaha-geethanjali/</loc>
-        <lastmod>2014-03-14T23:06:54+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://shivajivarma.com/blog/entertainment/2014/02/23/old-cartoon-network-shows-lost-memories/
         </loc>
-        <lastmod>2014-03-14T23:39:05+05:30</lastmod>
+        <lastmod>2014-03-16T19:40:07+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://shivajivarma.com/blog/programming/2014/02/28/greatest-common-divisor-using-c/
         </loc>
-        <lastmod>2014-03-16T08:34:00+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/2014/02/28/naruto-theme/</loc>
-        <lastmod>2014-03-14T21:03:45+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/404.html</loc>
-        <lastmod>2014-03-05T23:16:10+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/about/</loc>
-        <lastmod>2014-03-14T19:40:38+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/categories/</loc>
-        <lastmod>2014-03-15T07:52:45+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/entertainment/</loc>
-        <lastmod>2014-03-15T10:57:08+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/</loc>
-        <lastmod>2014-03-14T23:15:52+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/</loc>
-        <lastmod>2014-03-14T23:15:28+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/</loc>
-        <lastmod>2014-03-14T23:15:28+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/tags/</loc>
-        <lastmod>2014-03-14T23:18:10+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-03-16T09:27:00+05:30</lastmod>
+        <lastmod>2014-03-16T19:40:07+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/pages/LICENSE/</loc>
-        <lastmod>2014-03-05T23:15:56+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/pages/privacy/</loc>
-        <lastmod>2014-03-05T23:15:56+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/</loc>
-        <lastmod>2014-03-14T23:35:56+05:30</lastmod>
+        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
