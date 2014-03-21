@@ -20,11 +20,11 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/02/08/selection-sort-using-c/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-21T21:29:46+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/2014/02/08/sum-of-two-numbers/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-18T21:16:40+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/2014/02/09/bus-reservation-system/</loc>
@@ -38,7 +38,7 @@
         <loc>
             http://shivajivarma.com/blog/entertainment/2014/02/23/old-cartoon-network-shows-lost-memories/
         </loc>
-        <lastmod>2014-03-16T20:55:48+05:30</lastmod>
+        <lastmod>2014-03-17T21:20:29+05:30</lastmod>
     </url>
     <url>
         <loc>
@@ -51,12 +51,18 @@
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
+        <loc>
+            http://shivajivarma.com/blog/programming/2014/03/17/retrieve-and-parse-xml-using-javascript/
+        </loc>
+        <lastmod>2014-03-21T22:41:18+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/about/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-17T22:15:17+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -92,7 +98,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-03-16T20:55:48+05:30</lastmod>
+        <lastmod>2014-03-21T22:41:18+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
