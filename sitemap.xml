@@ -32,13 +32,13 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/2014/02/12/om-namaha-geethanjali/</loc>
-        <lastmod>2014-03-16T19:54:22+05:30</lastmod>
+        <lastmod>2014-03-23T11:12:28+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://shivajivarma.com/blog/entertainment/2014/02/23/old-cartoon-network-shows-lost-memories/
         </loc>
-        <lastmod>2014-03-17T21:20:29+05:30</lastmod>
+        <lastmod>2014-03-23T11:40:13+05:30</lastmod>
     </url>
     <url>
         <loc>
@@ -48,13 +48,17 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/2014/02/28/naruto-theme/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-23T11:09:04+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://shivajivarma.com/blog/programming/2014/03/17/retrieve-and-parse-xml-using-javascript/
         </loc>
-        <lastmod>2014-03-21T22:41:18+05:30</lastmod>
+        <lastmod>2014-03-22T20:56:49+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/blog/music/2014/03/23/let-it-go-frozen/</loc>
+        <lastmod>2014-03-23T12:01:38+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/404.html</loc>
@@ -62,7 +66,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/about/</loc>
-        <lastmod>2014-03-17T22:15:17+05:30</lastmod>
+        <lastmod>2014-03-22T21:05:32+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -74,21 +78,21 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/entertainment/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-23T11:59:30+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-23T11:59:42+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-23T11:59:30+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2014-03-23T11:59:30+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/tags/</loc>
@@ -98,7 +102,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-03-21T22:41:18+05:30</lastmod>
+        <lastmod>2014-03-23T12:01:38+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
