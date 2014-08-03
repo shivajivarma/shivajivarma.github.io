@@ -16,11 +16,11 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/02/08/merge-sort-using-c/</loc>
-        <lastmod>2014-07-13T21:26:04+05:30</lastmod>
+        <lastmod>2014-08-03T18:38:35+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/02/08/selection-sort-using-c/</loc>
-        <lastmod>2014-06-11T07:22:15+05:30</lastmod>
+        <lastmod>2014-08-03T18:39:02+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/2014/02/08/sum-of-two-numbers/</loc>
@@ -44,7 +44,7 @@
         <loc>
             http://shivajivarma.com/blog/programming/2014/02/28/greatest-common-divisor-using-c/
         </loc>
-        <lastmod>2014-03-30T14:25:47+05:30</lastmod>
+        <lastmod>2014-08-03T18:22:50+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/2014/02/28/naruto-theme/</loc>
@@ -82,11 +82,15 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/06/11/quick-sort-using-c/</loc>
-        <lastmod>2014-06-11T07:26:13+05:30</lastmod>
+        <lastmod>2014-08-03T18:39:24+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/07/13/tower-of-hanoi/</loc>
         <lastmod>2014-07-13T21:44:44+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/blog/stories/2014/08/03/real-meaning-of-peace/</loc>
+        <lastmod>2014-08-03T20:33:52+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/404.html</loc>
@@ -123,6 +127,10 @@
         <lastmod>2014-03-23T11:59:30+05:30</lastmod>
     </url>
     <url>
+        <loc>http://shivajivarma.com/blog/stories/</loc>
+        <lastmod>2014-08-03T18:40:38+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/blog/tags/</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
         <changefreq>always</changefreq>
@@ -130,7 +138,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-07-13T21:44:44+05:30</lastmod>
+        <lastmod>2014-08-03T20:33:52+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
