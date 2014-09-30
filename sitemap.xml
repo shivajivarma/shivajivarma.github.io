@@ -103,6 +103,10 @@
         <lastmod>2014-09-25T22:40:34+05:30</lastmod>
     </url>
     <url>
+        <loc>http://shivajivarma.com/blog/programming/2014/09/30/hello-node/</loc>
+        <lastmod>2014-09-30T23:27:40+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
@@ -152,7 +156,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-09-25T22:41:15+05:30</lastmod>
+        <lastmod>2014-09-30T23:27:40+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
