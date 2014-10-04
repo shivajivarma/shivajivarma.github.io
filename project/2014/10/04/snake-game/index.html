@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Snake Game &middot; Shivaji Varma</title><!-- Enable responsiveness on mobile devices--><meta name=viewport content="width=device-width, initial-scale=1"><!-- Page meta data --><meta name=author content="Shivaji Varma"><meta name=copyright content="(c) 2014 Shivaji Varma"><meta property=og:url content="http://shivajivarma.com/project/2014/10/04/snake-game/"><meta property=og:type content=""><meta property=og:image content=http://shivajivarma.com/assets/img/profile.jpg><meta property=og:site_name content="Shivaji Varma"><meta property=fb:admins content=100002868559363><meta property=og:title content="Snake Game &middot; Shivaji Varma"><meta name=description property=og:description content="Snake Game using HTML and JS"><meta name=keywords content="Shivaji Varma,search,search engine project,search engine php"><!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"--><!-- Icons --><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=author href="https://plus.google.com/116941078508380009042?rel=author"><link rel=publisher href=https://plus.google.com/+ShivajivarmaDotCom><!-- Latest compiled css, includes bootstrap and prismjs --><link rel=stylesheet href=/assets/css/global.b860.css><link rel=stylesheet href=/assets/css/main.4d72.css media=screen><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]--><script src=/assets/js/global.327c.js></script></head><body><!-- Fixed navbar --><header id=header class="navbar navbar-default navbar-fixed-top" role=navigation itemscope itemtype=http://schema.org/WPHeader><nav class=container itemscope itemtype=http://schema.org/SiteNavigationElement><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button> <a class=navbar-brand href=/#><img alt=Logo title=Logo src=/assets/img/logo.1ef9.png></a></div><!--/.nav-header --><div class="navbar-collapse collapse"><ul class="nav navbar-nav"><li class=dropdown><a href=# class=dropdown-toggle data-toggle=dropdown itemprop=url><i class="fa fa-pencil margin-right-5px"></i><span itemprop=name>Blog</span> <b class=caret></b></a><ul class=dropdown-menu><li><a href=/blog/# itemprop=url><i class="fa fa-archive margin-right-5px"></i><span itemprop=name>Archives</span></a></li><li><a href=/blog/categories/# itemprop=url><i class="fa fa-list margin-right-5px"></i><span itemprop=name>Categaries</span></a></li><li><a href=/blog/tags/# itemprop=url><i class="fa fa-tags margin-right-5px"></i><span itemprop=name>Tags</span></a></li></ul></li><!--li ><a href="/blog/#" itemprop="url"><span itemprop="name">Blog</span></a></li--><li><a href=/project/# itemprop=url><i class="fa fa-code margin-right-5px"></i><span itemprop=name>Projects</span></a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href=/about/# itemprop=url><span itemprop=name>About</span></a></li></ul></div><!--/.nav-collapse --></nav></header><!--/.navbar --><div id=content><!-- Breadcrumb --><ol class="breadcrumb container margin-top-10px" itemscope itemtype=http://schema.org/Breadcrumb><li><a href="/" itemprop=url><span itemprop=title>Home</span></a></li><li><a href="/project/" itemprop=url><span itemprop=title>Projects</span></a></li><li class=active itemprop=title>Snake Game</li></ol><div class=container><h1 class=no-margin>Snake Game - written in HTML/JS</h1><p><small class=text-muted>Posted on October 4, 2014 by <a href="https://plus.google.com/116941078508380009042?rel=author" rel=author>Shivaji Varma</a></small></p><div class=row><div class=col-md-6><canvas id=canvas width=500 height=500></canvas></div><div class=col-md-6><div><span id=score>Score: 0</span><br><span id=best>Best &nbsp;: 0</span><br><span id=displayBoard>&nbsp;</span></div><img class="img-responsive margin-top-10px margin-left-10px" src=https://cdn.tutsplus.com/active/uploads/legacy/tuts/418_snakeAS3/AS3_Snake_Game.png title="Node JS" alt="Node JS"></div></div><h3>HTML Code</h3><pre><code class=language-markup>&lt;div&gt;
+	&lt;canvas id="canvas" width="500" height="500"&gt;&lt;/canvas&gt;
+	&lt;div&gt;
+		&lt;span id="score"&gt;Score: 0&lt;/span&gt;&lt;br/&gt;
+		&lt;span id="best"&gt;Best &nbsp;: 0&lt;/span&gt;&lt;br/&gt;
+		&lt;span id="displayBoard"&gt;&nbsp;&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre><h3>JS Code</h3><pre><code class=language-javascript>// Avoid general arrow key functionality
+var keys = {};
+window.addEventListener("keydown",
+	function (e) {
+	keys[e.keyCode] = true;
+	switch (e.keyCode) {
+	case 37:
+	case 39:
+	case 38:
+	case 40: // Arrow keys
+	case 32:
+		e.preventDefault();
+		break; // Space
+	default:
+		break; // do not block other keys
+	}
+},
+	false);
+window.addEventListener('keyup',
+	function (e) {
+	keys[e.keyCode] = false;
+},
+	false);
+
+var snakeGame = {
+	// Canvas properties
+	canvas : {
+		ctx : $("#canvas")[0].getContext("2d"),
+		width : $("#canvas").width(),
+		height : $("#canvas").height()
+	},
+
+	//Lets save the cell width in a variable for easy control
+	cellWidth : 10,
+
+	//Lets create the snake now
+	snake : [], //an array of cells to make up the snake
+	
+	//Best score
+	best: 0,
+	
+	//Direction
+	d: "",
+	
+	init: function() {
+		this.d = "right"; //default direction
+		this.createSnake();
+		this.createFood(); //Now we can see the food particle
+		//finally lets display the score
+		this.score = 0;
+
+		//Lets move the snake now using a timer which will trigger the paint function
+		//every 60ms
+		this.paint();
+		
+		if (typeof this.gameLoop != "undefined")
+			clearInterval(this.gameLoop);
+		
+		setTimeout(function () {
+			snakeGame.gameLoop = setInterval("snakeGame.paint()", 60);
+			$('#displayBoard').html("Play...");
+		}, 2200);
+	},
+
+	createSnake : function () {
+		var length = 5; //Length of the snake
+		this.snake = []; //Empty array to start with
+		for (var i = length - 1; i >= 0; i--) {
+			//This will create a horizontal snake starting from the top left
+			this.snake.push({
+				x : i,
+				y : 0
+			});
+		}
+	},
+
+	//Lets first create a generic function to paint cells
+	paintCell : function (x, y) {
+		this.canvas.ctx.fillStyle = "blue";
+		this.canvas.ctx.fillRect(x * this.cellWidth, y * this.cellWidth, this.cellWidth, this.cellWidth);
+		this.canvas.ctx.strokeStyle = "white";
+		this.canvas.ctx.strokeRect(x * this.cellWidth, y * this.cellWidth, this.cellWidth, this.cellWidth);
+	},
+
+	//Lets create the food now
+	createFood : function () {
+		this.food = {
+			x : Math.round(Math.random() * (this.canvas.width - this.cellWidth) / this.cellWidth),
+			y : Math.round(Math.random() * (this.canvas.height - this.cellWidth) / this.cellWidth),
+		};
+		//This will create a cell with x/y between 0-49
+		//Because there are 500(500/10) positions across the rows and columns
+	},
+
+	checkCollision : function (x, y, array) {
+		//This function will check if the provided x/y coordinates exist
+		//in an array of cells or not
+		for (var i = 0; i &lt; array.length; i++) {
+			if (array[i].x == x && array[i].y == y)
+				return true;
+		}
+		return false;
+	},
+	
+	//Lets paint the snake now
+	paint: function() {
+		//To avoid the snake trail we need to paint the BG on every frame
+		//Lets paint the canvas now
+		this.canvas.ctx.fillStyle = "white";
+		this.canvas.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+		this.canvas.ctx.strokeStyle = "black";
+		this.canvas.ctx.strokeRect(0, 0, this.canvas.width, this.canvas.height);
+
+		//The movement code for the snake to come here.
+		//The logic is simple
+		//Pop out the tail cell and place it infront of the head cell
+		var nx = this.snake[0].x;
+		var ny = this.snake[0].y;
+		//These were the position of the head cell.
+		//We will increment it to get the new head position
+		//Lets add proper direction based movement now
+		if (this.d == "right")
+			nx++;
+		else if (this.d == "left")
+			nx--;
+		else if (this.d == "up")
+			ny--;
+		else if (this.d == "down")
+			ny++;
+
+		//Lets add the game over clauses now
+		//This will restart the game if the snake hits the wall
+		//Lets add the code for body collision
+		//Now if the head of the snake bumps into its body, the game will restart
+		if (nx == -1 || nx == this.canvas.width / this.cellWidth || ny == -1 || ny == this.canvas.height / this.cellWidth || this.checkCollision(nx, ny, this.snake)) {
+			if(this.best &lt; this.score){
+				this.best = this.score;
+				$('#best').html('Best &nbsp;: '+this.best);
+			}
+				
+			//restart game
+			$('#displayBoard').html("Next game starts in next 3 secs");
+			this.init();
+			//Lets organize the code a bit now.
+			return;
+		}
+
+		//Lets write the code to make the snake eat the food
+		//The logic is simple
+		//If the new head position matches with that of the food,
+		//Create a new head instead of moving the tail
+		if (nx == this.food.x && ny == this.food.y) {
+			var tail = {
+				x : nx,
+				y : ny
+			};
+			this.score++;
+			//Create new food
+			this.createFood();
+		} else {
+			var tail = this.snake.pop(); //pops out the last cell
+			tail.x = nx;
+			tail.y = ny;
+		}
+		//The snake can now eat the food.
+
+		this.snake.unshift(tail); //puts back the tail as the first cell
+
+		for (var i = 0; i &lt; this.snake.length; i++) {
+			var c = this.snake[i];
+			//Lets paint 10px wide cells
+			this.paintCell(c.x, c.y);
+		}
+
+		//Lets paint the food
+		this.paintCell(this.food.x, this.food.y);
+		//Display score
+		$("#score").html("Score: " + this.score);
+	}
+
+
+};
+$(document).ready(function () {
+	snakeGame.init();
+	
+	//Lets add the keyboard controls now
+	$(document).keydown(function (e) {
+		var key = e.which;
+		//We will add another clause to prevent reverse gear
+		if (key == "37" && snakeGame.d != "right")
+			snakeGame.d = "left";
+		else if (key == "38" && snakeGame.d != "down")
+			snakeGame.d = "up";
+		else if (key == "39" && snakeGame.d != "left")
+			snakeGame.d = "right";
+		else if (key == "40" && snakeGame.d != "up")
+			snakeGame.d = "down";
+		//The snake is now keyboard controllable
+	});
+
+})</code>
+</pre></div><script type=text/javascript>// Avoid general arrow key functionality
+var keys = {};
+window.addEventListener("keydown",
+	function (e) {
+	keys[e.keyCode] = true;
+	switch (e.keyCode) {
+	case 37:
+	case 39:
+	case 38:
+	case 40: // Arrow keys
+	case 32:
+		e.preventDefault();
+		break; // Space
+	default:
+		break; // do not block other keys
+	}
+},
+	false);
+window.addEventListener('keyup',
+	function (e) {
+	keys[e.keyCode] = false;
+},
+	false);
+
+var snakeGame = {
+	// Canvas properties
+	canvas : {
+		ctx : $("#canvas")[0].getContext("2d"),
+		width : $("#canvas").width(),
+		height : $("#canvas").height()
+	},
+
+	//Lets save the cell width in a variable for easy control
+	cellWidth : 10,
+
+	//Lets create the snake now
+	snake : [], //an array of cells to make up the snake
+	
+	//Best score
+	best: 0,
+	
+	//Direction
+	d: "",
+	
+	init: function() {
+		this.d = "right"; //default direction
+		this.createSnake();
+		this.createFood(); //Now we can see the food particle
+		//finally lets display the score
+		this.score = 0;
+
+		//Lets move the snake now using a timer which will trigger the paint function
+		//every 60ms
+		this.paint();
+		
+		if (typeof this.gameLoop != "undefined")
+			clearInterval(this.gameLoop);
+		
+		setTimeout(function () {
+			snakeGame.gameLoop = setInterval("snakeGame.paint()", 60);
+			$('#displayBoard').html("Play...");
+		}, 2200);
+	},
+
+	createSnake : function () {
+		var length = 5; //Length of the snake
+		this.snake = []; //Empty array to start with
+		for (var i = length - 1; i >= 0; i--) {
+			//This will create a horizontal snake starting from the top left
+			this.snake.push({
+				x : i,
+				y : 0
+			});
+		}
+	},
+
+	//Lets first create a generic function to paint cells
+	paintCell : function (x, y) {
+		this.canvas.ctx.fillStyle = "blue";
+		this.canvas.ctx.fillRect(x * this.cellWidth, y * this.cellWidth, this.cellWidth, this.cellWidth);
+		this.canvas.ctx.strokeStyle = "white";
+		this.canvas.ctx.strokeRect(x * this.cellWidth, y * this.cellWidth, this.cellWidth, this.cellWidth);
+	},
+
+	//Lets create the food now
+	createFood : function () {
+		this.food = {
+			x : Math.round(Math.random() * (this.canvas.width - this.cellWidth) / this.cellWidth),
+			y : Math.round(Math.random() * (this.canvas.height - this.cellWidth) / this.cellWidth),
+		};
+		//This will create a cell with x/y between 0-49
+		//Because there are 500(500/10) positions across the rows and columns
+	},
+
+	checkCollision : function (x, y, array) {
+		//This function will check if the provided x/y coordinates exist
+		//in an array of cells or not
+		for (var i = 0; i < array.length; i++) {
+			if (array[i].x == x && array[i].y == y)
+				return true;
+		}
+		return false;
+	},
+	
+	//Lets paint the snake now
+	paint: function() {
+		//To avoid the snake trail we need to paint the BG on every frame
+		//Lets paint the canvas now
+		this.canvas.ctx.fillStyle = "white";
+		this.canvas.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+		this.canvas.ctx.strokeStyle = "black";
+		this.canvas.ctx.strokeRect(0, 0, this.canvas.width, this.canvas.height);
+
+		//The movement code for the snake to come here.
+		//The logic is simple
+		//Pop out the tail cell and place it infront of the head cell
+		var nx = this.snake[0].x;
+		var ny = this.snake[0].y;
+		//These were the position of the head cell.
+		//We will increment it to get the new head position
+		//Lets add proper direction based movement now
+		if (this.d == "right")
+			nx++;
+		else if (this.d == "left")
+			nx--;
+		else if (this.d == "up")
+			ny--;
+		else if (this.d == "down")
+			ny++;
+
+		//Lets add the game over clauses now
+		//This will restart the game if the snake hits the wall
+		//Lets add the code for body collision
+		//Now if the head of the snake bumps into its body, the game will restart
+		if (nx == -1 || nx == this.canvas.width / this.cellWidth || ny == -1 || ny == this.canvas.height / this.cellWidth || this.checkCollision(nx, ny, this.snake)) {
+			if(this.best<this.score){
+				this.best = this.score;
+				$('#best').html('Best &nbsp;: '+this.best);
+			}
+				
+			//restart game
+			$('#displayBoard').html("Next game starts in next 3 secs");
+			this.init();
+			//Lets organize the code a bit now.
+			return;
+		}
+
+		//Lets write the code to make the snake eat the food
+		//The logic is simple
+		//If the new head position matches with that of the food,
+		//Create a new head instead of moving the tail
+		if (nx == this.food.x && ny == this.food.y) {
+			var tail = {
+				x : nx,
+				y : ny
+			};
+			this.score++;
+			//Create new food
+			this.createFood();
+		} else {
+			var tail = this.snake.pop(); //pops out the last cell
+			tail.x = nx;
+			tail.y = ny;
+		}
+		//The snake can now eat the food.
+
+		this.snake.unshift(tail); //puts back the tail as the first cell
+
+		for (var i = 0; i < this.snake.length; i++) {
+			var c = this.snake[i];
+			//Lets paint 10px wide cells
+			this.paintCell(c.x, c.y);
+		}
+
+		//Lets paint the food
+		this.paintCell(this.food.x, this.food.y);
+		//Display score
+		$("#score").html("Score: " + this.score);
+	}
+
+
+};
+$(document).ready(function () {
+	snakeGame.init();
+	
+	//Lets add the keyboard controls now
+	$(document).keydown(function (e) {
+		var key = e.which;
+		//We will add another clause to prevent reverse gear
+		if (key == "37" && snakeGame.d != "right")
+			snakeGame.d = "left";
+		else if (key == "38" && snakeGame.d != "down")
+			snakeGame.d = "up";
+		else if (key == "39" && snakeGame.d != "left")
+			snakeGame.d = "right";
+		else if (key == "40" && snakeGame.d != "up")
+			snakeGame.d = "down";
+		//The snake is now keyboard controllable
+	});
+
+})</script><!-- comments --><div id=comments class="container margin-bottom-10px"><div id=disqus_thread></div><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=# class=dsq-brlink>loading comments...</a></div><div id=push></div></div><!-- Footer --><div id=footer class=border-top><footer class=container itemscope itemtype=http://schema.org/WPFooter><p class=pull-right><a href=#>Back to top</a></p><p>ALL WORKS &copy; 2014 <a target=_blank href="https://plus.google.com/116941078508380009042?rel=author" rel=author>SHIVAJI VARMA</a> &middot; <a href=/pages/privacy>PRIVACY</a> &middot; <a href=#>TERMS</a> &middot; <a href=/pages/LICENSE>LICENSE</a></p><p class=no-margin>Based on <a target=_blank href=http://getbootstrap.com>Bootstrap</a>. Web fonts from <a target=_blank href=http://www.google.com/webfonts>Google</a>. View source on <a target=_blank href=http://github.com/shivajivarma/shivajivarma.github.io>Github</a></p></footer></div><script src=/assets/js/main.daf7.js></script><script type=text/javascript>var disqus_shortname = 'shivajivarma'; // required: replace example with your forum shortname
+
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();</script><script type=text/javascript>(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script><div id=fb-root></div><script type=text/javascript>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=167521153332522";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><!--ANALYTICS CODE--><script type=text/javascript>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-42422649-1', 'shivajivarma.com');
+ ga('send', 'pageview');</script><!--/ANALYTICS CODE--></body></html>
