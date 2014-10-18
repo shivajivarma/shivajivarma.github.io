@@ -22,7 +22,9 @@
   	{
   		$('#name').html("Connected to Facebook");
   		//SUCCESS
-  		
+  		 FB.api('/me', function(response) {
+			$('#name').html(response.name);
+		});
   	}	 
 	else if (response.status === 'not_authorized') 
     {
@@ -53,16 +55,6 @@
 		 },{scope: 'email,user_photos,user_videos'});
 	
 	
-	}
-
-  function getUserInfo() {
-	    FB.api('/me', function(response) {
-		$('#name').html(response.name);
-    });
-    }
-	function Logout()
-	{
-		FB.logout(function(){document.location.reload();});
 	}
 
   // Load the SDK asynchronously
