@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Thanks &middot; Shivaji Varma</title><!-- Enable responsiveness on mobile devices--><meta name=viewport content="width=device-width, initial-scale=1"><!-- Page meta data --><meta name=author content="Shivaji Varma"><meta name=copyright content="(c) 2014 Shivaji Varma"><meta property=og:url content="http://shivajivarma.com/thanks/"><meta property=og:type content=""><meta property=og:image content=http://shivajivarma.com/assets/img/profile.jpg><meta property=og:site_name content="Shivaji Varma"><meta property=fb:admins content=100002868559363><meta property=og:title content="Thanks &middot; Shivaji Varma"><meta name=description property=og:description content="Developer by day, designer by noon and dreamer by night"><meta name=keywords content="Shivaji Varma"><!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"--><!-- Icons --><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=author href="https://plus.google.com/116941078508380009042?rel=author"><link rel=publisher href=https://plus.google.com/+ShivajivarmaDotCom><!-- Latest compiled css, includes bootstrap and prismjs --><link rel=stylesheet href=/assets/css/global.b860.css><link rel=stylesheet href=/assets/css/main.4d72.css media=screen><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]--><script src=/assets/js/global.327c.js></script><script src="//connect.facebook.net/en_US/all.js"></script></head><body><div class="container margin-top-30px"><div class="panel panel-primary"><div class=panel-heading>Thanks <span id="name"></span></div><div class=panel-body>Thank you so much for all the kind wishes. Having you a part of my life has made my day even more special.<br>~Shivaji</div></div></div><script src=/assets/js/main.daf7.js></script>
+  <![endif]--><script src=/assets/js/global.327c.js></script><script src="//connect.facebook.net/en_US/all.js"></script></head><body><div class="container margin-top-30px"><div class="panel panel-primary"><div class=panel-heading onclick="Login()">Thanks <span id="name"></span></div><div class=panel-body>Thank you so much for all the kind wishes. Having you a part of my life has made my day even more special.<br>~Shivaji</div></div></div><script src=/assets/js/main.daf7.js></script>
   
   
   <div id="fb-root"></div>
@@ -18,20 +18,24 @@
     
 	FB.Event.subscribe('auth.authResponseChange', function(response) 
 	{
- 	 if (response.status === 'connected'){
+ 	 if (response.status === 'connected') 
+  	{
+  		console.log("Connected to Facebook");
   		//SUCCESS
-  		Login();
+  		
   	}	 
-	else if (response.status === 'not_authorized'){
-    	//$('#name').html("<br>Failed to Connect");
+	else if (response.status === 'not_authorized') 
+    {
+    	console.log("Failed to Connect");
 
 		//FAILED
     } else 
     {
-//$('#name').html("Logged Out");
+    	console.log("Logged Out");
 
     	//UNKNOWN ERROR
     }
+	Login();
 	});	
 	
     };
@@ -42,9 +46,7 @@
 		FB.login(function(response) {
 		   if (response.authResponse) 
 		   {
-		    	FB.api('/me', function(response) {
-					$('#name').html(response.name);
-				});
+		    	getUserInfo();
   			} else 
   			{
   	    	 console.log('User cancelled login or did not fully authorize.');
@@ -53,6 +55,12 @@
 	
 	
 	}
+
+  function getUserInfo() {
+	    FB.api('/me', function(response) {
+			$('#name').html(response.name);
+		});
+    }
 
   // Load the SDK asynchronously
   (function(d){
