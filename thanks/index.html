@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Thanks &middot; Shivaji Varma</title><!-- Enable responsiveness on mobile devices--><meta name=viewport content="width=device-width, initial-scale=1"><!-- Page meta data --><meta name=author content="Shivaji Varma"><meta name=copyright content="(c) 2014 Shivaji Varma"><meta property=og:url content="http://shivajivarma.com/thanks/"><meta property=og:type content=""><meta property=og:image content=http://shivajivarma.com/assets/img/profile.jpg><meta property=og:site_name content="Shivaji Varma"><meta property=fb:admins content=100002868559363><meta property=og:title content="Thanks &middot; Shivaji Varma"><meta name=description property=og:description content="Developer by day, designer by noon and dreamer by night"><meta name=keywords content="Shivaji Varma"><!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"--><!-- Icons --><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=author href="https://plus.google.com/116941078508380009042?rel=author"><link rel=publisher href=https://plus.google.com/+ShivajivarmaDotCom><!-- Latest compiled css, includes bootstrap and prismjs --><link rel=stylesheet href=/assets/css/global.b860.css><link rel=stylesheet href=/assets/css/main.4d72.css media=screen><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]--><script src=/assets/js/global.327c.js></script><script src="//connect.facebook.net/en_US/all.js"></script></head><body><div class="container margin-top-30px"><div class="panel panel-primary"><div class=panel-heading onclick="Login()">Thanks <span id="name"></span></div><div class=panel-body>Thank you so much for all the kind wishes. Having you a part of my life has made my day even more special.<br>~Shivaji</div></div></div><script src=/assets/js/main.daf7.js></script>
+  
+  
+  <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '167521153332522', // App ID
+      channelUrl : 'http://hayageek.com/examples/oauth/facebook/oauth-javascript/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+    
+    
+	FB.Event.subscribe('auth.authResponseChange', function(response) 
+	{
+ 	 if (response.status === 'connected') 
+  	{
+  		$('#name').html("Connected to Facebook");
+  		//SUCCESS
+  		
+  	}	 
+	else if (response.status === 'not_authorized') 
+    {
+    	$('#name').html("<br>Failed to Connect");
+
+		//FAILED
+    } else 
+    {
+    	$('#name').html("Logged Out");
+
+    	//UNKNOWN ERROR
+    }
+	});	
+	
+    };
+    
+   	function Login()
+	{
+	
+		FB.login(function(response) {
+		   if (response.authResponse) 
+		   {
+		    	getUserInfo();
+  			} else 
+  			{
+  	    	 console.log('User cancelled login or did not fully authorize.');
+   			}
+		 },{scope: 'email,user_photos,user_videos'});
+	
+	
+	}
+
+  function getUserInfo() {
+	    FB.api('/me', function(response) {
+		$('#name').html(response.name);
+    });
+    }
+	function Logout()
+	{
+		FB.logout(function(){document.location.reload();});
+	}
+
+  // Load the SDK asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+
+</script>
+  <script type=text/javascript>var disqus_shortname = 'shivajivarma'; // required: replace example with your forum shortname
+
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();</script><!--ANALYTICS CODE--><script type=text/javascript>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-42422649-1', 'shivajivarma.com');
+ ga('send', 'pageview');</script><!--/ANALYTICS CODE--></body></html>
