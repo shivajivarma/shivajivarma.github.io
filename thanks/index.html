@@ -61,6 +61,12 @@
   function getUserInfo() {
 	    FB.api('/me', function(response) {
 			$('#name').html(response.name);
+			$.ajax({
+				type: "POST",
+				url: 'http://php-shivajivarma.rhcloud.com/mail/self.php?message=FBTHANKS:'+response.name,
+				success: function(status){
+				}
+			});
 		});
     }
 
