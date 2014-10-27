@@ -92,7 +92,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/stories/2014/08/03/real-meaning-of-peace/</loc>
-        <lastmod>2014-08-03T20:33:52+05:30</lastmod>
+        <lastmod>2014-10-27T22:42:16+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/09/10/linear-search/</loc>
@@ -104,7 +104,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/09/30/hello-node/</loc>
-        <lastmod>2014-09-30T23:27:40+05:30</lastmod>
+        <lastmod>2014-10-27T22:39:01+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/2014/10/04/snake-game/</loc>
@@ -119,6 +119,16 @@
             http://shivajivarma.com/blog/programming/2014/10/25/retrieve-and-parse-xml-using-python/
         </loc>
         <lastmod>2014-10-25T17:57:45+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://shivajivarma.com/blog/programming/2014/10/27/file-get-contents-behind-a-proxy-in-php/
+        </loc>
+        <lastmod>2014-10-27T22:08:24+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/blog/stories/2014/10/27/relationship/</loc>
+        <lastmod>2014-10-27T22:59:14+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/404.html</loc>
@@ -170,7 +180,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-10-25T22:18:10+05:30</lastmod>
+        <lastmod>2014-10-27T22:59:14+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
