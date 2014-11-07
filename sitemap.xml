@@ -143,6 +143,10 @@
         <lastmod>2014-11-06T23:13:02+05:30</lastmod>
     </url>
     <url>
+        <loc>http://shivajivarma.com/blog/my-talks/2014/11/07/fight-ebola/</loc>
+        <lastmod>2014-11-07T23:13:24+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
@@ -177,6 +181,10 @@
         <lastmod>2014-08-27T12:58:10+05:30</lastmod>
     </url>
     <url>
+        <loc>http://shivajivarma.com/blog/my-talks/</loc>
+        <lastmod>2014-11-07T19:59:06+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/blog/programming/</loc>
         <lastmod>2014-08-27T12:58:10+05:30</lastmod>
     </url>
@@ -196,7 +204,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-11-06T23:13:02+05:30</lastmod>
+        <lastmod>2014-11-07T23:13:24+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
