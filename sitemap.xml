@@ -153,6 +153,10 @@
         <lastmod>2014-11-09T18:08:58+05:30</lastmod>
     </url>
     <url>
+        <loc>http://shivajivarma.com/blog/my-talks/2014/11/13/my-paintings/</loc>
+        <lastmod>2014-11-13T21:34:06+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
@@ -210,7 +214,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-11-09T18:11:28+05:30</lastmod>
+        <lastmod>2014-11-13T21:34:06+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
@@ -221,6 +225,10 @@
     <url>
         <loc>http://shivajivarma.com/pages/privacy/</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/pages/test/</loc>
+        <lastmod>2014-11-11T23:54:02+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/</loc>
