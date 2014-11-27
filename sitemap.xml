@@ -161,6 +161,12 @@
         <lastmod>2014-11-21T07:44:47+05:30</lastmod>
     </url>
     <url>
+        <loc>
+            http://shivajivarma.com/blog/programming/2014/11/27/pipe-program-implemented-in-c/
+        </loc>
+        <lastmod>2014-11-27T23:27:14+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
@@ -218,7 +224,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-11-22T00:39:38+05:30</lastmod>
+        <lastmod>2014-11-27T23:27:14+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
@@ -229,10 +235,6 @@
     <url>
         <loc>http://shivajivarma.com/pages/privacy/</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://shivajivarma.com/pages/test/</loc>
-        <lastmod>2014-11-20T00:11:22+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/</loc>
