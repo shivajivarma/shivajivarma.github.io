@@ -164,7 +164,13 @@
         <loc>
             http://shivajivarma.com/blog/programming/2014/11/27/pipe-program-implemented-in-c/
         </loc>
-        <lastmod>2014-11-27T23:27:14+05:30</lastmod>
+        <lastmod>2014-12-12T07:33:25+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://shivajivarma.com/blog/programming/2014/12/12/printing-numbers-in-spiral-matrix-form/
+        </loc>
+        <lastmod>2014-12-12T07:54:59+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/404.html</loc>
@@ -224,7 +230,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-11-27T23:27:14+05:30</lastmod>
+        <lastmod>2014-12-12T07:54:59+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
