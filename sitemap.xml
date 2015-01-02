@@ -19,14 +19,6 @@
         <lastmod>2014-12-29T23:08:12+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/blog/programming/2014/02/08/merge-sort/</loc>
-        <lastmod>2014-12-29T23:08:12+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://shivajivarma.com/blog/programming/2014/02/08/selection-sort/</loc>
-        <lastmod>2014-12-29T23:08:12+05:30</lastmod>
-    </url>
-    <url>
         <loc>http://shivajivarma.com/project/2014/02/08/sum-of-two-numbers/</loc>
         <lastmod>2014-11-13T21:35:58+05:30</lastmod>
     </url>
@@ -80,10 +72,6 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/06/10/compute-1-by-2-power-n/</loc>
-        <lastmod>2014-12-29T23:08:12+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://shivajivarma.com/blog/programming/2014/06/11/quick-sort/</loc>
         <lastmod>2014-12-29T23:08:12+05:30</lastmod>
     </url>
     <url>
@@ -174,11 +162,11 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/anagram/</loc>
-        <lastmod>2014-12-29T23:08:00+05:30</lastmod>
+        <lastmod>2015-01-02T23:40:55+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
-        <lastmod>2014-12-29T23:08:00+05:30</lastmod>
+        <lastmod>2015-01-02T23:41:09+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
@@ -188,19 +176,41 @@
         <loc>
             http://shivajivarma.com/code-base/c-camp/2014/12/28/sorting-algorithms-bubble-sort/
         </loc>
-        <lastmod>2014-12-29T23:08:00+05:30</lastmod>
+        <lastmod>2015-01-02T23:44:42+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://shivajivarma.com/code-base/c-camp/2014/12/28/sorting-algorithms-insertion-sort/
         </loc>
-        <lastmod>2014-12-29T23:08:00+05:30</lastmod>
+        <lastmod>2015-01-02T23:48:07+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://shivajivarma.com/code-base/python-camp/2014/12/30/longest-palindrome-substring-length/
         </loc>
-        <lastmod>2014-12-30T23:42:04+05:30</lastmod>
+        <lastmod>2015-01-02T23:14:08+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/code-base/python-camp/2015/01/02/reverse-a-string/</loc>
+        <lastmod>2015-01-02T23:14:43+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://shivajivarma.com/code-base/c-camp/2015/01/02/sorting-algorithms-merge-sort/
+        </loc>
+        <lastmod>2015-01-02T23:48:18+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://shivajivarma.com/code-base/c-camp/2015/01/02/sorting-algorithms-quick-sort/
+        </loc>
+        <lastmod>2015-01-02T23:56:37+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://shivajivarma.com/code-base/c-camp/2015/01/02/sorting-algorithms-selection-sort/
+        </loc>
+        <lastmod>2015-01-02T23:56:11+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/404.html</loc>
@@ -264,7 +274,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/</loc>
-        <lastmod>2014-12-29T00:22:42+05:30</lastmod>
+        <lastmod>2015-01-02T23:33:40+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
@@ -278,16 +288,16 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2014-12-30T23:42:04+05:30</lastmod>
+        <lastmod>2015-01-02T23:56:37+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
     <url>
-        <loc>http://shivajivarma.com/pages/LICENSE/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <loc>http://shivajivarma.com/LICENSE/</loc>
+        <lastmod>2015-01-02T23:05:50+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/pages/privacy/</loc>
+        <loc>http://shivajivarma.com/privacy/</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
     </url>
     <url>
