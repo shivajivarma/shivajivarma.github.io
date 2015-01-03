@@ -6,13 +6,15 @@
     </url>
     <url>
         <loc>
+            http://shivajivarma.com/blog/quotes/2014/01/03/writing-is-a-struggle-against-silence/
+        </loc>
+        <lastmod>2015-01-03T22:34:39+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
             http://shivajivarma.com/blog/programming/2014/01/04/smooth-scrolling-to-internal-links-with-jQuery/
         </loc>
         <lastmod>2014-12-29T23:08:12+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://shivajivarma.com/blog/art/2014/01/05/great-paint/</loc>
-        <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/01/21/object-cookie/</loc>
@@ -34,10 +36,6 @@
         <loc>
             http://shivajivarma.com/blog/entertainment/2014/02/23/old-cartoon-network-shows-lost-memories/
         </loc>
-        <lastmod>2014-12-29T23:08:12+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://shivajivarma.com/blog/programming/2014/02/28/greatest-common-divisor/</loc>
         <lastmod>2014-12-29T23:08:12+05:30</lastmod>
     </url>
     <url>
@@ -68,10 +66,6 @@
         <loc>
             http://shivajivarma.com/blog/programming/2014/04/19/counting-characters-words-lines-in-a-file/
         </loc>
-        <lastmod>2014-12-29T23:08:12+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://shivajivarma.com/blog/programming/2014/06/10/compute-1-by-2-power-n/</loc>
         <lastmod>2014-12-29T23:08:12+05:30</lastmod>
     </url>
     <url>
@@ -165,11 +159,11 @@
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
@@ -213,12 +207,16 @@
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
+        <loc>http://shivajivarma.com/code-base/c-camp/2015/01/03/greatest-common-divisor/</loc>
+        <lastmod>2015-01-03T22:14:27+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2015-01-03T14:59:27+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/about/</loc>
-        <lastmod>2014-11-09T17:43:16+05:30</lastmod>
+        <lastmod>2015-01-03T14:34:15+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -270,7 +268,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/c-camp/</loc>
-        <lastmod>2015-01-03T00:38:46+05:30</lastmod>
+        <lastmod>2015-01-03T14:15:08+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/</loc>
@@ -280,30 +278,34 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/java-camp/</loc>
-        <lastmod>2015-01-03T00:38:27+05:30</lastmod>
+        <lastmod>2015-01-03T14:15:08+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/python-camp/</loc>
-        <lastmod>2015-01-03T00:38:27+05:30</lastmod>
+        <lastmod>2015-01-03T14:15:08+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2015-01-03T00:27:11+05:30</lastmod>
+        <lastmod>2015-01-03T22:34:39+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/LICENSE/</loc>
-        <lastmod>2015-01-02T23:05:50+05:30</lastmod>
+        <lastmod>2015-01-03T14:59:27+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/privacy/</loc>
-        <lastmod>2014-03-16T19:36:11+05:30</lastmod>
+        <lastmod>2015-01-03T14:59:27+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/project/</loc>
         <lastmod>2014-03-16T19:36:11+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/search/</loc>
+        <lastmod>2015-01-03T16:14:40+05:30</lastmod>
     </url>
 </urlset>
