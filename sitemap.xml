@@ -6,12 +6,6 @@
     </url>
     <url>
         <loc>
-            http://shivajivarma.com/blog/quotes/2014/01/03/writing-is-a-struggle-against-silence/
-        </loc>
-        <lastmod>2015-01-03T22:34:39+05:30</lastmod>
-    </url>
-    <url>
-        <loc>
             http://shivajivarma.com/blog/programming/2014/01/04/smooth-scrolling-to-internal-links-with-jQuery/
         </loc>
         <lastmod>2014-12-29T23:08:12+05:30</lastmod>
@@ -159,11 +153,11 @@
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
@@ -211,6 +205,12 @@
         <lastmod>2015-01-03T22:14:27+05:30</lastmod>
     </url>
     <url>
+        <loc>
+            http://shivajivarma.com/blog/quotes/2015/01/03/writing-is-a-struggle-against-silence/
+        </loc>
+        <lastmod>2015-01-03T22:34:39+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
         <lastmod>2015-01-03T14:59:27+05:30</lastmod>
     </url>
@@ -222,7 +222,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/art/</loc>
-        <lastmod>2014-12-28T17:44:48+05:30</lastmod>
+        <lastmod>2015-01-04T09:58:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/categories/</loc>
@@ -232,33 +232,33 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/entertainment/</loc>
-        <lastmod>2014-12-28T17:45:07+05:30</lastmod>
+        <lastmod>2015-01-04T09:58:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/</loc>
-        <lastmod>2014-12-28T13:08:32+05:30</lastmod>
+        <lastmod>2015-01-04T09:49:53+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/</loc>
-        <lastmod>2014-12-28T17:45:34+05:30</lastmod>
+        <lastmod>2015-01-04T09:58:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/my-talks/</loc>
-        <lastmod>2014-12-28T17:45:59+05:30</lastmod>
+        <lastmod>2015-01-04T09:58:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/</loc>
-        <lastmod>2014-12-28T17:46:26+05:30</lastmod>
+        <lastmod>2015-01-04T09:58:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/quotes/</loc>
-        <lastmod>2014-12-28T17:46:39+05:30</lastmod>
+        <lastmod>2015-01-04T09:58:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/stories/</loc>
-        <lastmod>2014-12-28T17:46:55+05:30</lastmod>
+        <lastmod>2015-01-04T09:58:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/tags/</loc>
