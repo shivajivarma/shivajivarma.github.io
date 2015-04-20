@@ -20,7 +20,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/project/2014/02/09/bus-reservation-system/</loc>
-        <lastmod>2015-01-05T20:36:00+05:30</lastmod>
+        <lastmod>2015-04-20T20:34:07+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/music/2014/02/12/om-namaha-geethanjali/</loc>
@@ -122,7 +122,7 @@
         <loc>
             http://shivajivarma.com/blog/programming/2014/11/08/resposive-table-using-html5/
         </loc>
-        <lastmod>2015-01-05T20:35:34+05:30</lastmod>
+        <lastmod>2015-04-20T20:52:27+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/my-talks/2014/11/13/my-paintings/</loc>
@@ -130,7 +130,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/programming/2014/11/19/accordion-using-jQuery/</loc>
-        <lastmod>2015-01-03T14:08:29+05:30</lastmod>
+        <lastmod>2015-04-20T20:53:25+05:30</lastmod>
     </url>
     <url>
         <loc>
@@ -149,11 +149,11 @@
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-01-03T14:08:29+05:30</lastmod>
     </url>
     <url>
@@ -217,6 +217,12 @@
             http://shivajivarma.com/code-base/c-camp/2015/01/05/searching-algorithms-linear-search/
         </loc>
         <lastmod>2015-01-05T23:13:55+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://shivajivarma.com/blog/programming/2015/04/20/disable-arrow-keys-using-javascript/
+        </loc>
+        <lastmod>2015-04-20T21:01:15+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/404.html</loc>
@@ -294,7 +300,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2015-01-05T23:13:55+05:30</lastmod>
+        <lastmod>2015-04-20T21:01:15+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
