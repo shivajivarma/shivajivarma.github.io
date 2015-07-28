@@ -100,7 +100,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/blog/stories/2014/10/27/relationship/</loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
+        <lastmod>2015-07-28T10:31:06+05:30</lastmod>
     </url>
     <url>
         <loc>
@@ -149,11 +149,11 @@
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
@@ -225,6 +225,16 @@
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
+        <loc>http://shivajivarma.com/blog/my-talks/2015/07/27/rest-in-peace-abdul-kalam/</loc>
+        <lastmod>2015-07-28T11:00:08+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://shivajivarma.com/blog/stories/2015/07/27/secret-of-success-get-mind-set-of-ant/
+        </loc>
+        <lastmod>2015-07-28T11:01:07+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://shivajivarma.com/404.html</loc>
         <lastmod>2015-07-21T06:57:12+05:30</lastmod>
     </url>
@@ -294,7 +304,7 @@
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
+        <lastmod>2015-07-28T11:01:07+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
