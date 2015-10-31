@@ -145,59 +145,53 @@
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/anagram/</loc>
+        <loc>http://shivajivarma.com/code-base/c/2014/12/28/anagram/</loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/python-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/python/2014/12/28/armstrong-number/</loc>
+        <lastmod>2015-10-31T17:23:33+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/code-base/c/2014/12/28/armstrong-number/</loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2014/12/28/armstrong-number/</loc>
+        <loc>http://shivajivarma.com/code-base/c/2014/12/28/sorting-algorithms-bubble-sort/</loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://shivajivarma.com/code-base/c-camp/2014/12/28/sorting-algorithms-bubble-sort/
+            http://shivajivarma.com/code-base/c/2014/12/28/sorting-algorithms-insertion-sort/
         </loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://shivajivarma.com/code-base/c-camp/2014/12/28/sorting-algorithms-insertion-sort/
+            http://shivajivarma.com/code-base/python/2014/12/30/longest-palindrome-substring-length/
         </loc>
+        <lastmod>2015-10-31T17:23:52+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/code-base/python/2015/01/02/reverse-a-string/</loc>
+        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-merge-sort/</loc>
+        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-quick-sort/</loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://shivajivarma.com/code-base/python-camp/2014/12/30/longest-palindrome-substring-length/
+            http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-selection-sort/
         </loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/python-camp/2015/01/02/reverse-a-string/</loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://shivajivarma.com/code-base/c-camp/2015/01/02/sorting-algorithms-merge-sort/
-        </loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://shivajivarma.com/code-base/c-camp/2015/01/02/sorting-algorithms-quick-sort/
-        </loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://shivajivarma.com/code-base/c-camp/2015/01/02/sorting-algorithms-selection-sort/
-        </loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2015/01/03/greatest-common-divisor/</loc>
+        <loc>http://shivajivarma.com/code-base/c/2015/01/03/greatest-common-divisor/</loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
@@ -208,13 +202,13 @@
     </url>
     <url>
         <loc>
-            http://shivajivarma.com/code-base/c-camp/2015/01/05/searching-algorithms-binary-search/
+            http://shivajivarma.com/code-base/c/2015/01/05/searching-algorithms-binary-search/
         </loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://shivajivarma.com/code-base/c-camp/2015/01/05/searching-algorithms-linear-search/
+            http://shivajivarma.com/code-base/c/2015/01/05/searching-algorithms-linear-search/
         </loc>
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
@@ -241,7 +235,7 @@
         <lastmod>2015-08-12T22:19:21+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/2015/08/25/random-number-generator/</loc>
+        <loc>http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/</loc>
         <lastmod>2015-08-25T07:47:15+05:30</lastmod>
     </url>
     <url>
@@ -295,26 +289,26 @@
         <lastmod>2015-07-14T22:19:38+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/c-camp/</loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
+        <loc>http://shivajivarma.com/code-base/c/</loc>
+        <lastmod>2015-10-31T17:40:10+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/code-base/</loc>
-        <lastmod>2015-07-19T20:14:17+05:30</lastmod>
+        <lastmod>2015-10-31T17:30:18+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/java-camp/</loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
+        <loc>http://shivajivarma.com/code-base/java/</loc>
+        <lastmod>2015-10-31T17:40:10+05:30</lastmod>
     </url>
     <url>
-        <loc>http://shivajivarma.com/code-base/python-camp/</loc>
-        <lastmod>2015-07-14T22:19:38+05:30</lastmod>
+        <loc>http://shivajivarma.com/code-base/python/</loc>
+        <lastmod>2015-10-31T17:40:10+05:30</lastmod>
     </url>
     <url>
         <loc>http://shivajivarma.com/</loc>
-        <lastmod>2015-08-25T07:47:15+05:30</lastmod>
+        <lastmod>2015-10-31T17:23:52+05:30</lastmod>
         <changefreq>always</changefreq>
         <priority>1</priority>
     </url>
