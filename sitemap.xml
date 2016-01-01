@@ -215,46 +215,46 @@
     <loc>http://shivajivarma.com/code-base/c/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/stories/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/python/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/quotes/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/java/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/programming/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/my-talks/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/project/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/thanks/</loc>
+    <loc>http://shivajivarma.com/blog/entertainment/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/music/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/entertainment/</loc>
+    <loc>http://shivajivarma.com/blog/my-talks/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/programming/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/quotes/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/stories/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/code-base/java/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/art/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/project/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/code-base/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/thanks/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/code-base/python/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/privacy/</loc>
@@ -409,4 +409,12 @@
     <url>
       <loc>http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/</loc>
     </url>
+  <url>
+    <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/bootstrap-elements.html</loc>
+    <lastmod>2015-01-03T10:36:45+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/dist/test.html</loc>
+    <lastmod>2015-01-03T10:36:46+05:30</lastmod>
+  </url>
 </urlset>
