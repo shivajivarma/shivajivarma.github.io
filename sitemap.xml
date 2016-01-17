@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shivajivarma.com/project/age-calculator/</loc>
+    <lastmod>2016-01-17T00:00:00+05:30</lastmod>
+  </url>
+  <url>
     <loc>http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/</loc>
     <lastmod>2015-08-25T00:00:00+05:30</lastmod>
   </url>
@@ -177,7 +181,7 @@
     <lastmod>2014-02-12T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/project/2014/02/09/bus-reservation-system/</loc>
+    <loc>http://shivajivarma.com/project/bus-reservation-system/</loc>
     <lastmod>2014-02-09T00:00:00+05:30</lastmod>
   </url>
   <url>
@@ -206,13 +210,13 @@
     <loc>http://shivajivarma.com/about/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/project/bus-reservation-system/</loc>
-  </url>
-  <url>
     <loc>http://shivajivarma.com/blog/categories/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/</loc>
+    <loc>http://shivajivarma.com/blog/quotes/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/art/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/entertainment/</loc>
@@ -227,34 +231,31 @@
     <loc>http://shivajivarma.com/blog/programming/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/quotes/</loc>
+    <loc>http://shivajivarma.com/code-base/c/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/stories/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/java/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/art/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/</loc>
+    <loc>http://shivajivarma.com/thanks/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/project/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/</loc>
+    <loc>http://shivajivarma.com/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/thanks/</loc>
+    <loc>http://shivajivarma.com/code-base/java/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/code-base/python/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/code-base/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/privacy/</loc>
@@ -275,7 +276,7 @@
       <loc>http://shivajivarma.com/project/2014/02/08/sum-of-two-numbers/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/project/2014/02/09/bus-reservation-system/</loc>
+      <loc>http://shivajivarma.com/project/bus-reservation-system/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/blog/music/2014/02/12/om-namaha-geethanjali/</loc>
@@ -408,6 +409,9 @@
     </url>
     <url>
       <loc>http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/</loc>
+    </url>
+    <url>
+      <loc>http://shivajivarma.com/project/age-calculator/</loc>
     </url>
   <url>
     <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/bootstrap-elements.html</loc>
