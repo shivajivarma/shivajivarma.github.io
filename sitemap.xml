@@ -25,14 +25,6 @@
     <lastmod>2015-04-20T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/05/searching-algorithms-linear-search/</loc>
-    <lastmod>2015-01-05T00:00:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/05/searching-algorithms-binary-search/</loc>
-    <lastmod>2015-01-05T00:00:00+05:30</lastmod>
-  </url>
-  <url>
     <loc>http://shivajivarma.com/code-base/c/2015/01/03/greatest-common-divisor/</loc>
     <lastmod>2015-01-03T00:00:00+05:30</lastmod>
   </url>
@@ -45,31 +37,11 @@
     <lastmod>2015-01-02T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-selection-sort/</loc>
-    <lastmod>2015-01-02T00:00:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-quick-sort/</loc>
-    <lastmod>2015-01-02T00:00:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-merge-sort/</loc>
-    <lastmod>2015-01-02T00:00:00+05:30</lastmod>
-  </url>
-  <url>
     <loc>http://shivajivarma.com/code-base/python/2014/12/30/longest-palindrome-substring-length/</loc>
     <lastmod>2014-12-30T00:00:00+05:30</lastmod>
   </url>
   <url>
     <loc>http://shivajivarma.com/code-base/python/2014/12/28/armstrong-number/</loc>
-    <lastmod>2014-12-28T00:00:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/c/2014/12/28/sorting-algorithms-insertion-sort/</loc>
-    <lastmod>2014-12-28T00:00:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/c/2014/12/28/sorting-algorithms-bubble-sort/</loc>
     <lastmod>2014-12-28T00:00:00+05:30</lastmod>
   </url>
   <url>
@@ -207,22 +179,22 @@
     <loc>http://shivajivarma.com/LICENSE/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/about/</loc>
-  </url>
-  <url>
     <loc>http://shivajivarma.com/blog/categories/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/music/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/art/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/entertainment/</loc>
   </url>
   <url>
+    <loc>http://shivajivarma.com/project/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/art/</loc>
+  </url>
+  <url>
     <loc>http://shivajivarma.com/thanks/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/music/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/my-talks/</loc>
@@ -234,7 +206,7 @@
     <loc>http://shivajivarma.com/blog/quotes/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/project/</loc>
+    <loc>http://shivajivarma.com/code-base/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/</loc>
@@ -249,10 +221,10 @@
     <loc>http://shivajivarma.com/code-base/python/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/</loc>
+    <loc>http://shivajivarma.com/blog/stories/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/stories/</loc>
+    <loc>http://shivajivarma.com/index2/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/privacy/</loc>
@@ -357,25 +329,10 @@
       <loc>http://shivajivarma.com/code-base/c/2014/12/28/armstrong-number/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2014/12/28/sorting-algorithms-bubble-sort/</loc>
-    </url>
-    <url>
-      <loc>http://shivajivarma.com/code-base/c/2014/12/28/sorting-algorithms-insertion-sort/</loc>
-    </url>
-    <url>
       <loc>http://shivajivarma.com/code-base/python/2014/12/28/armstrong-number/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/code-base/python/2014/12/30/longest-palindrome-substring-length/</loc>
-    </url>
-    <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-merge-sort/</loc>
-    </url>
-    <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-quick-sort/</loc>
-    </url>
-    <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/02/sorting-algorithms-selection-sort/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/code-base/python/2015/01/02/reverse-a-string/</loc>
@@ -385,12 +342,6 @@
     </url>
     <url>
       <loc>http://shivajivarma.com/code-base/c/2015/01/03/greatest-common-divisor/</loc>
-    </url>
-    <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/05/searching-algorithms-binary-search/</loc>
-    </url>
-    <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/05/searching-algorithms-linear-search/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/blog/programming/2015/04/20/disable-arrow-keys-using-javascript/</loc>
