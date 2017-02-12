@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shivajivarma.com/project/transporter/</loc>
+    <lastmod>2017-02-12T00:00:00+05:30</lastmod>
+  </url>
+  <url>
     <loc>http://shivajivarma.com/project/age-calculator/</loc>
     <lastmod>2016-01-17T00:00:00+05:30</lastmod>
   </url>
@@ -109,7 +113,7 @@
     <lastmod>2014-09-30T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/project/2014/09/25/search-engine/</loc>
+    <loc>http://shivajivarma.com/project/search-engine/</loc>
     <lastmod>2014-09-25T00:00:00+05:30</lastmod>
   </url>
   <url>
@@ -182,21 +186,6 @@
     <loc>http://shivajivarma.com/blog/categories/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/entertainment/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/project/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/art/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/thanks/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/music/</loc>
-  </url>
-  <url>
     <loc>http://shivajivarma.com/blog/my-talks/</loc>
   </url>
   <url>
@@ -206,22 +195,37 @@
     <loc>http://shivajivarma.com/blog/quotes/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/</loc>
+    <loc>http://shivajivarma.com/blog/stories/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/music/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/</loc>
+    <loc>http://shivajivarma.com/code-base/c/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/</loc>
+    <loc>http://shivajivarma.com/blog/entertainment/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/code-base/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/project/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/thanks/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/art/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/code-base/python/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/stories/</loc>
+    <loc>http://shivajivarma.com/blog/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/index2/</loc>
@@ -278,7 +282,7 @@
       <loc>http://shivajivarma.com/blog/stories/2014/08/03/real-meaning-of-peace/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/project/2014/09/25/search-engine/</loc>
+      <loc>http://shivajivarma.com/project/search-engine/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/blog/programming/2014/09/30/hello-node/</loc>
@@ -361,12 +365,19 @@
     <url>
       <loc>http://shivajivarma.com/project/age-calculator/</loc>
     </url>
+    <url>
+      <loc>http://shivajivarma.com/project/transporter/</loc>
+    </url>
   <url>
     <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/bootstrap-elements.html</loc>
-    <lastmod>2015-01-03T10:36:45+05:30</lastmod>
+    <lastmod>2016-12-21T08:11:25+05:30</lastmod>
   </url>
   <url>
     <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/dist/test.html</loc>
-    <lastmod>2015-01-03T10:36:46+05:30</lastmod>
+    <lastmod>2016-12-21T08:11:26+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/meteor/example/client/bmd.html</loc>
+    <lastmod>2016-12-21T08:11:26+05:30</lastmod>
   </url>
 </urlset>

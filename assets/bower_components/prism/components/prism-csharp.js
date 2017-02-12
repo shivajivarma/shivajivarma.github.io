@@ -4,10 +4,18 @@ Prism.languages.csharp = Prism.languages.extend('clike', {
 		/@("|')(\1\1|\\\1|\\?(?!\1)[\s\S])*\1/,
 		/("|')(\\?.)*?\1/
 	],
-	'number': /\b-?(0x[\da-f]+|\d*\.?\d+)\b/i
+	'number': /\b-?(0x[\da-f]+|\d*\.?\d+f?)\b/i
 });
 
 Prism.languages.insertBefore('csharp', 'keyword', {
+	'generic-method': {
+		pattern: /[a-z0-9_]+\s*<[^>\r\n]+?>\s*(?=\()/i,
+		alias: 'function',
+		inside: {
+			keyword: Prism.languages.csharp.keyword,
+			punctuation: /[<>(),.:]/
+		}
+	},
 	'preprocessor': {
 		pattern: /(^\s*)#.*/m,
 		lookbehind: true,
