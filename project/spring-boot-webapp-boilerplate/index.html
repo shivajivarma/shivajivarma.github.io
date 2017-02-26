@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+	<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spring Boot Boilerplate &middot; Shivaji Varma</title>
+
+  <!-- Page meta data -->
+  <meta name="author" content="Shivaji Varma">
+  <meta name="copyright" content="(c) 2017 Shivaji Varma">
+  <meta property="og:url" content="http://shivajivarma.com/project/spring-boot-webapp-boilerplate/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://shivajivarma.com/assets/img/profile.jpg">
+  <meta property="og:site_name" content="Shivaji Varma">
+  <meta property="fb:admins" content="100002868559363">
+
+  <meta property="og:title" content="Spring Boot Boilerplate &middot; Shivaji Varma">
+  <meta name="description"  property="og:description" content="An boilerplate web application to kick start development.">
+  <meta name="keywords" content="Shivaji Varma, dbms, bus reservation system, java, dot net, er diagrams, data base management system, project">
+
+	<!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
+	<!-- Icons -->
+	<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+	<link rel="author" href="https://plus.google.com/108142170241252227550?rel=author">
+	<link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom">
+	<link rel="canonical" href="http://shivajivarma.com/project/spring-boot-webapp-boilerplate/">
+	<link rel="alternate" type="application/rss+xml" title="Shivaji Varma" href="http://shivajivarma.com/feed.xml">
+
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap-material-design/dist/css/material-wfont.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/prism/themes/prism.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/owl-carousel/owl.theme.css">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/import.css">
+
+	
+	<style type="text/css">
+		
+	</style>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript" src="/assets/bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="/assets/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+
+    
+	<body id=body itemscope itemtype="http://schema.org/WebPage">
+	<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5BRS3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5BRS3L');</script>
+<!-- End Google Tag Manager -->
+		
+		<!-- Fixed navbar -->
+<header id=header class="navbar navbar-inverse navbar-fixed-top" itemscope itemtype="http://schema.org/WPHeader">
+<nav class=container-fluid role=navigation itemscope itemtype="http://schema.org/SiteNavigationElement">
+	<div class=navbar-header>
+		<button type=button class=navbar-toggle data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class=icon-bar></span>
+			<span class=icon-bar></span>
+			<span class=icon-bar></span>
+		</button>
+		<a class=navbar-brand href="/#body">
+			<img alt="" title=Logo src="/assets/img/logo2.png">
+		</a>
+	</div><!--/.nav-header -->
+	<div class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li class="dropdown ">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" itemprop=url><i class="fa fa-pencil margin-right-5px"></i><span itemprop=name>Blog</span> <b class="caret"></b></a>
+			  <ul class="dropdown-menu">
+				<li><a href="/blog/#body" itemprop=url><i class="fa fa-archive margin-right-5px"></i><span itemprop=name>Archives</span></a></li>
+				<li><a href="/blog/categories/#body" itemprop=url><i class="fa fa-list margin-right-5px"></i><span itemprop=name>Categaries</span></a></li>
+			  </ul>
+			</li>
+			<li ><a href="/project/#body" itemprop=url><i class="fa fa-code margin-right-5px"></i><span itemprop=name>Projects</span></a></li>
+		</ul>
+		<!--ul class="nav navbar-nav navbar-right">
+			<li ><a href="/about/#body" itemprop=url><span itemprop=name>About</span></a></li>
+		</ul-->
+		<form id=nav-search class="navbar-form navbar-right" action="/search" role="search">
+				<div class=input-group>
+					<input type="text" class="form-control" title="Search" placeholder="Search" name="q" id="q">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+		</form>	
+	</div><!--/.nav-collapse -->
+</nav>
+</header><!--/.navbar -->
+
+<div id="content">
+	<!-- Breadcrumb -->
+<ol class="breadcrumb container-fluid margin-10px capitalize  hidden-xs" itemscope itemtype="http://schema.org/BreadcrumbList">
+	<li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><a href="/" itemprop="item" title="Home"><span itemprop="name">Home</span></a></li>
+	<li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><a href="/project/" itemprop="item" title="Projects"><span itemprop="name">Projects</span></a></li>
+	<li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem" class="active" itemprop="title" title="Spring Boot Boilerplate"><span itemprop=name>Spring Boot Boilerplate</span></li>
+</ol><!-- /.breadcrumb -->
+<div class="margin-top-10px  visible-xs"></div>
+<div class=container-fluid itemscope itemtype="http://schema.org/Article">
+	<h1 class=no-margin itemprop=name>Spring Boot Boilerplate</h1>
+	<p>
+  <small class=text-muted>Posted on February 26, 2017 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
+</p>
+	<div class="row">
+    <div class="col-md-9">
+        <p>An boilerplate web application to kick start development.</p>
+        <p>Spring Boot based Web Application boilerplate, with stateless authentication using JWT.</p>
+        
+        <p><a class="btn btn-info" onclick="ga('send', 'event', 'button', 'click', 'Spring Boot Boilerplate View Source Code');" target="_blank" href="//github.com/shivajivarma/bus-reservation-system" title="View Source Code">View Source Code</a></p>
+	  
+      
+        <!-- Place this tag where you want the +1 button to render. -->
+        <div class="g-plusone" data-href="http://shivajivarma.com/project/spring-boot-webapp-boilerplate/"></div><br/>
+
+        <!-- facebook like -->
+        <div class="fb-like margin-top-20px" data-href="http://shivajivarma.com/project/spring-boot-webapp-boilerplate/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+	     
+        <hr>         
+        
+        <h3>Setup :</h3>
+
+        <p>Install MySQL and create `boilerplate` schema.</p>
+        <p>Clone the repository.</p>
+        <p><code>git clone https://github.com/shivajivarma/spring-boot-webapp-boilerplate</code></p>
+
+        <h3>Run :</h3>
+
+        <p>To run the demo application just execute this command in the root directory:</p>
+        <p><code>mvn spring-boot:run</code></p>
+        <p>And navigate to <a href="http://localhost:8080">http://localhost:8080</a> to check the demo.</p>
+         
+    </div> 
+    
+    <div class=col-md-3>
+		<div class=ads>
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Responsive Text Ads -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-3120721550776061"
+		 data-ad-slot="2001608442"
+		 data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+</div>
+	</div>
+</div>
+
+
+</div>
+<!-- comments -->
+<div id="comments" class="container-fluid margin-bottom-10px">
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="#" class="dsq-brlink">loading comments...</a>
+</div>
+	<div id="push"></div>
+</div>
+<div id="footer" class="border-top">  
+  <footer class="container-fluid" itemscope itemtype="http://schema.org/WPFooter">
+    <p class=back-to-top><a href="#body"><i class="fa fa-angle-up font-32px"></i></a></p>
+    <p>
+		ALL WORKS &copy; 2017 <a target="_blank" href="https://plus.google.com/108142170241252227550?rel=author" rel="author">SHIVAJI VARMA</a> &middot; <a href="/privacy">PRIVACY</a> &middot; <a href="#body">TERMS</a> &middot; <a href="/LICENSE">LICENSE</a>
+	</p>
+    <p class=no-margin>
+		Based on <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>. 
+		Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>. 
+		View source on <a target="_blank" href="http://github.com/shivajivarma/shivajivarma.github.io">Github</a>
+	</p>
+  </footer>
+</div><!-- /#footer -->
+<!-- build:js(app) /assets/js/main.js -->
+<script src="/assets/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script src="/assets/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/prism.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-c.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-python.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/owl-carousel/owl.carousel.js"></script>
+<script src="/assets/js/main.js"></script>
+<!-- endbuild -->
+<script type="text/javascript">
+	
+</script>
+
+
+
+
+	<script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
+
+
+
+	<!--FACEBOOK LIKE-->
+<div id="fb-root"></div>
+<script type="text/javascript">(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=167521153332522";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--/FACEBOOK LIKE-->
+
+
+<!--DISQUS COMMENTS-->
+<script type="text/javascript">
+	var disqus_shortname = 'shivajivarma'; // required: replace example with your forum shortname
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script><!--/DISQUS COMMENTS-->
+
+		
+		<!--GOOGLE ANALYTICS CODE-->
+<script type="text/javascript">
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-42422649-1', 'shivajivarma.com');
+ ga('send', 'pageview');
+</script><!--/GOOGLE ANALYTICS CODE-->
+	</body>
+</html>
