@@ -5,27 +5,27 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Random Number Generator &middot; Shivaji Varma</title>
+  <title>Binary Search &middot; Shivaji Varma</title>
 
   <!-- Page meta data -->
   <meta name="author" content="Shivaji Varma">
   <meta name="copyright" content="(c) 2017 Shivaji Varma">
-  <meta property="og:url" content="http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/">
+  <meta property="og:url" content="http://shivajivarma.com/code-base/c/2015/01/05/binary-search/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="http://shivajivarma.com/assets/img/profile.jpg">
   <meta property="og:site_name" content="Shivaji Varma">
   <meta property="fb:admins" content="100002868559363">
 
-  <meta property="og:title" content="Random Number Generator &middot; Shivaji Varma">
-  <meta name="description"  property="og:description" content="Program to generate random number">
-  <meta name="keywords" content="Shivaji Varma, random number, c program">
+  <meta property="og:title" content="Binary Search &middot; Shivaji Varma">
+  <meta name="description"  property="og:description" content="Program to perform search on sorted set of numbers using Binary search technique">
+  <meta name="keywords" content="Shivaji Varma, binary search algorithm, search algorithm, binary search program in c, binary search algorithm in java, binary search algorithm implemented in c">
 
 	<!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
 	<!-- Icons -->
 	<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
 	<link rel="author" href="https://plus.google.com/108142170241252227550?rel=author">
 	<link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom">
-	<link rel="canonical" href="http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/">
+	<link rel="canonical" href="http://shivajivarma.com/code-base/c/2015/01/05/binary-search/">
 	<link rel="alternate" type="application/rss+xml" title="Shivaji Varma" href="http://shivajivarma.com/feed.xml">
 
 	<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -118,26 +118,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <li itemprop="itemListElement" itemscope
       itemtype="http://schema.org/ListItem"><a href="/code-base/c/" itemprop="item" title="c"><span itemprop="name">c</span></a></li>
   <li itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem" class="active" title="Random Number Generator"><span itemprop=name>Random Number Generator</span></li>
+      itemtype="http://schema.org/ListItem" class="active" title="Binary Search"><span itemprop=name>Binary Search</span></li>
 </ol><!-- /.breadcrumb -->
 <div class="margin-top-10px  visible-xs"></div>
 <article class=container-fluid itemscope itemtype="http://schema.org/Article">
-	<h1 class=no-margin itemprop=name>Random Number Generator</h1>
+	<h1 class=no-margin itemprop=name>Binary Search</h1>
 	<p>
-  <small class=text-muted>Posted on August 25, 2015 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
+  <small class=text-muted>Posted on January 5, 2015 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
 </p>
 	<div class=row>
 		<div class=col-md-9>
-			<p>This is C program to generate <strong>Random Number</strong> between 1 and n.</p>
+			<p>A <strong>Binary search</strong> locates an item in a sorted array by repeatedly dividing the search interval in half. The initial interval includes the entire array. If the value of the search key is less than the item in the middle of the interval, then the next interval will be the lower half of the current interval. If the value of the search key is greater than the middle item, then the next interval will be the upper half. The search process repeats until the item is found or the search interval is empty.</p>
 
-<blockquote><p>Program to generate random number.</p></blockquote>
+<p>Binary Search is an O(log n) algorithm, which is more efficient than a linear search for large arrays.</p>
+
+<blockquote>Program to perform search on sorted set of numbers using Binary search technique</blockquote>
+
 
 <h3>Code</h3>
-<pre><code id="anagram" class="language-c">loading...</code></pre>
+<pre><code id="git-binary-search" class="language-c">loading...</code></pre>
 
 <p>
-  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/random-number/random-number.c" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
-  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/random-number/random-number.c" download="src/random-number/random-number.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+  <a href="https://github.com/codemons/codebase/blob/master/searching-algorithms/binary-search/binary-search.c" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/codemons/codebase/master/searching-algorithms/binary-search/binary-search.c" download="searching-algorithms/binary-search/binary-search.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
+
+<h3>Output</h3>
+<pre><code class="language-c">Enter size of the array :: 8
+
+Enter elements of the array in ascending order :: 1 5 7 11 12 56 102 156
+
+Enter the number to be searched :: 102
+
+102 is present at location 7.</code></pre>
 
 
 			<ul class=pager> 
@@ -152,7 +165,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				
 				
 					
-						<a href="/code-base/c/2015/01/05/linear-search/" title="Previous Post: Linear Search">Previous</a>
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+						<a href="/code-base/c/2015/01/03/greatest-common-divisor/" title="Previous Post: Greatest Common Divisor">Previous</a>
 						 
 				</li> 
 				
@@ -221,14 +244,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				
 				
 					
-					
-				
-				
-				
-					
-					
-				
-				 
+						<a href="/code-base/c/2015/01/05/linear-search/" title="Previous Post: Linear Search">Next</a>
+						 
 				</li>
 			</ul>
 		</div>
@@ -285,13 +302,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
   $.ajax({
     type: "GET",
-    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/random-number/random-number.c",
+    url: "https://raw.githubusercontent.com/codemons/codebase/master/searching-algorithms/binary-search/binary-search.c",
     async: false,
     success: function(data){
-      $('#anagram').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#git-binary-search').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#anagram').html('Loading failed, please download to view the code.');
+      $('#git-binary-search').html('Loading failed, please download to view the code.');
     }
   })
 

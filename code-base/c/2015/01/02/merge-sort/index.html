@@ -5,27 +5,27 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Random Number Generator &middot; Shivaji Varma</title>
+  <title>Merge Sort &middot; Shivaji Varma</title>
 
   <!-- Page meta data -->
   <meta name="author" content="Shivaji Varma">
   <meta name="copyright" content="(c) 2017 Shivaji Varma">
-  <meta property="og:url" content="http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/">
+  <meta property="og:url" content="http://shivajivarma.com/code-base/c/2015/01/02/merge-sort/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="http://shivajivarma.com/assets/img/profile.jpg">
   <meta property="og:site_name" content="Shivaji Varma">
   <meta property="fb:admins" content="100002868559363">
 
-  <meta property="og:title" content="Random Number Generator &middot; Shivaji Varma">
-  <meta name="description"  property="og:description" content="Program to generate random number">
-  <meta name="keywords" content="Shivaji Varma, random number, c program">
+  <meta property="og:title" content="Merge Sort &middot; Shivaji Varma">
+  <meta name="description"  property="og:description" content="Program to perform sort on set of numbers using merge sort technique">
+  <meta name="keywords" content="Shivaji Varma, merge sort algorithm, sorting algorithm, merge sort program in c, merge sort algorithm in java, merge sort algorithm implemented in c">
 
 	<!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
 	<!-- Icons -->
 	<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
 	<link rel="author" href="https://plus.google.com/108142170241252227550?rel=author">
 	<link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom">
-	<link rel="canonical" href="http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/">
+	<link rel="canonical" href="http://shivajivarma.com/code-base/c/2015/01/02/merge-sort/">
 	<link rel="alternate" type="application/rss+xml" title="Shivaji Varma" href="http://shivajivarma.com/feed.xml">
 
 	<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -118,28 +118,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <li itemprop="itemListElement" itemscope
       itemtype="http://schema.org/ListItem"><a href="/code-base/c/" itemprop="item" title="c"><span itemprop="name">c</span></a></li>
   <li itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem" class="active" title="Random Number Generator"><span itemprop=name>Random Number Generator</span></li>
+      itemtype="http://schema.org/ListItem" class="active" title="Merge Sort"><span itemprop=name>Merge Sort</span></li>
 </ol><!-- /.breadcrumb -->
 <div class="margin-top-10px  visible-xs"></div>
 <article class=container-fluid itemscope itemtype="http://schema.org/Article">
-	<h1 class=no-margin itemprop=name>Random Number Generator</h1>
+	<h1 class=no-margin itemprop=name>Merge Sort</h1>
 	<p>
-  <small class=text-muted>Posted on August 25, 2015 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
+  <small class=text-muted>Posted on January 2, 2015 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
 </p>
 	<div class=row>
 		<div class=col-md-9>
-			<p>This is C program to generate <strong>Random Number</strong> between 1 and n.</p>
+			<p><b>Merge sort</b> is a sorting algorithm that sorts data items into ascending or descending order, which comes under the category of comparison-based sorting. Here we apply the divide-and-conquer strategy to sort a given sequence of data items, which can be described as follows:</p>
 
-<blockquote><p>Program to generate random number.</p></blockquote>
+<ul>
+<li>Recursively split the sequence into two halves (i.e. subsequences) until the subsequence contains only a single data item (i.e. singleton subsequence)</li>
+<li>Now, recursively merge these subsequences back together preserving their required order (i.e. ascending or descending order)</li>
+</ul>
+
+<blockquote>Program to perform sort on set of numbers using merge sort technique</blockquote>
 
 <h3>Code</h3>
-<pre><code id="anagram" class="language-c">loading...</code></pre>
+<pre><code id="code-c" class="language-c">loading...</code></pre>
 
 <p>
-  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/random-number/random-number.c" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
-  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/random-number/random-number.c" download="src/random-number/random-number.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+  <a href="https://github.com/codemons/codebase/blob/master/sorting-algorithms/merge-sort/merge-sort.c" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/codemons/codebase/master/sorting-algorithms/merge-sort/merge-sort.c" download="sorting-algorithms/merge-sort/merge-sort.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
 
-
+   
 			<ul class=pager> 
 			
 			
@@ -152,7 +157,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				
 				
 					
-						<a href="/code-base/c/2015/01/05/linear-search/" title="Previous Post: Linear Search">Previous</a>
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+						<a href="/code-base/python/2014/12/30/longest-palindrome-substring-length/" title="Previous Post: Longest Palindrome Sub String Length">Previous</a>
 						 
 				</li> 
 				
@@ -196,39 +236,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				
 				
 					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				 
+						<a href="/code-base/c/2015/01/02/quick-sort/" title="Previous Post: Quick Sort">Next</a>
+						 
 				</li>
 			</ul>
 		</div>
@@ -285,13 +294,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
   $.ajax({
     type: "GET",
-    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/random-number/random-number.c",
+    url: "https://raw.githubusercontent.com/codemons/codebase/master/sorting-algorithms/merge-sort/merge-sort.c",
     async: false,
     success: function(data){
-      $('#anagram').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#code-c').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#anagram').html('Loading failed, please download to view the code.');
+      $('#code-c').html('Loading failed, please download to view the code.');
     }
   })
 

@@ -5,27 +5,27 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Random Number Generator &middot; Shivaji Varma</title>
+  <title>Quick Sort &middot; Shivaji Varma</title>
 
   <!-- Page meta data -->
   <meta name="author" content="Shivaji Varma">
   <meta name="copyright" content="(c) 2017 Shivaji Varma">
-  <meta property="og:url" content="http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/">
+  <meta property="og:url" content="http://shivajivarma.com/code-base/c/2015/01/02/quick-sort/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="http://shivajivarma.com/assets/img/profile.jpg">
   <meta property="og:site_name" content="Shivaji Varma">
   <meta property="fb:admins" content="100002868559363">
 
-  <meta property="og:title" content="Random Number Generator &middot; Shivaji Varma">
-  <meta name="description"  property="og:description" content="Program to generate random number">
-  <meta name="keywords" content="Shivaji Varma, random number, c program">
+  <meta property="og:title" content="Quick Sort &middot; Shivaji Varma">
+  <meta name="description"  property="og:description" content="Program to perform sort on set of numbers using Quick sort technique">
+  <meta name="keywords" content="Shivaji Varma, quick sort algorithm, sorting algorithm, quick sort program in c, quick sort algorithm in java, quick sort algorithm implemented in c">
 
 	<!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
 	<!-- Icons -->
 	<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
 	<link rel="author" href="https://plus.google.com/108142170241252227550?rel=author">
 	<link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom">
-	<link rel="canonical" href="http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/">
+	<link rel="canonical" href="http://shivajivarma.com/code-base/c/2015/01/02/quick-sort/">
 	<link rel="alternate" type="application/rss+xml" title="Shivaji Varma" href="http://shivajivarma.com/feed.xml">
 
 	<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -118,27 +118,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <li itemprop="itemListElement" itemscope
       itemtype="http://schema.org/ListItem"><a href="/code-base/c/" itemprop="item" title="c"><span itemprop="name">c</span></a></li>
   <li itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem" class="active" title="Random Number Generator"><span itemprop=name>Random Number Generator</span></li>
+      itemtype="http://schema.org/ListItem" class="active" title="Quick Sort"><span itemprop=name>Quick Sort</span></li>
 </ol><!-- /.breadcrumb -->
 <div class="margin-top-10px  visible-xs"></div>
 <article class=container-fluid itemscope itemtype="http://schema.org/Article">
-	<h1 class=no-margin itemprop=name>Random Number Generator</h1>
+	<h1 class=no-margin itemprop=name>Quick Sort</h1>
 	<p>
-  <small class=text-muted>Posted on August 25, 2015 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
+  <small class=text-muted>Posted on January 2, 2015 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
 </p>
 	<div class=row>
 		<div class=col-md-9>
-			<p>This is C program to generate <strong>Random Number</strong> between 1 and n.</p>
+			<p><b>Quicksort</b> is a divide and conquer algorithm. Quicksort first divides a large array into two smaller sub-array: the low elements and the high elements. Quicksort can then recursively sort the sub-arrays.</p>
+<p>The steps are:</p>
+<ul>
+	<li>Pick an element, called a pivot, from the array.</li>
+	<li>Reorder the array so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position. This is called the partition operation.</li>
+	<li>Recursively apply the above steps to the sub-array of elements with smaller values and separately to the sub-array of elements with greater values.</li>
+</ul>
 
-<blockquote><p>Program to generate random number.</p></blockquote>
+<blockquote>Program to perform sort on set of numbers using Quick sort technique</blockquote>
+
 
 <h3>Code</h3>
-<pre><code id="anagram" class="language-c">loading...</code></pre>
+<pre><code id="code-c" class="language-c">loading...</code></pre>
 
 <p>
-  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/random-number/random-number.c" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
-  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/random-number/random-number.c" download="src/random-number/random-number.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
-
+  <a href="https://github.com/codemons/codebase/blob/master/sorting-algorithms/quick-sort/quick-sort.c" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/codemons/codebase/master/sorting-algorithms/quick-sort/quick-sort.c" download="sorting-algorithms/quick-sort/quick-sort.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
 
 			<ul class=pager> 
 			
@@ -152,7 +158,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				
 				
 					
-						<a href="/code-base/c/2015/01/05/linear-search/" title="Previous Post: Linear Search">Previous</a>
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+						<a href="/code-base/c/2015/01/02/merge-sort/" title="Previous Post: Merge Sort">Previous</a>
 						 
 				</li> 
 				
@@ -201,34 +237,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				
 				
 					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				 
+						<a href="/code-base/c/2015/01/02/selection-sort/" title="Previous Post: Selection Sort">Next</a>
+						 
 				</li>
 			</ul>
 		</div>
@@ -285,13 +295,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
   $.ajax({
     type: "GET",
-    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/random-number/random-number.c",
+    url: "https://raw.githubusercontent.com/codemons/codebase/master/sorting-algorithms/quick-sort/quick-sort.c",
     async: false,
     success: function(data){
-      $('#anagram').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#code-c').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#anagram').html('Loading failed, please download to view the code.');
+      $('#code-c').html('Loading failed, please download to view the code.');
     }
   })
 
