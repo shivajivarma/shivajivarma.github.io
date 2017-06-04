@@ -9,6 +9,10 @@
     <lastmod>2017-02-12T00:00:00+05:30</lastmod>
   </url>
   <url>
+    <loc>http://shivajivarma.com/blog/my-talks/2016/02/04/how-to-host-a-website-on-github/</loc>
+    <lastmod>2016-02-04T00:00:00+05:30</lastmod>
+  </url>
+  <url>
     <loc>http://shivajivarma.com/project/age-calculator/</loc>
     <lastmod>2016-01-17T00:00:00+05:30</lastmod>
   </url>
@@ -417,6 +421,9 @@
     </url>
     <url>
       <loc>http://shivajivarma.com/project/age-calculator/</loc>
+    </url>
+    <url>
+      <loc>http://shivajivarma.com/blog/my-talks/2016/02/04/how-to-host-a-website-on-github/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/project/transporter/</loc>
