@@ -33,4 +33,4 @@ Thumbs.db
 # Ignore for jekyll projects #
 drafts
 
-assets\bower_components\prism\plugins\*
+assets/bower_components/prism/plugins/
