@@ -139,6 +139,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 <hr/>
 <h3>Code</h3>
+<pre><code id="code-js" class="language-javascript">loading...</code></pre>
+
+<p>
+  <a href="https://github.com/shivajivarma/codebase-js/blob/master/getUrlParameter.js" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-js/master/getUrlParameter.js" download="getUrlParameter.js" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
+
 <pre><code class="language-javascript">$(document).ready(function(){
 	var a = getUrlParameter("a");
 	var b = getUrlParameter("b");
@@ -150,14 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	}
 	else $("#output").html("Please fill the input and hit add button.");
 });
-function getUrlParameter( key ){  
-		key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
-		var regexExpression = "[\\?&]"+key+"=([^&#]*)";  
-		var regex = new RegExp( regexExpression );  
-		var results = regex.exec( window.location.href );  
-		if( results == null )    return "";  
-			else    return unescape(results[1]).replace(/&lt;script.*&gt;.*&lt;\/script&gt;/g, "");
-}</code>
+</code>
 </pre>
 </div>
 <!-- comments -->
@@ -193,10 +193,24 @@ function getUrlParameter( key ){
 <!-- endbuild -->
 <script type="text/javascript">
 	
+  $.ajax({
+    type: "GET",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-js/master/getUrlParameter.js",
+    async: false,
+    success: function(data){
+      $('#code-js').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    },
+    error: function(){
+      $('#code-js').html('Loading failed, please download to view the code.');
+    }
+  })
+
 </script>
 
 
 <script type="text/javascript" src="/assets/js/sum-of-two-numbers.js"></script>
+
+
 
 
 
