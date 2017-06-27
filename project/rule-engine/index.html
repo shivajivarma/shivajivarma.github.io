@@ -128,7 +128,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<div class="row">
     <div class="col-md-9">
         <p>Executing json based business rules.</p>
-		<pre><code id="code-js" class="language-javascript">loading...</code></pre>
+		<pre><code id="code-test" class="language-javascript">loading...</code></pre>
 
 <p>
   <a href="https://github.com/shivajivarma/rule-engine/blob/master/test.js" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
@@ -137,7 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		
         
 		<h3>Code</h3>
-		<pre><code id="code-js" class="language-javascript">loading...</code></pre>
+		<pre><code id="code-rule-engine" class="language-javascript">loading...</code></pre>
 
 <p>
   <a href="https://github.com/shivajivarma/rule-engine/blob/master/rule-engine.js" class="btn btn-default"><span class="fa fa-github"></span> Fork</a>
@@ -211,10 +211,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     url: "https://raw.githubusercontent.com/shivajivarma/rule-engine/master/test.js",
     async: false,
     success: function(data){
-      $('#code-js').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#code-test').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#code-js').html('Loading failed, please download to view the code.');
+      $('#code-test').html('Loading failed, please download to view the code.');
     }
   })
 
@@ -223,10 +223,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     url: "https://raw.githubusercontent.com/shivajivarma/rule-engine/master/rule-engine.js",
     async: false,
     success: function(data){
-      $('#code-js').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#code-rule-engine').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#code-js').html('Loading failed, please download to view the code.');
+      $('#code-rule-engine').html('Loading failed, please download to view the code.');
     }
   })
 
