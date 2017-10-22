@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2017/07/08/leap-year/</loc>
+    <loc>http://shivajivarma.com/code-base/2017/07/08/leap-year/</loc>
     <lastmod>2017-07-08T00:00:00+05:30</lastmod>
   </url>
   <url>
@@ -25,7 +25,7 @@
     <lastmod>2016-01-17T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/08/25/random-number-generator/</loc>
     <lastmod>2015-08-25T00:00:00+05:30</lastmod>
   </url>
   <url>
@@ -45,15 +45,15 @@
     <lastmod>2015-04-20T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/05/linear-search/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/01/05/linear-search/</loc>
     <lastmod>2015-01-05T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/05/binary-search/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/01/05/binary-search/</loc>
     <lastmod>2015-01-05T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/03/greatest-common-divisor/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/01/03/greatest-common-divisor/</loc>
     <lastmod>2015-01-03T00:00:00+05:30</lastmod>
   </url>
   <url>
@@ -61,43 +61,39 @@
     <lastmod>2015-01-03T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/python/2015/01/02/reverse-a-string/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/01/02/selection-sort/</loc>
     <lastmod>2015-01-02T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/02/selection-sort/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/01/02/reverse-a-string/</loc>
     <lastmod>2015-01-02T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/02/quick-sort/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/01/02/quick-sort/</loc>
     <lastmod>2015-01-02T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2015/01/02/merge-sort/</loc>
+    <loc>http://shivajivarma.com/code-base/2015/01/02/merge-sort/</loc>
     <lastmod>2015-01-02T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/python/2014/12/30/longest-palindrome-substring-length/</loc>
+    <loc>http://shivajivarma.com/code-base/2014/12/30/longest-palindrome-substring-length/</loc>
     <lastmod>2014-12-30T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/python/2014/12/28/armstrong-number/</loc>
+    <loc>http://shivajivarma.com/code-base/2014/12/28/insertion-sort/</loc>
     <lastmod>2014-12-28T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2014/12/28/insertion-sort/</loc>
+    <loc>http://shivajivarma.com/code-base/2014/12/28/bubble-sort/</loc>
     <lastmod>2014-12-28T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2014/12/28/bubble-sort/</loc>
+    <loc>http://shivajivarma.com/code-base/2014/12/28/armstrong-number/</loc>
     <lastmod>2014-12-28T00:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/c/2014/12/28/armstrong-number/</loc>
-    <lastmod>2014-12-28T00:00:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/c/2014/12/28/anagram/</loc>
+    <loc>http://shivajivarma.com/code-base/2014/12/28/anagram/</loc>
     <lastmod>2014-12-28T00:00:00+05:30</lastmod>
   </url>
   <url>
@@ -230,7 +226,7 @@
     <loc>http://shivajivarma.com/blog/categories/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/my-talks/</loc>
+    <loc>http://shivajivarma.com/code-base/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/programming/</loc>
@@ -242,19 +238,16 @@
     <loc>http://shivajivarma.com/blog/stories/</loc>
   </url>
   <url>
+    <loc>http://shivajivarma.com/blog/my-talks/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/</loc>
+  </url>
+  <url>
     <loc>http://shivajivarma.com/blog/music/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/c/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/entertainment/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/</loc>
+    <loc>http://shivajivarma.com/blog/art/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/project/</loc>
@@ -263,13 +256,10 @@
     <loc>http://shivajivarma.com/thanks/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/art/</loc>
+    <loc>http://shivajivarma.com/blog/entertainment/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/python/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/</loc>
+    <loc>http://shivajivarma.com/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/index2/</loc>
@@ -279,6 +269,9 @@
   </url>
   <url>
     <loc>http://shivajivarma.com/search/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/code-base/tag/</loc>
   </url>
     <url>
       <loc>http://shivajivarma.com/blog/programming/2013/12/22/first-post/</loc>
@@ -371,46 +364,43 @@
       <loc>http://shivajivarma.com/blog/programming/2014/12/12/printing-numbers-in-spiral-matrix-form/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2014/12/28/anagram/</loc>
+      <loc>http://shivajivarma.com/code-base/2014/12/28/anagram/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2014/12/28/armstrong-number/</loc>
+      <loc>http://shivajivarma.com/code-base/2014/12/28/armstrong-number/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2014/12/28/bubble-sort/</loc>
+      <loc>http://shivajivarma.com/code-base/2014/12/28/bubble-sort/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2014/12/28/insertion-sort/</loc>
+      <loc>http://shivajivarma.com/code-base/2014/12/28/insertion-sort/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/python/2014/12/28/armstrong-number/</loc>
+      <loc>http://shivajivarma.com/code-base/2014/12/30/longest-palindrome-substring-length/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/python/2014/12/30/longest-palindrome-substring-length/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/01/02/merge-sort/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/02/merge-sort/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/01/02/quick-sort/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/02/quick-sort/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/01/02/reverse-a-string/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/02/selection-sort/</loc>
-    </url>
-    <url>
-      <loc>http://shivajivarma.com/code-base/python/2015/01/02/reverse-a-string/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/01/02/selection-sort/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/blog/quotes/2015/01/03/writing-is-a-struggle-against-silence/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/03/greatest-common-divisor/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/01/03/greatest-common-divisor/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/05/binary-search/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/01/05/binary-search/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/01/05/linear-search/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/01/05/linear-search/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/blog/programming/2015/04/20/disable-arrow-keys-using-javascript/</loc>
@@ -425,7 +415,7 @@
       <loc>http://shivajivarma.com/blog/music/2015/08/12/main-tenu-samjhawan-ki-rahat-fateh-ali-khan/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2015/08/25/random-number-generator/</loc>
+      <loc>http://shivajivarma.com/code-base/2015/08/25/random-number-generator/</loc>
     </url>
     <url>
       <loc>http://shivajivarma.com/project/age-calculator/</loc>
@@ -443,7 +433,7 @@
       <loc>http://shivajivarma.com/project/rule-engine/</loc>
     </url>
     <url>
-      <loc>http://shivajivarma.com/code-base/c/2017/07/08/leap-year/</loc>
+      <loc>http://shivajivarma.com/code-base/2017/07/08/leap-year/</loc>
     </url>
   <url>
     <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/dist/test.html</loc>
