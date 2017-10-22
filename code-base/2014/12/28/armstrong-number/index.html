@@ -18,7 +18,7 @@
 
   <meta property="og:title" content="Armstrong Number &middot; Shivaji Varma">
   <meta name="description"  property="og:description" content="Program to find whether the given number is an Armstrong number or not">
-  <meta name="keywords" content="Shivaji Varma, armstrong number, c program">
+  <meta name="keywords" content="Shivaji Varma, armstrong number, c armstrong program, python armstrong number, JavaScript armstrong number">
 
 	<!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
 	<!-- Icons -->
@@ -150,6 +150,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>
   <a href="https://github.com/shivajivarma/codebase-python/blob/master/armstrong-number/program.py" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
   <a href="https://raw.githubusercontent.com/shivajivarma/codebase-python/master/armstrong-number/program.py" download="armstrong-number/program.py" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
+
+<h3  class="js-code">JavaScript</h3>
+<pre><code id="anagram-js" class="language-javascript">loading...</code></pre>
+
+<p>
+  <a href="https://github.com/shivajivarma/codebase-js/blob/master/armstrong-number/armstrong-number.js" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-js/master/armstrong-number/armstrong-number.js" download="armstrong-number/armstrong-number.js" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
 
 
 			<ul class=pager> 
@@ -299,6 +307,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-c.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-python.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-java.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/owl-carousel/owl.carousel.min.js"></script>
 <script src="/assets/js/main.js"></script>
 <!-- endbuild -->
@@ -325,6 +334,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     error: function(){
       $('#anagram-python').html('Loading failed, please download to view the code.');
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-js/master/armstrong-number/armstrong-number.js",
+    async: false,
+    success: function(data){
+      $('#anagram-js').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    },
+    error: function(){
+      $('#anagram-js').html('Loading failed, please download to view the code.');
     }
   })
 

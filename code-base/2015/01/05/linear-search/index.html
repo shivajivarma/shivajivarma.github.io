@@ -133,12 +133,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <blockquote>Program to perform search on set of numbers using Linear search technique</blockquote>
 
-<h3>Code</h3>
-<pre><code id="code-c" class="language-c">loading...</code></pre>
+<h3>C</h3>
+<pre><code id="c-linear-search" class="language-c">loading...</code></pre>
 
 <p>
-  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/searching-algorithms/linear-search/program.c" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
-  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/linear-search/program.c" download="src/searching-algorithms/linear-search/program.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/searching-algorithms/linear-search/linear-search.c" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/linear-search/linear-search.c" download="src/searching-algorithms/linear-search/linear-search.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
+
+<h3>Java</h3>
+<pre><code id="java-linear-search" class="language-java">loading...</code></pre>
+
+<p>
+  <a href="https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/search/linear_search/LinearSearch.java" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/search/linear_search/LinearSearch.java" download="src/main/java/com/shivajivarma/codebase/search/linear_search/LinearSearch.java" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
 
 
 			<ul class=pager> 
@@ -288,6 +296,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-c.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-python.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-java.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/owl-carousel/owl.carousel.min.js"></script>
 <script src="/assets/js/main.js"></script>
 <!-- endbuild -->
@@ -295,13 +304,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
   $.ajax({
     type: "GET",
-    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/linear-search/program.c",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/linear-search/linear-search.c",
     async: false,
     success: function(data){
-      $('#code-c').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#c-linear-search').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#code-c').html('Loading failed, please download to view the code.');
+      $('#c-linear-search').html('Loading failed, please download to view the code.');
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/search/linear_search/LinearSearch.java",
+    async: false,
+    success: function(data){
+      $('#java-linear-search').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    },
+    error: function(){
+      $('#java-linear-search').html('Loading failed, please download to view the code.');
     }
   })
 

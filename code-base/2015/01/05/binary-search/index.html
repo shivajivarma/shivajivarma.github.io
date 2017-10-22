@@ -136,12 +136,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <blockquote>Program to perform search on sorted set of numbers using Binary search technique</blockquote>
 
 
-<h3>Code</h3>
-<pre><code id="git-binary-search" class="language-c">loading...</code></pre>
+<h3>C</h3>
+<pre><code id="c-binary-search" class="language-c">loading...</code></pre>
 
 <p>
-  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/searching-algorithms/binary-search/program.c" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
-  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/binary-search/program.c" download="src/searching-algorithms/binary-search/program.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/searching-algorithms/binary-search/binary-search.c" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/binary-search/binary-search.c" download="src/searching-algorithms/binary-search/binary-search.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
+
+<h3>Java</h3>
+<pre><code id="java-binary-search" class="language-java">loading...</code></pre>
+
+<p>
+  <a href="https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java" download="src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
 
 
 <h3>Output</h3>
@@ -301,6 +309,7 @@ Enter the number to be searched :: 102
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-c.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-python.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/prism/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-java.min.js"></script>
 <script type="text/javascript" src="/assets/bower_components/owl-carousel/owl.carousel.min.js"></script>
 <script src="/assets/js/main.js"></script>
 <!-- endbuild -->
@@ -308,13 +317,25 @@ Enter the number to be searched :: 102
 	
   $.ajax({
     type: "GET",
-    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/binary-search/program.c",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/searching-algorithms/binary-search/binary-search.c",
     async: false,
     success: function(data){
-      $('#git-binary-search').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#c-binary-search').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#git-binary-search').html('Loading failed, please download to view the code.');
+      $('#c-binary-search').html('Loading failed, please download to view the code.');
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java",
+    async: false,
+    success: function(data){
+      $('#java-binary-search').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    },
+    error: function(){
+      $('#java-binary-search').html('Loading failed, please download to view the code.');
     }
   })
 
