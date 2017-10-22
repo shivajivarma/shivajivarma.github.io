@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shivajivarma.com/code-base/2017/10/22/permutations/</loc>
+    <lastmod>2017-10-22T00:00:00+05:30</lastmod>
+  </url>
+  <url>
     <loc>http://shivajivarma.com/code-base/2017/07/08/leap-year/</loc>
     <lastmod>2017-07-08T00:00:00+05:30</lastmod>
   </url>
@@ -434,6 +438,9 @@
     </url>
     <url>
       <loc>http://shivajivarma.com/code-base/2017/07/08/leap-year/</loc>
+    </url>
+    <url>
+      <loc>http://shivajivarma.com/code-base/2017/10/22/permutations/</loc>
     </url>
   <url>
     <loc>http://shivajivarma.com/assets/bower_components/bootstrap-material-design/dist/test.html</loc>

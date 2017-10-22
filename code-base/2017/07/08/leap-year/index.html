@@ -131,18 +131,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<div class=col-md-9>
 			<blockquote><p>Program to check whether a year is leap year or not.</p></blockquote>
 
-<h3>Code</h3>
-<pre><code id="leap-year" class="language-c">loading...</code></pre>
+<h3>C</h3>
+<pre><code id="c-leap-year" class="language-c">loading...</code></pre>
 
 <p>
   <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/leap-year/leap-year.c" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
   <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/leap-year/leap-year.c" download="src/leap-year/leap-year.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
 
 
+<h3>JavaScript</h3>
+<pre><code id="js-leap-year" class="language-javascript">loading...</code></pre>
+
+<p>
+  <a href="https://github.com/shivajivarma/codebase-js/blob/master/leap-year/leap-year.js" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-js/master/leap-year/leap-year.js" download="leap-year/leap-year.js" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
+
 			<ul class=pager> 
 			
 			
 				<li class="previous">
+				
+				
+					
+					
+				
 				
 				
 					
@@ -227,7 +240,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					
 					
 				
-				 
+				
+				
+					
+						<a href="/code-base/2017/10/22/permutations/" title="Previous Post: Permutations">Next</a>
+						 
 				</li>
 			</ul>
 		</div>
@@ -293,10 +310,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/leap-year/leap-year.c",
     async: false,
     success: function(data){
-      $('#leap-year').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+      $('#c-leap-year').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     },
     error: function(){
-      $('#leap-year').html('Loading failed, please download to view the code.');
+      $('#c-leap-year').html('Loading failed, please download to view the code.');
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-js/master/leap-year/leap-year.js",
+    async: false,
+    success: function(data){
+      $('#js-leap-year').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    },
+    error: function(){
+      $('#js-leap-year').html('Loading failed, please download to view the code.');
     }
   })
 

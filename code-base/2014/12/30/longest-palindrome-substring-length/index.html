@@ -133,29 +133,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
 <p>Example: If given string is 'ohello' then we can form palindromes like 'lel', 'olo', 'olelo'.. etc, among them the largest substring is of length 5.</p>
 	
-<h3>Code</h3>
-<pre><code class="language-python">def maxPalindromeSubStringLen(str):
-	leng = 0
-	ext = 0
-	while(len(str)&gt;0):
-		if(str.count(str[0])%2==0):
-			leng = leng + (str.count(str[0]))
-		else:
-			leng = leng + (str.count(str[0])) - 1
-			ext = 1
-		str = str.replace(str[0],"")
-	return leng + ext
- 
-if __name__=="__main__":
-	print("Enter a string: ", end="")
-	paragraph = input()
-	print("Length of longest palidrome ::", maxPalindromeSubStringLen(paragraph))</code></pre>
-		
-<p><a href="https://github.com/shivajivarma/python/blob/master/longest-palindrome-substring-length/program.py" class="btn btn-default"><span class="fa fa-github"></span> Fork</a> <a href="https://raw.githubusercontent.com/shivajivarma/python/master/longest-palindrome-substring-length/program.py" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+<h3>Python</h3>
+<pre><code id="python-max-palindrome-length" class="language-python">loading...</code></pre>
+
+<p>
+  <a href="https://github.com/shivajivarma/codebase-python/blob/master/longest-palindrome-substring-length/program.py" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-python/master/longest-palindrome-substring-length/program.py" download="longest-palindrome-substring-length/program.py" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
 			<ul class=pager> 
 			
 			
 				<li class="previous">
+				
+				
+					
+					
+				
 				
 				
 					
@@ -305,6 +298,18 @@ if __name__=="__main__":
 <!-- endbuild -->
 <script type="text/javascript">
 	
+  $.ajax({
+    type: "GET",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-python/master/longest-palindrome-substring-length/program.py",
+    async: false,
+    success: function(data){
+      $('#python-max-palindrome-length').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    },
+    error: function(){
+      $('#python-max-palindrome-length').html('Loading failed, please download to view the code.');
+    }
+  })
+
 </script>
 
 
