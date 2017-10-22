@@ -230,7 +230,7 @@
     <loc>http://shivajivarma.com/blog/categories/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/code-base/</loc>
+    <loc>http://shivajivarma.com/blog/my-talks/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/blog/programming/</loc>
@@ -242,16 +242,16 @@
     <loc>http://shivajivarma.com/blog/stories/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/my-talks/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/blog/</loc>
-  </url>
-  <url>
     <loc>http://shivajivarma.com/blog/music/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/art/</loc>
+    <loc>http://shivajivarma.com/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/entertainment/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/code-base/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/project/</loc>
@@ -260,10 +260,13 @@
     <loc>http://shivajivarma.com/thanks/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/blog/entertainment/</loc>
+    <loc>http://shivajivarma.com/blog/art/</loc>
   </url>
   <url>
-    <loc>http://shivajivarma.com/</loc>
+    <loc>http://shivajivarma.com/code-base/tag/</loc>
+  </url>
+  <url>
+    <loc>http://shivajivarma.com/blog/</loc>
   </url>
   <url>
     <loc>http://shivajivarma.com/index2/</loc>
@@ -273,9 +276,6 @@
   </url>
   <url>
     <loc>http://shivajivarma.com/search/</loc>
-  </url>
-  <url>
-    <loc>http://shivajivarma.com/code-base/tag/</loc>
   </url>
     <url>
       <loc>http://shivajivarma.com/blog/programming/2013/12/22/first-post/</loc>
