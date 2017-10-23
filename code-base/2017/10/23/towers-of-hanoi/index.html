@@ -5,27 +5,27 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reverse A String &middot; Shivaji Varma</title>
+  <title>Towers Of Hanoi &middot; Shivaji Varma</title>
 
   <!-- Page meta data -->
   <meta name="author" content="Shivaji Varma">
   <meta name="copyright" content="(c) 2017 Shivaji Varma">
-  <meta property="og:url" content="http://shivajivarma.com/code-base/2015/01/02/reverse-a-string/">
+  <meta property="og:url" content="http://shivajivarma.com/code-base/2017/10/23/towers-of-hanoi/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="http://shivajivarma.com/assets/img/profile.jpg">
   <meta property="og:site_name" content="Shivaji Varma">
   <meta property="fb:admins" content="100002868559363">
 
-  <meta property="og:title" content="Reverse A String &middot; Shivaji Varma">
-  <meta name="description"  property="og:description" content="Program to reverse a string">
-  <meta name="keywords" content="Shivaji Varma, reverse a string, python, program">
+  <meta property="og:title" content="Towers Of Hanoi &middot; Shivaji Varma">
+  <meta name="description"  property="og:description" content="Program to Solve Tower of Hanoi Problem using Recursion">
+  <meta name="keywords" content="Shivaji Varma, Desplay patterns, right angled triangle, print z">
 
 	<!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
 	<!-- Icons -->
 	<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
 	<link rel="author" href="https://plus.google.com/108142170241252227550?rel=author">
 	<link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom">
-	<link rel="canonical" href="http://shivajivarma.com/code-base/2015/01/02/reverse-a-string/">
+	<link rel="canonical" href="http://shivajivarma.com/code-base/2017/10/23/towers-of-hanoi/">
 	<link rel="alternate" type="application/rss+xml" title="Shivaji Varma" href="http://shivajivarma.com/feed.xml">
 
 	<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -119,41 +119,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       itemtype="http://schema.org/ListItem"><a href="/code-base/" itemprop="item" title="code base"><span itemprop="name">code base</span></a></li>
   
   <li itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem" class="active" title="Reverse A String"><span itemprop=name>Reverse A String</span></li>
+      itemtype="http://schema.org/ListItem" class="active" title="Towers Of Hanoi"><span itemprop=name>Towers Of Hanoi</span></li>
 </ol><!-- /.breadcrumb -->
 <div class="margin-top-10px  visible-xs"></div>
 <article class=container-fluid itemscope itemtype="http://schema.org/Article">
-	<h1 class=no-margin itemprop=name>Reverse A String</h1>
+	<h1 class=no-margin itemprop=name>Towers Of Hanoi</h1>
 	<p>
-  <small class=text-muted>Posted on January 2, 2015 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
+  <small class=text-muted>Posted on October 23, 2017 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
 </p>
 	<div class=row>
 		<div class=col-md-9>
-			<blockquote><p>Program to reverse a string.</p></blockquote>
-	
-<p>Example: Reverse of 'Hello World' is 'dlroW olleH'</p>
-	
-<h3>Code # Method 1</h3>
-<pre><code class="language-python">def reverse(str):
-    return str[::-1]
+			<p>The Tower of Hanoi (also called the Tower of Brahma or Lucas' Tower) is a mathematical game or puzzle. 
+It consists of three rods, and a number of disks of different sizes which can slide onto any rod. 
+The puzzle starts with the disks in a neat stack in ascending order of size on one rod, 
+the smallest at the top, thus making a conical shape.</p>
 
-if __name__=="__main__":
-    print("Enter a String: ",end="")
-    str = input()
-    print("Reverse of '",str,"' is '",reverse(str),"'")</code></pre>
+<p>The objective of the puzzle is to move the entire stack to another rod, obeying the following rules:</p>
+<ol>
+	<li>Only one disk may be moved at a time.</li>
+	<li>Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, 
+	on top of the other disks that may already be present on that rod.</li>
+	<li>No disk may be placed on top of a smaller disk.</li>
+</ol>
 
-<h3>Code # Method 2</h3>
-<pre><code class="language-python">def reverse(string):
-    result = ""
-    for letter in xrange(len(string), 0, -1):
-        result = result + string[letter-1]
-    return result
+<blockquote><p>Program to Solve Tower of Hanoi Problem using Recursion.</p></blockquote>
 
-if __name__=="__main__":
-    print("Enter a String: ",end="")
-    str = input()
-    print("Reverse of '",str,"' is '",reverse(str),"'")</code></pre>	
-<p><a href="https://github.com/shivajivarma/python-camp/blob/master/reverse-a-string/program.py" class="btn btn-default"><span class="fa fa-github"></span> Fork</a> <a href="https://raw.githubusercontent.com/shivajivarma/python-camp/master/reverse-a-string/program.py" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+<h3>Code</h3>
+<pre><code id="c-permutation" class="language-c">loading...</code></pre>
+
+<p>
+  <a href="https://github.com/shivajivarma/codebase-c/blob/master/src/towers-of-hanoi/towers-of-hanoi.c" class="btn btn-default" target="_blank"><span class="fa fa-github"></span> Fork</a>
+  <a href="https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/towers-of-hanoi/towers-of-hanoi.c" download="src/towers-of-hanoi/towers-of-hanoi.c" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
 			<ul class=pager> 
 			
 			
@@ -166,52 +163,7 @@ if __name__=="__main__":
 				
 				
 					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-					
-				
-				
-				
-					
-						<a href="/code-base/2015/01/02/quick-sort/" title="Previous Post: Quick Sort">Previous</a>
+						<a href="/code-base/2017/10/23/display-patterns/" title="Previous Post: Display Patterns">Previous</a>
 						 
 				</li> 
 				
@@ -260,8 +212,49 @@ if __name__=="__main__":
 				
 				
 					
-						<a href="/code-base/2015/01/02/selection-sort/" title="Previous Post: Selection Sort">Next</a>
-						 
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				
+				
+					
+					
+				
+				 
 				</li>
 			</ul>
 		</div>
@@ -322,6 +315,18 @@ if __name__=="__main__":
 <!-- endbuild -->
 <script type="text/javascript">
 	
+  $.ajax({
+    type: "GET",
+    url: "https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/towers-of-hanoi/towers-of-hanoi.c",
+    async: false,
+    success: function(data){
+      $('#c-permutation').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    },
+    error: function(){
+      $('#c-permutation').html('Loading failed, please download to view the code.');
+    }
+  })
+
 </script>
 
 
