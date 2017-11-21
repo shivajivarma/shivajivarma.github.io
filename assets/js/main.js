@@ -21,8 +21,8 @@ $('a').click(function() {
 });
 
 $(document).ready(function() {
-	$.material.init();
-	$('.dropdown-toggle').dropdown();
+	$(document).ready(function() { $('body').bootstrapMaterialDesign(); });
+	//$('.dropdown-toggle').dropdown();
 
 	$("#owl-index").owlCarousel({  
 		autoPlay : 7000,
