@@ -46,7 +46,7 @@ $(document).ready(function() {
       var ad = $(".adsbygoogle");
       
       // If the ad contains no innerHTML, ad blockers are at work
-      if (ad && ad.html().replace(/\s/g, "").length == 0) {
+      if (ad && ad.html() && ad.html().replace(/\s/g, "").length == 0) {
 		  
 		  $('#adblocker-message').show();		  
       
