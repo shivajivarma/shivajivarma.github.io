@@ -1,4 +1,200 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset='utf-8'> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Accordion implementation using jQuery &middot; Shivaji Varma</title> <meta name="author" content="Shivaji Varma"> <meta name="copyright" content="(c) 2018 Shivaji Varma"> <meta property="og:url" content="http://shivajivarma.com/blog/programming/2014/11/19/accordion-using-jQuery/"> <meta property="og:type" content="website"> <meta property="og:image" content="http://shivajivarma.com/assets/img/profile.jpg"> <meta property="og:site_name" content="Shivaji Varma"> <meta property="fb:admins" content="100002868559363"> <meta property="og:title" content="Accordion implementation using jQuery &middot; Shivaji Varma"> <meta name="description" property="og:description" content="Create Simplest Accordion Menu using jQuery"> <meta name="keywords" content="Shivaji Varma, accordion, jquery, ui, design"> <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png"> <link rel="author" href="https://plus.google.com/108142170241252227550?rel=author"> <link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom"> <link rel="canonical" href="http://shivajivarma.com/blog/programming/2014/11/19/accordion-using-jQuery/"> <link rel="alternate" type="application/rss+xml" title="Shivaji Varma" href="http://shivajivarma.com/feed.xml"> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"> <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"> <link rel="stylesheet" type="text/css" href="/assets/bower_components/prism/themes/prism.css"> <link rel="stylesheet" type="text/css" href="/assets/bower_components/font-awesome/css/font-awesome.min.css"> <link rel="stylesheet" type="text/css" href="/assets/bower_components/owl-carousel/owl.carousel.css"> <link rel="stylesheet" type="text/css" href="/assets/bower_components/owl-carousel/owl.theme.css"> <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css"> <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/import.css"> <style type="text/css"> </style> <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]--> <script type="text/javascript" src="/assets/bower_components/jquery/dist/jquery.min.js"></script> <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script> <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script> </head> <body id=body itemscope itemtype="http://schema.org/WebPage"> <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5BRS3L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script>!function(e,t,a,n,r){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var g=t.getElementsByTagName(a)[0],m=t.createElement(a),s="dataLayer"!=n?"&l="+n:"";m.async=!0,m.src="//www.googletagmanager.com/gtm.js?id="+r+s,g.parentNode.insertBefore(m,g)}(window,document,"script","dataLayer","GTM-5BRS3L");</script> <header id=header itemscope itemtype="http://schema.org/WPHeader"> <nav class="navbar navbar-expand-lg navbar-dark"> <a class="navbar-brand" href="/#body"> <img src="/assets/img/logo2.png" height="30" class="d-inline-block align-top" alt=""> </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarTogglerDemo02"> <ul class="navbar-nav mr-auto mt-2 mt-lg-0"> <li class="nav-item "> <a class="nav-link" href="/blog/#body" itemprop=url> <i class="fa fa-pencil margin-right-5px"></i> <span itemprop=name>Blog</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/project/#body" itemprop=url> <i class="fa fa-code margin-right-5px"></i> <span itemprop=name>Projects</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/code-base/#body" itemprop=url> <i class="fa fa-terminal margin-right-5px"></i> <span itemprop=name>Code Base</span> </a> </li> </ul> <form class="form-inline my-2 my-lg-0" action="/search/" role="search"> <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" id="q"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> </form> </div> </nav> </header> <div id="content"> <nav aria-label="breadcrumb" class="d-none d-sm-block"> <ol class="breadcrumb capitalize" itemscope itemtype="http://schema.org/BreadcrumbList"> <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="/" itemprop="item" title="Home"><span itemprop="name">Home</span></a></li> <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="/blog/" itemprop="item" title="blog"><span itemprop="name">blog</span></a></li> <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="/blog/programming/" itemprop="item" title="programming"><span itemprop="name">programming</span></a></li> <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active" title="Accordion implementation using jQuery"><span itemprop=name>Accordion implementation using jQuery</span></li> </ol> </nav> <div class="margin-top-10px visible-xs"></div> <article class=container-fluid itemscope itemtype="http://schema.org/Article"> <h1 class=no-margin itemprop=name>Accordion implementation using jQuery</h1> <p> <small class=text-muted>Posted on November 19, 2014 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Shivaji Varma</span></span></a></small> </p> <div class=row> <div class=col-md-9> <p>"So what is an accordion?" you may be thinking to yourself. It's a very simple and sometimes user-friendly alternative when you need to fit quite a bit of content into a small space, not unlike a tabs component.</p> <p>An accordion is most commonly used in F.A.Q.'s where you have questions and answers. Which, if just displayed straight to the page could potentially become incredibly long, stopping users from actually wanting to read or finding the answer they’re looking for.</p> <p>That is also another good argument for accordion components, it allows users to see the outline of the content at a glance. Imagine if you were browsing a F.A.Q. and had to scroll all the way down through 20 different section just to find your answer. It would be a nightmare. If you could just scroll through the titles with content temporarily hidden, then it would make for a much better experience.</p> <h3>Implementation</h3> <p>Click on the topic and witness the magic around.</p> <html> <head> <style>.accordion{width:70%;margin:0 auto}.accordion .title{background-color:#e0cef2!important;padding:1.5%;color:white;cursor:pointer;border-bottom:1px solid #fff!important}.accordion .content{display:none;background-color:#faf5ff!important;padding:1.5%}</style> <script>$(document).ready(function(){$(".accordion > .section").click(function(){$(".accordion > .section > .content").slideUp("slow");var n=$(this).children(".content");"none"==n.css("display")&&n.slideDown("fast"),n=null})});</script> </head> <body> <div class="accordion"> <div class="section"> <div class="title">Why Do People Lie?</div> <div class="content">One reason people lie is to achieve personal power. Achieving personal power is helpful for someone who pretends to be more confident than he really is. For example, one of my friends threw a party at his house last month. He asked me to come to his party and bring a date. However, I didn't have a girlfriend. One of my other friends, who had a date to go to the party with, asked me about my date. I didn't want to be embarrassed, so I claimed that I had a lot of work to do. I said I could easily find a date even better than his if I wanted to. I also told him that his date was ugly. I achieved power to help me feel confident; however, I embarrassed my friend and his date. Although this lie helped me at the time, since then it has made me look down on myself.</div> </div> <div class="section"> <div class="title">Describe a Stressful Time in Your Life</div> <div class="content">Money causes teenagers to feel stress. It makes them feel bad about themselves and envy other people. My friend, for instance, lives with her family and has to share a room with her sister, who is very cute and intelligent. This girl wishes she could have her own room and have a lot of stuff, but she can't have these things because her family doesn't have much money. Her family's income is pretty low because her father is old and doesn't go to work. Her sister is the only one who works. Because her family can't buy her the things she wants, she feels a lot of stress and gets angry sometimes. Once, she wanted a beautiful dress to wear to a sweetheart dance. She asked her sister for some money to buy the dress. She was disappointed because her sister didn't have money to give her. She sat in silence for a little while and then started yelling out loud. She said her friends got anything they wanted but she didn't. Then she felt sorry for herself and asked why she was born into a poor family. Not having money has caused this girl to think negatively about herself and her family. It has caused a lot of stress in her life.</div> </div> <div class="section"> <div class="title">Describe College Life</div> <div class="content">Most students like the freedom they have in college. Usually college students live on their own, in the dormitory or in an apartment. This means they are free to come and go as they like. Their parents can't tell them when to get up, when to go to school, and when to come home. It also means that they are free to wear what they want. There are no parents to comment about their hair styles or their dirty jeans. Finally, they are free to listen to their favorite music without interference from parents.</div> </div> <div class="section"> <div class="title">The Best Place to Visit</div> <div class="content">Visakhapatnam is the most wonderful place to visit because of its variety of weather and its beautiful nature. Visitors to Visakhapatnam can find any weather they like. They can find cool temperatures in the summer; also they can find warm weather in the winter. They can find places that are difficult for humans to live in the summer because they are so hot. Or they can find places closed in the winter because of the snow. On the other hand, visitors can find the nature they like. They can find high mountains and low valleys. Visitors can find a huge forest, a dead desert, and a beautiful coast. So Visakhapatnam is the most wonderful place to visit because of its weather and nature.</div> </div> </div> </body> </html> <h3>Code</h3> <pre><code class="language-markup">&lt;html&gt;
+<!DOCTYPE html>
+<html lang="en">
+    
+	<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accordion implementation using jQuery &middot; Shivaji Varma</title>
+
+  <!-- Page meta data -->
+  <meta name="author" content="Shivaji Varma">
+  <meta name="copyright" content="(c) 2018 Shivaji Varma">
+  <meta property="og:url" content="http://shivajivarma.com/blog/programming/2014/11/19/accordion-using-jQuery/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://shivajivarma.com/assets/img/profile.jpg">
+  <meta property="og:site_name" content="Shivaji Varma">
+  <meta property="fb:admins" content="100002868559363">
+
+  <meta property="og:title" content="Accordion implementation using jQuery &middot; Shivaji Varma">
+  <meta name="description"  property="og:description" content="Create Simplest Accordion Menu using jQuery">
+  <meta name="keywords" content="Shivaji Varma, accordion, jquery, ui, design">
+
+	<!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
+	<!-- Icons -->
+	<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+	<link rel="author" href="https://plus.google.com/108142170241252227550?rel=author">
+	<link rel="publisher" href="https://plus.google.com/+ShivajivarmaDotCom">
+	<link rel="canonical" href="http://shivajivarma.com/blog/programming/2014/11/19/accordion-using-jQuery/">
+	<link rel="alternate" type="application/rss+xml" title="Shivaji Varma" href="http://shivajivarma.com/feed.xml">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/assets/bower_components/prism/themes/prism.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bower_components/owl-carousel/owl.theme.css">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/import.css">
+
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript" src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+
+</head>
+
+    
+	<body id=body itemscope itemtype="http://schema.org/WebPage">
+	<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5BRS3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5BRS3L');</script>
+<!-- End Google Tag Manager -->
+		
+		<!-- Fixed navbar -->
+<header id=header itemscope itemtype="http://schema.org/WPHeader">
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="/#body">
+    <img src="/assets/img/logo2.png" height="30" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item ">
+        <a class="nav-link" href="/blog/#body" itemprop=url>
+			<i class="fa fa-pencil margin-right-5px"></i>
+			<span itemprop=name>Blog</span> 
+		</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/project/#body" itemprop=url>
+			<i class="fa fa-code margin-right-5px"></i>
+			<span itemprop=name>Projects</span> 
+		</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/code-base/#body" itemprop=url>
+			<i class="fa fa-terminal margin-right-5px"></i>
+			<span itemprop=name>Code Base</span> 
+		</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="/search/" role="search">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" id="q">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</header><!--/.navbar -->
+
+
+<div id="content">
+	<nav aria-label="breadcrumb" class="d-none d-sm-block">
+  <ol class="breadcrumb capitalize" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem"><a href="/" itemprop="item" title="Home"><span itemprop="name">Home</span></a></li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem"><a href="/blog/" itemprop="item" title="blog"><span itemprop="name">blog</span></a></li>
+    
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem"><a href="/blog/programming/" itemprop="item" title="programming"><span itemprop="name">programming</span></a></li>
+    
+    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem" class="active" title="Accordion implementation using jQuery"><span itemprop=name>Accordion implementation using jQuery</span></li>
+  </ol>
+</nav><!-- /.breadcrumb -->
+<div class="margin-top-10px  visible-xs"></div>
+<article class=container-fluid itemscope itemtype="http://schema.org/Article">
+  <h1 class=no-margin itemprop=name>Accordion implementation using jQuery</h1>
+  <p>
+  <small class=text-muted>Posted on November 19, 2014 by <a href="https://plus.google.com/108142170241252227550?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a></small>
+</p>
+  <div class=row>
+    <div class=col-md-9>
+      <p>"So what is an accordion?" you may be thinking to yourself. It's a very simple and sometimes user-friendly alternative when you need to fit quite a bit of content into a small space, not unlike a tabs component.</p>
+
+<p>An accordion is most commonly used in F.A.Q.'s where you have questions and answers. Which, if just displayed straight to the page could potentially become incredibly long, stopping users from actually wanting to read or finding the answer they’re looking for.</p>
+
+<p>That is also another good argument for accordion components, it allows users to see the outline of the content at a glance. Imagine if you were browsing a F.A.Q. and had to scroll all the way down through 20 different section just to find your answer. It would be a nightmare. If you could just scroll through the titles with content temporarily hidden, then it would make for a much better experience.</p>
+
+
+<h3>Implementation</h3>
+<p>Click on the topic and witness the magic around.</p>
+
+<html>
+	<head>
+		<style>
+			.accordion{
+				width:70%;
+				margin: 0 auto;
+			}
+			.accordion .title{
+				background-color: #E0CEF2 !important;
+				padding:1.5%;
+				color: white;
+				cursor: pointer;
+				border-bottom: 1px solid #fff !important;    
+			}
+			.accordion .content{
+				display: none;
+				background-color: #faf5ff !important;
+				padding:1.5%;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$('.accordion > .section').click(function(){
+					$('.accordion > .section > .content').slideUp("slow");
+					
+					var thisContent = $(this).children('.content');
+					if(thisContent.css('display') == 'none')    
+						thisContent.slideDown("fast");
+					thisContent = null;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="accordion">
+			<div class="section">
+				<div class="title">Why Do People Lie?</div>
+				<div class="content">One reason people lie is to achieve personal power. Achieving personal power is helpful for someone who pretends to be more confident than he really is. For example, one of my friends threw a party at his house last month. He asked me to come to his party and bring a date. However, I didn't have a girlfriend. One of my other friends, who had a date to go to the party with, asked me about my date. I didn't want to be embarrassed, so I claimed that I had a lot of work to do. I said I could easily find a date even better than his if I wanted to. I also told him that his date was ugly. I achieved power to help me feel confident; however, I embarrassed my friend and his date. Although this lie helped me at the time, since then it has made me look down on myself.</div>
+			</div>
+			<div class="section">
+				<div class="title">Describe a Stressful Time in Your Life</div>
+				<div class="content">Money causes teenagers to feel stress. It makes them feel bad about themselves and envy other people. My friend, for instance, lives with her family and has to share a room with her sister, who is very cute and intelligent. This girl wishes she could have her own room and have a lot of stuff, but she can't have these things because her family doesn't have much money. Her family's income is pretty low because her father is old and doesn't go to work. Her sister is the only one who works. Because her family can't buy her the things she wants, she feels a lot of stress and gets angry sometimes. Once, she wanted a beautiful dress to wear to a sweetheart dance. She asked her sister for some money to buy the dress. She was disappointed because her sister didn't have money to give her. She sat in silence for a little while and then started yelling out loud. She said her friends got anything they wanted but she didn't. Then she felt sorry for herself and asked why she was born into a poor family. Not having money has caused this girl to think negatively about herself and her family. It has caused a lot of stress in her life.</div>
+			</div>
+			<div class="section">
+				<div class="title">Describe College Life</div>
+				<div class="content">Most students like the freedom they have in college. Usually college students live on their own, in the dormitory or in an apartment. This means they are free to come and go as they like. Their parents can't tell them when to get up, when to go to school, and when to come home. It also means that they are free to wear what they want. There are no parents to comment about their hair styles or their dirty jeans. Finally, they are free to listen to their favorite music without interference from parents.</div>
+			</div>
+			<div class="section">
+				<div class="title">The Best Place to Visit</div>
+				<div class="content">Visakhapatnam is the most wonderful place to visit because of its variety of weather and its beautiful nature. Visitors to Visakhapatnam can find any weather they like. They can find cool temperatures in the summer; also they can find warm weather in the winter. They can find places that are difficult for humans to live in the summer because they are so hot. Or they can find places closed in the winter because of the snow. On the other hand, visitors can find the nature they like. They can find high mountains and low valleys. Visitors can find a huge forest, a dead desert, and a beautiful coast. So Visakhapatnam is the most wonderful place to visit because of its weather and nature.</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<h3>Code</h3>
+<pre><code class="language-markup">&lt;html&gt;
 	&lt;head&gt;
 		&lt;style&gt;
 			.accordion{
@@ -52,4 +248,279 @@
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/body&gt;
-&lt;/html&gt;</code></pre> <ul class=pager> <li class="previous"> <a href="/blog/my-talks/2014/11/13/my-paintings/" title="Previous Post: My Paintings">Previous</a> </li> <li class="next"> <a href="/blog/programming/2014/11/27/pipe-program-implemented-in-c/" title="Previous Post: Communicate between two processes using PIPE &ndash; Network programming">Next</a> </li> </ul> </div> <div class=col-md-3> <div class="ads padding-5px"> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3120721550776061" data-ad-slot="8584695641" data-ad-format="auto"></ins> <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script> </div> <div id="adblocker-message"> This website is made possible by displaying online advertisements to our visitors.<br> Please consider supporting by disabling your ad blocker. </div> </div> </div> </article> <div id="comments" class="container-fluid margin-bottom-10px"> <div id="disqus_thread"></div> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <a href="#" class="dsq-brlink">loading comments...</a> </div> <div id="push"></div> </div> <div id="footer" class="border-top"> <footer class="container-fluid" itemscope itemtype="http://schema.org/WPFooter"> <p class=back-to-top><a href="#body"><i class="fa fa-angle-up font-32px"></i></a></p> <p> ALL WORKS &copy; 2018 <a target="_blank" href="https://plus.google.com/108142170241252227550?rel=author" rel="author">SHIVAJI VARMA</a> &middot; <a href="/privacy">PRIVACY</a> &middot; <a href="#body">TERMS</a> &middot; <a href="/LICENSE">LICENSE</a> </p> <p class=no-margin> Based on <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>. Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>. View source on <a target="_blank" href="http://github.com/shivajivarma/shivajivarma.github.io">Github</a> </p> </footer> </div> <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script> <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script> <script src="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/js/bootstrap-material-design.js" integrity="sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe" crossorigin="anonymous"></script> <script type="text/javascript" src="/assets/bower_components/prism/prism.js"></script> <script type="text/javascript" src="/assets/bower_components/prism/components/prism-c.min.js"></script> <script type="text/javascript" src="/assets/bower_components/prism/components/prism-python.min.js"></script> <script type="text/javascript" src="/assets/bower_components/prism/components/prism-sql.min.js"></script> <script type="text/javascript" src="/assets/bower_components/prism/components/prism-java.min.js"></script> <script type="text/javascript" src="/assets/bower_components/owl-carousel/owl.carousel.min.js"></script> <script src="/assets/js/main.js"></script> <script type="text/javascript"> </script> <script type="text/javascript">var disqus_shortname="shivajivarma";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script> <script type="text/javascript">!function(e,a,n,t,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(n),s=a.getElementsByTagName(n)[0],o.async=1,o.src=t,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-42422649-1","shivajivarma.com"),ga("send","pageview");</script> </body> </html>
+&lt;/html&gt;</code></pre>
+      <ul class=pager>
+        
+        
+        <li class="previous">
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          <a href="/blog/my-talks/2014/11/13/my-paintings/" title="Previous Post: My Paintings">Previous</a>
+          
+        </li>
+
+        
+        <li class="next">
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          
+
+          
+
+          
+          <a href="/blog/programming/2014/11/27/pipe-program-implemented-in-c/" title="Previous Post: Communicate between two processes using PIPE &ndash; Network programming">Next</a>
+          
+        </li>
+      </ul>
+    </div>
+    <div class=col-md-3>
+      <div class="ads padding-5px">
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Responsive -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-3120721550776061"
+		 data-ad-slot="8584695641"
+		 data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+</div>
+
+<div id="adblocker-message">
+  This website is made possible by displaying online advertisements to our visitors.<br>
+  Please consider supporting by disabling your ad blocker.
+</div>
+    </div>
+  </div>
+</article>
+<!-- comments -->
+<div id="comments" class="container-fluid margin-bottom-10px">
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="#" class="dsq-brlink">loading comments...</a>
+</div>
+
+	<div id="push"></div>
+</div>
+<div id="footer" class="border-top">  
+  <footer class="container-fluid" itemscope itemtype="http://schema.org/WPFooter">
+    <p class=back-to-top><a href="#body"><i class="fa fa-angle-up font-32px"></i></a></p>
+    <p>
+		ALL WORKS &copy; 2018 <a target="_blank" href="https://plus.google.com/108142170241252227550?rel=author" rel="author">SHIVAJI VARMA</a> &middot; <a href="/privacy">PRIVACY</a> &middot; <a href="#body">TERMS</a> &middot; <a href="/LICENSE">LICENSE</a>
+	</p>
+    <p class=no-margin>
+		Based on <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>. 
+		Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>. 
+		View source on <a target="_blank" href="http://github.com/shivajivarma/shivajivarma.github.io">Github</a>
+	</p>
+  </footer>
+</div><!-- /#footer -->
+<!-- build:js(app) /assets/js/main.js -->
+<script type="text/javascript" src="/assets/bower_components/prism/prism.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-c.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-python.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/prism/components/prism-java.min.js"></script>
+<script type="text/javascript" src="/assets/bower_components/owl-carousel/owl.carousel.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<!-- endbuild -->
+<script type="text/javascript">
+	
+</script>
+
+
+
+
+
+
+
+
+
+<!--DISQUS COMMENTS-->
+<script type="text/javascript">
+	var disqus_shortname = 'shivajivarma'; // required: replace example with your forum shortname
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script><!--/DISQUS COMMENTS-->
+
+		
+		<!--GOOGLE ANALYTICS CODE-->
+<script type="text/javascript">
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-42422649-1', 'shivajivarma.com');
+ ga('send', 'pageview');
+</script><!--/GOOGLE ANALYTICS CODE-->
+	</body>
+</html>

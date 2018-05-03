@@ -1,1 +1,770 @@
-<?xml version="1.0" encoding="UTF-8"?> <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"> <channel> <title>Shivaji Varma</title> <description>This site is centered around my blog, but contains lots of other content as well. You can use the links at the top, or else jump right to the various sections.</description> <link>http://shivajivarma.com/</link> <atom:link href="http://shivajivarma.com/feed.xml" rel="self" type="application/rss+xml"/> <pubDate>Sat, 14 Apr 2018 05:21:29 +0530</pubDate> <lastBuildDate>Sat, 14 Apr 2018 05:21:29 +0530</lastBuildDate> <generator>Jekyll v3.7.3</generator> <item> <title>Towers Of Hanoi</title> <description>&lt;p&gt;The Tower of Hanoi (also called the Tower of Brahma or Lucas' Tower) is a mathematical game or puzzle. It consists of three rods, and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.&lt;/p&gt; &lt;p&gt;The objective of the puzzle is to move the entire stack to another rod, obeying the following rules:&lt;/p&gt; &lt;ol&gt; &lt;li&gt;Only one disk may be moved at a time.&lt;/li&gt; &lt;li&gt;Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, on top of the other disks that may already be present on that rod.&lt;/li&gt; &lt;li&gt;No disk may be placed on top of a smaller disk.&lt;/li&gt; &lt;/ol&gt; &lt;blockquote&gt;&lt;p&gt;Program to Solve Tower of Hanoi Problem using Recursion.&lt;/p&gt;&lt;/blockquote&gt; &lt;h3&gt;Code&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;c-permutation&quot; class=&quot;language-c&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/codebase-c/blob/master/src/towers-of-hanoi/towers-of-hanoi.c&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/towers-of-hanoi/towers-of-hanoi.c&quot; download=&quot;src/towers-of-hanoi/towers-of-hanoi.c&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; </description> <pubDate>Mon, 23 Oct 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/code-base/2017/10/23/towers-of-hanoi/</link> <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/23/towers-of-hanoi/</guid> <category>c</category> <category>code-base</category> </item> <item> <title>Sockets (Server - Client Communication)</title> <description>&lt;p&gt;Communicating between two devices using Java &lt;b&gt;Sockets&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;&lt;b&gt;Server&lt;/b&gt; : Listens to requests from clients, process them and replies back.&lt;/p&gt; &lt;p&gt;&lt;b&gt;Client&lt;/b&gt; : Takes input from user and send it server, recieves response and displays it.&lt;/p&gt; &lt;h3&gt;Server Code&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;java-server&quot; class=&quot;language-java&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/network/sockets/Server.java&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/network/sockets/Server.java&quot; download=&quot;src/main/java/com/shivajivarma/codebase/network/sockets/Server.java&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; &lt;h3&gt;Client Code&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;java-client&quot; class=&quot;language-java&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/network/sockets/Client.java&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/network/sockets/Client.java&quot; download=&quot;src/main/java/com/shivajivarma/codebase/network/sockets/Client.java&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; </description> <pubDate>Mon, 23 Oct 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/code-base/2017/10/23/sockets-server-client-communication/</link> <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/23/sockets-server-client-communication/</guid> <category>java</category> <category>code-base</category> </item> <item> <title>Display Patterns</title> <description>&lt;p&gt;Programs to display patterns like&lt;p&gt; &lt;ol type=&quot;a&quot;&gt; &lt;li&gt;Right angled triangle (Orientation Right).&lt;/li&gt; &lt;li&gt;Right angled triangle (Orientation Left).&lt;/li&gt; &lt;li&gt;Given 'n', print the symbol 'Z' spanning n rows using '*' symbol. Value of n&gt;2 and n&lt;=20.&lt;/li&gt; &lt;/ol&gt; &lt;h3&gt;Right Angled Triangle (Orientation Right)&lt;/h3&gt; &lt;pre&gt;&lt;code&gt;Enter the number of rows in triangle :: 6 Enter a character to be printed :: a a aa aaa aaaa aaaaa aaaaaa&lt;/code&gt;&lt;/pre&gt; &lt;h3&gt;Right Angled Triangle (Orientation Left)&lt;/h3&gt; &lt;pre&gt;&lt;code&gt;Enter the number of rows in triangle :: 6 Enter a character to be printed :: a a aa aaa aaaa aaaaa aaaaaa&lt;/code&gt;&lt;/pre&gt; &lt;h3&gt;Print Z&lt;/h3&gt; &lt;pre&gt;&lt;code&gt;Enter size of 'Z' :: :: 6 ****** * * * * ******&lt;/code&gt;&lt;/pre&gt; &lt;h3&gt;Code&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;c-permutation&quot; class=&quot;language-java&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/display_patterns/DisplayPattern.java&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/display_patterns/DisplayPattern.java&quot; download=&quot;src/main/java/com/shivajivarma/codebase/display_patterns/DisplayPattern.java&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; </description> <pubDate>Mon, 23 Oct 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/code-base/2017/10/23/display-patterns/</link> <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/23/display-patterns/</guid> <category>java</category> <category>code-base</category> </item> <item> <title>Permutations</title> <description>&lt;blockquote&gt;&lt;p&gt;Program to print all permutations of given set of letters.&lt;/p&gt;&lt;/blockquote&gt; &lt;h3&gt;C&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;c-permutation&quot; class=&quot;language-c&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/codebase-c/blob/master/src/permutations/permutations.c&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/permutations/permutations.c&quot; download=&quot;src/permutations/permutations.c&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; </description> <pubDate>Sun, 22 Oct 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/code-base/2017/10/22/permutations/</link> <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/22/permutations/</guid> <category>c</category> <category>code-base</category> </item> <item> <title>Leap Year</title> <description>&lt;blockquote&gt;&lt;p&gt;Program to check whether a year is leap year or not.&lt;/p&gt;&lt;/blockquote&gt; &lt;h3&gt;C&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;c-leap-year&quot; class=&quot;language-c&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/codebase-c/blob/master/src/leap-year/leap-year.c&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/leap-year/leap-year.c&quot; download=&quot;src/leap-year/leap-year.c&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; &lt;h3&gt;JavaScript&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;js-leap-year&quot; class=&quot;language-javascript&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/codebase-js/blob/master/leap-year/leap-year.js&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-js/master/leap-year/leap-year.js&quot; download=&quot;leap-year/leap-year.js&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; </description> <pubDate>Sat, 08 Jul 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/code-base/2017/07/08/leap-year/</link> <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/07/08/leap-year/</guid> <category>c</category> <category>javascript</category> <category>code-base</category> </item> <item> <title>Rule Engine</title> <description>&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-9&quot;&gt; &lt;p&gt;Executing json based business rules.&lt;/p&gt; &lt;pre&gt;&lt;code id=&quot;code-test&quot; class=&quot;language-javascript&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/rule-engine/blob/master/test.js&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/rule-engine/master/test.js&quot; download=&quot;test.js&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; &lt;h3&gt;Code&lt;/h3&gt; &lt;pre&gt;&lt;code id=&quot;code-rule-engine&quot; class=&quot;language-javascript&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;p&gt; &lt;a href=&quot;https://github.com/shivajivarma/rule-engine/blob/master/rule-engine.js&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/rule-engine/master/rule-engine.js&quot; download=&quot;rule-engine.js&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt; &lt;/div&gt; &lt;div class=col-md-3&gt; &lt;div class=ads&gt; &lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt; &lt;!-- Responsive Text Ads --&gt; &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-3120721550776061&quot; data-ad-slot=&quot;2001608442&quot; data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt; &lt;script&gt; (adsbygoogle = window.adsbygoogle || []).push({}); &lt;/script&gt; &lt;/div&gt; &lt;div id=&quot;adblocker-message&quot;&gt; This website is made possible by displaying online advertisements to our visitors.&lt;br&gt; Please consider supporting by disabling your ad blocker. &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; </description> <pubDate>Sat, 24 Jun 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/project/rule-engine/</link> <guid isPermaLink="true">http://shivajivarma.com/project/rule-engine/</guid> <category>project</category> </item> <item> <title>Spring Boot Boilerplate</title> <description>&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-9&quot;&gt; &lt;p&gt;An boilerplate web application to kick start development.&lt;/p&gt; &lt;p&gt;Spring Boot based Web Application boilerplate, with stateless authentication using JWT.&lt;/p&gt; &lt;p&gt;&lt;a class=&quot;btn btn-info&quot; onclick=&quot;ga('send', 'event', 'button', 'click', 'Spring Boot Boilerplate View Source Code');&quot; target=&quot;_blank&quot; href=&quot;https://github.com/shivajivarma/spring-boot-webapp-boilerplate&quot; title=&quot;View Source Code&quot;&gt;View Source Code&lt;/a&gt;&lt;/p&gt; &lt;!-- Place this tag where you want the +1 button to render. --&gt; &lt;div class=&quot;g-plusone&quot; data-href=&quot;http://shivajivarma.com/project/spring-boot-webapp-boilerplate/&quot;&gt;&lt;/div&gt;&lt;br/&gt; &lt;!-- facebook like --&gt; &lt;div class=&quot;fb-like margin-top-20px&quot; data-href=&quot;http://shivajivarma.com/project/spring-boot-webapp-boilerplate/&quot; data-layout=&quot;button_count&quot; data-action=&quot;like&quot; data-show-faces=&quot;true&quot; data-share=&quot;true&quot;&gt;&lt;/div&gt; &lt;hr&gt; &lt;h3&gt;Setup :&lt;/h3&gt; &lt;p&gt;Install MySQL and create `boilerplate` schema.&lt;/p&gt; &lt;p&gt;Clone the repository.&lt;/p&gt; &lt;p&gt;&lt;code&gt;git clone https://github.com/shivajivarma/spring-boot-webapp-boilerplate&lt;/code&gt;&lt;/p&gt; &lt;h3&gt;Run :&lt;/h3&gt; &lt;p&gt;To run the demo application just execute this command in the root directory:&lt;/p&gt; &lt;p&gt;&lt;code&gt;mvn spring-boot:run&lt;/code&gt;&lt;/p&gt; &lt;p&gt;And navigate to &lt;a href=&quot;http://localhost:8080&quot;&gt;http://localhost:8080&lt;/a&gt; to check the demo.&lt;/p&gt; &lt;/div&gt; &lt;div class=col-md-3&gt; &lt;div class=ads&gt; &lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt; &lt;!-- Responsive Text Ads --&gt; &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-3120721550776061&quot; data-ad-slot=&quot;2001608442&quot; data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt; &lt;script&gt; (adsbygoogle = window.adsbygoogle || []).push({}); &lt;/script&gt; &lt;/div&gt; &lt;div id=&quot;adblocker-message&quot;&gt; This website is made possible by displaying online advertisements to our visitors.&lt;br&gt; Please consider supporting by disabling your ad blocker. &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; </description> <pubDate>Sun, 26 Feb 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/project/spring-boot-webapp-boilerplate/</link> <guid isPermaLink="true">http://shivajivarma.com/project/spring-boot-webapp-boilerplate/</guid> <category>project</category> </item> <item> <title>Transporter</title> <description>&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-9&quot;&gt; &lt;p&gt;An application to automate bus reservation system.&lt;/p&gt; &lt;p&gt;This product is upgrade for our previous product &lt;a href=&quot;/project/bus-reservation-system/&quot;&gt;Bus Reservation System&lt;/a&gt;&lt;/p&gt; &lt;p&gt;A java project, completely re-written from scratch, using &lt;a href=&quot;http://projects.spring.io/spring-boot/&quot;&gt;Spring MVC, Spring Boot&lt;/a&gt; and &lt;a href=&quot;http://gradle.org/&quot;&gt;Gradle&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a class=&quot;btn btn-outline-info&quot; onclick=&quot;ga('send', 'event', 'button', 'click', 'Transporter View Source Code');&quot; target=&quot;_blank&quot; href=&quot;//github.com/shivajivarma/transporter&quot; title=&quot;View Source Code&quot;&gt;View Source Code&lt;/a&gt;&lt;/p&gt; &lt;!-- Place this tag where you want the +1 button to render. --&gt; &lt;div class=&quot;g-plusone&quot; data-href=&quot;http://shivajivarma.com/project/transporter/&quot;&gt;&lt;/div&gt;&lt;br/&gt; &lt;!-- facebook like --&gt; &lt;div class=&quot;fb-like margin-top-20px&quot; data-href=&quot;http://shivajivarma.com/project/transporter/&quot; data-layout=&quot;button_count&quot; data-action=&quot;like&quot; data-show-faces=&quot;true&quot; data-share=&quot;true&quot;&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class=col-md-3&gt; &lt;div class=ads&gt; &lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt; &lt;!-- Responsive Text Ads --&gt; &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-3120721550776061&quot; data-ad-slot=&quot;2001608442&quot; data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt; &lt;script&gt; (adsbygoogle = window.adsbygoogle || []).push({}); &lt;/script&gt; &lt;/div&gt; &lt;div id=&quot;adblocker-message&quot;&gt; This website is made possible by displaying online advertisements to our visitors.&lt;br&gt; Please consider supporting by disabling your ad blocker. &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;row margin-top-20px&quot;&gt; &lt;div class=&quot;col-md-6 col-sm-12&quot;&gt; &lt;img src=&quot;/assets/img/products/transporter/transporter.png&quot; width=&quot;100%&quot; class=&quot;img-resposive&quot;&gt; &lt;/div&gt; &lt;div class=&quot;col-md-4 col-sm-12&quot;&gt; &lt;div class=&quot;content&quot;&gt; &lt;h3&gt;Transporter V1.0&lt;/h3&gt; &lt;p&gt; Plan your trip. &lt;/p&gt; &lt;ul&gt; &lt;li&gt;Admin Module&lt;/li&gt; &lt;li&gt;Customer Module&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Follow us to get further announcements about the application development and release.&lt;/p&gt; &lt;a href=&quot;//facebook.com/codemons&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-primary&quot;&gt;Follow&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;row margin-top-20px&quot;&gt; &lt;div class=&quot;col-md-4 col-sm-12&quot;&gt; &lt;div class=&quot;content&quot;&gt; &lt;div class=text-right&gt; &lt;h3&gt;Login&lt;/h3&gt; &lt;/div&gt; &lt;div class=text-right&gt; &lt;p&gt; Common login page for both admin and customer. &lt;/p&gt; &lt;/div&gt; &lt;div class=pull-right&gt; &lt;a href=&quot;//facebook.com/codemons&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-primary pull-right&quot;&gt;Follow&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;col-md-8 col-sm-12&quot;&gt; &lt;img src=&quot;/assets/img/products/transporter/login.png&quot; width=&quot;100%&quot; class=&quot;img-responsive&quot;&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;row margin-top-20px&quot;&gt; &lt;div class=&quot;col-md-8 col-sm-12&quot;&gt; &lt;img src=&quot;/assets/img/products/transporter/mytrips.png&quot; width=&quot;100%&quot; class=&quot;img-responsive&quot; alt=&quot;Transporter&quot;&gt; &lt;/div&gt; &lt;div class=&quot;col-md-4 col-sm-12&quot;&gt; &lt;div class=&quot;content&quot;&gt; &lt;h3&gt;My trips&lt;/h3&gt; &lt;p&gt; History of trips. You can print ticket or make cancellation by selecting the ticket. &lt;/p&gt; &lt;a href=&quot;//facebook.com/codemons&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-primary&quot;&gt;Follow&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;h1&gt;Abstract&lt;/h1&gt; &lt;article&gt; &lt;p class=&quot;text-justify&quot;&gt;Traveling is a large growing business across all countries. Bus reservation system deals with maintenance of records of details of each passenger. It also includes maintenance of information like schedule and details of each bus.&lt;/p&gt; &lt;p class=&quot;text-justify&quot;&gt;We observed the working of the Bus reservation system and after going through it, we get to know that there are many operations, which they have to do manually. It takes a lot of time and causing many errors while data entry. Due to this, sometimes a lot of problems occur and they were facing many disputes with customers. To solve the above problem, and further maintaining records of passenger details, seat availability, price per seat, bill generation and other things, we are offering this proposal of computerized reservation system.&lt;/p&gt; &lt;p class=&quot;text-justify&quot;&gt;By using this software, we can reserve tickets from any part of the world, through telephone lines, via internet. Customer can check availability of bus and reserve selective seats. The project provides and checks all sorts of constraints so that user does give only useful data and thus validation is done in an effective way.&lt;/p&gt; &lt;/article&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;h1&gt;Introduction&lt;/h1&gt; &lt;article&gt; &lt;p class=&quot;text-justify&quot;&gt;The focus of the project is to computerize traveling company to manage data, so that all the transactions become fast and there should not be any error in transaction like calculation mistake, bill generation and other things. It replaces all the paper work. It keeps records of all bills also, giving to ensure 100% successful implementation of the computerized Bus reservation system.&lt;/p&gt; &lt;p class=&quot;text-justify&quot;&gt;This reservation system has three modules. First module helps the customer to enquire the availability of seats in a particular bus at particular date. Second module helps him to reserve a ticket. Using third module he can cancel a reserved ticket.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;First module retrieves data from tables required for enquire.&lt;/li&gt; &lt;li&gt;Second module inserts values into the tables on reservation.&lt;/li&gt; &lt;li&gt;Third module deletes values into from the table on cancellation of tickets.&lt;/li&gt; &lt;/ul&gt; &lt;p class=&quot;text-justify&quot;&gt;As the database is hosted using Oracle Server onto internet, the application can access data from any part of the world, by many number of people concurrently.&lt;/p&gt; &lt;/article&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;h1&gt;PROBLEM SPECIFICATION&lt;/h1&gt; &lt;article&gt; &lt;p class=&quot;text-justify&quot;&gt;Bus Reservation Systems that were suggested till now, are not up to the desired level. There is no single system which automates all the process.&lt;/p&gt; &lt;p class=&quot;text-justify&quot;&gt;In order to build the system, all the processes in the business should be studied, System study helps us under the problem and needs of the application. System study aims at establishing requests for the system to be acquired, development and installed. It involves studying and analyzing the ways of an organization currently processing the data to produce information. Analyzing the problem thoroughly forms the vital part of the system study. In system analysis, prevailing situation of problem is carefully examined by breaking them into sub problems. Problematic areas are identified and information is collected. Data gathering is essential to any analysis of requests. It is necessary that this analysis familiarizes the designer with objectives, activities and the function of the organization in which the system is to be implemented.&lt;/p&gt; &lt;ol class=&quot;margin-top-5px&quot;&gt; &lt;li class=&quot;margin-bottom-15px&quot;&gt;&lt;h4&gt;Existing system&lt;/h4&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Existing system is totally on book and thus a great amount of manual work has to be done. The amount of manual work increases exponentially with increase in services.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Needs a lot of working staff and extra attention on all the records.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;In existing system, there are various problems like keeping records of items, seats available, prices of per/seat and fixing bill generation on each bill.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Finding out details regarding any information is very difficult, as the user has to go through all the books manually.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Major problem was lack of security.&lt;/p&gt; &lt;/li&gt; &lt;li class=&quot;margin-bottom-15px&quot;&gt;&lt;h4&gt;Proposed system&lt;/h4&gt; &lt;p&gt;The system is very simple in design and to implement. The system requires very low system resources and the system will work in almost all configurations. It has got following features:&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Needs a lot of working staff and extra attention on all the records.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Ensure data accuracy.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Records are efficiently maintained by DBMS.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;DBMS also provides security for the information.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Any person across the world, having internet can access this service.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Availability of seats can be enquired very easily.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Passengers can also cancel their tickets easily.&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Minimum time needed for the various processing&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Better Service&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Minimum time required&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;This would help the corporation prepare and organize its schedules more efficiently on the basis of traffic demand.&lt;/p&gt; &lt;/li&gt; &lt;/ol&gt; &lt;/article&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;h1&gt;SOFTWARE REQUIREMENT SPECIFICATION&lt;/h1&gt; &lt;article&gt; &lt;ol&gt; &lt;li&gt;&lt;h4&gt;Hardware Requirements:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;PC with Pentium IV processor.&lt;/li&gt; &lt;li&gt;512 MB RAM or above.&lt;/li&gt; &lt;li&gt;40 GB Hard Disk or above.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;h4&gt;Software Requirements:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;Operating system : Windows XP (or latest).&lt;/li&gt; &lt;li&gt;Front end : Java Runtime&lt;/li&gt; &lt;li&gt;Platform : Java Swings&lt;/li&gt; &lt;li&gt;Integrated development environment(IDE) : Eclipse&lt;/li&gt; &lt;li&gt;Back end : Oracle 10g&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ol&gt; &lt;/article&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;h1&gt;Database design&lt;/h1&gt; &lt;h3&gt;Conceptual design&lt;/h3&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-5&quot;&gt; &lt;h4&gt;a. Requirement Analysis:&lt;/h4&gt; &lt;i&gt;What data is needed?&lt;/i&gt; &lt;p&gt;List of Entities:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;BUS&lt;/li&gt; &lt;li&gt;PASSENGER&lt;/li&gt; &lt;li&gt;ROUTE&lt;/li&gt; &lt;li&gt;RESERVE&lt;/li&gt; &lt;/ul&gt; &lt;!--p&gt;List of attributes:&lt;/p&gt; &lt;p&gt;&lt;strong&gt;BUS:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Bus ID&lt;/li&gt; &lt;li&gt;AC&lt;/li&gt; &lt;li&gt;Fare&lt;/li&gt; &lt;li&gt;Departure Time&lt;/li&gt; &lt;li&gt;Arrival Time&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;ROUTE:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Route id&lt;/li&gt; &lt;li&gt;Origin&lt;/li&gt; &lt;li&gt;Destination&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;PASSENGER:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Passenger ID&lt;/li&gt; &lt;li&gt;Username&lt;/li&gt; &lt;li&gt;Password&lt;/li&gt; &lt;li&gt;Name&lt;/li&gt; &lt;li&gt;Mobile number&lt;/li&gt; &lt;li&gt;E-mail&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Constraints: Username should be unique&lt;/p&gt; &lt;p&gt;&lt;strong&gt;RESERVE:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Ticket ID&lt;/li&gt; &lt;li&gt;Seat&lt;/li&gt; &lt;li&gt;Time Stamp&lt;/li&gt; &lt;li&gt;Passenger ID&lt;/li&gt; &lt;li&gt;Bus ID&lt;/li&gt; &lt;li&gt;Date&lt;/li&gt; &lt;/ul--&gt; &lt;/div&gt; &lt;div class=&quot;col-md-7&quot;&gt; &lt;h4&gt;Schema:&lt;/h4&gt; &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;h1&gt;How to Setup:&lt;/h1&gt; &lt;p&gt;&lt;a href=&quot;https://travis-ci.org/shivajivarma/bus-reservation-system&quot; alt=&quot;Build Status&quot;&gt;&lt;img title=&quot;Build Status&quot; alt=&quot;Build Status&quot; src=https://api.travis-ci.org/shivajivarma/bus-reservation-system.svg?branch=master /&gt;&lt;/a&gt;&lt;/p&gt; &lt;ol&gt; &lt;li&gt;&lt;p&gt;Install Prerequisite Software:&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Java 1.8&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;MySql 5.6 + MySql Connector/J + workbench (&lt;a href=&quot;http://dev.mysql.com/downloads/windows/installer/&quot;&gt;http://dev.mysql.com/downloads/windows/installer/&lt;/a&gt;)&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Eclipse Luna&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Install Gradle plugin in Eclipse&lt;/p&gt; &lt;/li&gt; &lt;li&gt;&lt;p&gt;Set Enviroment Variables (Paths may vary based on OS and installation):&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;CLASSPATH=C:\Program Files\Java\jdk1.8.0_20\bin&lt;/code&gt;&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;PATH=C:\Program Files\Java\jdk1.8.0_20\bin&lt;/code&gt;&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_20&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; &lt;li&gt;&lt;p&gt;Clone the source code:&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;git clone https://github.com/shivajivarma/transporter.git&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; &lt;li&gt;&lt;p&gt;Import project into eclipse.&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;Make sure eclispe is using currect JDK.&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;Database setup (&lt;a href=&quot;https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts&quot;&gt;https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;Run main class in WebApplication.java, It would start the embedded tomcat.&lt;/p&gt;&lt;/li&gt; &lt;/ol&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;p class=&quot;flow-text&quot;&gt;Free Software, Hell Yeah!&lt;/p&gt;</description> <pubDate>Sun, 12 Feb 2017 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/project/transporter/</link> <guid isPermaLink="true">http://shivajivarma.com/project/transporter/</guid> <category>project</category> </item> <item> <title>How To Host A Website On Github</title> <description>&lt;div class=&quot;video-container&quot;&gt; &lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;//www.youtube.com/watch?v=gUgfwb-m88c&amp;t=7s&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt; &lt;/div&gt; &lt;h3&gt;Steps&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;Create an account on &lt;a href=&quot;//github.com&quot;&gt;github&lt;/a&gt;&lt;/li&gt; &lt;li&gt;Create a repo with name 'yourusername.github.io'&lt;/li&gt; &lt;li&gt;Put the website files in the repo&lt;/li&gt; &lt;li&gt;Thats it.. your website is ready and running at http://yourusername.github.io&lt;/li&gt; &lt;/ul&gt; </description> <pubDate>Thu, 04 Feb 2016 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/blog/my-talks/2016/02/04/how-to-host-a-website-on-github/</link> <guid isPermaLink="true">http://shivajivarma.com/blog/my-talks/2016/02/04/how-to-host-a-website-on-github/</guid> <category>IT</category> <category>blog</category> <category>my-talks</category> </item> <item> <title>Age Calculator</title> <description> &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-9&quot;&gt; &lt;p&gt;Age Calculator is a Hybrid mobile app developed using &lt;a href=&quot;https://cordova.apache.org&quot; title=&quot;Cordova&quot;&gt;Cordova&lt;/a&gt;. &lt;a href=&quot;https://getbootstrap.com&quot; title=&quot;Bootstrap&quot;&gt;Boostrap&lt;/a&gt; framework for UI development.&lt;/p&gt; &lt;a href=&quot;https://play.google.com/store/apps/details?id=codemons.age_calculator&quot; target=&quot;_blank&quot; class=&quot;btn btn-primary margin-right-10px&quot;&gt;Play Store&lt;/a&gt; &lt;a href=&quot;https://play.google.com/store/apps/details?id=codemons.age_calculator&quot; target=&quot;_blank&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;h5&gt;Version&lt;/h5&gt; &lt;p class=&quot;wow fadeInLeft&quot;&gt;1.6.0&lt;/p&gt; &lt;h5&gt;Dev Setup&lt;/h5&gt; &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ npm install -g cordova&lt;/code&gt;&lt;/pre&gt; &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git clone https://github.com/codemons/age-calculator-cordova.git age-calculator $ cd age-calculator $ cordova platform add [android/ios/windows]&lt;/code&gt;&lt;/pre&gt; &lt;p&gt;Install platform respective SDK. And then give build.&lt;/p&gt; &lt;pre class=&quot;wow fadeInLeft&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ cordova build&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;div class=col-md-3&gt; &lt;div class=ads&gt; &lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt; &lt;!-- Responsive Text Ads --&gt; &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-3120721550776061&quot; data-ad-slot=&quot;2001608442&quot; data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt; &lt;script&gt; (adsbygoogle = window.adsbygoogle || []).push({}); &lt;/script&gt; &lt;/div&gt; &lt;div id=&quot;adblocker-message&quot;&gt; This website is made possible by displaying online advertisements to our visitors.&lt;br&gt; Please consider supporting by disabling your ad blocker. &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-9&quot;&gt; &lt;h5&gt;Code&lt;/h5&gt; &lt;pre class=&quot;wow fadeInLeft&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;var getAge = (function(){ function difference(d1, d2) { var m = moment(d1); var years = m.diff(d2, 'years'); m.add(-years, 'years'); var months = m.diff(d2, 'months'); m.add(-months, 'months'); var days = m.diff(d2, 'days'); return {years: years, months: months, days: days, toString: function(){ var age= []; if(this.years &amp;gt; 0) age.push(this.years+ ' year'+(this.years&amp;gt; 1? 's ':' ')); if(this.months &amp;gt; 0) age.push(months+ ' month'+(this.months&amp;gt; 1? 's':'')); if(this.days &amp;gt; 0) age.push(this.days+ ' day'+(this.days&amp;gt; 1? 's':'')); if(age.length &amp;gt; 1) age.splice(age.length-1,0,' and '); return age.join(''); } }; } return function(dob){ return difference(new Date(), dob); }; }());&lt;/code&gt;&lt;/pre&gt; &lt;h5&gt;Screenshots&lt;/h5&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-3&quot;&gt; &lt;img src=&quot;/assets/img/products/age-calculator/1.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;500ms&quot;&gt; &lt;/div&gt; &lt;div class=&quot;col-md-3&quot;&gt; &lt;img src=&quot;/assets/img/products/age-calculator/2.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;1000ms&quot;&gt; &lt;/div&gt; &lt;div class=&quot;col-md-3&quot;&gt; &lt;img src=&quot;/assets/img/products/age-calculator/3.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;1500ms&quot;&gt; &lt;/div&gt; &lt;div class=&quot;col-md-3&quot;&gt; &lt;img src=&quot;/assets/img/products/age-calculator/4.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;2000ms&quot;&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;hr/&gt; &lt;p&gt;Free Software, Hell Yeah!&lt;/p&gt; </description> <pubDate>Sun, 17 Jan 2016 00:00:00 +0530</pubDate> <link>http://shivajivarma.com/project/age-calculator/</link> <guid isPermaLink="true">http://shivajivarma.com/project/age-calculator/</guid> <category>project</category> </item> </channel> </rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shivaji Varma</title>
+    <description>This site is centered around my blog, but contains lots of other content as well. You can use the links at the top, or else jump right to the various sections.</description>
+    <link>http://shivajivarma.com/</link>
+    <atom:link href="http://shivajivarma.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 03 May 2018 21:35:35 +0530</pubDate>
+    <lastBuildDate>Thu, 03 May 2018 21:35:35 +0530</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Towers Of Hanoi</title>
+        <description>&lt;p&gt;The Tower of Hanoi (also called the Tower of Brahma or Lucas' Tower) is a mathematical game or puzzle. 
+It consists of three rods, and a number of disks of different sizes which can slide onto any rod. 
+The puzzle starts with the disks in a neat stack in ascending order of size on one rod, 
+the smallest at the top, thus making a conical shape.&lt;/p&gt;
+
+&lt;p&gt;The objective of the puzzle is to move the entire stack to another rod, obeying the following rules:&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;Only one disk may be moved at a time.&lt;/li&gt;
+	&lt;li&gt;Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, 
+	on top of the other disks that may already be present on that rod.&lt;/li&gt;
+	&lt;li&gt;No disk may be placed on top of a smaller disk.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Program to Solve Tower of Hanoi Problem using Recursion.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;pre&gt;&lt;code id=&quot;c-permutation&quot; class=&quot;language-c&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/codebase-c/blob/master/src/towers-of-hanoi/towers-of-hanoi.c&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/towers-of-hanoi/towers-of-hanoi.c&quot; download=&quot;src/towers-of-hanoi/towers-of-hanoi.c&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 23 Oct 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/code-base/2017/10/23/towers-of-hanoi/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/23/towers-of-hanoi/</guid>
+        
+        <category>c</category>
+        
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Sockets (Server - Client Communication)</title>
+        <description>&lt;p&gt;Communicating between two devices using Java &lt;b&gt;Sockets&lt;/b&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Server&lt;/b&gt; : Listens to requests from clients, process them and replies back.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Client&lt;/b&gt; : Takes input from user and send it server, recieves response and displays it.&lt;/p&gt;
+
+&lt;h3&gt;Server Code&lt;/h3&gt;
+&lt;pre&gt;&lt;code id=&quot;java-server&quot; class=&quot;language-java&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/network/sockets/Server.java&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/network/sockets/Server.java&quot; download=&quot;src/main/java/com/shivajivarma/codebase/network/sockets/Server.java&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;h3&gt;Client Code&lt;/h3&gt;
+&lt;pre&gt;&lt;code id=&quot;java-client&quot; class=&quot;language-java&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/network/sockets/Client.java&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/network/sockets/Client.java&quot; download=&quot;src/main/java/com/shivajivarma/codebase/network/sockets/Client.java&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 23 Oct 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/code-base/2017/10/23/sockets-server-client-communication/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/23/sockets-server-client-communication/</guid>
+        
+        <category>java</category>
+        
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Display Patterns</title>
+        <description>&lt;p&gt;Programs to display patterns like&lt;p&gt;
+&lt;ol type=&quot;a&quot;&gt;
+	&lt;li&gt;Right angled triangle (Orientation Right).&lt;/li&gt;
+	&lt;li&gt;Right angled triangle (Orientation Left).&lt;/li&gt;
+	&lt;li&gt;Given 'n', print the symbol 'Z' spanning n rows using '*' symbol. Value of n&gt;2 and n&lt;=20.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Right Angled Triangle (Orientation Right)&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Enter the number of rows in triangle :: 6
+Enter a character to be printed :: a
+     a
+    aa
+   aaa
+  aaaa
+ aaaaa
+aaaaaa&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Right Angled Triangle (Orientation Left)&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Enter the number of rows in triangle :: 6
+Enter a character to be printed :: a
+a
+aa
+aaa
+aaaa
+aaaaa
+aaaaaa&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Print Z&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Enter size of 'Z' :: :: 6
+******
+    *
+   *
+  *
+ *
+******&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;pre&gt;&lt;code id=&quot;c-permutation&quot; class=&quot;language-java&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/codebase-java/blob/master/src/main/java/com/shivajivarma/codebase/display_patterns/DisplayPattern.java&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/display_patterns/DisplayPattern.java&quot; download=&quot;src/main/java/com/shivajivarma/codebase/display_patterns/DisplayPattern.java&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 23 Oct 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/code-base/2017/10/23/display-patterns/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/23/display-patterns/</guid>
+        
+        <category>java</category>
+        
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Permutations</title>
+        <description>&lt;blockquote&gt;&lt;p&gt;Program to print all permutations of given set of letters.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;C&lt;/h3&gt;
+&lt;pre&gt;&lt;code id=&quot;c-permutation&quot; class=&quot;language-c&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/codebase-c/blob/master/src/permutations/permutations.c&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/permutations/permutations.c&quot; download=&quot;src/permutations/permutations.c&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 22 Oct 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/code-base/2017/10/22/permutations/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/10/22/permutations/</guid>
+        
+        <category>c</category>
+        
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Leap Year</title>
+        <description>&lt;blockquote&gt;&lt;p&gt;Program to check whether a year is leap year or not.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;C&lt;/h3&gt;
+&lt;pre&gt;&lt;code id=&quot;c-leap-year&quot; class=&quot;language-c&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/codebase-c/blob/master/src/leap-year/leap-year.c&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/leap-year/leap-year.c&quot; download=&quot;src/leap-year/leap-year.c&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;h3&gt;JavaScript&lt;/h3&gt;
+&lt;pre&gt;&lt;code id=&quot;js-leap-year&quot; class=&quot;language-javascript&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/codebase-js/blob/master/leap-year/leap-year.js&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/codebase-js/master/leap-year/leap-year.js&quot; download=&quot;leap-year/leap-year.js&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 08 Jul 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/code-base/2017/07/08/leap-year/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/code-base/2017/07/08/leap-year/</guid>
+        
+        <category>c</category>
+        
+        <category>javascript</category>
+        
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Rule Engine</title>
+        <description>&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;p&gt;Executing json based business rules.&lt;/p&gt;
+		&lt;pre&gt;&lt;code id=&quot;code-test&quot; class=&quot;language-javascript&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/rule-engine/blob/master/test.js&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/rule-engine/master/test.js&quot; download=&quot;test.js&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+
+		
+        
+		&lt;h3&gt;Code&lt;/h3&gt;
+		&lt;pre&gt;&lt;code id=&quot;code-rule-engine&quot; class=&quot;language-javascript&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://github.com/shivajivarma/rule-engine/blob/master/rule-engine.js&quot; class=&quot;btn btn-outline-secondary&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;fa fa-github&quot;&gt;&lt;/span&gt; Fork&lt;/a&gt;
+  &lt;a href=&quot;https://raw.githubusercontent.com/shivajivarma/rule-engine/master/rule-engine.js&quot; download=&quot;rule-engine.js&quot; class=&quot;btn btn-outline-secondary&quot;&gt;&lt;span class=&quot;fa fa-download&quot;&gt;&lt;/span&gt; Download&lt;/a&gt;&lt;/p&gt;
+
+
+		
+         
+    &lt;/div&gt; 
+    
+    &lt;div class=col-md-3&gt;
+		&lt;div class=ads&gt;
+	
+	&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+	&lt;!-- Responsive Text Ads --&gt;
+	&lt;ins class=&quot;adsbygoogle&quot;
+		 style=&quot;display:block&quot;
+		 data-ad-client=&quot;ca-pub-3120721550776061&quot;
+		 data-ad-slot=&quot;2001608442&quot;
+		 data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+	&lt;script&gt;
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	&lt;/script&gt;
+	
+&lt;/div&gt;
+
+&lt;div id=&quot;adblocker-message&quot;&gt;
+  This website is made possible by displaying online advertisements to our visitors.&lt;br&gt;
+  Please consider supporting by disabling your ad blocker.
+&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 24 Jun 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/project/rule-engine/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/project/rule-engine/</guid>
+        
+        
+        <category>project</category>
+        
+      </item>
+    
+      <item>
+        <title>Spring Boot Boilerplate</title>
+        <description>&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;p&gt;An boilerplate web application to kick start development.&lt;/p&gt;
+        &lt;p&gt;Spring Boot based Web Application boilerplate, with stateless authentication using JWT.&lt;/p&gt;
+        
+        &lt;p&gt;&lt;a class=&quot;btn btn-info&quot; onclick=&quot;ga('send', 'event', 'button', 'click', 'Spring Boot Boilerplate View Source Code');&quot; target=&quot;_blank&quot; href=&quot;https://github.com/shivajivarma/spring-boot-webapp-boilerplate&quot; title=&quot;View Source Code&quot;&gt;View Source Code&lt;/a&gt;&lt;/p&gt;
+	  
+      
+        &lt;!-- Place this tag where you want the +1 button to render. --&gt;
+        &lt;div class=&quot;g-plusone&quot; data-href=&quot;http://shivajivarma.com/project/spring-boot-webapp-boilerplate/&quot;&gt;&lt;/div&gt;&lt;br/&gt;
+
+        &lt;!-- facebook like --&gt;
+        &lt;div class=&quot;fb-like margin-top-20px&quot; data-href=&quot;http://shivajivarma.com/project/spring-boot-webapp-boilerplate/&quot; data-layout=&quot;button_count&quot; data-action=&quot;like&quot; data-show-faces=&quot;true&quot; data-share=&quot;true&quot;&gt;&lt;/div&gt;
+	     
+        &lt;hr&gt;         
+        
+        &lt;h3&gt;Setup :&lt;/h3&gt;
+
+        &lt;p&gt;Install MySQL and create `boilerplate` schema.&lt;/p&gt;
+        &lt;p&gt;Clone the repository.&lt;/p&gt;
+        &lt;p&gt;&lt;code&gt;git clone https://github.com/shivajivarma/spring-boot-webapp-boilerplate&lt;/code&gt;&lt;/p&gt;
+
+        &lt;h3&gt;Run :&lt;/h3&gt;
+
+        &lt;p&gt;To run the demo application just execute this command in the root directory:&lt;/p&gt;
+        &lt;p&gt;&lt;code&gt;mvn spring-boot:run&lt;/code&gt;&lt;/p&gt;
+        &lt;p&gt;And navigate to &lt;a href=&quot;http://localhost:8080&quot;&gt;http://localhost:8080&lt;/a&gt; to check the demo.&lt;/p&gt;
+         
+    &lt;/div&gt; 
+    
+    &lt;div class=col-md-3&gt;
+		&lt;div class=ads&gt;
+	
+	&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+	&lt;!-- Responsive Text Ads --&gt;
+	&lt;ins class=&quot;adsbygoogle&quot;
+		 style=&quot;display:block&quot;
+		 data-ad-client=&quot;ca-pub-3120721550776061&quot;
+		 data-ad-slot=&quot;2001608442&quot;
+		 data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+	&lt;script&gt;
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	&lt;/script&gt;
+	
+&lt;/div&gt;
+
+&lt;div id=&quot;adblocker-message&quot;&gt;
+  This website is made possible by displaying online advertisements to our visitors.&lt;br&gt;
+  Please consider supporting by disabling your ad blocker.
+&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sun, 26 Feb 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/project/spring-boot-webapp-boilerplate/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/project/spring-boot-webapp-boilerplate/</guid>
+        
+        
+        <category>project</category>
+        
+      </item>
+    
+      <item>
+        <title>Transporter</title>
+        <description>&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;p&gt;An application to automate bus reservation system.&lt;/p&gt;
+        &lt;p&gt;This product is upgrade for our previous product &lt;a href=&quot;/project/bus-reservation-system/&quot;&gt;Bus Reservation System&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;A java project, completely re-written from scratch, using &lt;a href=&quot;http://projects.spring.io/spring-boot/&quot;&gt;Spring MVC, Spring Boot&lt;/a&gt; and &lt;a href=&quot;http://gradle.org/&quot;&gt;Gradle&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;a class=&quot;btn btn-outline-info&quot; onclick=&quot;ga('send', 'event', 'button', 'click', 'Transporter View Source Code');&quot; target=&quot;_blank&quot; href=&quot;//github.com/shivajivarma/transporter&quot; title=&quot;View Source Code&quot;&gt;View Source Code&lt;/a&gt;&lt;/p&gt;
+     
+    &lt;!-- Place this tag where you want the +1 button to render. --&gt;
+	  &lt;div class=&quot;g-plusone&quot; data-href=&quot;http://shivajivarma.com/project/transporter/&quot;&gt;&lt;/div&gt;&lt;br/&gt;
+
+	  &lt;!-- facebook like --&gt;
+	  &lt;div class=&quot;fb-like margin-top-20px&quot; data-href=&quot;http://shivajivarma.com/project/transporter/&quot; data-layout=&quot;button_count&quot; data-action=&quot;like&quot; data-show-faces=&quot;true&quot; data-share=&quot;true&quot;&gt;&lt;/div&gt;
+	 
+        
+    &lt;/div&gt; 
+    
+    &lt;div class=col-md-3&gt;
+		&lt;div class=ads&gt;
+	
+	&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+	&lt;!-- Responsive Text Ads --&gt;
+	&lt;ins class=&quot;adsbygoogle&quot;
+		 style=&quot;display:block&quot;
+		 data-ad-client=&quot;ca-pub-3120721550776061&quot;
+		 data-ad-slot=&quot;2001608442&quot;
+		 data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+	&lt;script&gt;
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	&lt;/script&gt;
+	
+&lt;/div&gt;
+
+&lt;div id=&quot;adblocker-message&quot;&gt;
+  This website is made possible by displaying online advertisements to our visitors.&lt;br&gt;
+  Please consider supporting by disabling your ad blocker.
+&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row margin-top-20px&quot;&gt;
+    &lt;div class=&quot;col-md-6 col-sm-12&quot;&gt;
+      &lt;img src=&quot;/assets/img/products/transporter/transporter.png&quot; width=&quot;100%&quot; class=&quot;img-resposive&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-4 col-sm-12&quot;&gt;
+      &lt;div class=&quot;content&quot;&gt;
+        &lt;h3&gt;Transporter V1.0&lt;/h3&gt;
+        &lt;p&gt;
+          Plan your trip.
+        &lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Admin Module&lt;/li&gt;
+          &lt;li&gt;Customer Module&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Follow us to get further announcements about the application development and release.&lt;/p&gt;
+        &lt;a href=&quot;//facebook.com/codemons&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-primary&quot;&gt;Follow&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row margin-top-20px&quot;&gt;
+	&lt;div class=&quot;col-md-4 col-sm-12&quot;&gt;
+      &lt;div class=&quot;content&quot;&gt;
+        &lt;div class=text-right&gt;
+            &lt;h3&gt;Login&lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div class=text-right&gt;
+            &lt;p&gt;
+                Common login page for both admin and customer.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=pull-right&gt;
+            &lt;a href=&quot;//facebook.com/codemons&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-primary pull-right&quot;&gt;Follow&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-8 col-sm-12&quot;&gt;
+      &lt;img src=&quot;/assets/img/products/transporter/login.png&quot; width=&quot;100%&quot; class=&quot;img-responsive&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row margin-top-20px&quot;&gt;
+    &lt;div class=&quot;col-md-8 col-sm-12&quot;&gt;
+      &lt;img src=&quot;/assets/img/products/transporter/mytrips.png&quot; width=&quot;100%&quot; class=&quot;img-responsive&quot; alt=&quot;Transporter&quot;&gt;
+    &lt;/div&gt;
+	&lt;div class=&quot;col-md-4 col-sm-12&quot;&gt;
+      &lt;div class=&quot;content&quot;&gt;
+        &lt;h3&gt;My trips&lt;/h3&gt;
+        &lt;p&gt;
+          History of trips. You can print ticket or make cancellation by selecting the ticket.
+        &lt;/p&gt;
+        &lt;a href=&quot;//facebook.com/codemons&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-primary&quot;&gt;Follow&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+
+
+&lt;hr/&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-12&quot;&gt;   
+	&lt;h1&gt;Abstract&lt;/h1&gt;
+	&lt;article&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;Traveling is a large growing business across all countries. Bus reservation system deals with maintenance of records of details of each passenger. It also includes maintenance of information like schedule and details of each bus.&lt;/p&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;We observed the working of the Bus reservation system and after going through it, we get to know that there are many operations, which they have to do manually. It takes a lot of time and causing many errors while data entry. Due to this, sometimes a lot of problems occur and they were facing many disputes with customers. To solve the above problem, and further maintaining records of passenger details, seat availability, price per seat, bill generation and other things, we are offering this proposal of computerized reservation system.&lt;/p&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;By using this software, we can reserve tickets from any part of the world, through telephone lines, via internet. Customer can check availability of bus and reserve selective seats. The project provides and checks all sorts of constraints so that user does give only useful data and thus validation is done in an effective way.&lt;/p&gt;
+	&lt;/article&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr/&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-12&quot;&gt;
+	&lt;h1&gt;Introduction&lt;/h1&gt;
+	&lt;article&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;The focus of the project is to computerize traveling company to manage data, so that all the transactions become fast and there should not be any error in transaction like calculation mistake, bill generation and other things. It replaces all the paper work. It keeps records of all bills also, giving to ensure 100% successful implementation of the computerized Bus reservation system.&lt;/p&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;This reservation system has three modules. First module helps the customer to enquire the availability of seats in a particular bus at particular date. Second module helps him to reserve a ticket. Using third module he can cancel a reserved ticket.&lt;/p&gt;
+			&lt;ul&gt;
+				&lt;li&gt;First module retrieves data from tables required for enquire.&lt;/li&gt;
+				&lt;li&gt;Second module inserts values into the tables on reservation.&lt;/li&gt;
+				&lt;li&gt;Third module deletes values into from the table on cancellation of tickets.&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;As the database is hosted using Oracle Server onto internet, the application can access data from any part of the world, by many number of people concurrently.&lt;/p&gt;
+	&lt;/article&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr/&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-12&quot;&gt;
+	&lt;h1&gt;PROBLEM SPECIFICATION&lt;/h1&gt;
+	&lt;article&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;Bus Reservation Systems that were suggested till now, are not up to the desired level.  There is no single system which automates all the process.&lt;/p&gt;
+		&lt;p class=&quot;text-justify&quot;&gt;In order to build the system, all the processes in the business should be studied, System study helps us under the problem and needs of the application. System study aims at establishing requests for the system to be acquired, development and installed. It involves studying and analyzing the ways of an organization currently processing the data to produce information. Analyzing the problem thoroughly forms the vital part of the system study. In system analysis, prevailing situation of problem is carefully examined by breaking them into sub problems. Problematic areas are identified and information is collected. Data gathering is essential to any analysis of requests. It is necessary that this analysis familiarizes the designer with objectives, activities and the function of the organization in which the system is to be implemented.&lt;/p&gt;
+		&lt;ol class=&quot;margin-top-5px&quot;&gt;
+		
+			&lt;li class=&quot;margin-bottom-15px&quot;&gt;&lt;h4&gt;Existing system&lt;/h4&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Existing system is totally on book and thus a great amount of manual work has to be done. The amount of manual work increases exponentially with increase in services.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Needs a lot of working staff and extra attention on all the records.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;In existing system, there are various problems like keeping records of items, seats available, prices of per/seat and fixing bill generation on each bill.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Finding out details regarding any information is very difficult, as the user has to go through all the books manually.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Major problem was lack of security.&lt;/p&gt;
+			&lt;/li&gt;
+			
+			&lt;li class=&quot;margin-bottom-15px&quot;&gt;&lt;h4&gt;Proposed system&lt;/h4&gt;
+				&lt;p&gt;The system is very simple in design and to implement. The system requires very low system resources and the system will work in almost all configurations. It has got following features:&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Needs a lot of working staff and extra attention on all the records.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Ensure data accuracy.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Records are efficiently maintained by DBMS.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;DBMS also provides security for the information.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Any person across the world, having internet can access this service.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Availability of seats can be enquired very easily.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Passengers can also cancel their tickets easily.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Minimum time needed for the various processing&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Better Service&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Minimum time required&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;This would help the corporation prepare and organize its schedules more efficiently on the basis of traffic demand.&lt;/p&gt;
+			&lt;/li&gt;
+				
+		&lt;/ol&gt;
+	&lt;/article&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr/&gt;
+	
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-12&quot;&gt;
+	&lt;h1&gt;SOFTWARE REQUIREMENT SPECIFICATION&lt;/h1&gt;
+	&lt;article&gt;
+		&lt;ol&gt;
+			&lt;li&gt;&lt;h4&gt;Hardware Requirements:&lt;/h4&gt;
+				&lt;ul&gt;
+					&lt;li&gt;PC with Pentium IV processor.&lt;/li&gt;
+					&lt;li&gt;512 MB RAM or above.&lt;/li&gt;
+					&lt;li&gt;40 GB Hard Disk or above.&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			
+			&lt;li&gt;&lt;h4&gt;Software Requirements:&lt;/h4&gt;
+				&lt;ul&gt;
+					&lt;li&gt;Operating system : Windows XP (or latest).&lt;/li&gt;
+					&lt;li&gt;Front end : Java Runtime&lt;/li&gt;
+					&lt;li&gt;Platform : Java Swings&lt;/li&gt;
+					&lt;li&gt;Integrated development environment(IDE) : Eclipse&lt;/li&gt;
+					&lt;li&gt;Back end : Oracle 10g&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;						
+		&lt;/ol&gt;
+	&lt;/article&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr/&gt;
+	
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-12&quot;&gt;
+	&lt;h1&gt;Database design&lt;/h1&gt;
+	&lt;h3&gt;Conceptual design&lt;/h3&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+	
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-5&quot;&gt;
+		&lt;h4&gt;a.	Requirement Analysis:&lt;/h4&gt; &lt;i&gt;What data is needed?&lt;/i&gt;
+		&lt;p&gt;List of Entities:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;BUS&lt;/li&gt; 
+			&lt;li&gt;PASSENGER&lt;/li&gt;
+			&lt;li&gt;ROUTE&lt;/li&gt;
+			&lt;li&gt;RESERVE&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;!--p&gt;List of attributes:&lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;BUS:&lt;/strong&gt;&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Bus ID&lt;/li&gt;
+			&lt;li&gt;AC&lt;/li&gt;
+			&lt;li&gt;Fare&lt;/li&gt;
+			&lt;li&gt;Departure Time&lt;/li&gt;
+			&lt;li&gt;Arrival Time&lt;/li&gt;
+		&lt;/ul&gt;
+		
+		&lt;p&gt;&lt;strong&gt;ROUTE:&lt;/strong&gt;&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Route id&lt;/li&gt;
+			&lt;li&gt;Origin&lt;/li&gt;
+			&lt;li&gt;Destination&lt;/li&gt;
+		&lt;/ul&gt;
+		
+		&lt;p&gt;&lt;strong&gt;PASSENGER:&lt;/strong&gt;&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Passenger ID&lt;/li&gt;
+			&lt;li&gt;Username&lt;/li&gt;
+			&lt;li&gt;Password&lt;/li&gt;
+			&lt;li&gt;Name&lt;/li&gt;
+			&lt;li&gt;Mobile number&lt;/li&gt;
+			&lt;li&gt;E-mail&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p&gt;Constraints: Username should be unique&lt;/p&gt;
+		
+		&lt;p&gt;&lt;strong&gt;RESERVE:&lt;/strong&gt;&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Ticket ID&lt;/li&gt;
+			&lt;li&gt;Seat&lt;/li&gt;
+			&lt;li&gt;Time Stamp&lt;/li&gt;
+			&lt;li&gt;Passenger ID&lt;/li&gt;
+			&lt;li&gt;Bus ID&lt;/li&gt;
+			&lt;li&gt;Date&lt;/li&gt;
+		&lt;/ul--&gt;
+		
+	&lt;/div&gt;
+	&lt;div class=&quot;col-md-7&quot;&gt;
+		&lt;h4&gt;Schema:&lt;/h4&gt;
+        &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+	
+		&lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+		
+        &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+	
+        &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+	
+        &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+	
+        &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+	
+        &lt;pre&gt;&lt;code class=&quot;language-sql&quot;&gt;loading...&lt;/code&gt;&lt;/pre&gt;
+	
+        
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr/&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-12&quot;&gt;
+		&lt;h1&gt;How to Setup:&lt;/h1&gt;
+		&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/shivajivarma/bus-reservation-system&quot; alt=&quot;Build Status&quot;&gt;&lt;img title=&quot;Build Status&quot; alt=&quot;Build Status&quot; src=https://api.travis-ci.org/shivajivarma/bus-reservation-system.svg?branch=master /&gt;&lt;/a&gt;&lt;/p&gt;
+		&lt;ol&gt;
+			&lt;li&gt;&lt;p&gt;Install Prerequisite Software:&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Java 1.8&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;MySql 5.6 + MySql Connector/J + workbench (&lt;a href=&quot;http://dev.mysql.com/downloads/windows/installer/&quot;&gt;http://dev.mysql.com/downloads/windows/installer/&lt;/a&gt;)&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Eclipse Luna&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;Install Gradle plugin in Eclipse&lt;/p&gt;
+			&lt;/li&gt;
+			
+			&lt;li&gt;&lt;p&gt;Set Enviroment Variables (Paths may vary based on OS and installation):&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;CLASSPATH=C:\Program Files\Java\jdk1.8.0_20\bin&lt;/code&gt;&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;PATH=C:\Program Files\Java\jdk1.8.0_20\bin&lt;/code&gt;&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_20&lt;/code&gt;&lt;/p&gt;
+			&lt;/li&gt;
+
+			&lt;li&gt;&lt;p&gt;Clone the source code:&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;margin-right-10px&quot;&gt;&amp;#10003;&lt;/span&gt;&lt;code&gt;git clone https://github.com/shivajivarma/transporter.git&lt;/code&gt;&lt;/p&gt;
+			&lt;/li&gt;
+			 
+			&lt;li&gt;&lt;p&gt;Import project into eclipse.&lt;/p&gt;&lt;/li&gt;
+
+			&lt;li&gt;&lt;p&gt;Make sure eclispe is using currect JDK.&lt;/p&gt;&lt;/li&gt;
+
+			&lt;li&gt;&lt;p&gt;Database setup (&lt;a href=&quot;https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts&quot;&gt;https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+
+			&lt;li&gt;&lt;p&gt;Run main class in WebApplication.java, It would start the embedded tomcat.&lt;/p&gt;&lt;/li&gt;
+		&lt;/ol&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr/&gt;
+
+&lt;p class=&quot;flow-text&quot;&gt;Free Software, Hell Yeah!&lt;/p&gt;</description>
+        <pubDate>Sun, 12 Feb 2017 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/project/transporter/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/project/transporter/</guid>
+        
+        
+        <category>project</category>
+        
+      </item>
+    
+      <item>
+        <title>How To Host A Website On Github</title>
+        <description>&lt;div class=&quot;video-container&quot;&gt;
+     &lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;//www.youtube.com/watch?v=gUgfwb-m88c&amp;t=7s&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Steps&lt;/h3&gt;
+&lt;ul&gt;
+	&lt;li&gt;Create an account on &lt;a href=&quot;//github.com&quot;&gt;github&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;Create a repo with name 'yourusername.github.io'&lt;/li&gt;
+	&lt;li&gt;Put the website files in the repo&lt;/li&gt;
+	&lt;li&gt;Thats it.. your website is ready and running at http://yourusername.github.io&lt;/li&gt;
+&lt;/ul&gt;
+    
+</description>
+        <pubDate>Thu, 04 Feb 2016 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/blog/my-talks/2016/02/04/how-to-host-a-website-on-github/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/blog/my-talks/2016/02/04/how-to-host-a-website-on-github/</guid>
+        
+        <category>IT</category>
+        
+        
+        <category>blog</category>
+        
+        <category>my-talks</category>
+        
+      </item>
+    
+      <item>
+        <title>Age Calculator</title>
+        <description>  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-9&quot;&gt;
+
+
+      &lt;p&gt;Age Calculator is a Hybrid mobile app developed using &lt;a href=&quot;https://cordova.apache.org&quot; title=&quot;Cordova&quot;&gt;Cordova&lt;/a&gt;. &lt;a href=&quot;https://getbootstrap.com&quot; title=&quot;Bootstrap&quot;&gt;Boostrap&lt;/a&gt; framework for UI development.&lt;/p&gt;
+      &lt;a href=&quot;https://play.google.com/store/apps/details?id=codemons.age_calculator&quot; target=&quot;_blank&quot; class=&quot;btn btn-primary margin-right-10px&quot;&gt;Play Store&lt;/a&gt;
+      &lt;a href=&quot;https://play.google.com/store/apps/details?id=codemons.age_calculator&quot; target=&quot;_blank&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+
+      &lt;h5&gt;Version&lt;/h5&gt;
+      &lt;p class=&quot;wow fadeInLeft&quot;&gt;1.6.0&lt;/p&gt;
+
+      &lt;h5&gt;Dev Setup&lt;/h5&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ npm install -g cordova&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git clone https://github.com/codemons/age-calculator-cordova.git age-calculator
+$ cd age-calculator
+$ cordova platform add [android/ios/windows]&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;Install platform respective SDK. And then give build.&lt;/p&gt;
+      &lt;pre class=&quot;wow fadeInLeft&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ cordova build&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=col-md-3&gt;
+		&lt;div class=ads&gt;
+	
+	&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+	&lt;!-- Responsive Text Ads --&gt;
+	&lt;ins class=&quot;adsbygoogle&quot;
+		 style=&quot;display:block&quot;
+		 data-ad-client=&quot;ca-pub-3120721550776061&quot;
+		 data-ad-slot=&quot;2001608442&quot;
+		 data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+	&lt;script&gt;
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	&lt;/script&gt;
+	
+&lt;/div&gt;
+
+&lt;div id=&quot;adblocker-message&quot;&gt;
+  This website is made possible by displaying online advertisements to our visitors.&lt;br&gt;
+  Please consider supporting by disabling your ad blocker.
+&lt;/div&gt;
+	&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-9&quot;&gt;
+	  &lt;h5&gt;Code&lt;/h5&gt;
+	  &lt;pre class=&quot;wow fadeInLeft&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;var getAge = (function(){
+	  function difference(d1, d2) {
+		  var m = moment(d1);
+		  var years = m.diff(d2, 'years');
+		  m.add(-years, 'years');
+		  var months = m.diff(d2, 'months');
+		  m.add(-months, 'months');
+		  var days = m.diff(d2, 'days');
+
+		return {years: years, months: months, days: days,
+		  toString: function(){
+			var age= [];
+			if(this.years &amp;gt; 0) age.push(this.years+ ' year'+(this.years&amp;gt; 1? 's ':' '));
+			if(this.months &amp;gt; 0) age.push(months+ ' month'+(this.months&amp;gt; 1? 's':''));
+			if(this.days &amp;gt; 0) age.push(this.days+ ' day'+(this.days&amp;gt; 1? 's':''));
+			if(age.length &amp;gt; 1)
+			age.splice(age.length-1,0,' and ');
+			return age.join('');
+		  }
+		};
+	  }
+
+	  return function(dob){
+		return difference(new Date(), dob);
+	  };
+	}());&lt;/code&gt;&lt;/pre&gt;
+
+	  &lt;h5&gt;Screenshots&lt;/h5&gt;
+	  &lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;col-md-3&quot;&gt;
+		  &lt;img src=&quot;/assets/img/products/age-calculator/1.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;500ms&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-md-3&quot;&gt;
+		  &lt;img src=&quot;/assets/img/products/age-calculator/2.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;1000ms&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-md-3&quot;&gt;
+		  &lt;img src=&quot;/assets/img/products/age-calculator/3.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;1500ms&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-md-3&quot;&gt;
+		  &lt;img src=&quot;/assets/img/products/age-calculator/4.png&quot; width=&quot;100%&quot; class=&quot;materialboxed padding-top-10px wow fadeInRight&quot; data-wow-delay=&quot;2000ms&quot;&gt;
+		&lt;/div&gt;
+	  &lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr/&gt;
+&lt;p&gt;Free Software, Hell Yeah!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Jan 2016 00:00:00 +0530</pubDate>
+        <link>http://shivajivarma.com/project/age-calculator/</link>
+        <guid isPermaLink="true">http://shivajivarma.com/project/age-calculator/</guid>
+        
+        
+        <category>project</category>
+        
+      </item>
+    
+  </channel>
+</rss>
