@@ -15,7 +15,7 @@
         $('#{{include.id}}').html('Loading failed, please download to view the code.');
       }
     });
-    var clipboard = new ClipboardJS('.btn-clipboard', , {
+    var clipboard = new ClipboardJS('.btn-clipboard', {
       text: function(trigger) {
           return clipboardData;
       }
