@@ -2,7 +2,7 @@
 encoding: UTF-8
 destination: dest
 permalink:	pretty
-highlighter: true
+highlighter: rouge
 include: ['assets/_bower_components', '.gitignore']
 sass:
     style: compressed
