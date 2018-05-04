@@ -18,22 +18,22 @@ $header-height: 60px;
 
 .navbar {
 	background-color: #3f51b5;
-	
+
 	#q {
 		color: white;
 	}
 }
 
 @media (max-width:993px){
-   
+
 }
 
 @media (min-width: 768px) {
-    
+
 }
 
 @media (max-width: 767px) {
-    
+
 }
 
 
@@ -156,11 +156,7 @@ a{cursor:url($img + '/icons/hand.png'), pointer;}
 
 hr{border-color:#dddddd}
 
-#owl-index .item img{
-    display: block;
-    width: 100%;
-    height: auto;
-}
+
 
 .social-icons{
     list-style-type: none;

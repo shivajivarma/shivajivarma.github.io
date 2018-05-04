@@ -6,7 +6,7 @@ layout: default
 {% assign temp = page.title | downcase | replace:' ','-' %}
 <!-- MAIN CONTENT -->
 <div class="container-fluid margin-bottom-15px">
-	<h1 class=no-margin>{{ page.title }} Codebase</h1>
+	<h1 class=m-0>{{ page.title }} Codebase</h1>
 	<div itemprop=articleBody>
 		{% assign temp = page.title | downcase | replace:' ','-' %}
 		<p class=mt-2><a href="//github.com/{{ page.repo }}" class="btn btn-info"><span class="fa fa-github"></span> Fork</a> <a href="https://travis-ci.org/{{ page.repo }}" alt="Build Status"><img title="Build Status" alt="Build Status" src=https://api.travis-ci.org/{{ page.repo }}.svg?branch=master /></a></p>
@@ -19,7 +19,7 @@ layout: default
 		{% assign sorted_posts = (site.categories[micro-site] | sort: 'title') %}
 		{% for post in sorted_posts %}
 		{% if post.categories[1] == temp %}
-			<h3 class="no-margin mt-2"><a class=no-underline href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+			<h3 class="m-0 mt-2"><a class=no-underline href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
 			<small class=text-muted>
 				Posted on {{ post.date | date: "%B %-d, %Y" }}
 			</small>
