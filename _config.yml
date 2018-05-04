@@ -49,3 +49,4 @@ jekyll-minifier:
 
 plugins:
 - jekyll-sitemap
+- jekyll-redirect-from

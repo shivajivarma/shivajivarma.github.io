@@ -9,28 +9,28 @@ plugins:
 category: project
 permalink: /:categories/:title/
 ---
-<div class="row">    
+<div class="row">
 	<div class="col-md-5">
 	  <h2>An attempt to automate reservation system.</h2>
 	  <p>This is my academic mini project. </p>
 	  <!--p><a class="btn btn-danger" onclick="ga('send', 'event', 'button', 'click', 'Bus Reservation System View Report');" target="_blank" href="//dl.dropboxusercontent.com/u/16622617/Projects/Report.pdf" title="Download documentation">Download documentation</a></p-->
 	  <p><a class="btn btn-info" onclick="ga('send', 'event', 'button', 'click', 'Bus Reservation System View Source Code');" target="_blank" href="//github.com/shivajivarma/bus-reservation-system" title="View Source Code">View Source Code</a></p>
-	  
+
 	  <h3>Next version coming soon.. please do look at it. <a class="btn btn-primary" href="/project/transporter/">Go to page</a></h3>
-	  
-	  
-	  <div class="margin-top-10px margin-bottom-20px">
-		<img class="img-responsive size-32px" title="Smiley" alt="Smiley" src="{{ site.baseurl }}{{ site.img }}/icons/smiley.png">
+
+
+	  <div class="mt-2 margin-bottom-20px">
+		<img class="img-fluid size-32px" title="Smiley" alt="Smiley" src="{{ site.baseurl }}{{ site.img }}/icons/smiley.png">
 	  </div>
-	  
+
 	  <!-- Place this tag where you want the +1 button to render. -->
 	  <div class="g-plusone" data-href="{{ site.url }}{{ page.url }}"></div><br/>
 
 	  <!-- facebook like -->
-	  <div class="fb-like margin-top-20px" data-href="{{ site.url }}{{ page.url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-	 
+	  <div class="fb-like mt-3" data-href="{{ site.url }}{{ page.url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
 	</div>
-	
+
 	<div class="col-md-4">
 	  <img alt="Bus" title="Bus" class="img-responsive margin-auto" src="https://lh3.googleusercontent.com/-Rv95ub3Rb6o/UyO9KGpx8BI/AAAAAAAABeQ/cZaOtaU3NAQ/w938-h625-no/bus.png" />
 	</div>
@@ -42,7 +42,7 @@ permalink: /:categories/:title/
 <hr/>
 
 <div class="row">
-	<div class="col-md-12">   
+	<div class="col-md-12">
 	<h1>Abstract</h1>
 	<article>
 		<p class="text-justify">Traveling is a large growing business across all countries. Bus reservation system deals with maintenance of records of details of each passenger. It also includes maintenance of information like schedule and details of each bus.</p>
@@ -78,8 +78,8 @@ permalink: /:categories/:title/
 	<article>
 		<p class="text-justify">Bus Reservation Systems that were suggested till now, are not up to the desired level.  There is no single system which automates all the process.</p>
 		<p class="text-justify">In order to build the system, all the processes in the business should be studied, System study helps us under the problem and needs of the application. System study aims at establishing requests for the system to be acquired, development and installed. It involves studying and analyzing the ways of an organization currently processing the data to produce information. Analyzing the problem thoroughly forms the vital part of the system study. In system analysis, prevailing situation of problem is carefully examined by breaking them into sub problems. Problematic areas are identified and information is collected. Data gathering is essential to any analysis of requests. It is necessary that this analysis familiarizes the designer with objectives, activities and the function of the organization in which the system is to be implemented.</p>
-		<ol class="margin-top-5px">
-		
+		<ol class="mt-1">
+
 			<li class="margin-bottom-15px"><h4>Existing system</h4>
 				<p><span class="margin-right-10px">&#10003;</span>Existing system is totally on book and thus a great amount of manual work has to be done. The amount of manual work increases exponentially with increase in services.</p>
 				<p><span class="margin-right-10px">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</p>
@@ -87,7 +87,7 @@ permalink: /:categories/:title/
 				<p><span class="margin-right-10px">&#10003;</span>Finding out details regarding any information is very difficult, as the user has to go through all the books manually.</p>
 				<p><span class="margin-right-10px">&#10003;</span>Major problem was lack of security.</p>
 			</li>
-			
+
 			<li class="margin-bottom-15px"><h4>Proposed system</h4>
 				<p>The system is very simple in design and to implement. The system requires very low system resources and the system will work in almost all configurations. It has got following features:</p>
 				<p><span class="margin-right-10px">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</p>
@@ -102,14 +102,14 @@ permalink: /:categories/:title/
 				<p><span class="margin-right-10px">&#10003;</span>Minimum time required</p>
 				<p><span class="margin-right-10px">&#10003;</span>This would help the corporation prepare and organize its schedules more efficiently on the basis of traffic demand.</p>
 			</li>
-				
+
 		</ol>
 	</article>
 	</div>
 </div>
 
 <hr/>
-	
+
 <div class="row">
 	<div class="col-md-12">
 	<h1>SOFTWARE REQUIREMENT SPECIFICATION</h1>
@@ -122,7 +122,7 @@ permalink: /:categories/:title/
 					<li>40 GB Hard Disk or above.</li>
 				</ul>
 			</li>
-			
+
 			<li><h4>Software Requirements:</h4>
 				<ul>
 					<li>Operating system : Windows XP (or latest).</li>
@@ -131,27 +131,27 @@ permalink: /:categories/:title/
 					<li>Integrated development environment(IDE) : Eclipse</li>
 					<li>Back end : Oracle 10g</li>
 				</ul>
-			</li>						
+			</li>
 		</ol>
 	</article>
 	</div>
 </div>
 
 <hr/>
-	
+
 <div class="row">
 	<div class="col-md-12">
 	<h1>Database design</h1>
 	<h3>Conceptual design</h3>
 	</div>
 </div>
-	
+
 <div class="row">
 	<div class="col-md-5">
 		<h4>a.	Requirement Analysis:</h4> <i>What data is needed?</i>
 		<p>List of Entities:</p>
 		<ul>
-			<li>BUS</li> 
+			<li>BUS</li>
 			<li>PASSENGER</li>
 			<li>ROUTE</li>
 			<li>RESERVE</li>
@@ -165,14 +165,14 @@ permalink: /:categories/:title/
 			<li>Departure Time</li>
 			<li>Arrival Time</li>
 		</ul>
-		
+
 		<p><strong>ROUTE:</strong></p>
 		<ul>
 			<li>Route id</li>
 			<li>Origin</li>
 			<li>Destination</li>
 		</ul>
-		
+
 		<p><strong>PASSENGER:</strong></p>
 		<ul>
 			<li>Passenger ID</li>
@@ -183,7 +183,7 @@ permalink: /:categories/:title/
 			<li>E-mail</li>
 		</ul>
 		<p>Constraints: Username should be unique</p>
-		
+
 		<p><strong>RESERVE:</strong></p>
 		<ul>
 			<li>Ticket ID</li>
@@ -193,11 +193,11 @@ permalink: /:categories/:title/
 			<li>Bus ID</li>
 			<li>Date</li>
 		</ul>
-		
+
 	</div>
 	<div class="col-md-7">
 		<h4>Schema:</h4>
-		{% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/bus-reservation-system/master/db/setup.sql' language='sql' %}		
+		{% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/bus-reservation-system/master/db/setup.sql' language='sql' %}
 	</div>
 </div>
 
@@ -214,7 +214,7 @@ permalink: /:categories/:title/
 				<p><span class="margin-right-10px">&#10003;</span>Eclipse Luna</p>
 				<p><span class="margin-right-10px">&#10003;</span>Install Maven plugin in Eclipse (<a href="http://download.eclipse.org/technology/m2e/releases/">http://download.eclipse.org/technology/m2e/releases/</a>)</p>
 			</li>
-			
+
 			<li><p>Set Enviroment Variables (Paths may vary based on OS and installation):</p>
 				<p><span class="margin-right-10px">&#10003;</span><code>CLASSPATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></p>
 				<p><span class="margin-right-10px">&#10003;</span><code>PATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></p>
@@ -224,7 +224,7 @@ permalink: /:categories/:title/
 			<li><p>Clone the source code:</p>
 				<p><span class="margin-right-10px">&#10003;</span><code>git clone https://github.com/shivajivarma/bus-reservation-system.git</code></p>
 			</li>
-			 
+
 			<li><p>Import project into eclipse.</p></li>
 
 			<li><p>Make sure eclispe is using currect JDK.</p></li>
@@ -233,7 +233,7 @@ permalink: /:categories/:title/
 
 			<li><p>Set Maven goals Eg: compile, package</p></li>
 		</ol>
-		
+
 	</div>
 </div>
 

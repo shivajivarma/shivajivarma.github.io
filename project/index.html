@@ -8,17 +8,13 @@ change_frequency: always
 {% include html/breadcrumb.html%}
 <!-- MAIN CONTENT -->
 <div class="container-fluid margin-bottom-15px">
-	<h1 class="no-margin">{{ page.title }}</h1>
-	<div id="post-list">
-	{% for post in site.categories['project'] %}
-		<h3 class="no-margin margin-top-10px"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-		<small class="text-muted">Posted on {{ post.date | date: "%B %-d, %Y" }}</a></small>
-	{% endfor %}
-	{% for page in site.pages %}
-			{% if page.category == 'project' %}
-			  <h3 class="no-margin margin-top-10px"><a class="no-underline" href="{{ site.baseurl }}{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h3>
-			  <!--small class="text-muted">Posted on {{ page.date | date: "%B %-d, %Y" }}</a></small-->
-			{% endif %}
-	  {% endfor %}
-	</div>
+  <h1 class="h2">{{ page.title }}</h1>
+  <div id="post-list">
+    {% for post in site.categories['project'] %}
+    <div class="item mb-2">
+      <h3 class="h4 m-0"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+      <small class="text-muted">Posted on {{ post.date | date: "%B %-d, %Y" }}</a></small>
+    </div>
+    {% endfor %}
+  </div>
 </div>

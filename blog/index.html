@@ -8,36 +8,38 @@ change_frequency: always
 {% include html/breadcrumb.html%}
 <!-- MAIN CONTENT -->
 <div class="container-fluid margin-bottom-15px">
-	<h1 class=no-margin>{{ page.title }}</h1>
+	<h1 class="h2">{{ page.title }}</h1>
 	<div class="row">
 		<div id=post-list class=col-md-9>
 		{% for post in site.categories['blog'] %}
-			<h3 class="no-margin margin-top-10px"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+      <div class="item mb-2">
+			<h3 class="h4 m-0"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
 			<small class="text-muted">
-				Posted on {{ post.date | date: "%B %-d, %Y" }} 
+				Posted on {{ post.date | date: "%B %-d, %Y" }}
 				| Category : <a href="{{ site.baseurl }}/blog/{{ post.categories[1] }}">{{ post.categories[1] | capitalize | replace:'-',' ' }}</a>
 				{% if post.tags != empty %}| Tags : {% for tag in post.tags %}{{ tag | capitalize }} {% endfor %} {% endif %}
 			</small>
+      </div>
 		{% endfor %}
 		</div>
 		<div class=col-md-3>
-		<h3>Categories</h3>
-		<ul class="nav nav-pills flex-column">
+		<h3 class="h4">Categories</h3>
+		<ul class="nav flex-column">
 			{% capture category_list %}{% for cat in site.categories %}{{ cat[0] }}{% if forloop.last != true%}|{% endif %}{% endfor %}{% endcapture %}
 				{% assign sorted_cats = category_list | split:'|' |  sort %}
 				{% assign list = 'blog' %}
 				{% assign flag = false %}
-				
+
 				{% for category in sorted_cats %}
 					{% if forloop.last %}
 						{% assign flag = true %}
 					{% endif %}
-					{% for post in site.categories[list] %}	
+					{% for post in site.categories[list] %}
 						{% if category == post.categories[1] %}
-							<li><a class="nav-link" href="{{ site.baseurl }}/{{ list }}/{{ category }}/" title="{{ category | replace:'-',' ' | capitalize }}">{{ category | replace:'-',' ' | capitalize }}</a>
+							<a class="nav-link" href="{{ site.baseurl }}/{{ list }}/{{ category }}/" title="{{ category | replace:'-',' ' | capitalize }}">{{ category | replace:'-',' ' | capitalize }}</a>
 							{% break %}
 						{% endif %}
-					{% endfor %} 
+					{% endfor %}
 				{% endfor %}
 		</ul>
 		<hr/>{% include html/adsence-responsive.html %}

@@ -9,14 +9,14 @@ plugins:
 ---
 <!-- Place this tag where you want the +1 button to render. -->
 <div><div class="g-plusone" data-href="{{ site.url }}{{ page.url }}"></div></div>
-<!-- facebook like --><div class="fb-like margin-bottom-20px" data-href="{{ site.url }}{{ page.url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>    
+<!-- facebook like --><div class="fb-like margin-bottom-20px" data-href="{{ site.url }}{{ page.url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 <p>Short and sweet application. On submitting the form a, b values are passed to self(same page) using GET method. On reload the JS fetches values of a &amp; b from URL using getUrlParameter Method and computes there sum.</p>
 <div class="row">
 	<form role="form" name="SumCalculator" class="col-md-6">
 		<p><label for="a">Enter value of A:</label><input id="a" class="form-control" type="number" name="a" placeholder="Enter a number" /></p>
 		<p><label for="b">Enter value of B:</label><input id="b" class="form-control" type="number" name="b" placeholder="Enter a number" /></p>
 		<p><input class="btn btn-info" type="submit" Value="ADD"/></p>
-		<h4 class="margin-top-10px">Output (A+B): <span id="output"></span></h4>
+		<h4 class="mt-2">Output (A+B): <span id="output"></span></h4>
 	</form>
 </div>
 <hr/>

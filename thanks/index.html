@@ -3,9 +3,9 @@ layout: default
 keywords: ['Thanks','Facebook']
 ---
   <script src="//connect.facebook.net/en_US/all.js"></script>
-  <div class="container margin-top-30px"><div class="panel panel-primary"><div class=panel-heading>Thanks <span id="name"></span></div><div class=panel-body>Thank you so much for all the kind wishes. Having you a part of my life has made my day even more special.<br>~Shivaji</div></div></div>
-  
-  
+  <div class="container mt-5"><div class="panel panel-primary"><div class=panel-heading>Thanks <span id="name"></span></div><div class=panel-body>Thank you so much for all the kind wishes. Having you a part of my life has made my day even more special.<br>~Shivaji</div></div></div>
+
+
   <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
@@ -16,11 +16,11 @@ keywords: ['Thanks','Facebook']
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
     });
-    
+
     FB.getLoginStatus(function(response){
-        Login(); 
+        Login();
     });
-	
+
 	FB.Event.subscribe('auth.authResponseChange', function(response) {
 		if (response.status === 'connected') {
 			console.log("Connected to Facebook");
@@ -32,12 +32,12 @@ keywords: ['Thanks','Facebook']
 			console.log("Logged Out");
 			//UNKNOWN ERROR
 		}
-	});	
-	
+	});
+
   };
-    
+
    	function Login(){
-	
+
 		FB.login(function(response) {
 			if (response.authResponse) {
 		    	getUserInfo();
@@ -45,7 +45,7 @@ keywords: ['Thanks','Facebook']
 				console.log('User cancelled login or did not fully authorize.');
    			}
 		 },{scope: 'email,user_photos,user_videos'});
-	
+
 	}
 
   function getUserInfo() {
