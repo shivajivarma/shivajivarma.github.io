@@ -1,6 +1,8 @@
 <pre id="{{include.id}}">
-  <button class="btn btn-sm rounded position-absolute active btn-clipboard"  data-clipboard-text="Just because you can doesn't mean you should — clipboard.js" style="right: 30px;">copy</button>
-  <a class="btn btn-sm rounded position-absolute active" href="https://raw.githubusercontent.com/{{ include.repo }}/master/{{ include.program }}" download="{{ include.program }}"><span class="fa fa-download"></span> Download</a>
+  <div class="btn-group btn-group-sm position-absolute" role="group"  style="right: 30px;">
+    <button class="btn btn-sm rounded position-absolute active btn-clipboard">copy</button>
+    <a class="btn btn-sm rounded position-absolute active" href="https://raw.githubusercontent.com/{{ include.repo }}/master/{{ include.program }}" download="{{ include.program }}"><span class="fa fa-download"></span></a>
+  </div>
   <code class="{{include.prism}}">loading...</code>
 </pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
