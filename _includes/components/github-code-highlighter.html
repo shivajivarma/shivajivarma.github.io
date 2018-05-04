@@ -1,4 +1,4 @@
-<pre><button class="btn btn-sm rounded position-absolute active btn-clipboard"  data-clipboard-text="Just because you can doesn't mean you should — clipboard.js" style="right: 30px;">copy</button><code id="{{include.id}}" class="{{include.prism}}">loading...</code></pre>
+<pre id="{{include.id}}"><button class="btn btn-sm rounded position-absolute active btn-clipboard"  data-clipboard-text="Just because you can doesn't mean you should — clipboard.js" style="right: 30px;">copy</button><code class="{{include.prism}}">loading...</code></pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 <script>
   (function(){
@@ -9,13 +9,13 @@
       async: false,
       success: function(data){
         clipboardData = data;
-        $('#{{include.id}}').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+        $('#{{include.id}} code').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
       },
       error: function(){
-        $('#{{include.id}}').html('Loading failed, please download to view the code.');
+        $('#{{include.id}} code').html('Loading failed, please download to view the code.');
       }
     });
-    var clipboard = new ClipboardJS('.btn-clipboard', {
+    var clipboard = new ClipboardJS('#{{include.id}} .btn-clipboard', {
       text: function(trigger) {
           return clipboardData;
       }
