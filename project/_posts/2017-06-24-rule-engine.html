@@ -1,0 +1,30 @@
+---
+layout: project
+title: Rule Engine
+description: 'Executing json based business rules.'
+keywords: ['javascript', 'json', 'rule engine', 'business rule engine']
+plugins:
+  fblike: true
+  gplus: true
+category: project
+permalink: /:categories/:title/
+---
+
+<div class="row">
+    <div class="col-md-9">
+        <p>{{page.description}}</p>
+		{% include components/github-code-highlighter.html id="code-test" program='test.js' repo='shivajivarma/rule-engine' prism='language-javascript' %}
+		
+        
+		<h3>Code</h3>
+		{% include components/github-code-highlighter.html id="code-rule-engine" program='rule-engine.js' repo='shivajivarma/rule-engine' prism='language-javascript' %}
+
+		
+         
+    </div> 
+    
+    <div class=col-md-3>
+		{% include html/adsence.html %}
+	</div>
+</div>
+

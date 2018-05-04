@@ -1,0 +1,51 @@
+#Jekyll settings
+encoding: UTF-8
+destination: dest
+permalink:	pretty
+highlighter: true
+include: ['assets/_bower_components', '.gitignore']
+sass:
+    style: compressed
+
+# Site settings
+title:				Shivaji Varma
+email:				contact@shivajivarma.com
+tagline:			'Developer, designer and dreamer'
+description: This site is centered around my blog, but contains lots of other content as well. You can use the links at the top, or else jump right to the various sections.
+baseurl: ''
+url: 				'http://shivajivarma.com' # the base hostname & protocol for your site
+domain:           	shivajivarma.com
+type:				website
+google-analytics:	UA-42422649-1
+
+# Author details
+author:
+  name:           'Shivaji Varma'
+  location:        'Bangalore, India'
+  gpage:          +ShivajivarmaDotCom
+  email:          contact@shivajivarma.com
+  avatar:         /profile.jpg
+  fbid:           100002868559363
+  gplusid:        108142170241252227550
+  github:         shivajivarma
+  soundcloud:     shivajivarma
+  linkedin:       shivajivarma
+  twitter:        shivaji_varma
+  youtube:        enchantingstrings
+
+# Path to assets
+css:      /assets/css
+img:      /assets/img
+js:       /assets/js
+fonts:    /assets/fonts
+docs:     /assets/docs
+bower:    /assets/bower_components
+
+jekyll-minifier:
+  exclude:
+  - 'assets/bower_components*'
+  - 'assets/*'
+  - '.gitignore'
+
+plugins:
+- jekyll-sitemap

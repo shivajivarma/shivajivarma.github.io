@@ -1,0 +1,15 @@
+<pre><code class="language-{{ include.language }}">loading...</code></pre>
+<script>
+	$.ajax({
+        type: "GET",
+        url: "{{ include.path }}",
+        async: false,
+		success: function(data){
+			$('.language-{{ include.language }}').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+			Prism.highlightAll()
+		},
+		error: function(){
+			$('.language-{{ include.language }}').html("Loading failed, please download to view the code.");
+		}
+    })
+</script>

@@ -1,0 +1,44 @@
+---
+layout: post
+title: Retrieve and parse XML data using Python [AJAX]
+description: Retrieve and parse XML data using Python
+keywords: [xml, ajax, Python, 'retrieve xml','fetch xml','parse xml']
+tags: [python]
+---
+<p itemprop=articleBody>Program to demonstrate the process of fetching and parsing the XML data using Python language.</p>
+	
+<h3>XML File</h3>
+<pre><code class="language-markup">&lt;?xml version="1.0" encoding="ISO8859-1" ?&gt;
+&lt;portfolio&gt;
+  &lt;stock exchange="nyse"&gt;
+    &lt;name&gt;zacx corp&lt;/name&gt;
+    &lt;symbol&gt;ZCXM&lt;/symbol&gt;
+    &lt;price&gt;28.875&lt;/price&gt;
+  &lt;/stock&gt;
+  &lt;stock exchange="nasdaq"&gt;
+    &lt;name&gt;zaffymat inc&lt;/name&gt;
+    &lt;symbol&gt;ZFFX&lt;/symbol&gt;
+    &lt;price&gt;92.250&lt;/price&gt;
+  &lt;/stock&gt;
+&lt;/portfolio&gt;</code></pre>
+	<h3>Code</h3>
+	<pre><code class="language-python">import urllib
+from xml.dom import minidom
+
+url = "http://www.xmlfiles.com/examples/portfolio.xml"
+dom = minidom.parse(urllib.urlopen(url))
+ 
+# dom.getElementsByTagName returns NodeList
+stocks = dom.getElementsByTagName("stock")
+for stock in stocks:
+        exchange = stock.getAttribute("exchange")
+        name = stock.getElementsByTagName("name")[0]
+        symbol = stock.getElementsByTagName("symbol")[0]
+        price = stock.getElementsByTagName("price")[0]
+        print("exchange:%s, name:%s, symbol:%s, price:%s" %
+              (exchange, name.firstChild.data, symbol.firstChild.data, price.firstChild.data))</code></pre>
+<h4>Output</h4>
+<pre><code>exchange:nyse, name:zacx corp, symbol:ZCXM, price:28.875
+exchange:nasdaq, name:zaffymat inc, symbol:ZFFX, price:92.250</code></pre>
+
+<p><a href="https://github.com/shivajivarma/code-base/blob/master/PYTHON/parse-xml.py" class="btn btn-default"><span class="fa fa-github"></span> Fork</a> <a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/PYTHON/parse-xml.py" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>

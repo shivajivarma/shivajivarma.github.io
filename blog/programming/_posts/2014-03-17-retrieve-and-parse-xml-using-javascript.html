@@ -1,0 +1,156 @@
+---
+layout: post
+title: Retrieve and parse XML data using JavaScript
+description: 'Retrieve and parse XML data using JavaScript'
+keywords: [xml, ajax, javascript, 'retrieve xml','fetch xml','parse xml']
+---
+<p itemprop=articleBody>Program to fetch XML. And Sample code to demonstrate the process of parsing the XML data. Also look out for <a href="#demo">demo</a> at bottom of this page.</p>
+	
+<h3>Code</h3>
+<pre><code class="language-javascript">/* Function to fetch XML at given path */
+function loadXML(xmlpath) {
+	var xmlhttp;
+	var xmlDoc;
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.open("GET", xmlpath, false);
+	xmlhttp.send();
+	xmlDoc = xmlhttp.responseXML;
+	return xmlDoc;
+}</code></pre>
+<h3>Sample XML parsing implemetaion</h3>
+<h4>XML File</h4>
+<pre><code class="language-markup">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;students&gt;
+  &lt;student id="100026"&gt;
+    &lt;name&gt;Joe Average&lt;/name&gt;
+    &lt;age&gt;21&lt;/age&gt;
+    &lt;major&gt;Biology&lt;/major&gt;
+    &lt;results&gt;
+      &lt;result course="Math 101" grade="C-"/&gt;
+      &lt;result course="Biology 101" grade="C+"/&gt;
+      &lt;result course="Statistics 101" grade="D"/&gt;
+    &lt;/results&gt;
+  &lt;/student&gt;
+  &lt;student id="100078"&gt;
+    &lt;name&gt;Jack Doe&lt;/name&gt;
+    &lt;age&gt;18&lt;/age&gt;
+    &lt;major&gt;Physics&lt;/major&gt;
+    &lt;major&gt;XML Science&lt;/major&gt;
+    &lt;results&gt;
+      &lt;result course="Math 101" grade="A"/&gt;
+      &lt;result course="XML 101" grade="A-"/&gt;
+      &lt;result course="Physics 101" grade="B+"/&gt;
+      &lt;result course="XML 102" grade="A"/&gt;
+    &lt;/results&gt;
+  &lt;/student&gt;
+&lt;/students&gt;</code></pre>
+<h4>JS Code</h4>
+<pre><code class="language-javascript">/* Sample code to fecth and parse below XML. */
+
+xml = loadXML("/assets/xml/students.xml");
+$(document).ready(funtion(){
+	parseXML(xml);
+});
+
+function parseXML(xml) {
+	$(xml).find('student').each(function(){
+        console.log('/*************************************/');
+        console.log('ID: '+$(this).attr('id'));
+        console.log('Name: '+$(this).find('name').text());
+        console.log('Age: '+$(this).find('age').text());
+        
+            $(this).find('major').each(function(){
+               console.log('Major: '+$(this).text());
+            });
+    
+			$(this).find('results').find('result').each(function(){
+                console.log('Result:\n\t Course: '+$(this).attr('course')+'\n\t Grade: '+$(this).attr('grade'));
+            });
+        
+		console.log('/*************************************/');
+        
+	});
+}</code></pre>
+<h3>Demo<a name="demo" id="demo" class="anchor"></a></h3>
+	<div>
+		<form role="form" name="SumCalculator">
+			<p>
+				<a id="xmlBtn" data-state="fetch" class="btn btn-default btn-sm" href="javascript:void(0)"><span>Fetch</span> <i class="fa fa-cog"></i></a><i class="fa fa-hand-o-left margin-left-10px margin-right-10px"></i><span class="note">Click here to fetch XML</span>
+			</p>
+		</form>
+	</div>
+	<div class="output">
+	<div class="data"></div>
+	</div>
+<script type="text/javascript">
+var xml;
+var xmlpath = "/assets/xml/students.xml";
+var backup={};
+$('#xmlBtn').click(function(){
+	if($(this).attr("data-state") == "fetch"){
+	    backup.output = $('.output').html();
+		backup.btn = $(this).html();
+		$('.output').append('<pre><code class="language-markup"></code></pre>');
+		$('#xmlBtn .fa').addClass('fa-spin');
+		xml = loadXML(xmlpath);
+		loadText(xmlpath);
+		$('.note').html('Fetched successfully. Reclick to parse the data.');
+	}else if($(this).attr("data-state") == "parse"){
+		$(xml).find('student').each(function(){
+				$('.output .data').append('<div class="panel panel-primary"><div class="panel-heading">ID: '+$(this).attr('id')+'</div><div class="panel-body"><p>Name: '+$(this).find('name').text()+'</p><p>Age: '+$(this).find('age').text()+'</p></div></div>');
+				
+		});
+		$(this).children('span').html('Parse more');
+		$(this).attr("data-state","more");
+		$('.note').html("Student's name and age are parsed. Reclick to parse more the data.");
+	}else if($(this).attr("data-state") == "more"){
+		$(xml).find('student').each(function(i,data){
+				$(this).find('major').each(function(){
+					$('.output .data .panel-body:eq('+i+')').append('<p>Major: '+$(this).text()+'</p>');
+				});
+				$(this).find('results').find('result').each(function(){
+					$('.output .data .panel-body:eq('+i+')').append('<p>Result:<br>&nbsp;&nbsp; Course: '+$(this).attr('course')+'<br>&nbsp;&nbsp; Grade: '+$(this).attr('grade')+'</p>');
+				});
+		});
+		$(this).html('Try again');
+		$(this).attr("data-state","end");
+		$('.note').html("Now each student's full details are parsed");
+	}else if($(this).attr("data-state") == "end"){
+		$(this).html(backup.btn);
+		$('.output').html(backup.output);
+		$(this).attr("data-state","fetch");
+		$('.note').html("Click here to fetch XML");
+	}
+});
+
+function loadXML(xmlpath) {
+	var xmlhttp;
+	var xmlDoc;
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.open("GET", xmlpath, false);
+	xmlhttp.send();
+	xmlDoc = xmlhttp.responseXML;
+	
+	$('#xmlBtn').attr('data-state','parse').children('span').html('Parse the data');
+	return xmlDoc;
+}
+	
+function loadText(filepath){
+	$.ajax({
+		url : filepath,
+		dataType: "text",
+		success : function (data) {
+			$('.output code').text(data);
+			Prism.highlightAll();
+		}
+    });
+}
+</script>

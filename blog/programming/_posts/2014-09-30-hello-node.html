@@ -1,0 +1,43 @@
+---
+layout: post
+description: Hello Node JS!
+keywords: [js, 'Nodejs','Hello World']
+tags: [js]
+---
+<div class="row" itemprop=articleBody>
+	<div class="col-md-10">
+	<p>Here is a simple example to build web application using nodejs.</p>
+	<ul>
+		<li>First install <a href="http://nodejs.org/" title="nodejs">nodejs</a></li>
+		<li>Implement the below program in a JS file.</li>
+		<li>Now run the program.
+			<ul>
+				<li>Go to command line</li>
+				<li>Type <span class="highlight">&gt;<span class="gd">node filename</span></span></li>
+				<li>Application start running on given port(Below program runs on 8000 port).</li>
+			</ul>
+		<li>Access the application from browser at http://localhost:port (Below program runs at <a href="http://localhost:8000">http://localhost:8000</a>)</li>
+		<li>Hit CTRL + C on command line to stop the application</li>
+	</ul>
+	</div>
+	<div class="col-md-2">
+		<img class="img-responsive margin-top-10px margin-left-10px" src="https://lh5.googleusercontent.com/-mrFw71M_puI/VE5722ZV70I/AAAAAAAABsE/p4DW4sTySLs/s640-no/nodejs-512%5B1%5D.png" title="Node JS" alt="Node JS" />
+	</div>
+</div>
+
+<h3>Code</h3>
+<pre><code class="language-javascript">// Load the http module to create an http server.
+var http = require('http');
+
+// Configure our HTTP server to respond with Hello World to all requests.
+var server = http.createServer(function (request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.end("Hello World\n");
+});
+
+// Listen on port 8000, IP defaults to 127.0.0.1
+server.listen(8000);
+
+// Put a friendly message on the terminal
+console.log("Server running at http://127.0.0.1:8000/");</code>
+</pre>

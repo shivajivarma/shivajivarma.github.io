@@ -1,0 +1,56 @@
+---
+layout: post
+description: Printing set of numbers in spiral matrix form
+keywords: [java, 'Spiral Matrix']
+tags: [c]
+---
+<p>Given a input of N, prints 1 to (N * N) numbers in spiral matrix order.</p>
+	
+<p>E.g.: Input: 5</p>
+<p>Output:</p>
+<pre>1	16	15	14	13	
+2	17	24	23	12	
+3	18	25	22	11	
+4	19	20	21	10	
+5	6	7	8	9</pre>
+
+<h3>Code</h3>
+<pre><code class="language-java">import java.util.Scanner;
+
+class SpiralMatrix {
+    public static void main(String args[] ) throws Exception {
+      	    
+      	System.out.println("Enter N*N Matrix size:");
+	    int N = new Scanner(System.in).nextInt();
+	     
+	    int current = 1;
+		// Start in the corner
+		int x = 0, y = 0, dx = 1, dy = 0;
+		int spiral[][]= new int[N][N];
+		
+		while (current &lt;= N*N) {
+		    // Go in a straight line
+		    spiral[x][y] = current++;
+		    int nx = x + dx, ny = y + dy;
+		   
+		    // When you hit the edge...
+		    if (nx &lt; 0 || nx == N || ny &lt; 0 || ny == N || spiral[nx][ny] != 0) {
+		        // ...turn right
+		        int t = dy;
+		        dy = dx;
+		        dx = -t;
+		    }
+		    x += dx;
+		    y += dy;
+		}
+		
+		for (int i = 0; i &lt; N; i++) {
+	    	for (int j = 0; j &lt; N; j++) {
+	        	System.out.print(spiral[i][j]+"\t");
+	    	}
+	    	System.out.print("\n"); 
+	    }
+   }
+}</code></pre>
+
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JAVA/SpiralMatrix.java" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>

@@ -1,0 +1,63 @@
+---
+layout: default
+---
+<nav aria-label="breadcrumb" class="d-none d-sm-block">
+  <ol class="breadcrumb capitalize" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/" itemprop="item" title="Home"><span itemprop="name">Home</span></a></li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/{{ page.categories[0] }}/" itemprop="item" title="{{ page.categories[0] | replace:'-',' ' }}"><span itemprop="name">{{ page.categories[0] | replace:'-',' ' }}</span></a></li>
+    {% if page.categories[1] %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/{{ page.categories[0] }}/{{ page.categories[1] }}/" itemprop="item" title="{{ page.categories[1] | replace:'-',' ' }}"><span itemprop="name">{{ page.categories[1] | replace:'-',' ' }}</span></a></li>
+    {% endif %}
+    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem" class="active" title="{{ page.title }}"><span itemprop=name>{{ page.title }}</span></li>
+  </ol>
+</nav><!-- /.breadcrumb -->
+<div class="margin-top-10px  visible-xs"></div>
+<article class=container-fluid itemscope itemtype="http://schema.org/Article">
+  <h1 class=no-margin itemprop=name>{{ page.title }}</h1>
+  {% include html/authoring.html %}
+  <div class=row>
+    <div class=col-md-9>
+      {{ content }}
+      <ul class=pager>
+        {% assign flag = false %}
+        {% assign micro-site = page.categories[0] %}
+        <li class="previous">
+          {% for post in site.categories[micro-site] %}
+
+          {% if flag %}
+          <a href="{{ post.url }}" title="Previous Post: {{ post.title }}">Previous</a>
+          {% break %}
+          {% endif %}
+          {% if post.url == page.url %}
+          {% assign flag = true %}
+          {% endif %}
+
+          {% endfor %}
+        </li>
+
+        {% assign flag = false %}
+        <li class="next">
+          {% for post in site.categories[micro-site] reversed %}
+
+          {% if flag %}
+          <a href="{{ post.url }}" title="Previous Post: {{ post.title }}">Next</a>
+          {% break %}
+          {% endif %}
+          {% if post.url == page.url %}
+          {% assign flag = true %}
+          {% endif %}
+
+          {% endfor %}
+        </li>
+      </ul>
+    </div>
+    <div class=col-md-3>
+      {% include html/adsence-responsive.html %}
+    </div>
+  </div>
+</article>
+{% include html/comments.html %}

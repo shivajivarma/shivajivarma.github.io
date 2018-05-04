@@ -1,0 +1,24 @@
+---
+layout: post
+description: Disabling arrow keys using JavaScript
+keywords: [JavaScript, 'disable arrow keys']
+tags: [js]
+---
+<p>While implementing browser based games, Arrow keys are used for game controlling, instead of scrolling of page, so it's necessary to disable there default functionality.</p>	
+<h3>Code</h3>
+<pre><code class="language-javascript">var keys = {};
+window.addEventListener("keydown",
+    function(e){
+        keys[e.keyCode] = true;
+        switch(e.keyCode){
+            case 37: case 39: case 38:  case 40: // Arrow keys
+            case 32: e.preventDefault(); break; // Space
+            default: break; // do not block other keys
+        }
+    },
+false);
+window.addEventListener('keyup',
+    function(e){
+        keys[e.keyCode] = false;
+    },
+false);</code></pre>

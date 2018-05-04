@@ -1,0 +1,61 @@
+---
+layout: post
+title: Tiny Webserver Application [Python]
+description: Small piece of python code to implement web server, ready enough to test your web pages in localhost.
+keywords: [Python, 'web server']
+tags: [python]
+---
+<p itemprop=articleBody>{{ page.description }}</p>
+	
+<h3>Code</h3>
+<pre><code class="language-python">import sys
+import http.server
+
+HandlerClass = http.server.SimpleHTTPRequestHandler
+ServerClass  = http.server.HTTPServer
+Protocol     = "HTTP/1.0"
+
+if sys.argv[1:]:
+    port = int(sys.argv[1])
+else:
+    port = 8080
+server_address = ('127.0.0.1', port)
+
+HandlerClass.protocol_version = Protocol
+httpd = ServerClass(server_address, HandlerClass)
+
+sa = httpd.socket.getsockname()
+print("Serving HTTP on", sa[0], "port", sa[1], "...")
+httpd.serve_forever()</code></pre>
+    <h3>Code [Older version of Python]</h3>
+	<pre><code class="language-python">import sys
+import BaseHTTPServer
+from SimpleHTTPServer import SimpleHTTPRequestHandler
+
+
+HandlerClass = SimpleHTTPRequestHandler
+ServerClass  = BaseHTTPServer.HTTPServer
+Protocol     = "HTTP/1.0"
+
+if sys.argv[1:]:
+    port = int(sys.argv[1])
+else:
+    port = 8000
+
+HandlerClass.protocol_version = Protocol
+httpd = ServerClass(('127.0.0.1', port), HandlerClass)
+
+sa = httpd.socket.getsockname()
+print "Serving files on", sa[0], "port", sa[1], "..."
+httpd.serve_forever()</code></pre>
+    
+<h4>How to run?</h4>
+<pre><code>If your web server root directory is "c:\web\" then go to that folder put the code in server.py file. Now run the program using python.
+
+$python server.py
+this will start server at localhost:8080. 
+
+If you want to run the server in different port then pass the port value to the program as command line argument.
+$python server.py 8082</code></pre>
+
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/PYTHON/web-server.py" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>

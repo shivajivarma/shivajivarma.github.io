@@ -1,0 +1,35 @@
+---
+layout: project
+description: 'Snake Game using HTML and JS'
+keywords: ['snake game', 'html js game']
+plugins:
+  fblike: true
+  gplus: true
+scripts: ['http://shivajivarma.com/snake-game/snake-game.js']
+---
+
+<p>Snake game written usnig javascript</p>
+
+<div class="row">
+	<div class="col-md-6">
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</div>
+	<div class="col-md-6">
+		<div>
+			<span id="score">Score: 0</span><br/>
+			<span id="best">Best &nbsp;: 0</span><br/>
+			<span id="displayBoard">&nbsp;</span>
+		</div>
+	</div>
+</div>
+<h3>HTML Code</h3>
+{% include components/github-code-highlighter.html id="code-html" program='index.html' repo='shivajivarma/snake-game' prism='language-markup' %}
+	
+	
+<h3>JS Code</h3>
+{% include components/github-code-highlighter.html id="code-js" program='snake-game.js' repo='shivajivarma/snake-game' prism='language-javascript' %}
+<script type="text/javascript">
+$(document).ready(function () {
+	snakeGame.init();
+})
+</script>

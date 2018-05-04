@@ -1,0 +1,52 @@
+---
+layout: default
+---
+{% assign micro-site = 'code-base' %}
+{% include html/breadcrumb.html breadcrumb=micro-site %}
+{% assign temp = page.title | downcase | replace:' ','-' %}
+<!-- MAIN CONTENT -->
+<div class="container-fluid margin-bottom-15px">
+	<h1 class=no-margin>{{ page.title }} Codebase</h1>
+	<div itemprop=articleBody>
+		{% assign temp = page.title | downcase | replace:' ','-' %}
+		<p class=margin-top-10px><a href="//github.com/{{ page.repo }}" class="btn btn-info"><span class="fa fa-github"></span> Fork</a> <a href="https://travis-ci.org/{{ page.repo }}" alt="Build Status"><img title="Build Status" alt="Build Status" src=https://api.travis-ci.org/{{ page.repo }}.svg?branch=master /></a></p>
+		{% assign language = temp | split:'-' %}
+		<p class="lead margin-top-10px">'<b>{{ page.title }} Codebase</b>' is a branch of 'Code Base' project, holds all <span>{{ language[0] | capitalize }}</span> programs.</p>
+	</div>
+	{{ content }}
+	<div class="row">
+		<div id=post-list class=col-md-9>
+		{% assign sorted_posts = (site.categories[micro-site] | sort: 'title') %}
+		{% for post in sorted_posts %}
+		{% if post.categories[1] == temp %}
+			<h3 class="no-margin margin-top-10px"><a class=no-underline href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+			<small class=text-muted>
+				Posted on {{ post.date | date: "%B %-d, %Y" }}
+			</small>
+		{% endif %}
+		{% endfor %}
+		</div>
+		<div class=col-md-3>
+			<h3>Camps</h3>
+			<ul class="nav nav-pills nav-stacked">
+				{% capture category_list %}{% for cat in site.categories %}{{ cat[0] }}{% if forloop.last != true%}|{% endif %}{% endfor %}{% endcapture %}
+					{% assign sorted_cats = category_list | split:'|' |  sort %}
+					{% assign list = micro-site %}
+					{% assign flag = false %}
+
+					{% for category in sorted_cats %}
+						{% if forloop.last %}
+							{% assign flag = true %}
+						{% endif %}
+						{% for post in site.categories[list] %}
+							{% if category == post.categories[1] %}
+								<li {% if post.categories[1] == temp %}class=active{% endif %}><a href="{{ site.baseurl }}/{{ list }}/{{ category }}/" title="{{ category }}">{{ category | replace:'-',' ' | capitalize }}</a>
+								{% break %}
+							{% endif %}
+						{% endfor %}
+					{% endfor %}
+			</ul>
+			<hr/>{% include html/adsence-responsive.html %}
+		</div>
+	</div>
+</div>

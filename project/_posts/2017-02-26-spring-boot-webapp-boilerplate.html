@@ -1,0 +1,47 @@
+---
+layout: project
+title: Spring Boot Boilerplate
+description: 'An boilerplate web application to kick start development.'
+keywords: [dbms, 'bus reservation system', 'java', 'dot net','er diagrams','data base management system','project']
+plugins:
+  fblike: true
+  gplus: true
+category: project
+permalink: /:categories/:title/
+---
+
+<div class="row">
+    <div class="col-md-9">
+        <p>{{page.description}}</p>
+        <p>Spring Boot based Web Application boilerplate, with stateless authentication using JWT.</p>
+        
+        <p><a class="btn btn-info" onclick="ga('send', 'event', 'button', 'click', 'Spring Boot Boilerplate View Source Code');" target="_blank" href="https://github.com/shivajivarma/spring-boot-webapp-boilerplate" title="View Source Code">View Source Code</a></p>
+	  
+      
+        <!-- Place this tag where you want the +1 button to render. -->
+        <div class="g-plusone" data-href="{{ site.url }}{{ page.url }}"></div><br/>
+
+        <!-- facebook like -->
+        <div class="fb-like margin-top-20px" data-href="{{ site.url }}{{ page.url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+	     
+        <hr>         
+        
+        <h3>Setup :</h3>
+
+        <p>Install MySQL and create `boilerplate` schema.</p>
+        <p>Clone the repository.</p>
+        <p><code>git clone https://github.com/shivajivarma/spring-boot-webapp-boilerplate</code></p>
+
+        <h3>Run :</h3>
+
+        <p>To run the demo application just execute this command in the root directory:</p>
+        <p><code>mvn spring-boot:run</code></p>
+        <p>And navigate to <a href="http://localhost:8080">http://localhost:8080</a> to check the demo.</p>
+         
+    </div> 
+    
+    <div class=col-md-3>
+		{% include html/adsence.html %}
+	</div>
+</div>
+

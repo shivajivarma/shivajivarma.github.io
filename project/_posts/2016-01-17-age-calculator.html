@@ -1,0 +1,88 @@
+---
+layout: project
+description: Age Calculator is a Hybrid mobile app developed using Cordova. Boostrap framework for UI development.
+category: project
+keywords: [age, calculator, 'android hybrid application', 'age calculator by shivaji', 'age calculator android application', 'cordova hybrid android app']
+plugins:
+  fblike: true
+  gplus: true
+permalink: /:categories/:title/
+---
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+
+      <p>Age Calculator is a Hybrid mobile app developed using <a href="https://cordova.apache.org" title="Cordova">Cordova</a>. <a href="https://getbootstrap.com" title="Bootstrap">Boostrap</a> framework for UI development.</p>
+      <a href="https://play.google.com/store/apps/details?id=codemons.age_calculator" target="_blank" class="btn btn-primary margin-right-10px">Play Store</a>
+      <a href="https://play.google.com/store/apps/details?id=codemons.age_calculator" target="_blank" class="btn btn-primary"><i class="fa fa-github"></i></a>
+
+      <h5>Version</h5>
+      <p class="wow fadeInLeft">1.6.0</p>
+
+      <h5>Dev Setup</h5>
+      <pre><code class="language-bash">$ npm install -g cordova</code></pre>
+
+      <pre><code class="language-bash">$ git clone https://github.com/codemons/age-calculator-cordova.git age-calculator
+$ cd age-calculator
+$ cordova platform add [android/ios/windows]</code></pre>
+
+      <p>Install platform respective SDK. And then give build.</p>
+      <pre class="wow fadeInLeft"><code class="language-bash">$ cordova build</code></pre>
+    </div>
+    <div class=col-md-3>
+		{% include html/adsence.html %}
+	</div>
+  </div>
+
+<div class="row">
+    <div class="col-md-9">
+	  <h5>Code</h5>
+	  <pre class="wow fadeInLeft"><code class="language-javascript">var getAge = (function(){
+	  function difference(d1, d2) {
+		  var m = moment(d1);
+		  var years = m.diff(d2, 'years');
+		  m.add(-years, 'years');
+		  var months = m.diff(d2, 'months');
+		  m.add(-months, 'months');
+		  var days = m.diff(d2, 'days');
+
+		return {years: years, months: months, days: days,
+		  toString: function(){
+			var age= [];
+			if(this.years &gt; 0) age.push(this.years+ ' year'+(this.years&gt; 1? 's ':' '));
+			if(this.months &gt; 0) age.push(months+ ' month'+(this.months&gt; 1? 's':''));
+			if(this.days &gt; 0) age.push(this.days+ ' day'+(this.days&gt; 1? 's':''));
+			if(age.length &gt; 1)
+			age.splice(age.length-1,0,' and ');
+			return age.join('');
+		  }
+		};
+	  }
+
+	  return function(dob){
+		return difference(new Date(), dob);
+	  };
+	}());</code></pre>
+
+	  <h5>Screenshots</h5>
+	  <div class="row">
+		<div class="col-md-3">
+		  <img src="{{site.img}}/products/age-calculator/1.png" width="100%" class="materialboxed padding-top-10px wow fadeInRight" data-wow-delay="500ms">
+		</div>
+		<div class="col-md-3">
+		  <img src="{{site.img}}/products/age-calculator/2.png" width="100%" class="materialboxed padding-top-10px wow fadeInRight" data-wow-delay="1000ms">
+		</div>
+		<div class="col-md-3">
+		  <img src="{{site.img}}/products/age-calculator/3.png" width="100%" class="materialboxed padding-top-10px wow fadeInRight" data-wow-delay="1500ms">
+		</div>
+		<div class="col-md-3">
+		  <img src="{{site.img}}/products/age-calculator/4.png" width="100%" class="materialboxed padding-top-10px wow fadeInRight" data-wow-delay="2000ms">
+		</div>
+	  </div>
+	</div>
+</div>
+
+<hr/>
+<p>Free Software, Hell Yeah!</p>

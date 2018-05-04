@@ -1,0 +1,154 @@
+---
+layout: post
+title: Make a Cloud in CSS
+description: Make a Cloud in CSS
+keywords: [css, cloud, 'web designing']
+tags: [css]
+---
+<div class="row" itemprop=articleBody>
+	<div class="col-md-12">
+		<p>Here is a simple CSS code to create a cloud.</p>
+	</div>
+</div>
+<div class="row">
+	<div id="cloud-background" class="col-md-12">
+		<div id = "cloud"><span class='shadow'></span></div>
+	</div>
+</div>
+<h3>HTML Code</h3>
+<pre><code class="language-markup">&lt;div id="cloud-background"&gt;
+	&lt;div id = "cloud"&gt;&lt;span class='shadow'&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+	<h3>CSS Code</h3>
+<pre><code class="language-css">#cloud-background {
+	background-color: #ccc;
+	z-index: 0;
+	padding-top: 1px;
+	padding-bottom: 8px;
+}
+#cloud {
+	width: 262px; height: 90px;
+
+	background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+
+	position: relative;
+	margin: 120px auto 20px;
+}
+
+#cloud:after, #cloud:before {
+	content: '';
+	position: absolute;
+	background: #f2f9fe;
+	z-index: -1
+}
+
+#cloud:after {
+	width: 75px; height: 75px;
+	top: -37px; left: 37px;
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+}
+
+#cloud:before {
+	width: 135px; height: 135px;
+	top: -67px; right: 37px;
+
+	border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+}
+
+.shadow {
+	width: 262px;
+	position: absolute; bottom: -10px;
+	background: #000;
+	z-index: -1;
+
+	box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+}</code></pre>
+<p><a href="https://github.com/shivajivarma/code-base/blob/master/CSS/cloud.css" class="btn btn-default"><span class="fa fa-github"></span> Fork</a> <a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/CSS/cloud.css" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+
+<style>
+#cloud-background {
+  background-color: #ccc;
+	z-index: 0;
+	padding-top: 1px;
+	padding-bottom: 8px;
+}
+#cloud {
+	width: 262px; height: 90px;
+
+	background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+
+	position: relative;
+	margin: 120px auto 20px;
+}
+
+#cloud:after, #cloud:before {
+	content: '';
+	position: absolute;
+	background: #f2f9fe;
+	z-index: -1
+}
+
+#cloud:after {
+	width: 75px; height: 75px;
+	top: -37px; left: 37px;
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+}
+
+#cloud:before {
+	width: 135px; height: 135px;
+	top: -67px; right: 37px;
+
+	border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+}
+
+.shadow {
+	width: 262px;
+	position: absolute; bottom: -10px;
+	background: #000;
+	z-index: -1;
+
+	box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+</style>

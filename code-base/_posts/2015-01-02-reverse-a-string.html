@@ -1,0 +1,32 @@
+---
+layout: post
+title: Reverse A String
+description: Program to reverse a string
+keywords: ['reverse a string', 'python', 'program']
+tags: [python]
+---
+<blockquote><p>{{ page.description }}.</p></blockquote>
+	
+<p>Example: Reverse of 'Hello World' is 'dlroW olleH'</p>
+	
+<h3>Code # Method 1</h3>
+<pre><code class="language-python">def reverse(str):
+    return str[::-1]
+
+if __name__=="__main__":
+    print("Enter a String: ",end="")
+    str = input()
+    print("Reverse of '",str,"' is '",reverse(str),"'")</code></pre>
+
+<h3>Code # Method 2</h3>
+<pre><code class="language-python">def reverse(string):
+    result = ""
+    for letter in xrange(len(string), 0, -1):
+        result = result + string[letter-1]
+    return result
+
+if __name__=="__main__":
+    print("Enter a String: ",end="")
+    str = input()
+    print("Reverse of '",str,"' is '",reverse(str),"'")</code></pre>	
+<p><a href="https://github.com/shivajivarma/python-camp/blob/master/reverse-a-string/program.py" class="btn btn-default"><span class="fa fa-github"></span> Fork</a> <a href="https://raw.githubusercontent.com/shivajivarma/python-camp/master/reverse-a-string/program.py" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>

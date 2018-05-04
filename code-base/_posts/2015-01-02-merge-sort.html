@@ -1,0 +1,19 @@
+---
+layout: post
+title: Merge Sort
+description: Program to perform sort on set of numbers using merge sort technique
+keywords: ['merge sort algorithm', 'sorting algorithm', 'merge sort program in c', 'merge sort algorithm in java', 'merge sort algorithm implemented in c']
+tags: [c]
+---
+<p><b>Merge sort</b> is a sorting algorithm that sorts data items into ascending or descending order, which comes under the category of comparison-based sorting. Here we apply the divide-and-conquer strategy to sort a given sequence of data items, which can be described as follows:</p>
+
+<ul>
+<li>Recursively split the sequence into two halves (i.e. subsequences) until the subsequence contains only a single data item (i.e. singleton subsequence)</li>
+<li>Now, recursively merge these subsequences back together preserving their required order (i.e. ascending or descending order)</li>
+</ul>
+
+<blockquote>{{ page.description }}</blockquote>
+
+<h3>Code</h3>
+{% include components/github-code-highlighter.html id="code-c" program='src/sorting-algorithms/merge-sort/merge-sort.c' repo='shivajivarma/codebase-c' prism='language-c' %}
+   

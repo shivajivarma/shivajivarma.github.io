@@ -1,0 +1,56 @@
+---
+layout: post
+description: Smooth Scrolling To Internal Links With jQuery
+keywords: [javascript, 'smooth scrolling using jquery', 'smooth scrolling', hashtag, html]
+tags: [jquery]
+---
+<p itemprop=articleBody>JQuery allows smooth scrolling to hashtag</p>
+	
+<h3>Code</h3>
+<pre><code class="language-javascript">var $root = $('html, body');
+
+$('a').click(function() {
+  var href = $.attr(this, 'href');
+  var hash;
+	
+  if(href == '#'){
+	hash = $('body');
+  }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
+	hash = $('[name='+href.substring(1)+']');
+  }else 
+	return true;
+	
+  $root.animate({
+	  scrollTop: $(hash).offset().top
+	}, 500, function () {
+	  window.location.hash = href;
+  });
+ 
+  return false;
+});</code>
+</pre>
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JS/smooth-scrolling.js" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>
+
+<h3>Example</h3>
+<div class="text-align-center">
+	<p class="padding-top-20px padding-bottom-50px"><a name="par1" id="par1" class="anchor"></a>Paragraph 1. <a href="#par10">Go to pragraph 10</a></p>
+	<p class=padding-bottom-50px>Paragraph 2</p>
+	<p class=padding-bottom-50px><a name="par3" id="par3" class="anchor"></a>Paragraph 3. <a href="#par8">Go to pragraph 8</a></p>
+	<p class=padding-bottom-50px>Paragraph 4</p>
+	<p class=padding-bottom-50px>Paragraph 5</p>
+	<p class=padding-bottom-50px>Paragraph 6</p>
+	<p class=padding-bottom-50px>Paragraph 7</p>
+	<p class=padding-bottom-50px><a name="par8" id="par8" class="anchor"></a>Paragraph 8</p>
+	<p class=padding-bottom-50px>Paragraph 9</p>
+	<p class=padding-bottom-50px><a name="par10" id="par10" class="anchor"></a>Paragraph 10</p>
+	<p class=padding-bottom-50px>Paragraph 11</p>
+	<p class=padding-bottom-50px>Paragraph 12. <a href="#par19">Go to pragraph 19</a></p>
+	<p class=padding-bottom-50px>Paragraph 13</p>
+	<p class=padding-bottom-50px>Paragraph 14</p>
+	<p class=padding-bottom-50px>Paragraph 15</p>
+	<p class=padding-bottom-50px>Paragraph 16</p>
+	<p class=padding-bottom-50px>Paragraph 17</p>
+	<p class=padding-bottom-50px>Paragraph 18</p>
+	<p class=padding-bottom-50px><a name="par19" id="par19" class="anchor"></a>Paragraph 19</p>
+	<p class=padding-bottom-50px>Paragraph 20. <a href="#par1">Go to pragraph 1</a></p>
+</div>

@@ -7,6 +7,7 @@
 # Ignore OS generated files #
 .DS_Store*
 ehthumbs.db
+Icon?
 Thumbs.db
 
 # Always-ignore files and folders #
@@ -18,6 +19,7 @@ Thumbs.db
 *.swn
 *.swo
 *.swp
+._*
 *~
 
 # Ignore packages #
@@ -28,9 +30,7 @@ Thumbs.db
 *.jar
 *.rar
 *.tar
-*.zip
 
-# Ignore for jekyll projects #
-drafts
-
-assets/bower_components/prism/plugins/
+# Ignore for Yeoman-Jekyll projects #
+dest/
+node_modules

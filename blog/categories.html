@@ -1,0 +1,33 @@
+---
+layout: default
+title: Categories
+priority: 0.9
+description: Blog categories.
+change_frequency: always
+---
+{% include html/breadcrumb.html%}
+<!-- MAIN CONTENT -->
+<div class=container-fluid>
+	<h1 class="no-margin">{{ page.title }}</h1>
+	<div id="main_content_wrap" class="outer">
+		<div id="post-list">
+		{% capture category_list %}{% for cat in site.categories %}{{ cat[0] }}{% if forloop.last != true%}|{% endif %}{% endfor %}{% endcapture %}
+		{% assign sorted_cats = category_list | split:'|' |  sort %}
+		{% assign list = 'blog' %}
+		{% assign flag = false %}
+		
+		{% for category in sorted_cats %}
+			{% if forloop.last %}
+				{% assign flag = true %}
+			{% endif %}
+			{% for post in site.categories[list] %}	
+				{% if category == post.categories[1] %}
+					<h3 class="no-margin capitalize">{% if flag %}└{% else %}├{% endif %}── <a class="no-underline" href="{{ site.baseurl }}/{{ list }}/{{ category }}/" title="{{ category }}">{{ category | replace:'-',' ' | capitalize }}</a></h3>
+					{% break %}
+				{% endif %}
+			{% endfor %} 
+		{% endfor %}
+		</div>
+	</div>
+	
+</div>

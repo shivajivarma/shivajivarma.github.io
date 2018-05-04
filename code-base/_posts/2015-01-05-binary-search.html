@@ -1,0 +1,29 @@
+---
+layout: post
+title: Binary Search
+description: Program to perform search on sorted set of numbers using Binary search technique
+keywords: ['binary search algorithm', 'search algorithm', 'binary search program in c', 'binary search algorithm in java', 'binary search algorithm implemented in c']
+tags: [c, java]
+---
+<p>A <strong>Binary search</strong> locates an item in a sorted array by repeatedly dividing the search interval in half. The initial interval includes the entire array. If the value of the search key is less than the item in the middle of the interval, then the next interval will be the lower half of the current interval. If the value of the search key is greater than the middle item, then the next interval will be the upper half. The search process repeats until the item is found or the search interval is empty.</p>
+
+<p>Binary Search is an O(log n) algorithm, which is more efficient than a linear search for large arrays.</p>
+
+<blockquote>{{ page.description }}</blockquote>
+
+
+<h3>C</h3>
+{% include components/github-code-highlighter.html id="c-binary-search" program='src/searching-algorithms/binary-search/binary-search.c' repo='shivajivarma/codebase-c' prism='language-c' %}
+
+<h3>Java</h3>
+{% include components/github-code-highlighter.html id="java-binary-search" program='src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+
+<h3>Output</h3>
+<pre><code class="language-c">Enter size of the array :: 8
+
+Enter elements of the array in ascending order :: 1 5 7 11 12 56 102 156
+
+Enter the number to be searched :: 102
+
+102 is present at location 7.</code></pre>
+
