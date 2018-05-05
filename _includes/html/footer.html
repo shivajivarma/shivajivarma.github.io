@@ -1,13 +1,17 @@
-<div id="footer" class="border-top">
-  <footer class="container-fluid" itemscope itemtype="http://schema.org/WPFooter">
-    <p class=back-to-top><a href="#body"><i class="fa fa-angle-up font-32px"></i></a></p>
+<footer class="bd-footer text-muted border-top" itemscope itemtype="http://schema.org/WPFooter">
+  <p class=back-to-top><a href="#body"><i class="fa fa-angle-up font-32px"></i></a></p>
+  <div class="container-fluid p-3 p-md-5">
+    <ul class="bd-footer-links">
+      <li><a href="{{ site.baseurl }}/privacy">Privacy</a></li>
+      <li><a rel="license noopener" href="{{ site.baseurl }}/license">License</a></li>
+      <li><a href="/bootstrap-material-design/about/">About</a></li>
+    </ul>
     <p>
-		ALL WORKS &copy; {{ site.time | date: '%Y' }} <a target="_blank" href="https://plus.google.com/{{ site.author.gplusid }}?rel=author" rel="author">{{ site.author.name | upcase  }}</a> &middot; <a href="{{ site.baseurl }}/privacy">PRIVACY</a> &middot; <a href="#body">TERMS</a> &middot; <a href="{{ site.baseurl }}/LICENSE">LICENSE</a>
-	</p>
-    <p class=m-0>
-		Based on <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>.
-		Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>.
-		View source on <a target="_blank" href="http://github.com/{{ site.author.github }}/{{ site.author.github }}.github.io">Github</a>
-	</p>
-  </footer>
-</div><!-- /#footer -->
+      Designed and built by <a href="https://twitter.com/shivaji_varma" target="_blank" rel="noopener">@ShivajiVarma</a>.
+      Based on <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>.
+      Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>.
+      View source on <a target="_blank" href="http://github.com/{{ site.author.github }}/{{ site.author.github }}.github.io">Github</a>
+    </p>
+    <p>All works &copy; {{ site.time | date: '%Y' }} <a target="_blank" href="https://plus.google.com/{{ site.author.gplusid }}?rel=author" rel="author">{{ site.author.name | upcase  }}</a>.</p>
+  </div>
+</footer>

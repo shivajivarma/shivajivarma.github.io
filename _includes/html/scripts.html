@@ -1,13 +1,14 @@
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.min.js"></script>
-<!-- build:js(app) {{ site.baseurl }}{{ site.js }}/main.js -->
+
+{% if page.root != true %}
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/prism.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/components/prism-c.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/components/prism-python.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/components/prism-sql.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/components/prism-java.min.js"></script>
+{% endif %}
 <script src="{{ site.baseurl }}{{ site.js }}/main.js"></script>
-<!-- endbuild -->
 
 {% for js in page.js %}<script type="text/javascript" src="{{ site.baseurl }}{{ site.js }}/{{ js }}"></script>{% endfor %}
 {% for script in page.scripts %}<script type="text/javascript" src="{{ script }}"></script>{% endfor %}

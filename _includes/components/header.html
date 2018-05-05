@@ -12,20 +12,17 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item {% if page.title == 'Blog' %}active{% endif %}">
           <a class="nav-link" href="{{ site.baseurl }}/blog/#body" itemprop=url>
-            <i class="fa fa-pencil margin-right-5px"></i>
             <span itemprop=name>Blog</span> {% if page.title == 'Blog' %}<span class="sr-only">(current)</span>{% endif %}
           </a>
         </li>
         <li class="nav-item {% if page.title == 'Projects' %}active{% endif %}">
           <a class="nav-link" href="{{ site.baseurl }}/project/#body" itemprop=url>
-            <i class="fa fa-code margin-right-5px"></i>
             <span itemprop=name>Projects</span> {% if page.title == 'Projects' %}<span class="sr-only">(current)</span>{% endif %}
           </a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" action="/search/" role="search">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" id="q">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </nav>
