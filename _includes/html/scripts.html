@@ -1,3 +1,5 @@
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.min.js"></script>
 <!-- build:js(app) {{ site.baseurl }}{{ site.js }}/main.js -->
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/prism.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/components/prism-c.min.js"></script>
@@ -8,13 +10,9 @@
 <!-- endbuild -->
 
 {% for js in page.js %}<script type="text/javascript" src="{{ site.baseurl }}{{ site.js }}/{{ js }}"></script>{% endfor %}
-
 {% for script in page.scripts %}<script type="text/javascript" src="{{ script }}"></script>{% endfor %}
-
 {% if page.plugins.gplus %}
 	<script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
 {% endif %}
-
 {% if page.plugins.fblike %}{% include plugins/fb-like.html %}{% endif %}
-
 {% include plugins/disqus-comments.html %}
