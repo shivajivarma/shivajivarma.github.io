@@ -1,0 +1,7 @@
+<ul class="nav flex-column">
+  {% for cat in include.categories %}
+  <li>
+      <a href="{{ site.baseurl }}{{cat.url}}" title="{{cat.name}}" class="nav-link">{{cat.name}}</a>
+  </li>
+  {% endfor %}
+</ul>
