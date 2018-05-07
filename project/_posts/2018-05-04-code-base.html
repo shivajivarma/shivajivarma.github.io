@@ -4,6 +4,11 @@ title: Code Base
 description: It is a repository of programs, using which you can analyse, hack and learn basic programming. Related to these things I discuss in my blog.
 category: project
 permalink: /:categories/:title/
+navlinks:
+  - name: -75.088
+    url: 11/27/2015
+  - name: 75.088
+    url: 11/26/2015
 ---
 
 <p class="lead mt-2">'<b>Code Base</b>' is a repository of programs, you can analyze and hack the code to learn programming. Algorithms playground for common questions solved in multiple languages. In case you want to prepare yourself for a job interview - try to solve it yourself first, then have a look here.</p>
@@ -64,7 +69,8 @@ permalink: /:categories/:title/
       <a href="{{ site.baseurl }}/code-base/tag/?filter=java" class="nav-link" title="Python">Java</a>
     </ul>
     <hr/>
-    {% include components/side-nav-menu.html categories="[{url:'test', name: 'tet'}]" %}
+    {% assign categories = page.navlinks %}
+    {% include components/side-nav-menu.html categories=categories %}
     <hr/>
     {% include html/adsence-responsive.html %}
   </div>
