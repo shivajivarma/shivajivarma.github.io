@@ -1,12 +1,17 @@
 ---
 ---
+.skills {
+  img {
+    height: 5em;
+    margin-bottom: 1em;
+  }
+}
 
 .content {
 
   overflow: hidden;
   line-height: 40px;
   color: black;
-
 
   &__container {
     overflow: hidden;
@@ -29,6 +34,7 @@
     }
   }
 }
+
 @keyframes change {
   0%, 12.66%, 100% {
     transform: translate3d(0, 0, 0);

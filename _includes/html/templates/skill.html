@@ -1,12 +1,4 @@
-<div class="col-md-2 mt-2">
-	<div class=row>
-		<div class="col-md-12">{{ include.skill }}</div>
-		<div class="col-md-12">
-			<div class="progress" style="height: 1em">
-				<div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="{{ include.percent }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ include.percent }}%">
-					{{ include.percent }}%<span class="sr-only">{{ include.percent }}% Complete</span>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="p-2 text-align-center">
+  <img src="{{ site.img }}/skills/{{ include.img }}">
+  <span class="display-block">{{ include.name }}</span>
 </div>
