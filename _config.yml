@@ -47,10 +47,14 @@ compress_html:
   endings:   all
 
 assets:
+
   assets:
     - "*.png"
+
   sources:
-    - _assets/js
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
 
 plugins:
 - jekyll-sitemap
