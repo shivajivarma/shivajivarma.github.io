@@ -1,0 +1,21 @@
+{
+  "name": "shivajivarma.com",
+  "version": "1.0.0",
+  "description": "[Personal Website](http://shivajivarma.com)\r ================\r Everything I think of...",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd dest && live-server",
+    "build": "jekyll build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivajivarma/shivajivarma.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivajivarma/shivajivarma.github.io/issues"
+  },
+  "homepage": "https://github.com/shivajivarma/shivajivarma.github.io#readme"
+}

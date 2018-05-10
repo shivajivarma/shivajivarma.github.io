@@ -241,7 +241,7 @@ hr {
 }
 
 .bg-dark {
-  background-color: black!important;
+  background-color: black !important;
 }
 
 .ads {
@@ -266,6 +266,22 @@ hr {
   background-color: #009587;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.separator-green-animate:hover {
+  .separator-green {
+    animation-name: expandFromLeft;
+    animation-duration: 1s;
+  }
+}
+
+@keyframes expandFromLeft {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50px;
+  }
 }
 
 .red-text {

@@ -14,7 +14,7 @@ css:
 <div class=container-fluid>
 
   <!-- Introduction -->
-  <div class="row my-5">
+  <section class="row my-5 separator-green-animate">
 
     <div class="col-md-3 col-12 text-center">
       <img class="img-fluid rounded-circle"
@@ -61,156 +61,176 @@ css:
 
     </div>
 
-  </div>
+  </section>
 
   <hr>
 
   <!-- Skills -->
-  <div class="row skills">
-    <div class="col-md-12">
-      <h2 class="h3 text-success">Skills</h2>
-      <p class="lead">He has more than <span class="experience"></span> years experience as a full stack developer, creating products from scratch. This enabled him to acquire variety of skill set.</p>
+  <section class="skills">
+    <h2 class="h3 text-success">Skills</h2>
+    <p class="lead">He has more than <span class="experience"></span> years experience as a full stack developer, creating products from scratch. This enabled him to acquire variety of skill set.</p>
 
-      <h3 class="h4">Front-end</h3>
+    <div class="separator-green-animate">
+      <h4 class="h5 mt-1">Front-end</h4>
+      <div class="separator-green"></div>
       <div class="d-flex  align-content-start flex-wrap">
-        {% include html/templates/skill.html name='HTML5' img='html5.png' %}
-        {% include html/templates/skill.html name='CSS3' img='css3.png' %}
-        {% include html/templates/skill.html name='JavaScript' img='js.png' %}
+        {% include html/templates/skill.html name='HTML5' img='html5.svg' %}
+        {% include html/templates/skill.html name='CSS3' img='css3.svg' %}
+        {% include html/templates/skill.html name='JavaScript' img='javascript.svg' %}
         {% include html/templates/skill.html name='Angular' img='angular.png' %}
         {% include html/templates/skill.html name='jQuery' img='jquery.png' %}
         {% include html/templates/skill.html name='Performance' img='performance.png' %}
       </div>
+    </div>
 
-      <div class=row>
 
-
-        <div class="col-md-12 mt-3">
-          <h4>Primary Skills</h4>
-          <div class="separator-green"></div>
-          <p class=lead>JavaScript, Java, HTML, CSS, SQL, Shell Scripting, Python, NodeJS &amp; PHP</p>
-        </div>
-
-        <div class="col-md-12 mt-3">
-          <h4>Tools & Frameworks</h4>
-          <div class="separator-green"></div>
-          <p class=lead>Spring Boot, Angular, Boostrap, jQuery, Lodash, Handlebars, ExpressJS, Oracle User Interfaces(OUI) JS, Oracle, MySql, MongoDB, GIT, SVN, TeamSite CMS, Eclipse, Visual Studio, Photoshop, AJAX &amp; XSLT</p>
-        </div>
+    <div class="separator-green-animate">
+      <h4 class="h5 mt-1">Back-end</h4>
+      <div class="separator-green"></div>
+      <div class="d-flex  align-content-start flex-wrap">
+        {% include html/templates/skill.html name='Java' img='java.svg' %}
+        {% include html/templates/skill.html name='NodeJS' img='nodejs.svg' %}
+        {% include html/templates/skill.html name='Python' img='python.svg' %}
+        {% include html/templates/skill.html name='Spring' img='spring-framework.svg' %}
       </div>
     </div>
-  </div>
+
+    <div class="separator-green-animate">
+      <h4 class="h5 mt-1">Other</h4>
+      <div class="separator-green"></div>
+      <p>Shell Scripting, PHP, C, XSLT, SASS and SQL</p>
+    </div>
+
+    <div class="separator-green-animate">
+      <h4 class="h5 mt-1">Tools and frameworks</h4>
+      <div class="separator-green"></div>
+      <p>Spring Boot, Bootstrap, ExpressJS, Oracle, MySql, MongoDB, GIT, SVN, TeamSite CMS and Oracle User Interfaces(OUI) JS</p>
+    </div>
+
+  </section>
+
   <hr>
 
   <!-- Showcase -->
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="h3 text-success">Showcase</h2>
-      <div class="row">
-        <div class="col-md-6 col-sm-12">
-          <h4>Age Calculator</h4>
-          <div class="separator-green"></div>
-          <p class=lead>Age Calculator is a Hybrid mobile app developed using Cordova. Boostrap framework for UI development.</p>
-          <p><a href="/project/age-calculator/" title="Read more">Read more...</a></p>
-        </div>
-
-        <div class="col-md-6 col-sm-12">
-          <h4>Codemons</h4>
-          <div class="separator-green"></div>
-          <p class=lead>Another website of mine, to share knowledge.</p>
-          <p><a href="http://codemons.com" title="Codemons">Visit</a></p>
-        </div>
+  <section>
+    <h2 class="h3 text-success">Showcase</h2>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 separator-green-animate">
+        <h4 class="h5">Age Calculator</h4>
+        <div class="separator-green"></div>
+        <p class=lead>Age Calculator is a Hybrid mobile app developed using Cordova. Boostrap framework for UI development.</p>
+        <p><a href="/project/age-calculator/" title="Read more">Read more...</a></p>
       </div>
 
-      <div class="row">
-
-        <div class="col-md-6 col-sm-12">
-          <h4>Bus Reservation System</h4>
-          <div class="separator-green"></div>
-          <p class=lead>One of my first MVC applications. It was first developed on 2010 and later improvised.</p>
-          <p><a href="/project/bus-reservation-system/" title="Read more">Read more...</a></p>
-        </div>
-
-        <div class="col-md-6 col-sm-12">
-          <h4>Search Engine</h4>
-          <div class="separator-green"></div>
-          <p class=lead>One of the first web applications, i have written. Developed using PHP, MySql, HTML, CSS, JS and XML.</p>
-          <p><a href="/project/search-engine/" title="Read more">Read more...</a></p>
-        </div>
-
+      <div class="col-md-6 col-sm-12 separator-green-animate">
+        <h4 class="h5">Anysols</h4>
+        <div class="separator-green"></div>
+        <p>ERP product under developement</p>
+        <p><a href="//anysols.com" title="Anysols">Visit</a></p>
       </div>
     </div>
-  </div>
+
+    <div class="row">
+
+      <div class="col-md-6 col-sm-12 separator-green-animate">
+        <h4 class="h5">Bus Reservation System</h4>
+        <div class="separator-green"></div>
+        <p>One of my first MVC applications. It was first developed on 2010 and later improvised.</p>
+        <p><a href="/project/bus-reservation-system/" title="Read more">Read more...</a></p>
+      </div>
+
+      <div class="col-md-6 col-sm-12 separator-green-animate">
+        <h4 class="h5">Search Engine</h4>
+        <div class="separator-green"></div>
+        <p>One of the first web applications, i have written. Developed using PHP, MySql, HTML, CSS, JS and XML.</p>
+        <p><a href="/project/search-engine/" title="Read more">Read more...</a></p>
+      </div>
+
+    </div>
+  </section>
+
   <hr>
 
   <!-- Experience -->
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="h3 text-success">Experience</h2>
-      <div class="row">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/servicenow.png" title="Kagami ERP" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Software Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>ServiceNow, Hyderabad<br/>
-            <small>(Dec 2017 - Present)</small>
-          </h5>
-          <p class=lead>ServiceNow automates enterprise IT operations, creating a single system of record for all IT processes within an organization. This system brings together IT strategy, design, transition and operation on a powerfully simple cloud platform.
+  <section>
 
-            <br>Beyond Help Desk and Service Management processes, ServiceNow is built to be a productivity tool for all types of business users—the CIO, service desk staff, application developers, IT finance, IT operations and business leads.
+    <h2 class="h3 text-success">Experience</h2>
 
-            <br>ServiceNow applications are built on a single platform-as-a-service which offers a consistent and intuitive user experience through the entire IT Infrastructure Library (ITIL) service lifecycle.</p>
-        </div>
+    <div class="row mt-1">
+      <div class="col-md-1 col-2">
+        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/servicenow.png" title="Kagami ERP" alt="Best Rookie Award"/>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/kagami.png" title="Kagami ERP" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Software Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>Kagami India Pvt. Ltd. (StartUp), Hyderabad<br/>
-            <small>(July 2016 - Dec 2017)</small>
-          </h5>
-          <p class=lead>Kagami ERP, is a next generation ERP solution, which allows Business users to develop ERP modules, package them and deploy to cloud.
-                        Developed UI for products from scratch, which involves users to creating processes, entities and entity relationships using UI.
-                        Involved in brainstorming and solving business/architecture problems.</p>
-        </div>
+      <div class="col-md-11 col-10">
+        <h4 class="h5">Software Engineer</h4>
+        <div class="separator-green"></div>
+        <h5>ServiceNow, Hyderabad<br/>
+          <small>(Dec 2017 - Present)</small>
+        </h5>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/oracle.png" title="Oracle" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Application Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>Oracle, Bangalore<br/>
-            <small>(July 2015 - July 2016)</small>
-          </h5>
-          <p class=lead>Understanding and developing functional business requirements based on wireframes and screenshots
-                        provided by the UX team. Following the bug life cycle process and working closely with the QA team on bug
-                        fixes to ensure cross browser compatibility and zero feature bugs before release.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/wipro.png" title="Wipro Technologies" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Senior Software Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>Wipro Technologies, Bangalore<br/>
-            <small>(June 2012 - July 2015)</small>
-          </h5>
-          <p class=lead>US Bank being the fifth largest bank in US has a website which is used for marketing and promotions of their
-                        various programs like lending money, student and parent loan with consultation, multiple promotions, etc.
-                        Website also includes multiple micro sites like Student Banking, Investment and Wealth Management, Small business etc.
-            <br/>All this has been developed using various layouts, multiple templates and styles.
-                        Numerous pages has been created with help of these layouts and templates.</p>
-        </div>
+      <div class="col-md-11 offset-md-1 col-12 text-secondary">
+        <p>ServiceNow automates enterprise IT operations, creating a single system of record for all IT processes within an organization. This system brings together IT strategy, design, transition and operation on a powerfully simple cloud platform.</p>
+        <p>Beyond Help Desk and Service Management processes, ServiceNow is built to be a productivity tool for all types of business users—the CIO, service desk staff, application developers, IT finance, IT operations and business leads.</p>
+        <p>ServiceNow applications are built on a single platform-as-a-service which offers a consistent and intuitive user experience through the entire IT Infrastructure Library (ITIL) service lifecycle.</p>
       </div>
     </div>
-  </div>
+
+    <div class="row">
+      <div class="col-md-1 col-2">
+        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/kagami.png" title="Kagami ERP" alt="Best Rookie Award"/>
+      </div>
+      <div class="col-md-11 col-10">
+        <h4 class="h5">Software Engineer</h4>
+        <div class="separator-green"></div>
+        <h5>Kagami India Pvt. Ltd. (StartUp), Hyderabad<br/>
+          <small>(July 2016 - Dec 2017)</small>
+        </h5>
+      </div>
+      <div class="col-md-11 offset-md-1 col-12 text-secondary">
+        <p>Kagami, is a next generation ERP solution, which allows Business users to develop ERP modules, package them and deploy to cloud.
+           Developed UI for products from scratch, which involves users to creating processes, entities and entity relationships using UI.
+           Involved in brainstorming and solving business/architecture problems.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 col-2">
+        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/oracle.png" title="Oracle" alt="Best Rookie Award"/>
+      </div>
+      <div class="col-md-11 col-10">
+        <h4 class="h5">Application Engineer</h4>
+        <div class="separator-green"></div>
+        <h5>Oracle, Bangalore<br/>
+          <small>(July 2015 - July 2016)</small>
+        </h5>
+      </div>
+      <div class="col-md-11 offset-md-1 col-12 text-secondary">
+        <p>Understanding and developing functional business requirements based on wireframes and screenshots
+           provided by the UX team. Following the bug life cycle process and working closely with the QA team on bug
+           fixes to ensure cross browser compatibility and zero feature bugs before release.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 col-2">
+        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/wipro.png" title="Wipro Technologies" alt="Best Rookie Award"/>
+      </div>
+      <div class="col-md-11 col-10">
+        <h4 class="h5">Senior Software Engineer</h4>
+        <div class="separator-green"></div>
+        <h5>Wipro Technologies, Bangalore<br/>
+          <small>(June 2012 - July 2015)</small>
+        </h5>
+      </div>
+      <div class="col-md-11 offset-md-1 col-12 text-secondary">
+        <p>US Bank being the fifth largest bank in US has a website which is used for marketing and promotions of their
+           various programs like lending money, student and parent loan with consultation, multiple promotions, etc.
+           Website also includes multiple micro sites like Student Banking, Investment and Wealth Management, Small business etc.</p>
+        <p>All this has been developed using various layouts, multiple templates and styles.
+           Numerous pages has been created with help of these layouts and templates.</p>
+      </div>
+    </div>
+  </section>
+
   <hr>
 
   <div class="row">
@@ -218,39 +238,39 @@ css:
       <h2 class="h3 text-success">Awards</h2>
       <div class="row">
         <div class="col-md-12">
-          <h4>Inspiring Performace</h4>
+          <h4 class="h5">Inspiring Performace</h4>
           <div class="separator-green"></div>
           <h5>
             <small>Feb 2015, Wipro Technologies</small>
           </h5>
         </div>
-        <div class="col-md-12">
-          <p class=lead>This certificate is awarded for Responsive Micro site implementation and Best Performance in the project.</p>
+        <div class="col-md-12 text-secondary">
+          <p>This certificate is awarded for Responsive Micro site implementation and Best Performance in the project.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h4>Best Rookie</h4>
+          <h4 class="h5">Best Rookie</h4>
           <div class="separator-green"></div>
           <h5>
             <small>August 2014, Wipro Technologies</small>
           </h5>
         </div>
-        <div class="col-md-12">
-          <p class=lead>This certificate is awarded for Quick learning and Best Performance in the project. Appreciated for the same in All Hands Meet of Customer Engagement practice.</p>
+        <div class="col-md-12 text-secondary">
+          <p>This certificate is awarded for Quick learning and Best Performance in the project. Appreciated for the same in All Hands Meet of Customer Engagement practice.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h4>Code Star</h4>
+          <h4 class="h5">Code Star</h4>
           <div class="separator-green"></div>
           <h5>
             <small>May 2014, Wipro Technologies</small>
           </h5>
         </div>
-        <div class="col-md-12">
-          <p class=lead>This certificate is awarded for winning in 'CodeStrom' programming contest. An event jointly organized by Cheif Techonology Office and Business Application Services.</p>
-          <p class=lead>CodeStrom - A Wipro wide online marathon with more than 4000 registrations.</p>
+        <div class="col-md-12 text-secondary">
+          <p>This certificate is awarded for winning in 'CodeStrom' programming contest. An event jointly organized by Cheif Techonology Office and Business Application Services.</p>
+          <p>CodeStrom - A Wipro wide online marathon with more than 4000 registrations.</p>
         </div>
       </div>
     </div>
@@ -261,27 +281,28 @@ css:
   <div class="row">
     <div class="col-md-12">
       <h2 class="h3 text-success">Education</h2>
-      <div>
-        <h4>GITAM UNIVERSITY, Visakhapatnam</h4>
+      <div class="mb-2">
+        <h4 class="h5">GITAM UNIVERSITY</h4>
         <div class="separator-green"></div>
-        <h5>B. Tech, Computer Science, 8.54 CGPA<br/>
+        <h5 class="h6">B. Tech, Computer Science, 8.54 CGPA<br/>
           <small>(2008 - 2012)</small>
         </h5>
       </div>
-      <div>
-        <h4>Sri Chaitanya Junior College, Visakhapatnam</h4>
+      <div class="mb-2">
+        <h4 class="h5">Sri Chaitanya Junior College</h4>
         <div class="separator-green"></div>
-        <h5>Mathematics, Physics and Chemistry, 91.4%<br/>
+        <h5 class="h6">Mathematics, Physics and Chemistry, 91.4%<br/>
           <small>(2006 - 2008)</small>
         </h5>
       </div>
     </div>
   </div>
-  <hr>
-  <div class="row">
 
+  <hr>
+
+  <div class="row">
     <div class="col-md-5">
-      <h2 class="text-success">Contact info<a class="anchor" name="contact-hash" id="contact-hash"></a></h2>
+      <h2 class="h3 text-success">Contact info<a class="anchor" name="contact-hash" id="contact-hash"></a></h2>
       <div>
         <p class="lead"><i class="fa fa-envelope-o"></i> <a class="no-underline" href="mailto:&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;" title="&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;</a>
         </p>
