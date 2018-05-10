@@ -4,8 +4,13 @@ title: Tag
 priority: 0.9
 description: It is a repository of programs, using which you can analyse, hack and learn basic programming. Related to these things I discuss in my blog.
 change_frequency: always
+breadcrumbs:
+- name: 'Projects'
+  href: '/project'
+- name: 'Code Base'
+  href: '/project/code-base'
 ---
-{% include html/breadcrumb.html%}
+{% include components/breadcrumb.html items=page.breadcrumbs %}
 
 <!-- MAIN CONTENT -->
 <div class=container-fluid>

@@ -1,0 +1,22 @@
+<hr class="d-block d-md-none">
+<h3 class="h4">Categories</h3>
+<ul class="nav flex-column">
+  {% capture category_list %}{% for cat in site.categories %}{{ cat[0] }}{% if forloop.last != true%}|{% endif %}{% endfor %}{% endcapture %}
+  {% assign sorted_cats = category_list | split:'|' |  sort %}
+  {% assign list = 'blog' %}
+  {% assign flag = false %}
+
+  {% for category in sorted_cats %}
+  {% if forloop.last %}
+  {% assign flag = true %}
+  {% endif %}
+  {% for post in site.categories[list] %}
+  {% if category == post.categories[1] %}
+  <li>
+    <a class="nav-link{% if post.categories[1] == temp %} active bg-primary text-white rounded{% endif %}" href="{{ site.baseurl }}/{{ list }}/{{ category }}/" title="{{ category }}">{{ category | replace:'-',' ' | capitalize }}</a>
+  </li>
+  {% break %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+</ul>

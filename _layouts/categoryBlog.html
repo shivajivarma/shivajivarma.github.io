@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign micro-site = 'blog' %}
-{% include html/breadcrumb.html breadcrumb=micro-site %}
+{% include components/breadcrumb.html items=site.data.category-breadcrumbs %}
 {% assign temp = page.title | downcase | replace:' ','-' %}
 <!-- MAIN CONTENT -->
 <div class="container-fluid margin-bottom-15px">
@@ -21,26 +21,9 @@ layout: default
 		{% endfor %}
 		</div>
 		<div class=col-md-3>
-			<h3 class="h4">Categories</h3>
-			<ul class="nav flex-column">
-				{% capture category_list %}{% for cat in site.categories %}{{ cat[0] }}{% if forloop.last != true%}|{% endif %}{% endfor %}{% endcapture %}
-					{% assign sorted_cats = category_list | split:'|' |  sort %}
-					{% assign list = 'blog' %}
-					{% assign flag = false %}
-
-					{% for category in sorted_cats %}
-						{% if forloop.last %}
-							{% assign flag = true %}
-						{% endif %}
-						{% for post in site.categories[list] %}
-							{% if category == post.categories[1] %}
-								<a class="nav-link{% if post.categories[1] == temp %} active bg-primary text-white rounded{% endif %}" href="{{ site.baseurl }}/{{ list }}/{{ category }}/" title="{{ category }}">{{ category | replace:'-',' ' | capitalize }}</a>
-								{% break %}
-							{% endif %}
-						{% endfor %}
-					{% endfor %}
-			</ul>
-			<hr/>{% include html/adsence-responsive.html %}
+      {% include components/blog-side-nav-menu.html %}
+			<hr/>
+      {% include html/adsence-responsive.html %}
 		</div>
 	</div>
 </div>

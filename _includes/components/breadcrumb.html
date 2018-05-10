@@ -1,10 +1,10 @@
-<nav aria-label="breadcrumb" class="d-none d-sm-block">
+<nav aria-label="breadcrumb">
   <ol class="breadcrumb capitalize" itemscope itemtype="http://schema.org/BreadcrumbList">
     <li class="breadcrumb-item" itemprop="itemListElement" itemscope
         itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/" itemprop="item"><span itemprop=name>Home</span></a></li>
-    {% for link in include.breadcrumb %}
+    {% for item in include.items %}
     <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/{{ link }}/" itemprop="item" ><span itemprop=name>{{ link | replace:'-',' ' | capitalize }}</span></a></li>
+        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}{{ item.href }}" itemprop="item"><span itemprop=name>{{ item.name | capitalize }}</span></a></li>
     {% endfor %}
     <li class="breadcrumb-item active" itemprop="itemListElement" itemscope
         itemtype="http://schema.org/ListItem" class=active><span itemprop=name>{{ page.title }}</span></li>

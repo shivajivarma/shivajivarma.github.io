@@ -5,7 +5,7 @@ priority: 0.9
 description: My running commentary on work and personal topics, including programming, web development, open source, standards, Android, playing cricket, stories, films, music, and anything else that pops into my head.
 change_frequency: always
 ---
-{% include html/breadcrumb.html%}
+{% include components/breadcrumb.html%}
 <!-- MAIN CONTENT -->
 <div class="container-fluid margin-bottom-15px">
 	<h1 class="h2">{{ page.title }}</h1>
@@ -13,36 +13,19 @@ change_frequency: always
 		<div id=post-list class=col-md-9>
 		{% for post in site.categories['blog'] %}
       <div class="item mb-2">
-			<h3 class="h4 m-0"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-			<small class="text-muted">
-				Posted on {{ post.date | date: "%B %-d, %Y" }}
-				| Category : <a href="{{ site.baseurl }}/blog/{{ post.categories[1] }}">{{ post.categories[1] | capitalize | replace:'-',' ' }}</a>
-				{% if post.tags != empty %}| Tags : {% for tag in post.tags %}{{ tag | capitalize }} {% endfor %} {% endif %}
-			</small>
+        <h3 class="h4 m-0"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+        <small class="text-muted">
+          Posted on {{ post.date | date: "%B %-d, %Y" }}
+          | Category : <a href="{{ site.baseurl }}/blog/{{ post.categories[1] }}">{{ post.categories[1] | capitalize | replace:'-',' ' }}</a>
+          {% if post.tags != empty %}| Tags : {% for tag in post.tags %}{{ tag | capitalize }} {% endfor %} {% endif %}
+        </small>
       </div>
 		{% endfor %}
 		</div>
 		<div class=col-md-3>
-		<h3 class="h4">Categories</h3>
-		<ul class="nav flex-column">
-			{% capture category_list %}{% for cat in site.categories %}{{ cat[0] }}{% if forloop.last != true%}|{% endif %}{% endfor %}{% endcapture %}
-				{% assign sorted_cats = category_list | split:'|' |  sort %}
-				{% assign list = 'blog' %}
-				{% assign flag = false %}
-
-				{% for category in sorted_cats %}
-					{% if forloop.last %}
-						{% assign flag = true %}
-					{% endif %}
-					{% for post in site.categories[list] %}
-						{% if category == post.categories[1] %}
-							<a class="nav-link" href="{{ site.baseurl }}/{{ list }}/{{ category }}/" title="{{ category | replace:'-',' ' | capitalize }}">{{ category | replace:'-',' ' | capitalize }}</a>
-							{% break %}
-						{% endif %}
-					{% endfor %}
-				{% endfor %}
-		</ul>
-		<hr/>{% include html/adsence-responsive.html %}
+      {% include components/blog-side-nav-menu.html %}
+      <hr/>
+      {% include html/adsence-responsive.html %}
 		</div>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<nav aria-label="breadcrumb" class="d-none d-sm-block">
+<nav aria-label="breadcrumb">
   <ol class="breadcrumb capitalize" itemscope itemtype="http://schema.org/BreadcrumbList">
     <li class="breadcrumb-item" itemprop="itemListElement" itemscope
         itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/" itemprop="item" title="Home"><span itemprop="name">Home</span></a></li>
@@ -15,7 +15,8 @@ layout: default
         itemtype="http://schema.org/ListItem" class="active" title="{{ page.title }}"><span itemprop=name>{{ page.title }}</span></li>
   </ol>
 </nav><!-- /.breadcrumb -->
-<div class="mt-2  visible-xs"></div>
+
+
 <article class=container-fluid itemscope itemtype="http://schema.org/Article">
   <h1 class=m-0 itemprop=name>{{ page.title }}</h1>
   {% include html/authoring.html %}

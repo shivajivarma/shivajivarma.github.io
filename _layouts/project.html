@@ -1,18 +1,7 @@
 ---
 layout: default
 ---
-<!-- Breadcrumb -->
-<nav aria-label="breadcrumb" class="d-none d-sm-block">
-  <ol class="breadcrumb capitalize" itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/" itemprop="item" title="Home"><span itemprop="name">Home</span></a></li>
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/project/" itemprop="item" title="Projects"><span itemprop="name">Projects</span></a></li>
-    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem" class="active" itemprop="title" title="{{ page.title }}"><span itemprop=name>{{ page.title }}</span></li>
-  </ol>
-</nav><!-- /.breadcrumb -->
-<div class="mt-2  visible-xs"></div>
+{% include components/breadcrumb.html items=site.data.project-breadcrumbs %}
 <div class=container-fluid itemscope itemtype="http://schema.org/Article">
   <h1 class="h2" itemprop=name>{{ page.title }}</h1>
   {% include html/authoring.html %}
