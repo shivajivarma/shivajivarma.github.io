@@ -37,8 +37,7 @@ $header-height: 60px;
 
 /* Sticky footer styles
 ----------------------------------------------*/
-$footer-height: 106px;
-$footer-margin: 10px;
+$footer-height: 240px;
 
 /* Wrapper for page content to push down footer */
 #content {
@@ -50,13 +49,13 @@ $footer-margin: 10px;
 
 @media (max-width: 767px) {
   #content {
-    margin: 0 auto (-($footer-height + $footer-margin)); /* Negative indent footer by it's height */
+    margin: 0 auto (-($footer-height)); /* Negative indent footer by it's height */
   }
 }
 
 /* Set the fixed height of the footer here */
 #push {
-  height: ($footer-height + $footer-margin);
+  height: ($footer-height);
 }
 
 @media (min-width: 768px) {
