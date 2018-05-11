@@ -1,0 +1,19 @@
+<a class="anchor" name="{{include.title | replace:' ',''}}" id="{{include.title | replace:' ',''}}"></a>
+<div class="row pt-3 my-2 {% if include.float-right==true %}flex-row-reverse{% endif %}" style="background-color: {{ include.bg-color }}">
+  <div class="col-md-8">
+    <img class="img-thumbnail img-responsive margin-auto full-width" alt="{{include.img-title}}" title="{{include.img-title}}" src="{{include.img}}">
+    <p class="text-align-center">
+      <small>{{include.img-description}}</small>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <h2>{{include.title}}</h2>
+    {{include.description}}
+    <h4>Characters:</h4>
+    <ul>
+      {% for character in include.characters %}
+      <li>{{character}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
