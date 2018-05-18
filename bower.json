@@ -15,9 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "",
     "font-awesome": "",
-    "prism": "gh-pages",
-    "materialize": "^0.97.8"
+    "prism": "gh-pages"
   }
 }

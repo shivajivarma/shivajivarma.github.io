@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cd dest && live-server",
     "build": "jekyll build",
+    "build-incremental":  "jekyll build --incremental",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
