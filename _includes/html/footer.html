@@ -1,21 +1,17 @@
-<footer class="footer footer-default border-top text-left" itemscope itemtype="http://schema.org/WPFooter">
+<footer class="bd-footer text-muted border-top" itemscope itemtype="http://schema.org/WPFooter">
   <p class=back-to-top><a href="#body"><i class="fa fa-angle-up font-32px"></i></a></p>
-  <div class="container-fluid">
-    <nav>
-      <ul>
-        <li><a href="{{ site.baseurl }}/privacy">Privacy</a></li>
-        <li><a rel="license noopener" href="{{ site.baseurl }}/license">License</a></li>
-        <li><a href="{{ site.baseurl }}/about/">About</a></li>
-      </ul>
-    </nav>
-    <div class="p-3">
+  <div class="container-fluid p-3 p-md-5">
+    <ul class="bd-footer-links">
+      <li><a href="{{ site.baseurl }}/privacy">Privacy</a></li>
+      <li><a rel="license noopener" href="{{ site.baseurl }}/license">License</a></li>
+      <li><a href="{{ site.baseurl }}/about/">About</a></li>
+    </ul>
+    <p>
       Designed and built by <a target="_blank" href="https://plus.google.com/{{ site.author.gplusid }}?rel=author" rel="author">@ShivajiVarma</a>.
       Based on <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>.
       Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>.
       View source on <a target="_blank" href="http://github.com/{{ site.author.github }}/{{ site.author.github }}.github.io">Github</a>
-    </div>
-    <div class="p-3">
-      &copy; {{ site.time | date: '%Y' }} <i>Shivaji Varma</i>. All rights reserved.
-    </div>
+    </p>
+    <p>&copy; {{ site.time | date: '%Y' }} <i>Shivaji Varma</i>. All rights reserved.</p>
   </div>
 </footer>

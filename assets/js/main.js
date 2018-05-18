@@ -4,40 +4,43 @@ $('a').click(function() {
   var href = $.attr(this, 'href');
   var hash;
 
-  if (href === '#') {
+  if(href == '#'){
     hash = $('body');
-  } else if (href.match(/^#[a-zA-Z0-9]+$/g)) {
-    hash = $('#' + href.substring(1));
-  } else
-    return true;
+  }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
+    hash = $('#'+href.substring(1));
+  }else
+	return true;
 
   $root.animate({
-    scrollTop: $(hash).offset().top
-  }, 500, function() {
-    window.location.hash = href;
+      scrollTop: $(hash).offset().top
+    }, 500, function () {
+      window.location.hash = href;
   });
 
   return false;
 });
 
 $(document).ready(function() {
-  //$('.dropdown-toggle').dropdown();
+	$(document).ready(function() { $('body').bootstrapMaterialDesign(); });
+	//$('.dropdown-toggle').dropdown();
 
-  // This will take care of asynchronous Google ads
-  setTimeout(function() {
+    // This will take care of asynchronous Google ads
+    setTimeout(function() {
 
-    // We are targeting the first banner ad of AdSense
-    var ad = $('.adsbygoogle');
+      // We are targeting the first banner ad of AdSense
+      var ad = $(".adsbygoogle");
 
-    // If the ad contains no innerHTML, ad blockers are at work
-    if (ad && ad.html() && ad.html().replace(/\s/g, '').length == 0) {
-      $('#adblocker-message').show();
-    }
+      // If the ad contains no innerHTML, ad blockers are at work
+      if (ad && ad.html() && ad.html().replace(/\s/g, "").length == 0) {
 
-  }, 2000); // The ad blocker check is performed 2 seconds after the page load
+		  $('#adblocker-message').show();
+
+      }
+
+    }, 2000); // The ad blocker check is performed 2 seconds after the page load
 
 });
 
 $(document).on('ready page:load', function() {
-  Prism.highlightAll();
+    Prism.highlightAll();
 });
