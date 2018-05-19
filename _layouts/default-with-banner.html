@@ -1,0 +1,17 @@
+---
+layout: base
+---
+{% include components/header.html %}
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/bg3.jpg'); height: 380px; background-position: top;">
+  <div class="container">
+    <div class="content-center text-center">
+      <h1 class="title">{{page.title}}</h1>
+
+    </div>
+  </div>
+</div>
+<div id="banner-content">
+  {{ content }}
+</div>
+{% include components/footer.html %}
+{% include html/scripts.html %}

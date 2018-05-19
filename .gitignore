@@ -34,3 +34,4 @@ Thumbs.db
 # Ignore for Yeoman-Jekyll projects #
 dest/
 node_modules
+.jekyll-metadata

@@ -16,9 +16,13 @@ css:
   <!-- Introduction -->
   <section class="row py-5 bg-dark text-white separator-green-animate">
 
-    <div class="col-md-3 col-12 text-center">
-      <img class="img-fluid rounded-circle"
-           alt="{{ site.author.name }}" title="{{ site.author.name }}" src="{{ site.img }}{{ site.author.avatar }}">
+    <div class="col-md-3 col-12">
+      <div class="img-container">
+        <div class="img-inner">
+          <img class="img-fluid rounded-circle"
+            alt="{{ site.author.name }}" title="{{ site.author.name }}" src="{{ site.img }}{{ site.author.avatar }}">
+        </div>
+      </div>
     </div>
 
     <div id="introduction" class="col-md-9 col-12 mt-3 mt-md-0">
@@ -363,3 +367,4 @@ css:
 
   $('.experience').text(getAge('06/20/2012'));
 </script>
+
