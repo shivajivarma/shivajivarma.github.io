@@ -14,7 +14,7 @@ body {
   margin-bottom: $footer-height;
 }
 
-#content{
+#content {
   padding-top: $header-height;
 }
 
@@ -132,30 +132,35 @@ hr {
 }
 
 .social-icons {
-
   font-size: 32px;
-  .fa-facebook-square {
+
+  .fa-facebook {
     color: #3B5998;
   }
-  .fa-github-square {
+  .fa-github {
     color: #000;
   }
-  .fa-google-plus-square {
+  .fa-google-plus {
     color: #d34836;
   }
-  .fa-youtube-play {
+  .fa-youtube {
     color: #e52d27;
   }
-  .fa-twitter-square {
+  .fa-twitter {
     color: #9ae4e8;
   }
-  .fa-linkedin-square {
+  .fa-linkedin {
     color: #0181b2;
   }
   .fa-soundcloud {
     color: #ff7700;
   }
+}
 
+.text-white {
+  .social-icons .svg-inline--fa:not(:hover) {
+    color: white !important;
+  }
 }
 
 .leadText {

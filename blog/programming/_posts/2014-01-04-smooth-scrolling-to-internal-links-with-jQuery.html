@@ -5,31 +5,31 @@ keywords: [javascript, 'smooth scrolling using jquery', 'smooth scrolling', hash
 tags: [jquery]
 ---
 <p itemprop=articleBody>JQuery allows smooth scrolling to hashtag</p>
-	
+
 <h3>Code</h3>
 <pre><code class="language-javascript">var $root = $('html, body');
 
 $('a').click(function() {
   var href = $.attr(this, 'href');
   var hash;
-	
+
   if(href == '#'){
 	hash = $('body');
   }else if(href.match(/^#[a-zA-Z0-9]+$/g)){
 	hash = $('[name='+href.substring(1)+']');
-  }else 
+  }else
 	return true;
-	
+
   $root.animate({
 	  scrollTop: $(hash).offset().top
 	}, 500, function () {
 	  window.location.hash = href;
   });
- 
+
   return false;
 });</code>
 </pre>
-<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JS/smooth-scrolling.js" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JS/smooth-scrolling.js" class="btn btn-default"><span class="fas fa-download"></span> Raw Code</a></p>
 
 <h3>Example</h3>
 <div class="text-align-center">

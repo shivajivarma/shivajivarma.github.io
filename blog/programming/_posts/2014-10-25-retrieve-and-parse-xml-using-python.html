@@ -6,7 +6,7 @@ keywords: [xml, ajax, Python, 'retrieve xml','fetch xml','parse xml']
 tags: [python]
 ---
 <p itemprop=articleBody>Program to demonstrate the process of fetching and parsing the XML data using Python language.</p>
-	
+
 <h3>XML File</h3>
 <pre><code class="language-markup">&lt;?xml version="1.0" encoding="ISO8859-1" ?&gt;
 &lt;portfolio&gt;
@@ -27,7 +27,7 @@ from xml.dom import minidom
 
 url = "http://www.xmlfiles.com/examples/portfolio.xml"
 dom = minidom.parse(urllib.urlopen(url))
- 
+
 # dom.getElementsByTagName returns NodeList
 stocks = dom.getElementsByTagName("stock")
 for stock in stocks:
@@ -41,4 +41,4 @@ for stock in stocks:
 <pre><code>exchange:nyse, name:zacx corp, symbol:ZCXM, price:28.875
 exchange:nasdaq, name:zaffymat inc, symbol:ZFFX, price:92.250</code></pre>
 
-<p><a href="https://github.com/shivajivarma/code-base/blob/master/PYTHON/parse-xml.py" class="btn btn-default"><span class="fa fa-github"></span> Fork</a> <a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/PYTHON/parse-xml.py" class="btn btn-default"><span class="fa fa-download"></span> Download</a></p>
+<p><a href="https://github.com/shivajivarma/code-base/blob/master/PYTHON/parse-xml.py" class="btn btn-default"><span class="fa fa-github"></span> Fork</a> <a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/PYTHON/parse-xml.py" class="btn btn-default"><span class="fas fa-download"></span> Download</a></p>

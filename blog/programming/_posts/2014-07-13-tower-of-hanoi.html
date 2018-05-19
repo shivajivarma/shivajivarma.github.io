@@ -2,7 +2,7 @@
 layout: post
 description: Implementation of Tower of Hanoi concept using C language
 keywords: [c, 'tower of hanoi', 'recursive function']
----	
+---
 <p itemprop=articleBody>The Tower of Hanoi (also called the Tower of Brahma or Lucas' Tower) is a mathematical game or puzzle. It consists of three rods, and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.</p>
 <p>The objective of the puzzle is to move the entire stack to another rod, obeying the following rules:</p>
 <ul>
@@ -17,13 +17,13 @@ keywords: [c, 'tower of hanoi', 'recursive function']
 void towhan(int n,char x,char y,char z)
 {
    if(n &lt;= 1)
-   {  
+   {
       towhan(n-1,x,z,y);
       printf("\nMOVE TOP DISK FROM TOWER '%c' TO TOP OF TOWER '%c' \n",x,y);
       towhan(n-1,z,y,x);
     }
 }
- 
+
 int main()
 {
      int n;
@@ -34,4 +34,4 @@ int main()
      return 0;
 }</code>
 </pre>
-<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/C/towers-of-hanoi.c" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/C/towers-of-hanoi.c" class="btn btn-default"><span class="fas fa-download"></span> Raw Code</a></p>

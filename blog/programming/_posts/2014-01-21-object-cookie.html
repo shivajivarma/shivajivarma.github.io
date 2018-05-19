@@ -10,7 +10,7 @@ function setJSONCookie(){
 	cookie = {}
 	cookie.firstname = "John";
 	cookie.lastname = "Doe";
-		
+
 		createCookie('jsoncookie',JSON.stringify(cookie),1);
 		alert("Cookie set");
 }
@@ -20,7 +20,7 @@ function getJSONCookie(){
 	cookie = JSON.parse(readCookie('jsoncookie'));
 	alert(JSON.stringify(cookie));
 }
- 
+
 function createCookie(name, value, days) {
 	if (days) {
 		var date = new Date();
@@ -29,7 +29,7 @@ function createCookie(name, value, days) {
 	} else var expires = "";
 	document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
 }
- 
+
 function readCookie(name) {
 	var nameEQ = escape(name) + "=";
 	var ca = document.cookie.split(';');
@@ -40,9 +40,9 @@ function readCookie(name) {
 	}
 	return null;
 }
- 
+
 function eraseCookie(name) {
 	createCookie(name, "", -1);
 }</code>
 </pre>
-<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JS/object-cookie.js" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JS/object-cookie.js" class="btn btn-default"><span class="fas fa-download"></span> Raw Code</a></p>

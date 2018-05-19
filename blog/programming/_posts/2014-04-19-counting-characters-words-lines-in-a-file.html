@@ -5,7 +5,7 @@ keywords: ['c program', 'count characters', 'count words', 'count lines']
 tags: [c]
 ---
 <p itemprop=articleBody>In following program, a file pointer is created, which is initialized to point to file content, this pointer is used to loop through each character of file until end of file is reached. In the process we count each character, if a newline encounters then it is counted as line as well as character and word. Similarly if space or tab space encounters we count it as word and also as character.</p>
-	
+
 <h3>Code</h3>
 <pre><code class="language-c">#include&lt;stdio.h&gt;
 #include&lt;conio.h&gt;
@@ -14,7 +14,7 @@ main(int argc, char *argv[]){
 	FILE *f;
 	char ch;
 	int character=0, line=0,word=0;
-	
+
 	f=fopen(argv[1],"r");
 	if(f==NULL){
 		printf("404: FILE NOT FOUND\n");
@@ -23,22 +23,22 @@ main(int argc, char *argv[]){
 		return 0;
 	}
 	printf("FILE NAME: %s\n",argv[1]);
-	
+
 	while((ch=getc(f))!=EOF){
 		character++;
-		if(ch=='\n') 
+		if(ch=='\n')
 			line++;
 		if(isspace(ch)||ch=='\t'||ch=='\n')
 			word++;
 	}
 	fclose(f);
-	
+
 	putchar('\n');
 	printf("no of line=%d\n",line);
 	printf("no of word=%d\n",word);
  	printf("no of character=%d\n",character);
-	
+
 	return 1;
 }</code>
 </pre>
-<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/C/count-everything.c" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/C/count-everything.c" class="btn btn-default"><span class="fas fa-download"></span> Raw Code</a></p>

@@ -6,7 +6,7 @@ keywords: [c, pipe,'network programming', 'inter process communication']
 tags: [c]
 ---
 <p itemprop=articleBody>
-	A <span class="highlight"><b class="gd">pipe</b></span> is a system call that creates a unidirectional communication link between two file descriptors. The pipe system call is called with a pointer to an array of two integers. Upon return, the first element of the array contains the file descriptor that corresponds to the output of the pipe (stuff to be read). The second element of the array contains the file descriptor that corresponds to the input of the pipe (the place where you write stuff). Whatever bytes are sent into the input of the pipe can be read from the other end of the pipe. 
+	A <span class="highlight"><b class="gd">pipe</b></span> is a system call that creates a unidirectional communication link between two file descriptors. The pipe system call is called with a pointer to an array of two integers. Upon return, the first element of the array contains the file descriptor that corresponds to the output of the pipe (stuff to be read). The second element of the array contains the file descriptor that corresponds to the input of the pipe (the place where you write stuff). Whatever bytes are sent into the input of the pipe can be read from the other end of the pipe.
 <p>
 
 <h3>Code</h3>
@@ -17,17 +17,17 @@ int main(){
 	char buffer[20];
 	int pfd[2];
 	if(pipe(pfd) == -1){
-		printf("Pipe Creation Failed"); 
+		printf("Pipe Creation Failed");
 		exit(0);
 	}
 	else printf("Pipe Created Successfully\n");
 
 	printf("Writing to pipe\n");
 	write(pfd[1],"Hello World",11);
-	
+
 	printf("Reading from pipe to buffer\n");
 	read(pfd[0],buffer,11);
-	
+
 	printf("Buffer : %s\n",buffer);
 }</code></pre>
-<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/C/network-programming/pipe.c" class="btn btn-default"><span class="fa fa-download"></span> Raw Code</a></p>
+<p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/C/network-programming/pipe.c" class="btn btn-default"><span class="fas fa-download"></span> Raw Code</a></p>
