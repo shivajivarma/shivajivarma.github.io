@@ -1,7 +1,7 @@
 <!-- Fixed navbar -->
 <nav itemscope itemtype="http://schema.org/WPHeader"
      id="sectionsNav"
-     class="navbar fixed-top navbar-expand-lg {% if page.navbar-transparent == true %}navbar-transparent  navbar-color-on-scroll{% endif %}"
+     class="navbar fixed-top navbar-expand-lg {% if page.navbar-transparent == true or site.data.layout[page.layout].navbar-transparent == true %}navbar-transparent  navbar-color-on-scroll{% endif %}"
      color-on-scroll="100">
   <div class="container-fluid">
     <div class="navbar-translate">

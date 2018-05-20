@@ -269,3 +269,14 @@ hr {
 .red-text {
   color: #F44336 !important;
 }
+
+.card-img-wrapper{
+  background-color: black;
+  .card-img-top{
+    opacity: 0.5;
+  }
+}
+
+.card a:focus{
+  outline: none;
+}

@@ -1,21 +1,44 @@
 ---
 layout: default-with-banner
+bg: city.jpg
+navbar-transparent: true
 title: Projects
 priority: 0.9
 description: Showcase of few of my works. Do check them out once.
 change_frequency: always
-navbar-transparent: true
 ---
-{% include components/breadcrumb.html%}
+
+
 <!-- MAIN CONTENT -->
 <div class="container-fluid pb-4">
-  <h1 class="h2">{{ page.title }}</h1>
-  <div id="post-list">
-    {% for post in site.categories['project'] %}
-    <div class="item mb-2">
-      <h3 class="h4 m-0"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-      <small class="text-muted">Posted on {{ post.date | date: "%B %-d, %Y" }}</a></small>
+
+  <div class="container-fluid">
+
+    <div class="card-columns">
+      {% for post in site.categories['project'] %}
+      <div class="d-inline-block">
+        <div class="card">
+          <div class="card-img-wrapper rounded-top">
+            {% if post.bg != null %}
+            {% assign page-bg = site.baseurl | append: site.img | append: '/bg/' | append: post.bg %}
+            {% else %}
+            {% assign page-bg = site.baseurl| append: site.img | append:'/bg/' | append: site.data.layout[post.layout].bg %}
+            {% endif %}
+            <img class="card-img-top" src="{{ page-bg }}" alt="{{ post.title }}">
+          </div>
+          <div class="card-img-overlay" style="bottom: inherit">
+            <h5 class="card-title text-white">{{ post.title }}</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{ post.description }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted mr-auto">Posted on {{ post.date | date: "%B %-d, %Y" }}</small>
+            <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </div>

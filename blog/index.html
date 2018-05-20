@@ -1,5 +1,7 @@
 ---
-layout: default
+layout: default-with-banner
+bg: green-mountains.jpg
+navbar-transparent: true
 title: Blog
 priority: 0.9
 description: My running commentary on work and personal topics, including programming, web development, open source, standards, Android, playing cricket, stories, films, music, and anything else that pops into my head.
@@ -8,7 +10,6 @@ change_frequency: always
 {% include components/breadcrumb.html%}
 <!-- MAIN CONTENT -->
 <div class="container-fluid pb-4">
-	<h1 class="h2">{{ page.title }}</h1>
 	<div class="row">
 		<div id=post-list class=col-md-9>
 		{% for post in site.categories['blog'] %}

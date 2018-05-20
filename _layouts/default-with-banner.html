@@ -2,11 +2,15 @@
 layout: base
 ---
 {% include components/header.html %}
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/bg3.jpg'); height: 380px; background-position: top;">
+{% if page.bg != null %}
+{% assign page-bg = site.baseurl | append: site.img | append: '/bg/' | append: page.bg %}
+{% else %}
+{% assign page-bg = site.baseurl| append: site.img | append:'/bg/' | append: site.data.layout[page.layout].bg %}
+{% endif %}
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ page-bg }}'); height: 380px; background-position: top;">
   <div class="container">
     <div class="content-center text-center">
       <h1 class="title">{{page.title}}</h1>
-
     </div>
   </div>
 </div>
