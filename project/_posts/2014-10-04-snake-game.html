@@ -3,33 +3,43 @@ layout: project
 description: 'Snake Game using HTML and JS'
 keywords: ['snake game', 'html js game']
 plugins:
-  fblike: true
-  gplus: true
-scripts: ['http://shivajivarma.com/snake-game/snake-game.js']
+fblike: true
+gplus: true
+scripts: ['//shivajivarma.com/snake-game/snake-game.js']
 ---
+<a class="anchor" id="game-top"></a>
+<p>Snake game written using javascript</p>
+<div class="row flex-row-reverse">
+  <div class="col-md-4">
+    <div class="card m-auto" style="max-width: 18rem;">
+      <div class="card-header  card-header-primary">Score Card</div>
+      <div class="card-body">
+        <p>Score : <span id="score">0</span></p>
+        <p>Best &nbsp;: <span id="best-score">0</span></p>
+        <p><span id="displayBoard">&nbsp;</span></p>
+        <p><a href="#game-top" class="btn btn-outline-primary">Scroll to game top</a></p>
+        <p><span class="text-danger">*</span> Use arrow keys to play the game</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8" id="canvas-wrapper">
+    <canvas id="canvas" height="500"></canvas>
+  </div>
 
-<p>Snake game written usnig javascript</p>
+  <script>
+    var canvas = document.getElementsByTagName('canvas')[0];
+    canvas.width  = $('#canvas-wrapper').innerWidth();
+  </script>
 
-<div class="row">
-	<div class="col-md-6">
-		<canvas id="canvas" width="500" height="500"></canvas>
-	</div>
-	<div class="col-md-6">
-		<div>
-			<span id="score">Score: 0</span><br/>
-			<span id="best">Best &nbsp;: 0</span><br/>
-			<span id="displayBoard">&nbsp;</span>
-		</div>
-	</div>
 </div>
 <h3>HTML Code</h3>
 {% include components/github-code-highlighter.html id="code-html" program='index.html' repo='shivajivarma/snake-game' prism='language-markup' %}
-	
-	
+
+
 <h3>JS Code</h3>
 {% include components/github-code-highlighter.html id="code-js" program='snake-game.js' repo='shivajivarma/snake-game' prism='language-javascript' %}
 <script type="text/javascript">
-$(document).ready(function () {
-	snakeGame.init();
-})
+  $(document).ready(function() {
+    snakeGame.init();
+  });
 </script>
