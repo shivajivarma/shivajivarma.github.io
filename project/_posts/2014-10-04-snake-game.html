@@ -28,7 +28,8 @@ scripts: ['//shivajivarma.com/snake-game/snake-game.js']
 
   <script>
     var canvas = document.getElementsByTagName('canvas')[0];
-    canvas.width  = $('#canvas-wrapper').width();
+    var wrapperWidth  = $('#canvas-wrapper').width();
+    canvas.width  = wrapperWidth - (wrapperWidth % 10); //round of to 10's place
   </script>
 
 </div>
