@@ -71,3 +71,28 @@
 // x = 12.66 -> Time spent on a line
 
 // You can define a value and calculate the other if you want change speed or the number of lines
+
+@keyframes toColor {
+  0% {
+    filter: grayscale(100%);
+  }
+  25% {
+    filter: grayscale(75%);
+  }
+  50% {
+    filter: grayscale(50%);
+  }
+  75% {
+    filter: grayscale(25%);
+  }
+  100% {
+    filter: grayscale(0%);
+  }
+}
+
+.profile-picture {
+  filter: grayscale(100%);
+  &:hover {
+    animation: toColor 2s forwards;
+  }
+}
