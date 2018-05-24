@@ -14,13 +14,13 @@ css:
 <div class=container-fluid>
 
   <!-- Introduction -->
-  <section class="row py-5 bg-dark text-white separator-green-animate">
+  <section class="row py-5 text-white separator-green-animate" style="background: black">
 
     <div class="col-md-3 col-12">
       <div class="img-container">
         <div class="img-inner">
           <img class="img-fluid rounded-circle profile-picture"
-            alt="{{ site.author.name }}" title="{{ site.author.name }}" src="{{ site.img }}{{ site.author.avatar }}">
+               alt="{{ site.author.name }}" title="{{ site.author.name }}" src="{{ site.img }}{{ site.author.avatar }}">
         </div>
       </div>
     </div>
@@ -55,173 +55,191 @@ css:
 
   </section>
 
+  <div class="row">
+    <svg viewBox="0 0 1280 70" preserveAspectRatio="none" class="svg-curve svg-curve-black-grey" role="presentation" aria-hidden="true">
+      <polygon points="1280 0 1280 70 0 70"></polygon>
+    </svg>
+  </div>
+
   <!-- SKILLS -->
-  <section class="skills my-4">
-    <h2>Skills</h2>
-    <p class="lead">He has more than <span class="experience"></span> years experience as a full stack developer, creating products from scratch. This enabled him to acquire variety of skill set.</p>
+  <section class="skills row py-3">
+    <div class="col-12">
+      <h2>Skills</h2>
+      <p class="lead">He has more than <span class="experience"></span> years experience as a full stack developer, creating products from scratch. This enabled him to acquire variety of skill set.</p>
 
-    <div class="separator-green-animate">
-      <h3>Front-end</h3>
-      <div class="separator-green"></div>
-      <div class="d-flex  align-content-start flex-wrap">
-        {% include html/templates/skill.html name='HTML5' img='html5.svg' %}
-        {% include html/templates/skill.html name='CSS3' img='css3.svg' %}
-        {% include html/templates/skill.html name='JavaScript' img='javascript.svg' %}
-        {% include html/templates/skill.html name='Angular' img='angular.png' %}
-        {% include html/templates/skill.html name='jQuery' img='jquery.png' %}
-        {% include html/templates/skill.html name='Performance' img='performance.png' %}
+      <div class="separator-green-animate">
+        <h3>Front-end</h3>
+        <div class="separator-green"></div>
+        <div class="d-flex  align-content-start flex-wrap">
+          {% include html/templates/skill.html name='HTML5' img='html5.svg' %}
+          {% include html/templates/skill.html name='CSS3' img='css3.svg' %}
+          {% include html/templates/skill.html name='JavaScript' img='javascript.svg' %}
+          {% include html/templates/skill.html name='Angular' img='angular.png' %}
+          {% include html/templates/skill.html name='jQuery' img='jquery.png' %}
+          {% include html/templates/skill.html name='Performance' img='performance.png' %}
+        </div>
+      </div>
+
+
+      <div class="separator-green-animate">
+        <h3>Back-end</h3>
+        <div class="separator-green"></div>
+        <div class="d-flex  align-content-start flex-wrap">
+          {% include html/templates/skill.html name='Java' img='java.svg' %}
+          {% include html/templates/skill.html name='NodeJS' img='nodejs.svg' %}
+          {% include html/templates/skill.html name='Python' img='python.svg' %}
+          {% include html/templates/skill.html name='Spring' img='spring-framework.svg' %}
+        </div>
+      </div>
+
+      <div class="separator-green-animate">
+        <h3>Other</h3>
+        <div class="separator-green"></div>
+        <p class="lead">Shell Scripting, PHP, C, XSLT, SASS and SQL</p>
+      </div>
+
+      <div class="separator-green-animate">
+        <h3>Tools and frameworks</h3>
+        <div class="separator-green"></div>
+        <p class="lead">Spring Boot, Bootstrap, ExpressJS, Oracle, MySql, MongoDB, GIT, SVN, TeamSite CMS and Oracle User Interfaces(OUI) JS</p>
       </div>
     </div>
-
-
-    <div class="separator-green-animate">
-      <h3>Back-end</h3>
-      <div class="separator-green"></div>
-      <div class="d-flex  align-content-start flex-wrap">
-        {% include html/templates/skill.html name='Java' img='java.svg' %}
-        {% include html/templates/skill.html name='NodeJS' img='nodejs.svg' %}
-        {% include html/templates/skill.html name='Python' img='python.svg' %}
-        {% include html/templates/skill.html name='Spring' img='spring-framework.svg' %}
-      </div>
-    </div>
-
-    <div class="separator-green-animate">
-      <h3>Other</h3>
-      <div class="separator-green"></div>
-      <p class="lead">Shell Scripting, PHP, C, XSLT, SASS and SQL</p>
-    </div>
-
-    <div class="separator-green-animate">
-      <h3>Tools and frameworks</h3>
-      <div class="separator-green"></div>
-      <p class="lead">Spring Boot, Bootstrap, ExpressJS, Oracle, MySql, MongoDB, GIT, SVN, TeamSite CMS and Oracle User Interfaces(OUI) JS</p>
-    </div>
-
   </section>
 
-  <hr>
+
+  <div class="row">
+    <svg viewBox="0 0 1280 70" preserveAspectRatio="none" class="svg-curve svg-curve-grey-dark" role="presentation" aria-hidden="true">
+      <polygon points="0 0 1280 70 0 70"></polygon>
+    </svg>
+  </div>
 
   <!-- SHOWCASE -->
-  <section class="showcase my-4">
-    <h3>Showcase</h3>
-    <div class="row separator-green-animate">
-      <div class="col-md-6 col-sm-12">
-        <h4>Age Calculator</h4>
-        <div class="separator-green"></div>
-        <p>Age Calculator is a Hybrid mobile app developed using Cordova. Boostrap framework for UI development.</p>
-        <p><a href="/project/age-calculator/" title="Read more">Read more...</a></p>
+  <section class="showcase row bg-dark text-white py-3">
+    <div class="col-12">
+      <h3>Showcase</h3>
+      <div class="row separator-green-animate">
+        <div class="col-md-6 col-sm-12">
+          <h4>Age Calculator</h4>
+          <div class="separator-green"></div>
+          <p>Age Calculator is a Hybrid mobile app developed using Cordova. Boostrap framework for UI development.</p>
+          <p><a href="/project/age-calculator/" class="text-info" title="Read more">Read more...</a></p>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <h4>Anysols</h4>
+          <div class="separator-green"></div>
+          <p>ERP product under developement</p>
+          <p><a href="http://anysols.com" class="text-info" title="Anysols">Visit</a></p>
+        </div>
       </div>
 
-      <div class="col-md-6 col-sm-12">
-        <h4>Anysols</h4>
-        <div class="separator-green"></div>
-        <p>ERP product under developement</p>
-        <p><a href="//anysols.com" title="Anysols">Visit</a></p>
+      <div class="row">
+
+        <div class="col-md-6 col-sm-12">
+          <h4>Bus Reservation System</h4>
+          <div class="separator-green"></div>
+          <p>One of my first MVC applications. It was first developed on 2010 and later improvised.</p>
+          <p><a href="/project/bus-reservation-system/" class="text-info" title="Read more">Read more...</a></p>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <h4>Search Engine</h4>
+          <div class="separator-green"></div>
+          <p>One of the first web applications, i have written. Developed using PHP, MySql, HTML, CSS, JS and XML.</p>
+          <p><a href="/project/search-engine/" class="text-info" title="Read more">Read more...</a></p>
+        </div>
+
       </div>
-    </div>
-
-    <div class="row">
-
-      <div class="col-md-6 col-sm-12">
-        <h4>Bus Reservation System</h4>
-        <div class="separator-green"></div>
-        <p>One of my first MVC applications. It was first developed on 2010 and later improvised.</p>
-        <p><a href="/project/bus-reservation-system/" title="Read more">Read more...</a></p>
-      </div>
-
-      <div class="col-md-6 col-sm-12">
-        <h4>Search Engine</h4>
-        <div class="separator-green"></div>
-        <p>One of the first web applications, i have written. Developed using PHP, MySql, HTML, CSS, JS and XML.</p>
-        <p><a href="/project/search-engine/" title="Read more">Read more...</a></p>
-      </div>
-
     </div>
   </section>
 
-  <hr>
+  <div class="row">
+    <svg viewBox="0 0 1280 70" preserveAspectRatio="none" class="svg-curve svg-curve-dark-white" role="presentation" aria-hidden="true">
+      <polygon points="1280 0 1280 70 0 70"></polygon>
+    </svg>
+  </div>
 
   <!-- EXPERIENCE -->
-  <section class="experience-section my-4">
+  <section class="experience-section row bg-white py-3">
 
-    <h3>Experience</h3>
+    <div class="col-12">
+      <h3>Experience</h3>
 
-    <div class="row mt-1">
-      <div class="col-md-1 col-2">
-        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/servicenow.png" title="Kagami ERP" alt="Best Rookie Award"/>
+      <div class="row mt-1">
+        <div class="col-md-1 col-2">
+          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/servicenow.png" title="Kagami ERP" alt="Best Rookie Award"/>
+        </div>
+        <div class="col-md-11 col-10">
+          <h4>Software Engineer</h4>
+          <div class="separator-green"></div>
+          <h5>ServiceNow, Hyderabad<br/>
+            <small>(Dec 2017 - Present)</small>
+          </h5>
+        </div>
+        <div class="col-md-11 offset-md-1 col-12 text-secondary">
+          <p>ServiceNow automates enterprise IT operations, creating a single system of record for all IT processes within an organization. This system brings together IT strategy, design, transition and operation on a powerfully simple cloud platform.</p>
+          <p>Beyond Help Desk and Service Management processes, ServiceNow is built to be a productivity tool for all types of business users—the CIO, service desk staff, application developers, IT finance, IT operations and business leads.</p>
+          <p>ServiceNow applications are built on a single platform-as-a-service which offers a consistent and intuitive user experience through the entire IT Infrastructure Library (ITIL) service lifecycle.</p>
+        </div>
       </div>
-      <div class="col-md-11 col-10">
-        <h4>Software Engineer</h4>
-        <div class="separator-green"></div>
-        <h5>ServiceNow, Hyderabad<br/>
-          <small>(Dec 2017 - Present)</small>
-        </h5>
-      </div>
-      <div class="col-md-11 offset-md-1 col-12 text-secondary">
-        <p>ServiceNow automates enterprise IT operations, creating a single system of record for all IT processes within an organization. This system brings together IT strategy, design, transition and operation on a powerfully simple cloud platform.</p>
-        <p>Beyond Help Desk and Service Management processes, ServiceNow is built to be a productivity tool for all types of business users—the CIO, service desk staff, application developers, IT finance, IT operations and business leads.</p>
-        <p>ServiceNow applications are built on a single platform-as-a-service which offers a consistent and intuitive user experience through the entire IT Infrastructure Library (ITIL) service lifecycle.</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-1 col-2">
-        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/kagami.png" title="Kagami ERP" alt="Best Rookie Award"/>
+      <div class="row">
+        <div class="col-md-1 col-2">
+          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/kagami.png" title="Kagami ERP" alt="Best Rookie Award"/>
+        </div>
+        <div class="col-md-11 col-10">
+          <h4>Software Engineer</h4>
+          <div class="separator-green"></div>
+          <h5>Kagami India Pvt. Ltd. (StartUp), Hyderabad<br/>
+            <small>(July 2016 - Dec 2017)</small>
+          </h5>
+        </div>
+        <div class="col-md-11 offset-md-1 col-12 text-secondary">
+          <p>Kagami, is a next generation ERP solution, which allows Business users to develop ERP modules, package them and deploy to cloud.
+             Developed UI for products from scratch, which involves users to creating processes, entities and entity relationships using UI.
+             Involved in brainstorming and solving business/architecture problems.</p>
+        </div>
       </div>
-      <div class="col-md-11 col-10">
-        <h4>Software Engineer</h4>
-        <div class="separator-green"></div>
-        <h5>Kagami India Pvt. Ltd. (StartUp), Hyderabad<br/>
-          <small>(July 2016 - Dec 2017)</small>
-        </h5>
-      </div>
-      <div class="col-md-11 offset-md-1 col-12 text-secondary">
-        <p>Kagami, is a next generation ERP solution, which allows Business users to develop ERP modules, package them and deploy to cloud.
-           Developed UI for products from scratch, which involves users to creating processes, entities and entity relationships using UI.
-           Involved in brainstorming and solving business/architecture problems.</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-1 col-2">
-        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/oracle.png" title="Oracle" alt="Best Rookie Award"/>
+      <div class="row">
+        <div class="col-md-1 col-2">
+          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/oracle.png" title="Oracle" alt="Best Rookie Award"/>
+        </div>
+        <div class="col-md-11 col-10">
+          <h4>Application Engineer</h4>
+          <div class="separator-green"></div>
+          <h5>Oracle, Bangalore<br/>
+            <small>(July 2015 - July 2016)</small>
+          </h5>
+        </div>
+        <div class="col-md-11 offset-md-1 col-12 text-secondary">
+          <p>Understanding and developing functional business requirements based on wireframes and screenshots
+             provided by the UX team. Following the bug life cycle process and working closely with the QA team on bug
+             fixes to ensure cross browser compatibility and zero feature bugs before release.</p>
+        </div>
       </div>
-      <div class="col-md-11 col-10">
-        <h4>Application Engineer</h4>
-        <div class="separator-green"></div>
-        <h5>Oracle, Bangalore<br/>
-          <small>(July 2015 - July 2016)</small>
-        </h5>
-      </div>
-      <div class="col-md-11 offset-md-1 col-12 text-secondary">
-        <p>Understanding and developing functional business requirements based on wireframes and screenshots
-           provided by the UX team. Following the bug life cycle process and working closely with the QA team on bug
-           fixes to ensure cross browser compatibility and zero feature bugs before release.</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-1 col-2">
-        <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/wipro.png" title="Wipro Technologies" alt="Best Rookie Award"/>
-      </div>
-      <div class="col-md-11 col-10">
-        <h4>Senior Software Engineer</h4>
-        <div class="separator-green"></div>
-        <h5>Wipro Technologies, Bangalore<br/>
-          <small>(June 2012 - July 2015)</small>
-        </h5>
-      </div>
-      <div class="col-md-11 offset-md-1 col-12 text-secondary">
-        <p>US Bank being the fifth largest bank in US has a website which is used for marketing and promotions of their
-           various programs like lending money, student and parent loan with consultation, multiple promotions, etc.
-           Website also includes multiple micro sites like Student Banking, Investment and Wealth Management, Small business etc.</p>
-        <p>All this has been developed using various layouts, multiple templates and styles.
-           Numerous pages has been created with help of these layouts and templates.</p>
+      <div class="row">
+        <div class="col-md-1 col-2">
+          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/wipro.png" title="Wipro Technologies" alt="Best Rookie Award"/>
+        </div>
+        <div class="col-md-11 col-10">
+          <h4>Senior Software Engineer</h4>
+          <div class="separator-green"></div>
+          <h5>Wipro Technologies, Bangalore<br/>
+            <small>(June 2012 - July 2015)</small>
+          </h5>
+        </div>
+        <div class="col-md-11 offset-md-1 col-12 text-secondary">
+          <p>US Bank being the fifth largest bank in US has a website which is used for marketing and promotions of their
+             various programs like lending money, student and parent loan with consultation, multiple promotions, etc.
+             Website also includes multiple micro sites like Student Banking, Investment and Wealth Management, Small business etc.</p>
+          <p>All this has been developed using various layouts, multiple templates and styles.
+             Numerous pages has been created with help of these layouts and templates.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <hr>
 
   <section class="awards my-4">
 
@@ -335,7 +353,7 @@ css:
       <div class="modal-header">
         <h5 class="modal-title"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span class="fa fa-close" aria-hidden="true"></span>
+          <span class="fas fa-times" aria-hidden="true"></span>
         </button>
       </div>
       <div class="modal-body"></div>
@@ -347,11 +365,12 @@ css:
 </div>
 <script type="text/javascript">
   function readmore() {
-    $('#myModal .modal-title').html('Introduction');
-    $('#myModal .modal-body').
+    var $myModal = $('#myModal');
+    $myModal.find('.modal-title').text('Introduction');
+    $myModal.find('.modal-body').
       html(
         '<p class="lead"><strong><span style="color:#ff0000;">H</span></strong>ey, this is my personal website, so I have to say something about myself. Sometimes it is hard to introduce yourself because you know yourself so well that you do not know where to start with. Let me give a try to see what kind of image you have about me through my self-description. I hope that my impression about myself and your impression about me are not so different.</p><p class="lead"><strong><span style="color:#00ccff;">I</span></strong> am a person who is positive about every aspect of life. There are many things I like to do, to see, and to experience. I like to read, I like to write; I like to think, I like to dream; I like to talk, I like to listen; I like to see the sunrise in the morning, I like to see the moonlight at night; I like to feel the music flowing on my face, I like to smell the wind coming from the ocean. I like to look at the clouds in the sky with a blank mind, I like to do thought experiment when I cannot sleep in the middle of the night. I like flowers in spring, rain in summer, leaves in autumn, and snow in winter. I like to sleep early, I like to get up late; I like to be alone, I like to be surrounded by people. I like country’s peace, I like public noise in the stadium; I like the beautiful of sea near my home. I like the flat green field near to my town. I like delicious food and comfortable shoes; I like good books and comedy movies. I like the land and the nature, I like people. And, I like to laugh.</p><p class="lead">Last but not least, i like my “<span style="color:#ff0000;">Computer</span>” very much.</p><p class="lead"><strong><span style="color:#339966;">T</span></strong>his is a brief introduction of myself. If you are interested in knowing more, read my <a href="{{ site.baseurl }}/blog/#">Blog</a>. Do not expect too much, and keep your sense of humor.</p>');
-    $('#myModal').modal('show');
+    $myModal.modal('show');
   }
 
   function getAge(dateString) {
@@ -366,5 +385,9 @@ css:
   }
 
   $('.experience').text(getAge('06/20/2012'));
+
+  $(document).ready(function() {
+    preventLongPressMenu(document.querySelector('.profile-picture'));
+  });
 </script>
 

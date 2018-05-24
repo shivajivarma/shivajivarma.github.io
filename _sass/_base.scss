@@ -152,7 +152,28 @@ $directions: top right bottom left;
   -o-transition: transform 0.5s;
 }
 
-
 .border {
   border: 1px solid #d6d6d6;
 }
+
+.svg-curve {
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+}
+
+.svg-curve-black-grey {
+  background-color: #000;
+  fill: #eee;
+}
+
+.svg-curve-dark-white {
+  background-color: #343a40;
+  fill: #fff;
+}
+
+.svg-curve-grey-dark{
+  background-color: #eee;
+  fill: #343a40;
+}
+

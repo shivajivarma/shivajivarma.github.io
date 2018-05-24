@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cd dest && live-server",
     "build": "jekyll build",
-    "build-incremental":  "jekyll build --incremental",
+    "build-incremental": "jekyll build --incremental --config \"_config.yml,_config_dev.yml\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/shivajivarma/shivajivarma.github.io/issues"
   },
-  "homepage": "https://github.com/shivajivarma/shivajivarma.github.io#readme"
+  "homepage": "https://github.com/shivajivarma/shivajivarma.github.io#readme",
+  "dependencies": {
+    "text-to-svg": "^3.1.3"
+  }
 }
