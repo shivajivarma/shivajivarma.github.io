@@ -92,6 +92,9 @@
 
 .profile-picture {
   filter: grayscale(100%);
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  user-select: none;
   &:hover {
     animation: toColor 2s forwards;
   }

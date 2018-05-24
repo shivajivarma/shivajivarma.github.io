@@ -19,8 +19,7 @@ css:
     <div class="col-md-3 col-12">
       <div class="img-container">
         <div class="img-inner">
-          <img class="img-fluid rounded-circle profile-picture"
-               alt="{{ site.author.name }}" title="{{ site.author.name }}" src="{{ site.img }}{{ site.author.avatar }}">
+          <img class="img-fluid rounded-circle profile-picture" alt="{{ site.author.name }}" title="{{ site.author.name }}" src="{{ site.img }}{{ site.author.avatar }}">
         </div>
       </div>
     </div>
@@ -79,7 +78,6 @@ css:
           {% include html/templates/skill.html name='Performance' img='performance.png' %}
         </div>
       </div>
-
 
       <div class="separator-green-animate">
         <h3>Back-end</h3>
@@ -283,7 +281,6 @@ css:
         <p>CodeStorm - A Wipro wide online marathon with more than 4000 registrations.</p>
       </div>
     </div>
-
   </section>
 
   <hr>
@@ -346,17 +343,23 @@ css:
     </div>
   </div>
 </div>
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="read-more" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"></h5>
+        <h5 class="modal-title">Introduction</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span class="fas fa-times" aria-hidden="true"></span>
         </button>
       </div>
-      <div class="modal-body"></div>
+      <div class="modal-body">
+        <p class="lead"><strong><span style="color:#ff0000;">H</span></strong>ey, this is my personal website, so I have to say something about myself. Sometimes it is hard to introduce yourself because you know yourself so well that you do not know where to start with. Let me give a try to see what kind of image you have about me through my self-description. I hope that my impression about myself and your impression about me are not so different.</p>
+        <p class="lead"><strong><span style="color:#00ccff;">I</span></strong> am a person who is positive about every aspect of life. There are many things I like to do, to see, and to experience. I like to read, I like to write; I like to think, I like to dream; I like to talk, I like to listen; I like to see the sunrise in the morning, I like to see the moonlight at night; I like to feel the music flowing on my face, I like to smell the wind coming from the ocean. I like to look at the clouds
+                                                                               in the sky with a blank mind, I like to do thought experiment when I cannot sleep in the middle of the night. I like flowers in spring, rain in summer, leaves in autumn, and snow in winter. I like to sleep early, I like to get up late; I like to be alone, I like to be surrounded by people. I like country’s peace, I like public noise in the stadium; I like the beautiful of sea near my home. I like the flat green field
+                                                                               near to my town. I like delicious food and comfortable shoes; I like good books and comedy movies. I like the land and the nature, I like people. And, I like to laugh.</p>
+        <p class="lead">Last but not least, i like my “<span style="color:#ff0000;">Computer</span>” very much.</p>
+        <p class="lead"><strong><span style="color:#339966;">T</span></strong>his is a brief introduction of myself. If you are interested in knowing more, read my <a href="{{ site.baseurl }}/blog/#">Blog</a>. Do not expect too much, and keep your sense of humor.</p>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
@@ -365,12 +368,7 @@ css:
 </div>
 <script type="text/javascript">
   function readmore() {
-    var $myModal = $('#myModal');
-    $myModal.find('.modal-title').text('Introduction');
-    $myModal.find('.modal-body').
-      html(
-        '<p class="lead"><strong><span style="color:#ff0000;">H</span></strong>ey, this is my personal website, so I have to say something about myself. Sometimes it is hard to introduce yourself because you know yourself so well that you do not know where to start with. Let me give a try to see what kind of image you have about me through my self-description. I hope that my impression about myself and your impression about me are not so different.</p><p class="lead"><strong><span style="color:#00ccff;">I</span></strong> am a person who is positive about every aspect of life. There are many things I like to do, to see, and to experience. I like to read, I like to write; I like to think, I like to dream; I like to talk, I like to listen; I like to see the sunrise in the morning, I like to see the moonlight at night; I like to feel the music flowing on my face, I like to smell the wind coming from the ocean. I like to look at the clouds in the sky with a blank mind, I like to do thought experiment when I cannot sleep in the middle of the night. I like flowers in spring, rain in summer, leaves in autumn, and snow in winter. I like to sleep early, I like to get up late; I like to be alone, I like to be surrounded by people. I like country’s peace, I like public noise in the stadium; I like the beautiful of sea near my home. I like the flat green field near to my town. I like delicious food and comfortable shoes; I like good books and comedy movies. I like the land and the nature, I like people. And, I like to laugh.</p><p class="lead">Last but not least, i like my “<span style="color:#ff0000;">Computer</span>” very much.</p><p class="lead"><strong><span style="color:#339966;">T</span></strong>his is a brief introduction of myself. If you are interested in knowing more, read my <a href="{{ site.baseurl }}/blog/#">Blog</a>. Do not expect too much, and keep your sense of humor.</p>');
-    $myModal.modal('show');
+    $('#myModal').modal('show');
   }
 
   function getAge(dateString) {
@@ -386,8 +384,5 @@ css:
 
   $('.experience').text(getAge('06/20/2012'));
 
-  $(document).ready(function() {
-    preventLongPressMenu(document.querySelector('.profile-picture'));
-  });
 </script>
 
