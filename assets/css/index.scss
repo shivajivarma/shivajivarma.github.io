@@ -92,10 +92,13 @@
 
 .profile-picture {
   filter: grayscale(100%);
-  pointer-events: none;
-  -webkit-touch-callout: none;
-  user-select: none;
   &:hover {
     animation: toColor 2s forwards;
   }
+}
+
+@media (max-width: 767.98px) {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
