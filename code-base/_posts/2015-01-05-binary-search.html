@@ -11,12 +11,36 @@ tags: [c, java]
 
 <blockquote>{{ page.description }}</blockquote>
 
-
-<h3>C</h3>
-{% include components/github-code-highlighter.html id="c-binary-search" program='src/searching-algorithms/binary-search/binary-search.c' repo='shivajivarma/codebase-c' prism='language-c' %}
-
-<h3>Java</h3>
-{% include components/github-code-highlighter.html id="java-binary-search" program='src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+<h3 class=mb-5>Code</h3>
+<div class="card card-nav-tabs card-code">
+    <div class="card-header card-header-primary">
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#c-tab" data-toggle="tab">
+                            C
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#java-tab" data-toggle="tab">
+                            Java
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><div class="card-body p-0">
+        <div class="tab-content text-center">
+            <div class="tab-pane active" id="c-tab">
+              {% include components/github-code-highlighter.html id="c-binary-search" program='src/searching-algorithms/binary-search/binary-search.c' repo='shivajivarma/codebase-c' prism='language-c' %}
+            </div>
+            <div class="tab-pane" id="java-tab">
+              {% include components/github-code-highlighter.html id="java-binary-search" program='src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+            </div>
+        </div>
+    </div>
+</div>
 
 <h3>Output</h3>
 <pre><code class="language-c">Enter size of the array :: 8
