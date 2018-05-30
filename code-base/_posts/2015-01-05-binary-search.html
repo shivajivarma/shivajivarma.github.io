@@ -3,7 +3,7 @@ layout: post
 title: Binary Search
 description: Program to perform search on sorted set of numbers using Binary search technique
 keywords: ['binary search algorithm', 'search algorithm', 'binary search program in c', 'binary search algorithm in java', 'binary search algorithm implemented in c']
-tags: [c, java]
+tags: [c, java, javascript]
 ---
 <p>A <strong>Binary search</strong> locates an item in a sorted array by repeatedly dividing the search interval in half. The initial interval includes the entire array. If the value of the search key is less than the item in the middle of the interval, then the next interval will be the lower half of the current interval. If the value of the search key is greater than the middle item, then the next interval will be the upper half. The search process repeats until the item is found or the search interval is empty.</p>
 
@@ -27,6 +27,11 @@ tags: [c, java]
                             Java
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#javascript-tab" data-toggle="tab">
+                            JavaScript
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -37,6 +42,9 @@ tags: [c, java]
             </div>
             <div class="tab-pane" id="java-tab">
               {% include components/github-code-highlighter.html id="java-binary-search" program='src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+            </div>
+            <div class="tab-pane" id="javascript-tab">
+                {% include components/github-code-highlighter.html id="javascript-binary-search" program='algorithms/search/binary-search/binary-search.js' repo='shivajivarma/codebase-js' prism='language-javascript' %}
             </div>
         </div>
     </div>
