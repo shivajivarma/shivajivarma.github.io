@@ -19,7 +19,7 @@ breadcrumbs:
 	<div class="row">
 		<div id=post-list class="col-md-9">
 		{% for post in site.categories['code-base'] %}
-		<div class="hide mb-2 {% if post.tags != empty %} {% for tag in post.tags %}{{ tag }} {% endfor %} {% endif %}">
+		<div class="item hide mb-2 {% if post.tags != empty %} {% for tag in post.tags %}{{ tag }} {% endfor %} {% endif %}">
       <h3 class="h4 m-0"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
 			<small class="text-muted">
 				Posted on {{ post.date | date: "%B %-d, %Y" }}
@@ -54,11 +54,13 @@ breadcrumbs:
 
 		$(document).ready(function(){
 			var tag = getUrlParameter('filter');
-      $('.'+tag).removeClass('hide');
+      
       if(tag) {
         $('#tag-name').text(tag);
+        $('.'+tag).removeClass('hide');
         $('#filter-'+tag).addClass('active bg-primary text-white rounded');
-      }
+      } else
+        $('.item').removeClass('hide');
 		});
 	</script>
 
