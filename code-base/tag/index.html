@@ -50,9 +50,11 @@ breadcrumbs:
 		$(document).ready(function(){
 			var tag = urlParam('filter');
 
-			$('#tag-name').text(tag);
-			$('.'+tag).removeClass('hide');
-      $('#filter-'+tag).addClass('active bg-primary text-white rounded');
+      if(tag) {
+        $('#tag-name').text(tag);
+        $('.'+tag).removeClass('hide');
+        $('#filter-'+tag).addClass('active bg-primary text-white rounded');
+      }
 		});
 	</script>
 
