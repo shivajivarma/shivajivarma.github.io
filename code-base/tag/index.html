@@ -42,13 +42,18 @@ breadcrumbs:
 	</div>
 
 	<script>
-		var urlParam = function(name){
-			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-			return results[1] || 0;
-		};
+		function getUrlParameter(key) {
+      key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
+      var results = regex.exec(window.location.href);
+      if (results == null)
+        return "";
+      else
+        return unescape(results[1]).replace(/<script.*>.*<\/script>/g, "");
+    }
 
 		$(document).ready(function(){
-			var tag = urlParam('filter');
+			var tag = getUrlParameter('filter');
 
       if(tag) {
         $('#tag-name').text(tag);
