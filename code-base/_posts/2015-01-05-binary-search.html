@@ -3,7 +3,7 @@ layout: post
 title: Binary Search
 description: Program to perform search on sorted set of numbers using Binary search technique
 keywords: ['binary search algorithm', 'search algorithm', 'binary search program in c', 'binary search algorithm in java', 'binary search algorithm implemented in c']
-tags: [c, java]
+tags: [c, java, javascript]
 ---
 <p>A <strong>Binary search</strong> locates an item in a sorted array by repeatedly dividing the search interval in half. The initial interval includes the entire array. If the value of the search key is less than the item in the middle of the interval, then the next interval will be the lower half of the current interval. If the value of the search key is greater than the middle item, then the next interval will be the upper half. The search process repeats until the item is found or the search interval is empty.</p>
 
@@ -11,12 +11,44 @@ tags: [c, java]
 
 <blockquote>{{ page.description }}</blockquote>
 
-
-<h3>C</h3>
-{% include components/github-code-highlighter.html id="c-binary-search" program='src/searching-algorithms/binary-search/binary-search.c' repo='shivajivarma/codebase-c' prism='language-c' %}
-
-<h3>Java</h3>
-{% include components/github-code-highlighter.html id="java-binary-search" program='src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+<h3 class=mb-5>Code</h3>
+<div class="card card-nav-tabs card-code">
+    <div class="card-header card-header-primary">
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#c-tab" data-toggle="tab">
+                            C
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#java-tab" data-toggle="tab">
+                            Java
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#javascript-tab" data-toggle="tab">
+                            JavaScript
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><div class="card-body p-0">
+        <div class="tab-content text-center">
+            <div class="tab-pane active" id="c-tab">
+              {% include components/github-code-highlighter.html id="c-binary-search" program='src/searching-algorithms/binary-search/binary-search.c' repo='shivajivarma/codebase-c' prism='language-c' %}
+            </div>
+            <div class="tab-pane" id="java-tab">
+              {% include components/github-code-highlighter.html id="java-binary-search" program='src/main/java/com/shivajivarma/codebase/search/binary_search/BinarySearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+            </div>
+            <div class="tab-pane" id="javascript-tab">
+                {% include components/github-code-highlighter.html id="javascript-binary-search" program='algorithms/search/binary-search/binary-search.js' repo='shivajivarma/codebase-js' prism='language-javascript' %}
+            </div>
+        </div>
+    </div>
+</div>
 
 <h3>Output</h3>
 <pre><code class="language-c">Enter size of the array :: 8
