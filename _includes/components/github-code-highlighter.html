@@ -17,7 +17,8 @@
         $('#{{include.id}} code').html(data.replace(/</g,'&lt;').replace(/>/g,'&gt;'));
       },
       error: function(){
-        $('#{{include.id}} code').html('Loading failed, please download to view the code.');
+        $('#{{include.id}}').append('<p>Loading failed, please download to view the code.</p>');
+        $('#{{include.id}} code').html('');
       }
     });
     var clipboard = new ClipboardJS('#{{include.id}} .btn-clipboard', {
