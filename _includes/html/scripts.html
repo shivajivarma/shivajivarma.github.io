@@ -4,6 +4,8 @@
 <script src="{{ site.baseurl }}/assets/material-kit/assets/js/material-kit.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+
 
 {% if page.root != true %}
 <script type="text/javascript" src="{{ site.baseurl }}{{ site.bower }}/prism/prism.js"></script>
@@ -20,4 +22,3 @@
 	<script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
 {% endif %}
 {% if page.plugins.fblike %}{% include plugins/fb-like.html %}{% endif %}
-{% include plugins/disqus-comments.html %}

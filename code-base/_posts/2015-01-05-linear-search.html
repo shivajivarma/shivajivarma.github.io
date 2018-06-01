@@ -3,14 +3,57 @@ layout: post
 title: Linear Search
 description: Program to perform search on set of numbers using Linear search technique
 keywords: ['linear search algorithm', 'search algorithm', 'linear search program in c', 'linear search algorithm in java', 'linear search algorithm implemented in c']
-tags: [c, java]
+tags: [c, java, javascript]
 ---
 <p><strong>Linear search</strong>, also known as sequential search, is a process that checks every element in the list sequentially until the desired element is found.</p>
 
 <blockquote>{{ page.description }}</blockquote>
 
-<h3>C</h3>
-{% include components/github-code-highlighter.html id="c-linear-search" program='src/searching-algorithms/linear-search/linear-search.c' repo='shivajivarma/codebase-c' prism='language-c' %}
+<h3 class=mb-5>Code</h3>
+<div class="card card-nav-tabs card-code">
+  <div class="card-header card-header-primary">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <ul class="nav nav-tabs" data-tabs="tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#c-tab" data-toggle="tab">
+              C
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#java-tab" data-toggle="tab">
+              Java
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#javascript-tab" data-toggle="tab">
+              JavaScript
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <div class="tab-content text-center">
+      <div class="tab-pane active" id="c-tab">
+        {% include components/github-code-highlighter.html id="c-linear-search" program='src/searching-algorithms/linear-search/linear-search.c' repo='shivajivarma/codebase-c' prism='language-c' %}
+      </div>
+      <div class="tab-pane" id="java-tab">
+        {% include components/github-code-highlighter.html id="java-linear-search" program='src/main/java/com/shivajivarma/codebase/search/linear_search/LinearSearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+      </div>
+      <div class="tab-pane" id="javascript-tab">
+        {% include components/github-code-highlighter.html id="javascript-linear-search" program='algorithms/search/linear-search/linear-search.js' repo='shivajivarma/codebase-js' prism='language-javascript' %}
+      </div>
+    </div>
+  </div>
+</div>
 
-<h3>Java</h3>
-{% include components/github-code-highlighter.html id="java-linear-search" program='src/main/java/com/shivajivarma/codebase/search/linear_search/LinearSearch.java' repo='shivajivarma/codebase-java' prism='language-java' %}
+<h3>Output</h3>
+<pre><code class="language-c">Enter size of the array :: 8
+
+Enter elements of the array :: 102 52 7 141 12 56 102 156
+
+Enter the number to be searched :: 102
+
+102 is present at location 6.</code></pre>

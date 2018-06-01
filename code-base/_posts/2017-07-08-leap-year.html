@@ -6,8 +6,40 @@ tags: [c, javascript]
 ---
 <blockquote><p>{{ page.description }}.</p></blockquote>
 
-<h3>C</h3>
-{% include components/github-code-highlighter.html id="c-leap-year" repo='shivajivarma/codebase-c' program='src/leap-year/leap-year.c' prism='language-c' %}
+<p>A year is leap year if following conditions are satisfied</p>
+<ol>
+  <li>Year is multiple of 400</li>
+  <li>Year is multiple of 4 and not multiple of 100.</li>
+</ol>
 
-<h3>JavaScript</h3>
-{% include components/github-code-highlighter.html id="js-leap-year" repo='shivajivarma/codebase-js' program='leap-year/leap-year.js' prism='language-javascript' %}
+<h3>Code</h3>
+<div class="card card-nav-tabs card-code">
+  <div class="card-header card-header-primary">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <ul class="nav nav-tabs" data-tabs="tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#c-tab" data-toggle="tab">
+              C
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#js-tab" data-toggle="tab">
+              JavaScript
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <div class="tab-content text-center">
+      <div class="tab-pane active" id="c-tab">
+        {% include components/github-code-highlighter.html id="c-leap-year" repo='shivajivarma/codebase-c' program='src/date/leap-year/leap-year.c' prism='language-c' %}
+      </div>
+      <div class="tab-pane" id="js-tab">
+        {% include components/github-code-highlighter.html id="js-leap-year" repo='shivajivarma/codebase-js' program='algorithms/date/leap-year/leap-year.js' prism='language-javascript' %}
+      </div>
+    </div>
+  </div>
+</div>

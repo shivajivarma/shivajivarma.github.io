@@ -4,7 +4,6 @@
     <a class="btn px-2 btn-link" target="_blank" href="https://github.com/{{ include.repo }}/tree/master/{{ include.program }}"><span class="fab fa-github"></span></a>
   </div><code class="{{include.prism}}">loading...</code>
 </pre>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 <script>
   (function(){
     var clipboardData;
@@ -21,11 +20,13 @@
         $('#{{include.id}} code').html('');
       }
     });
-    var clipboard = new ClipboardJS('#{{include.id}} .btn-clipboard', {
-      text: function(trigger) {
+    $(document).ready(function(){
+      var clipboard = new ClipboardJS('#{{include.id}} .btn-clipboard', {
+        text: function(trigger) {
           swal("Good job!", "You copied the code to clipboard!", "success");
           return clipboardData;
-      }
+        }
+      });
     });
   })();
 </script>
