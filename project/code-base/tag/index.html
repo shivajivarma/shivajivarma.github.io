@@ -23,7 +23,6 @@ breadcrumbs:
       <h3 class="h4 m-0"><a class="no-underline" href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
 			<small class="text-muted">
 				Posted on {{ post.date | date: "%B %-d, %Y" }}
-				| Category : <a href="{{ site.baseurl }}/code-base/{{ post.categories[1] }}">{{ post.categories[1] | capitalize | replace:'-',' ' }}</a>
 				{% if post.tags != empty %}| Tags : {% for tag in post.tags %}{{ tag | capitalize }} {% endfor %} {% endif %}
 			</small>
 		</div>
@@ -32,10 +31,10 @@ breadcrumbs:
 		<div class=col-md-3>
 		<h3 class="h4">Tags</h3>
 		<ul class="nav flex-column">
-			<a href="{{ site.baseurl }}/code-base/tag/?filter=c" id="filter-c" title="C" class="nav-link">C</a>
-			<a href="{{ site.baseurl }}/code-base/tag/?filter=python"  id="filter-python" class="nav-link" title="Python">Python</a>
-			<a href="{{ site.baseurl }}/code-base/tag/?filter=javascript" id="filter-javascript" class="nav-link" title="JavaScript">JavaScript</a>
-			<a href="{{ site.baseurl }}/code-base/tag/?filter=java" id="filter-java" class="nav-link" title="Java">Java</a>
+			<a href="{{ site.baseurl }}/project/code-base/tag/?filter=c" id="filter-c" title="C" class="nav-link">C</a>
+			<a href="{{ site.baseurl }}/project/code-base/tag/?filter=python"  id="filter-python" class="nav-link" title="Python">Python</a>
+			<a href="{{ site.baseurl }}/project/code-base/tag/?filter=javascript" id="filter-javascript" class="nav-link" title="JavaScript">JavaScript</a>
+			<a href="{{ site.baseurl }}/project/code-base/tag/?filter=java" id="filter-java" class="nav-link" title="Java">Java</a>
 		</ul>
 		<hr/>{% include html/adsence-responsive.html %}
 		</div>
@@ -54,7 +53,7 @@ breadcrumbs:
 
 		$(document).ready(function(){
 			var tag = getUrlParameter('filter');
-      
+
       if(tag) {
         $('#tag-name').text(tag);
         $('.'+tag).removeClass('hide');

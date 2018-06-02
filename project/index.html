@@ -7,8 +7,6 @@ priority: 0.9
 description: Showcase of few of my works. Do check them out once.
 change_frequency: always
 ---
-
-
 <!-- MAIN CONTENT -->
 <div class="container-fluid pb-4">
 
@@ -16,6 +14,7 @@ change_frequency: always
 
     <div class="card-columns">
       {% for post in site.categories['project'] %}
+      {% if post.layout == 'project' %}
       <div class="d-inline-block">
         <div class="card">
           <div class="card-img-wrapper rounded-top">
@@ -38,6 +37,7 @@ change_frequency: always
           </div>
         </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>

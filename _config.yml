@@ -56,6 +56,18 @@ assets:
     - _assets/javascripts
     - _assets/stylesheets
 
+defaults:
+  -
+    scope:
+      path: "assets/bower_components/**/*.*"
+    values:
+      sitemap:         false
+  -
+    scope:
+      path: "assets/material-kit/**/*.*"
+    values:
+      sitemap:         false
+
 plugins:
 - jekyll-sitemap
 - jekyll-redirect-from
