@@ -67,6 +67,11 @@ defaults:
       path: "assets/material-kit/**/*.*"
     values:
       sitemap:         false
+  -
+    scope:
+      path: "assets/includes/**/*.*"
+    values:
+      sitemap:         false
 
 plugins:
 - jekyll-sitemap
