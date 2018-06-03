@@ -66,33 +66,21 @@ plugins:
   {% include html/adsence-responsive.html %}
   <hr class="my-4"/>
 
-  <a class="anchor" name="TheAddamsFamily" id="TheAddamsFamily"></a>
-  <div class="row padding-top-20px bg-color-20b2aa">
-    <div class="col-md-5">
-      <h2>The Addams Family</h2>
-      <p><b>The Addams Family</b> is a group of fictional characters created by American cartoonist Charles Addams. As named by Charles Addams, the Addams Family characters include Gomez, Morticia, Uncle Fester, Lurch, Grandmama, Wednesday, Pugsley, Pubert Addams and Thing.</p>
-      <p>The Addamses are a satirical inversion of the ideal American family; an eccentric, wealthy clan who delight in the macabre and are unaware that people find them bizarre or frightening.</p>
-      <h4>Characters:</h4>
-      <ul>
-        <li>Lurch (Gaint)</li>
-        <li>Pugsley (Son)</li>
-        <li>Uncle Fester</li>
-        <li>Morticia (Mother)</li>
-        <li>Gomez</li>
-        <li>Wednesday</li>
-        <li>Grandmama</li>
-        <li>Thing</li>
-      </ul>
-    </div>
-    <div class="col-md-7">
-      <img class="img-thumbnail img-responsive margin-auto full-width" alt="The Addams family" title="The Addams family" src="//lh6.googleusercontent.com/-6mxPxamuBro/UXyulxijIqI/AAAAAAAAA7I/PhMnV-LRo5k/w370-h509/Addamsam%255B1%255D.jpg">
-      <p class="text-align-center">
-        <small>Lurch (Gaint), Pugsley (Son), Uncle Fester, Morticia (Mother), Gomez, Wednesday, Grandmama, Thing</small>
-      </p>
-    </div>
-  </div>
+  {% capture description %}
+  <p><b>The Addams Family</b> is a group of fictional characters created by American cartoonist Charles Addams. As named by Charles Addams, the Addams Family characters include Gomez, Morticia, Uncle Fester, Lurch, Grandmama, Wednesday, Pugsley, Pubert Addams and Thing.</p>
+  <p>The Addamses are a satirical inversion of the ideal American family; an eccentric, wealthy clan who delight in the macabre and are unaware that people find them bizarre or frightening.</p>
+  {% endcapture %}
+  {% assign characters = "Lurch (Gaint)|Pugsley (Son)|Uncle Fester|Morticia (Mother)|Gomez|Wednesday|Grandmama|Thing" | split: '|' %}
+  {% include components/cartoon-card.html
+  title='The Addams Family'
+  img='//lh6.googleusercontent.com/-6mxPxamuBro/UXyulxijIqI/AAAAAAAAA7I/PhMnV-LRo5k/w370-h509/Addamsam%255B1%255D.jpg'
+  img-title='The Addams Family'
+  img-description='Lurch (Gaint), Pugsley (Son), Uncle Fester, Morticia (Mother), Gomez, Wednesday, Grandmama, Thing'
+  description=description
+  characters=characters
+  float-right=true
+  %}
 
-  <hr class="my-4"/>
 
   <a class="anchor" name="2StupidDogs" id="2StupidDogs"></a>
   <div class="row padding-top-20px bg-color-ffff99">
@@ -121,6 +109,8 @@ plugins:
     </div>
   </div>
 
+  <hr class="my-4"/>
+  {% include html/adsence-responsive.html %}
   <hr class="my-4"/>
 
   <a class="anchor" name="Centurions" id="Centurions"></a>
@@ -235,34 +225,13 @@ plugins:
         <li>Nibbles</li>
         <li>Mammy Two Shoes</li>
       </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <h3>Related</h3>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#TomAndJerry">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh6.googleusercontent.com/-fN2GSzjH-ho/U0Epq2SyWwI/AAAAAAAABkE/1TEonK07HnE/w900-h720-no/-503b6188e007020f16000000%255B1%255D.jpg">
-      </a>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#TomAndJerry">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh6.googleusercontent.com/-I_OiL5Pxir4/U0EqZZ33izI/AAAAAAAABkM/d6emHh4vAaU/w400-h300-no/tve2438-19510908-694%255B1%255D.jpg">
-      </a>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#TomAndJerry">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh5.googleusercontent.com/-qQToSV-frSo/U0ErVjkfJvI/AAAAAAAABkY/u3bOysB20ZI/w577-h374-no/Capture-9%255B1%255D.jpg">
-      </a>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#TomAndJerry">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh6.googleusercontent.com/-PTcGPrNAhqE/U0EtEsszIgI/AAAAAAAABkg/v5UUOOdYozs/w750-h475-no/Nibbles_%25281%2529%255B1%255D.jpg">
-      </a>
+      <button class="btn btn-sm btn-primary cartoon-read-more" data-url="/assets/includes/cartoons/tom-and-jerry.html">Read more <i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
 
+
+  <hr class="my-4"/>
+  {% include html/adsence-responsive.html %}
   <hr class="my-4"/>
 
   <a class="anchor" name="Popeye" id="Popeye"></a>
@@ -279,37 +248,12 @@ plugins:
         <li><a href="//en.wikipedia.org/wiki/Poopdeck_Pappy" title="Poopdeck Pappy">Poopdeck Pappy</a> (Popeye's father)</li>
         <li>Pip eye, Pup eye, Poop eye and Peep eye</li>
       </ul>
+      <button class="btn btn-sm btn-primary cartoon-read-more" data-url="/assets/includes/cartoons/popeye.html">Read more <i class="fas fa-arrow-right"></i></button>
     </div>
     <div class="col-md-7">
       <img class="img-thumbnail img-responsive margin-auto full-width" alt="Popeye The Sailor Man" title="Popeye The Sailor Man" src="//lh5.googleusercontent.com/2cLi5iTUQTOmzIhwiiJHqc6T9yQeJ0KRBt2UDtP25rQ=w634-h407-no">
       <p class="text-align-center">
         <small>Bluto, Olive, Popeye</small>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <h3>Related</h3>
-    </div>
-    <div class="col-sm-6 col-xs-12">
-      <div class="video-container">
-        <iframe width="100%" height="500%" src="//www.youtube.com/embed/VRf4uRRyECg" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#Popeye">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh6.googleusercontent.com/cDZD52FKzzuEdCaz2F2Q6egl_c_fz5199M5Xjl68Pjg=w211-h313">
-      </a>
-      <p class="text-align-center">
-        <small>Pappy</small>
-      </p>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#Popeye">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh6.googleusercontent.com/g4Ge9__r3JoTuFRjRB5bMoImwZLqi8BoZLQXNA6GA38=w280-h258-no">
-      </a>
-      <p class="text-align-center">
-        <small>Wimpy</small>
       </p>
     </div>
   </div>
@@ -335,28 +279,10 @@ plugins:
         <li>Charlie Schumacher</li>
         <li>Pretorius</li>
       </ul>
+      <button class="btn btn-sm btn-primary cartoon-read-more" data-url="/assets/includes/cartoons/the-mark.html">Read more <i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <h3>Related</h3>
-    </div>
-    <div class="col-sm-6 col-xs-12">
-      <div class="video-container">
-        <iframe width="100%" height="500%" src="//www.youtube.com/embed/KzdR421Ekv8" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#TheMask">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh3.googleusercontent.com/e_Al2zL8xMbPiPpzJWDahLFNAH-kuFMCJNTViuxgs4M=w600-h375-no">
-      </a>
-    </div>
-    <div class="col-sm-3 col-xs-6">
-      <a href="#TheMask">
-        <img class="img-responsive portfolio-item full-width mt-2" src="//lh4.googleusercontent.com/-IfPqEoZgSbQ/U01hoo9s_QI/AAAAAAAABnA/1IqJJg5SvsU/w475-h351-no/maskaugratin18%255B1%255D.jpg">
-      </a>
-    </div>
-  </div>
+
 
   <hr class="my-4"/>
 
@@ -376,6 +302,9 @@ plugins:
   characters=characters
   float-right=true
   %}
+
+  {% include html/adsence-responsive.html %}
+  <hr class="my-4"/>
 
   {% capture description %}
   This show details the various adventures of Richie Rich, his family, and his friends.
@@ -410,6 +339,9 @@ plugins:
   characters=characters
   float-right=true
   %}
+
+  {% include html/adsence-responsive.html %}
+  <hr class="my-4"/>
 
   {% capture description %}
   The show follows Looney Tunes characters Sylvester and Tweety Bird, and their owner Granny, along with bulldog Hector (who appeared in several cartoons alongside Tweety, Sylvester and Granny but was in the series given a new design similar to that of Marc Antony), as they solved mysteries, even with Sylvester still trying to eat Tweety in the middle of solving the mysteries, but Hector acted as a bodyguard for Tweety, and would even beat Sylvester up (usually out of shot, but sometimes behind a blind).
