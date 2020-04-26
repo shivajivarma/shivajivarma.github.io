@@ -43,7 +43,6 @@ css:
         "He is a people person who just happens to express this tendency through programming and technology projects,
         having development and design experience for more than <span class="experience"></span> years"
       </p>
-      <p><a id="read-more" class="text-info" href="javascript:readmore()" title="Read more">Read more...</a></p>
 
       <p><b>Fun fact:</b> He plays a lot of CS:GO, But still not a pro. And you can find his name in the list of <a class="text-info" href="https://github.com/jquery/jquery/blob/master/AUTHORS.txt" target="_blank">jquery authors</a>.</p>
       <p><a id="resume" href="{{site.docs}}/shivaji-resume-infographic.pdf" title="Shivaji Varma's Resume" class="btn btn-primary" target="_blank"><i class="fas fa-download"></i> Download Resume</a></p>
@@ -344,33 +343,8 @@ css:
     </div>
   </div>
 </div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="read-more" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Introduction</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span class="fas fa-times" aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p class="lead"><strong><span style="color:#ff0000;">H</span></strong>ey, this is my personal website, so I have to say something about myself. Sometimes it is hard to introduce yourself because you know yourself so well that you do not know where to start with. Let me give a try to see what kind of image you have about me through my self-description. I hope that my impression about myself and your impression about me are not so different.</p>
-        <p class="lead"><strong><span style="color:#00ccff;">I</span></strong> am a person who is positive about every aspect of life. There are many things I like to do, to see, and to experience. I like to read, I like to write; I like to think, I like to dream; I like to talk, I like to listen; I like to see the sunrise in the morning, I like to see the moonlight at night; I like to feel the music flowing on my face, I like to smell the wind coming from the ocean. I like to look at the clouds
-                                                                               in the sky with a blank mind, I like to do thought experiment when I cannot sleep in the middle of the night. I like flowers in spring, rain in summer, leaves in autumn, and snow in winter. I like to sleep early, I like to get up late; I like to be alone, I like to be surrounded by people. I like country’s peace, I like public noise in the stadium; I like the beautiful of sea near my home. I like the flat green field
-                                                                               near to my town. I like delicious food and comfortable shoes; I like good books and comedy movies. I like the land and the nature, I like people. And, I like to laugh.</p>
-        <p class="lead">Last but not least, i like my “<span style="color:#ff0000;">Computer</span>” very much.</p>
-        <p class="lead"><strong><span style="color:#339966;">T</span></strong>his is a brief introduction of myself. If you are interested in knowing more, read my <a href="{{ site.baseurl }}/blog/#">Blog</a>. Do not expect too much, and keep your sense of humor.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 <script type="text/javascript">
-  function readmore() {
-    $('#myModal').modal('show');
-  }
 
   function getAge(dateString) {
     var today = new Date();
