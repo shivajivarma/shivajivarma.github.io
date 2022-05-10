@@ -4,113 +4,353 @@ root: true
 keywords: ['Shivaji Varma About Me', 'Conact Shivaji Varma', 'Shivaji Varma Profile', 'Shivaji Varma Resume', 'personal website','programmer', 'software engineering', 'web developer']
 priority: 1
 change_frequency: monthly
-plugins:
-fblike: true
-gplus: true
 css:
 - /index.css
 ---
+
+<div class="banner">
+  <div class="container">
+    <div class="banner-content-section">
+      <div class="banner-content">
+        <goat-text type="heading">
+          Hi, <br/>I'm Shivaji Varma<span class="color-brand">.</span>
+        </goat-text>
+        <goat-text size="xl">A Polyglot full stack developer from India.</goat-text>
+      </div>
+    </div>
+    <div class="banner-image-section">
+      <goat-avatar size="100%" src="{{ site.img }}/raw.png" alt="Shivaji Varma"/>
+    </div>
+  </div>
+</div>
+
+<div class="about section">
+  <div class="container">
+    <goat-text type="heading" size="md" class="title">About<span class="color-brand">.</span></goat-text>
+    <goat-text type="paragraph">
+      ⚡ Currently working as a Staff Software Engineer, having more than <span class="experience"></span> years
+      experience in developing internet-based applications. Contributing to architecture, frontend and backend.
+    </goat-text>
+
+    <goat-text type="paragraph">
+      ⚡ Skilled in requirement analysis, design, development, coding, integration, and maintenance of web-based
+      applications.
+    </goat-text>
+
+    <goat-text type="paragraph">
+      ⚡ Graduated in computer science from
+      <goat-link href="https://gitam.edu" target="_blank">GITAM University, Visakhapatnam</goat-link>
+      .
+    </goat-text>
+
+    <goat-text type="paragraph">
+      ⚡ In my free time I play CS:GO
+    </goat-text>
+
+    <goat-text type="paragraph"><b>Fun fact:</b> You can find my name in the list of
+      <goat-link
+        href="https://github.com/jquery/jquery/blob/main/AUTHORS.txt#L257" target="_blank">jQuery authors
+      </goat-link>
+      .
+    </goat-text>
+
+    <goat-button href="{{site.docs}}/shivaji-resume-infographic.pdf" target="_blank" icon="download" icon-end>Download
+      Resume
+    </goat-button>
+  </div>
+</div>
+
+
+<div class="skills section">
+  <div class="container">
+    <goat-text type="heading" size="md" class="title">Skills<span class="color-brand">.</span></goat-text>
+    <goat-text class="skill-set-title">BACKEND END</goat-text>
+    <p class="skill-set">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" title="Java"
+           alt="Java" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
+           title="NodeJS" alt="NodeJS" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/denojs/denojs-original.svg"
+           title="DenoJS" alt="DenoJS" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+           title="Python" alt="Python" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" title="PHP"
+           alt="PHP" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" title="C" alt="C"
+           width="26px"/>&nbsp;
+    </p>
+
+    <goat-text class="skill-set-title">FRONT END</goat-text>
+    <p class="skill-set">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+           title="JavaScript" alt="JavaScript" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons//typescript/typescript-original.svg"
+           title="TypeScript" alt="TypeScript" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" title="HTML5"
+           alt="HTML" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" title="CSS3"
+           alt="CSS" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" title="CSS3"
+           alt="CSS" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg"
+           title="AngularJS" alt="AngularJS" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" title="React"
+           alt="React" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg"
+           title="Bootstrap"
+           alt="Bootstrap" width="26px"/>&nbsp;
+    </p>
+
+    <goat-text class="skill-set-title">TOOLS</goat-text>
+    <p class="skill-set">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" title="MySQL"
+           alt="MySQL" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
+           title="MongoDB" alt="MongoDB" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg"
+           title="Oracle"
+           alt="Oracle" width="26px"/>&nbsp;
+      <img src="/assets/img/skills/servicenow.png" title="ServiceNow" alt="ServiceNow" width="26px" height="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" title="Git"
+           alt="Git" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" title="Azure"
+           alt="Azure" width="26px"/>&nbsp;
+      <img
+        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg"
+        title="AWS"
+        alt="AWS" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg"
+           title="Jenkins"
+           alt="Jenkins" width="26px"/>&nbsp;
+    </p>
+
+    <goat-text class="skill-set-title">FRAMEWORKS</goat-text>
+    <p class="skill-set">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg"
+           title="Spring" alt="Spring" width="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"
+           title="Express" alt="Express" width="26px"/>&nbsp;
+    </p>
+
+    <goat-text class="skill-set-title">INTEGRATIONS</goat-text>
+    <p class="skill-set">
+      <img src="/assets/img/skills/twilio.svg" title="Twilio" alt="Twilio" width="26px" height="26px"/>&nbsp;
+      <img src="/assets/img/skills/microsoft-teams.png" title="Microsoft Teams" alt="Microsoft Teams" width="26px"
+           height="26px"/>&nbsp;
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/slack/slack-original.svg" title="Slack"
+           alt="Slack" width="26px"/>&nbsp;
+    </p>
+
+  </div>
+</div>
+
+
+<div class="experience section">
+  <div class="container">
+    <goat-text type="heading" size="md" class="title">Experience<span class="color-brand">.</span></goat-text>
+    <div class="experience-list">
+      <div class="experience-item">
+        <div class="role-details">
+          <div class="logo">
+            <goat-svg src="/assets/img/experience/servicenow.svg" title="ServiceNow" alt="ServiceNow"></goat-svg>
+          </div>
+          <div class="role">
+            <goat-text type="heading" size="xs">Staff Software Engineer</goat-text>
+            <goat-text size="lg">ServiceNow · Full-time</goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Dec 2017 - Present · <span class="latest-experience"></span>+ yrs
+            </goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Hyderabad, India</goat-text>
+          </div>
+        </div>
+        <div class="experience-details">
+          <goat-text type="paragraph">ServiceNow automates enterprise IT operations, creating a single system of record
+            for all IT processes within an organization. This system brings together IT strategy, design, transition and
+            operation on a powerfully simple cloud platform.
+          </goat-text>
+          <goat-text type="paragraph">Worked on ServiceNow Platform and developed/enhanced products like Major Incident
+            Management, On-Call Management, Task Communication Management, Universal Request, Microsoft Teams
+            integrations etc., was involved in architectural design, backend and frontend coding, and review. Part of
+            building reusable UI component like Full Calendar using ServiceNow's internal UI framework, which is used
+            across teams.
+          </goat-text>
+        </div>
+      </div>
+
+      <goat-divider class="item-separator"></goat-divider>
+
+      <div class="experience-item">
+        <div class="role-details">
+          <div class="logo">
+            <img src="/assets/img/experience/kagami.webp" title="Kagami" alt="Kagami">
+          </div>
+          <div class="role">
+            <goat-text type="heading" size="xs">Software Engineer</goat-text>
+            <goat-text size="lg">Kagami India Pvt. Ltd. (StartUp) · Full-time</goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Jul 2016 - Dec 2017 · 1 yr 6 mos</goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Hyderabad, India</goat-text>
+
+          </div>
+        </div>
+        <div class="experience-details">
+          <goat-text type="paragraph">Kagami, is a next generation ERP solution, which allows Business users to develop
+            ERP modules, package them and deploy to cloud.
+          </goat-text>
+          <goat-text type="paragraph">Developed user interfaces for products from scratch, which involves business users
+            to creating processes, entities and entity relationships. Involved in brainstorming and solving
+            business/architecture problems.
+          </goat-text>
+        </div>
+      </div>
+
+      <goat-divider class="item-separator"></goat-divider>
+
+      <div class="experience-item">
+        <div class="role-details">
+          <div class="logo">
+            <img src="/assets/img/experience/oracle.png" title="Oracle" alt="Oracle">
+          </div>
+          <div class="role">
+            <goat-text type="heading" size="xs">Applications Engineer</goat-text>
+            <goat-text size="lg">Oracle · Full-time</goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Jul 2015 - Jun 2016 · 1 yr</goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Bangalore, India</goat-text>
+
+          </div>
+        </div>
+        <div class="experience-details">
+          <goat-text type="paragraph">Oracle Primavera P6 (Project Management Tool) application. is a software product
+            that primarily focusing on providing web-based Enterprise Project Portfolio Management software that
+            encompasses resource allocation, cost reduction, supply-chain efficiency, and decision-making using
+            real-time data, for the Enterprise market.
+          </goat-text>
+          <goat-text type="paragraph">Revamped applet pages with modern UI technologies. Understanding and developing
+            functional business requirements based on wireframes and screenshots provided by the UX team. Following the
+            bug life cycle process and working closely with the QA team on bug fixes to ensure cross browser
+            compatibility and zero feature bugs before release.
+          </goat-text>
+        </div>
+      </div>
+
+      <goat-divider class="item-separator"></goat-divider>
+
+      <div class="experience-item">
+        <div class="role-details">
+          <div class="logo">
+            <img src="/assets/img/experience/wipro.svg" title="Wipro" alt="Wipro">
+          </div>
+          <div class="role">
+            <goat-text type="heading" size="xs">Senior Software Engineer</goat-text>
+            <goat-text size="lg">Wipro · Full-time</goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Jun 2012 - Jul 2015 · 3 yrs 2 mos</goat-text>
+            <br/>
+            <goat-text size="lg" shade="secondary">Bangalore, India</goat-text>
+
+          </div>
+        </div>
+        <div class="experience-details">
+          <goat-text type="paragraph">Oracle Primavera P6 (Project Management Tool) application. is a software product
+            that primarily focusing on providing web-based Enterprise Project Portfolio Management software that
+            encompasses resource allocation, cost reduction, supply-chain efficiency, and decision-making using
+            real-time data, for the Enterprise market.
+          </goat-text>
+          <goat-text type="paragraph">Revamped applet pages with modern UI technologies. Understanding and developing
+            functional business requirements based on wireframes and screenshots provided by the UX team. Following the
+            bug life cycle process and working closely with the QA team on bug fixes to ensure cross browser
+            compatibility and zero feature bugs before release.
+          </goat-text>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="experience section">
+  <div class="container">
+    <goat-text type="heading" size="md" class="title">Honors & awards<span class="color-brand">.</span></goat-text>
+
+    <div class="award-item">
+      <goat-text type="heading" size="xs">UTG LLama Award</goat-text>
+      <goat-text shade="secondary">Issued by ServiceNow · Dec 2021</goat-text>
+      <br/>
+      <goat-text type="paragraph">For helping customer in resolving release critical issue in short time period. It was go/no-go decision time for customer.</goat-text>
+    </div>
+
+    <goat-divider class="item-separator"></goat-divider>
+
+    <div class="award-item">
+      <goat-text type="heading" size="xs">Inspiring Performance</goat-text>
+      <goat-text shade="secondary">Issued by Wipro Technologies · Feb 2015</goat-text>
+      <br/>
+      <goat-text type="paragraph">This certificate is awarded for Responsive Micro site implementation and Best Performance in the project.</goat-text>
+    </div>
+
+    <goat-divider class="item-separator"></goat-divider>
+
+    <div class="award-item">
+      <goat-text type="heading" size="xs">Best Rookie</goat-text>
+      <goat-text shade="secondary">Issued by Wipro Technologies · Aug 2014</goat-text>
+      <br/>
+      <goat-text type="paragraph">This certificate is awarded for Quick learning and Best Performance in the project. Appreciated for the same in All Hands Meet of Customer Engagement practice.</goat-text>
+    </div>
+
+
+    <goat-divider class="item-separator"></goat-divider>
+
+    <div class="award-item">
+      <goat-text type="heading" size="xs">Code Star</goat-text>
+      <goat-text shade="secondary">Issued by Wipro Technologies · May 2014</goat-text>
+      <br/>
+      <goat-text type="paragraph">This certificate is awarded for winning in 'CodeStrom' programming contest. An event jointly organized by Cheif Techonology Office and Business Application Services.</goat-text>
+      <goat-text type="paragraph">CodeStrom - A Wipro wide online marathon with more than 4000 registrations</goat-text>
+    </div>
+
+
+  </div>
+</div>
+
+
+<div class="showcase section">
+  <div class="container">
+    <goat-text type="heading" size="md" class="title">Showcase<span class="color-success">.</span></goat-text>
+    <goat-text>List of notable personal projects outside of work.</goat-text>
+    <br/>
+    <br/>
+    <div class="showcase-item">
+      <div class="project-details">
+        <div class="logo">
+          <goat-svg style="color: #8a3ffc" src="https://goatui.com/assets/img/logo.svg" title="GOATUI" alt="GOATUI"/>
+        </div>
+        <div class="details">
+          <goat-text type="heading" size="xs">Goat UI</goat-text>
+          <goat-text size="lg" type="paragraph">A lightweight web component library, build using stenciljs.</goat-text>
+          <goat-text size="lg" type="paragraph">
+            So you don't need to include any additional framework dependencies, You can simply import required component js, and right away start using it.
+            Can easily be consumed by any other framework, like Vue, React, Angular, etc.
+          </goat-text>
+          <goat-text class="read-more"><a href="https://goatui.com">Read More <goat-icon name="arrow-right" class="inherit"></goat-icon></a> </goat-text>
+        </div>
+      </div>
+    </div>
+
+    <goat-button class="view-all-projects" size="lg" class="color-success" icon="arrow-right" icon-end href="/project#">View all projects</goat-button>
+    </div>
+
+
+</div>
+
 <!-- MAIN CONTENT -->
-<div class=container-fluid>
-
-  <!-- Introduction -->
-  <section class="row py-5 text-white separator-green-animate" style="background: black">
-
-    <div class="col-md-3 col-12">
-      <div class="img-container">
-        <div class="img-inner">
-          <img class="img-fluid rounded-circle profile-picture" alt="{{ site.author.name }}" title="{{ site.author.name }}" src="{{ site.img }}{{ site.author.avatar }}">
-        </div>
-      </div>
-    </div>
-
-    <div id="introduction" class="col-md-9 col-12 mt-3 mt-md-0">
-      <h1 class="text-center text-md-left">Shivaji Varma</h1>
-      <div class="content">
-        <div class="content__container">
-          <ul class="content__container__list h3 text-center text-md-left">
-            <li class="content__container__list__item">Programmer</li>
-            <li class="content__container__list__item">Web designer</li>
-            <li class="content__container__list__item">Full stack engineer</li>
-            <li class="content__container__list__item">Gamer</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="separator-green mx-auto mx-md-0"></div>
-
-      <p class="lead">
-        "He is a people person who just happens to express this tendency through programming and technology projects,
-        having development and design experience for more than <span class="experience"></span> years"
-      </p>
-
-      <p><b>Fun fact:</b> He plays a lot of CS:GO, But still not a pro. And you can find his name in the list of <a class="text-info" href="https://github.com/jquery/jquery/blob/master/AUTHORS.txt" target="_blank">jquery authors</a>.</p>
-      <p><a id="resume" href="{{site.docs}}/shivaji-resume-infographic.pdf" title="Shivaji Varma's Resume" class="btn btn-primary" target="_blank"><i class="fas fa-download"></i> Download Resume</a></p>
-
-      {% include components/social-icons.html %}
-
-    </div>
-
-  </section>
-
-  <div class="row">
-    <svg viewBox="0 0 1280 70" preserveAspectRatio="none" class="svg-curve svg-curve-black-grey" role="presentation" aria-hidden="true">
-      <polygon points="1280 0 1280 70 0 70"></polygon>
-    </svg>
-  </div>
-
-  <!-- SKILLS -->
-  <section class="skills row py-3">
-    <div class="col-12">
-      <h2>Skills</h2>
-      <p class="lead">He has more than <span class="experience"></span> years experience as a full stack developer, creating products from scratch. This enabled him to acquire variety of skill set.</p>
-
-      <div class="separator-green-animate">
-        <h3>Front-end</h3>
-        <div class="separator-green"></div>
-        <div class="d-flex  align-content-start flex-wrap">
-          {% include html/templates/skill.html name='HTML5' img='html5.svg' %}
-          {% include html/templates/skill.html name='CSS3' img='css3.svg' %}
-          {% include html/templates/skill.html name='JavaScript' img='javascript.svg' %}
-          {% include html/templates/skill.html name='Angular' img='angular.png' %}
-          {% include html/templates/skill.html name='jQuery' img='jquery.png' %}
-          {% include html/templates/skill.html name='Performance' img='performance.png' %}
-        </div>
-      </div>
-
-      <div class="separator-green-animate">
-        <h3>Back-end</h3>
-        <div class="separator-green"></div>
-        <div class="d-flex  align-content-start flex-wrap">
-          {% include html/templates/skill.html name='Java' img='java.svg' %}
-          {% include html/templates/skill.html name='NodeJS' img='nodejs.svg' %}
-          {% include html/templates/skill.html name='Python' img='python.svg' %}
-          {% include html/templates/skill.html name='Spring' img='spring-framework.svg' %}
-        </div>
-      </div>
-
-      <div class="separator-green-animate">
-        <h3>Other</h3>
-        <div class="separator-green"></div>
-        <p class="lead">Shell Scripting, PHP, C, XSLT, SASS and SQL</p>
-      </div>
-
-      <div class="separator-green-animate">
-        <h3>Tools and frameworks</h3>
-        <div class="separator-green"></div>
-        <p class="lead">Spring Boot, Bootstrap, ExpressJS, Oracle, MySql, MongoDB, GIT, SVN, TeamSite CMS and Oracle User Interfaces(OUI) JS</p>
-      </div>
-    </div>
-  </section>
+<!--div class=container-fluid>
 
 
-  <div class="row">
-    <svg viewBox="0 0 1280 70" preserveAspectRatio="none" class="svg-curve svg-curve-grey-dark" role="presentation" aria-hidden="true">
-      <polygon points="0 0 1280 70 0 70"></polygon>
-    </svg>
-  </div>
-
-  <!-- SHOWCASE -->
+  < SHOWCASE >
   <section class="showcase row bg-dark text-white py-3">
     <div class="col-12">
       <h3>Showcase</h3>
@@ -152,212 +392,22 @@ css:
       </div>
     </div>
   </section>
-
-  <div class="row">
-    <svg viewBox="0 0 1280 70" preserveAspectRatio="none" class="svg-curve svg-curve-dark-white" role="presentation" aria-hidden="true">
-      <polygon points="1280 0 1280 70 0 70"></polygon>
-    </svg>
-  </div>
-
-  <!-- EXPERIENCE -->
-  <section class="experience-section row bg-white py-3">
-
-    <div class="col-12">
-      <h3>Experience</h3>
-
-      <div class="row mt-1">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/servicenow.jpg" title="Kagami ERP" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Software Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>ServiceNow, Hyderabad<br/>
-            <small>(Dec 2017 - Present)</small>
-          </h5>
-        </div>
-        <div class="col-md-11 offset-md-1 col-12 text-secondary">
-          <p>ServiceNow automates enterprise IT operations, creating a single system of record for all IT processes within an organization. This system brings together IT strategy, design, transition and operation on a powerfully simple cloud platform.</p>
-          <p>Beyond Help Desk and Service Management processes, ServiceNow is built to be a productivity tool for all types of business users—the CIO, service desk staff, application developers, IT finance, IT operations and business leads.</p>
-          <p>ServiceNow applications are built on a single platform-as-a-service which offers a consistent and intuitive user experience through the entire IT Infrastructure Library (ITIL) service lifecycle.</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/kagami.png" title="Kagami ERP" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Software Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>Kagami India Pvt. Ltd. (StartUp), Hyderabad<br/>
-            <small>(July 2016 - Dec 2017)</small>
-          </h5>
-        </div>
-        <div class="col-md-11 offset-md-1 col-12 text-secondary">
-          <p>Kagami, is a next generation ERP solution, which allows Business users to develop ERP modules, package them and deploy to cloud.
-             Developed UI for products from scratch, which involves users to creating processes, entities and entity relationships using UI.
-             Involved in brainstorming and solving business/architecture problems.</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/oracle.png" title="Oracle" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Application Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>Oracle, Bangalore<br/>
-            <small>(July 2015 - July 2016)</small>
-          </h5>
-        </div>
-        <div class="col-md-11 offset-md-1 col-12 text-secondary">
-          <p>Understanding and developing functional business requirements based on wireframes and screenshots
-             provided by the UX team. Following the bug life cycle process and working closely with the QA team on bug
-             fixes to ensure cross browser compatibility and zero feature bugs before release.</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-1 col-2">
-          <img class="img-fluid mt-2 margin-left-10px" src="{{ site.img }}/icons/wipro.png" title="Wipro Technologies" alt="Best Rookie Award"/>
-        </div>
-        <div class="col-md-11 col-10">
-          <h4>Senior Software Engineer</h4>
-          <div class="separator-green"></div>
-          <h5>Wipro Technologies, Bangalore<br/>
-            <small>(June 2012 - July 2015)</small>
-          </h5>
-        </div>
-        <div class="col-md-11 offset-md-1 col-12 text-secondary">
-          <p>US Bank being the fifth largest bank in US has a website which is used for marketing and promotions of their
-             various programs like lending money, student and parent loan with consultation, multiple promotions, etc.
-             Website also includes multiple micro sites like Student Banking, Investment and Wealth Management, Small business etc.</p>
-          <p>All this has been developed using various layouts, multiple templates and styles.
-             Numerous pages has been created with help of these layouts and templates.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="awards my-4">
-
-    <h3>Awards</h3>
-    <div class="row">
-      <div class="col-md-12">
-        <h4>Inspiring Performace</h4>
-        <div class="separator-green"></div>
-        <h5>
-          <small>Feb 2015, Wipro Technologies</small>
-        </h5>
-      </div>
-      <div class="col-md-12 text-secondary">
-        <p>This certificate is awarded for Responsive Micro site implementation and Best Performance in the project.</p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <h4>Best Rookie</h4>
-        <div class="separator-green"></div>
-        <h5>
-          <small>August 2014, Wipro Technologies</small>
-        </h5>
-      </div>
-      <div class="col-md-12 text-secondary">
-        <p>This certificate is awarded for Quick learning and Best Performance in the project. Appreciated for the same in All Hands Meet of Customer Engagement practice.</p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <h4>Code Star</h4>
-        <div class="separator-green"></div>
-        <h5>
-          <small>May 2014, Wipro Technologies</small>
-        </h5>
-      </div>
-      <div class="col-md-12 text-secondary">
-        <p>This certificate is awarded for winning in 'CodeStorm' programming contest. An event jointly organized by Cheif Techonology Office and Business Application Services.</p>
-        <p>CodeStorm - A Wipro wide online marathon with more than 4000 registrations.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr>
-
-  <!-- Education -->
-  <section class="education my-4">
-
-    <h3>Education</h3>
-    <div class="mb-2">
-      <h4>GITAM UNIVERSITY</h4>
-      <div class="separator-green"></div>
-      <h5 class="h6">B. Tech, Computer Science, 8.54 CGPA<br/>
-        <small>(2008 - 2012)</small>
-      </h5>
-    </div>
-    <div class="mb-2">
-      <h4>Sri Chaitanya Junior College</h4>
-      <div class="separator-green"></div>
-      <h5 class="h6">Mathematics, Physics and Chemistry, 91.4%<br/>
-        <small>(2006 - 2008)</small>
-      </h5>
-    </div>
-
-  </section>
-
-  <hr>
-
-  <div class="row my-4">
-
-    <div class="col-md-5">
-      <h3>Contact info<a class="anchor" name="contact-hash" id="contact-hash"></a></h3>
-      <div>
-        <p class="lead"><i class="far fa-envelope"></i> <a class="no-underline" href="mailto:&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;" title="&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;</a>
-        </p>
-      </div>
-
-      {% include components/social-icons.html %}
-
-      <!-- Place this tag where you want the +1 button to render. -->
-      <div>
-        <div class="g-plusone" data-href="{{ site.url }}"></div>
-      </div>
-
-      <!-- facebook like -->
-      <div class="fb-like margin-bottom-20px" data-href="{{ site.url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-
-    </div>
-
-    <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0"
-              marginwidth="0"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.31698230503!2d78.26795873402952!3d17.412299801084405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1525746797584"></iframe>
-
-  </div>
-
-  <div class="row pb-3">
-    <div class="margin-auto">
-      <img class="size-32px" title="Smiley" alt="Smiley" src="{{ site.baseurl }}{{ site.img }}/icons/smiley.png">
-    </div>
-  </div>
-</div>
+</div-->
 
 <script type="text/javascript">
 
   function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
     return age;
   }
 
-  $('.experience').text(getAge('06/20/2012'));
-
+  document.querySelector('.experience').innerText = getAge('06/20/2012');
+  document.querySelector('.latest-experience').innerText = getAge('12/15/2017');
 </script>
 

@@ -19,23 +19,12 @@ layout: null
 
 	<!-- Icons -->
   <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}{{ site.img }}/favicon.png">
-  <link rel="author" href="https://plus.google.com/{{ site.author.gplusid }}?rel=author">
-  <link rel="publisher" href="https://plus.google.com/{{ site.author.gpage }}">
+  <link rel="author" href="https://twitter.com/{{ site.author.twitter }}?rel=author">
+  <link rel="publisher" href="https://twitter.com/{{ site.author.twitter }}">
 
 </head>
 <body>
-<script>
-  (function() {
-    var cx = 'partner-pub-3120721550776061:6054874840';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
+<script async src="https://cse.google.com/cse.js?cx=partner-pub-3120721550776061:6054874840"></script>
+<div class="gcse-search"></div>
 </body>
 </html>

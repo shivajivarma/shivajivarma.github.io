@@ -1,8 +1,7 @@
 <!--   Core JS Files   -->
+<script type='module' src='{{ site.baseurl }}/assets/node_modules/@goatui/components/dist/goatui/goatui.esm.js'></script>
+
 <script src="{{ site.baseurl }}/assets/material-kit/assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="{{ site.baseurl }}/assets/material-kit/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-<script src="{{ site.baseurl }}/assets/material-kit/assets/js/material-kit.min.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 
@@ -18,7 +17,3 @@
 
 {% for js in page.js %}<script type="text/javascript" src="{{ site.baseurl }}{{ site.js }}/{{ js }}"></script>{% endfor %}
 {% for script in page.scripts %}<script type="text/javascript" src="{{ script }}"></script>{% endfor %}
-{% if page.plugins.gplus %}
-	<script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
-{% endif %}
-{% if page.plugins.fblike %}{% include plugins/fb-like.html %}{% endif %}

@@ -1,6 +1,5 @@
 #Jekyll settings
 encoding: UTF-8
-destination: dest
 permalink:	pretty
 highlighter: rouge
 include: ['assets/_bower_components', '.gitignore']
@@ -10,13 +9,13 @@ sass:
 # Site settings
 title:				Shivaji Varma
 email:				contact@shivajivarma.com
-tagline:			'Developer, designer and dreamer'
+tagline:			'Polyglot full stack developer'
 description: This site is centered around my blog, but contains lots of other content as well. You can use the links at the top, or else jump right to the various sections.
 baseurl: ''
-url: 				'http://shivajivarma.com' # the base hostname & protocol for your site
+url: 				'https://shivajivarma.com' # the base hostname & protocol for your site
 domain:           	shivajivarma.com
 type:				website
-google-analytics:	UA-42422649-1
+google-analytics:	G-KNH50V85RG
 
 # Author details
 author:
@@ -31,7 +30,7 @@ author:
   soundcloud:     shivajivarma
   linkedin:       shivajivarma
   twitter:        shivaji_varma
-  youtube:        enchantingstrings
+  youtube:        ShivajiVarmaPusapatiVenkata
 
 # Path to assets
 css:      /assets/css
@@ -73,7 +72,10 @@ defaults:
     values:
       sitemap:         false
 
+
+# Build settings
 plugins:
-- jekyll-sitemap
-- jekyll-redirect-from
-- jekyll-assets
+  - jekyll-sitemap
+  - jekyll-assets
+  - jekyll-spark
+  - jekyll-redirect-from

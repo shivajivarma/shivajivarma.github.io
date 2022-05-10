@@ -1,7 +1,18 @@
 ---
-layout: notice
+layout: blank
 title: 404
 description: 404!! This is not the web page you are looking for.
 permalink: 404.html
 ---
-This is not the web page you are looking for. <a href="{{ site.baseurl }}/#">back to home</a>
+<style>
+  goat-empty-state {
+    height: 100vh;
+    width: 100vw;
+  }
+</style>
+<goat-empty-state illustration="page"
+                  headline='404 : Page not found :('
+                  description='The requested page could not be found.'
+                  action='Go to home page'
+                  action-url='/'>
+</goat-empty-state>
