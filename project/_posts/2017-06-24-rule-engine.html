@@ -12,17 +12,17 @@ permalink: /:categories/:title/
 
 <div class="row">
     <div class="col-md-9">
-        <p>{{page.description}}</p>
+        <goat-text type="paragraph">{{page.description}}</goat-text>
 		{% include components/github-code-highlighter.html id="code-test" program='test.js' repo='shivajivarma/rule-engine' prism='language-javascript' %}
-		
-        
+
+
 		<h3>Code</h3>
 		{% include components/github-code-highlighter.html id="code-rule-engine" program='rule-engine.js' repo='shivajivarma/rule-engine' prism='language-javascript' %}
 
-		
-         
-    </div> 
-    
+
+
+    </div>
+
     <div class=col-md-3>
 		{% include html/adsence.html %}
 	</div>

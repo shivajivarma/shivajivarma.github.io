@@ -4,39 +4,49 @@ title: Projects
 priority: 0.9
 description: Showcase of few of my works. Do check them out once.
 change_frequency: always
+css:
+- /projects.css
 ---
-<!-- MAIN CONTENT -->
-<div class="container-fluid pb-4">
 
-  <div class="container-fluid">
+<div class="showcase-item">
+  <div class="project-details">
+    <div class="logo">
+      <goat-svg style="color: #8a3ffc" src="https://goatui.com/assets/img/logo.svg" title="GOATUI" alt="GOATUI"/>
+    </div>
+    <div class="details">
+      <goat-text type="heading" size="xs">Goat UI</goat-text>
+      <goat-text size="lg" type="paragraph">A lightweight web component library, build using stenciljs.</goat-text>
+      <goat-text size="lg" type="paragraph">
+        So you don't need to include any additional framework dependencies, You can simply import required component js, and right away start using it.
+        Can easily be consumed by any other framework, like Vue, React, Angular, etc.
+      </goat-text>
+      <goat-text class="read-more"><a href="https://goatui.com">Read More <goat-icon name="arrow-right" class="inherit"></goat-icon></a> </goat-text>
+    </div>
+  </div>
 
-    <div class="card-columns">
-      {% for post in site.categories['project'] %}
-      {% if post.layout == 'project' %}
-      <div class="d-inline-block">
-        <div class="card">
-          <div class="card-img-wrapper rounded-top">
-            {% if post.bg != null %}
-            {% assign page-bg = site.baseurl | append: site.img | append: '/bg/' | append: post.bg %}
-            {% else %}
-            {% assign page-bg = site.baseurl| append: site.img | append:'/bg/' | append: site.data.layout[post.layout].bg %}
-            {% endif %}
-            <img class="card-img-top" src="{{ page-bg }}" alt="{{ post.title }}">
-          </div>
-          <div class="card-img-overlay" style="bottom: inherit">
-            <h5 class="card-title text-white">{{ post.title }}</h5>
-          </div>
-          <div class="card-body">
-            <p class="card-text">{{ post.description }}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted mr-auto">Posted on {{ post.date | date: "%B %-d, %Y" }}</small>
-            <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" class="btn btn-primary">View</a>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-      {% endfor %}
+  <goat-divider class="item-separator"></goat-divider>
+
+  <div class="project-details">
+    <div class="logo">
+      <img style="color: #8a3ffc" src="/assets/img/projects/bus-reservation-system/icon.png" title="Bus Reservation System" alt="Bus Reservation System"/>
+    </div>
+    <div class="details">
+      <goat-text type="heading" size="xs">Bus Reservation System</goat-text>
+      <goat-text size="lg" type="paragraph">An application to automate bus reservation system.</goat-text>
+      <goat-text class="read-more"><a href="/project/bus-reservation-system/">Read More <goat-icon name="arrow-right" class="inherit"></goat-icon></a> </goat-text>
+    </div>
+  </div>
+
+  <goat-divider class="item-separator"></goat-divider>
+
+  <div class="project-details">
+    <div class="logo">
+      <img style="color: #8a3ffc" src="/assets/img/projects/search-engine/icon.png" title="Search Engine" alt="Search Engine"/>
+    </div>
+    <div class="details">
+      <goat-text type="heading" size="xs">Search Engine</goat-text>
+      <goat-text size="lg" type="paragraph">Search Engine Project developed in PHP.</goat-text>
+      <goat-text class="read-more"><a href="/project/search-engine/">Read More <goat-icon name="arrow-right" class="inherit"></goat-icon></a> </goat-text>
     </div>
   </div>
 </div>

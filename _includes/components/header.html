@@ -3,7 +3,7 @@
   <goat-header
     class='brand actions-separated hide-mobile'
     brand-logo='/assets/img/logo.webp'
-    page-title="{{ site.tagline }}"
+    page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.tagline }}{% endif %}"
     brand-url='/'
   >
 
