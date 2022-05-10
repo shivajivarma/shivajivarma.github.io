@@ -2,6 +2,7 @@
   "name": "assets",
   "version": "1.0.0",
   "dependencies": {
-    "@goatui/components": "^0.9.5"
+    "@goatui/components": "^0.9.5",
+    "jquery": "^3.5.1"
   }
 }

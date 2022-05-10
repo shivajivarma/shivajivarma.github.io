@@ -197,3 +197,16 @@ html.hydrated {
     padding: 0 var(--spacing-4);
   }
 }
+
+.banner-title {
+  height: 15rem;
+  padding-top: var(--header-height);
+  background: var(--color-brand-secondary-10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html[data-theme="dark"] .banner-title {
+  background: var(--color-black)
+}

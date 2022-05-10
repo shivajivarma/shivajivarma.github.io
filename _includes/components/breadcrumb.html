@@ -1,12 +1,10 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb capitalize border-bottom" itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/" itemprop="item"><span itemprop=name>Home</span></a></li>
-    {% for item in include.items %}
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}{{ item.href }}" itemprop="item"><span itemprop=name>{{ item.name | capitalize }}</span></a></li>
-    {% endfor %}
-    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem" class=active><span itemprop=name>{{ page.title }}</span></li>
-  </ol>
-</nav><!-- /.breadcrumb -->
+<goat-breadcrumb itemscope itemtype="http://schema.org/BreadcrumbList">
+  <goat-breadcrumb-item href="{{ site.baseurl }}/" itemprop="itemListElement" itemscope
+                        itemtype="http://schema.org/ListItem">Home</goat-breadcrumb-item>
+  {% for item in include.items %}
+  <goat-breadcrumb-item itemprop="itemListElement" itemscope
+                        itemtype="http://schema.org/ListItem">{{ item.name | capitalize }}</goat-breadcrumb-item>
+  {% endfor %}
+  <goat-breadcrumb-item itemprop="itemListElement" itemscope
+                        itemtype="http://schema.org/ListItem" active>{{ page.title }}</goat-breadcrumb-item>
+</goat-breadcrumb>
