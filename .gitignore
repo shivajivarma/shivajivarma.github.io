@@ -5,6 +5,7 @@ www/
 *.log
 *.tmp
 *.tmp.*
+*.jekyll-cache
 log.txt
 *.sublime-project
 *.sublime-workspace

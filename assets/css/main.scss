@@ -3,6 +3,7 @@
 ---
 @charset "utf-8";
 @import "mixin";
+@import "bootstrap-grid";
 
 html {
   padding: 0;
@@ -34,7 +35,7 @@ html.hydrated {
   color: var(--color-success);
 }
 
-.container {
+.section-container {
   max-width: var(--container-xl);
   margin: 0 auto;
   padding: 0 var(--spacing-8);
@@ -74,7 +75,7 @@ html.hydrated {
     height: 100%;
   }
 
-  .container {
+  .section-container {
     padding-bottom: var(--spacing-4);
   }
 
@@ -116,7 +117,7 @@ html.hydrated {
 
 
 .made-in-india {
-  display: flex;
+  display: none;
   align-items: center;
   text-align: center;
   font-size: 1.2rem;
@@ -127,7 +128,7 @@ html.hydrated {
 }
 
 .social-icons {
-  display: flex;
+  display: none;
   align-items: center;
   --button-color: var(--text-primary);
 }
@@ -137,9 +138,10 @@ html.hydrated {
   padding: 0 var(--spacing-1);
 }
 
-@media (min-width: 1024px) {
+@include for-tablet-landscape-up{
 
   .made-in-india {
+    display: flex;
     position: fixed;
     font-size: 1rem;
     transform-origin: bottom left;
@@ -150,6 +152,7 @@ html.hydrated {
   }
 
   .social-icons {
+    display: flex;
     position: fixed;
     font-size: 1rem;
     transform-origin: bottom left;
@@ -174,7 +177,7 @@ html.hydrated {
   }
 
 
-  .container {
+  .section-container {
     padding: var(--spacing-5) var(--spacing-24);
   }
 }
@@ -193,7 +196,7 @@ html.hydrated {
   .hide-desktop {
     display: block;
   }
-  .container {
+  .section-container {
     padding: 0 var(--spacing-4);
   }
 }

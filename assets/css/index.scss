@@ -92,12 +92,12 @@ html[data-theme="dark"] .banner {
   height: 100vh;
   padding-top: var(--header-height);
   background: var(--color-brand-secondary-10);
-  .container {
+  .section-container {
     display: flex;
   }
 }
 @include for-phone-only {
-  .banner .container {
+  .banner .section-container {
     height: 100%;
     padding: 0 var(--spacing-4);
     flex-direction: column;
@@ -131,7 +131,7 @@ html[data-theme="dark"] .banner {
     display: flex;
     align-items: center;
 
-    .container {
+    .section-container {
       display: flex;
       align-items: center;
       .banner-content-section, .banner-image-section {
