@@ -3,7 +3,8 @@
   <goat-header
     class='brand actions-separated hide-mobile'
     brand-logo='/assets/img/logo.webp'
-    page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.tagline }}{% endif %}"
+    brand-name="Shivaji Varma"
+    page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
     brand-url='/'
   >
 
@@ -22,7 +23,7 @@
   <goat-header
     class='brand actions-separated hide-desktop'
     brand-logo='/assets/img/logo.webp'
-    page-title="{{ site.title }}"
+    page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
     brand-url='/'
   >
 
