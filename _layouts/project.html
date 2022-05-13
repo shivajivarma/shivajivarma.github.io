@@ -1,9 +1,9 @@
 ---
 layout: default-with-banner
 ---
-{% include components/breadcrumb.html items=site.data.project-breadcrumbs %}
-<div class=container-fluid itemscope itemtype="http://schema.org/Article">
-  {% include html/authoring.html %}
+{% include breadcrumb.html items=site.data.project-breadcrumbs %}
+{% include authoring.html %}
+<div class="project" itemscope itemtype="http://schema.org/Article">
   {{ content }}
 </div>
-{% include html/comments.html %}
+{% include comments.html %}

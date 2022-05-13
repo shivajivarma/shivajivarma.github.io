@@ -19,7 +19,7 @@ layout: default
 
 <article class=container-fluid itemscope itemtype="http://schema.org/Article">
   <h1 class="h2 m-0" itemprop=name>{{ page.title }}</h1>
-  {% include html/authoring.html %}
+  {% include authoring.html %}
   <div class=row>
     <div class=col-md-9>
       {{ content }}
@@ -63,10 +63,10 @@ layout: default
       </ul>
     </div>
     <div class=col-md-3>
-      {% include html/adsence-responsive.html %}
+      {% include adsence-responsive.html %}
 	  <hr/>
-	  {% include html/subscribe.html %}
+	  {% include subscribe.html %}
     </div>
   </div>
 </article>
-{% include html/comments.html %}
+{% include comments.html %}

@@ -27,7 +27,7 @@ permalink: /:categories/:title/
     </div>
 
     <div class=col-md-3>
-		{% include html/adsence.html %}
+		{% include adsence.html %}
 	</div>
 </div>
 
@@ -129,26 +129,26 @@ permalink: /:categories/:title/
 		<ol class="mt-1">
 
 			<li class="mb-3"><h4>Existing system</h4>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Existing system is totally on book and thus a great amount of manual work has to be done. The amount of manual work increases exponentially with increase in services.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>In existing system, there are various problems like keeping records of items, seats available, prices of per/seat and fixing bill generation on each bill.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Finding out details regarding any information is very difficult, as the user has to go through all the books manually.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Major problem was lack of security.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Existing system is totally on book and thus a great amount of manual work has to be done. The amount of manual work increases exponentially with increase in services.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>In existing system, there are various problems like keeping records of items, seats available, prices of per/seat and fixing bill generation on each bill.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Finding out details regarding any information is very difficult, as the user has to go through all the books manually.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Major problem was lack of security.</goat-text>
 			</li>
 
 			<li class="mb-3"><h4>Proposed system</h4>
 				<goat-text type="paragraph">The system is very simple in design and to implement. The system requires very low system resources and the system will work in almost all configurations. It has got following features:</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Ensure data accuracy.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Records are efficiently maintained by DBMS.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>DBMS also provides security for the information.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Any person across the world, having internet can access this service.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Availability of seats can be enquired very easily.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Passengers can also cancel their tickets easily.</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Minimum time needed for the various processing</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Better Service</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Minimum time required</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>This would help the corporation prepare and organize its schedules more efficiently on the basis of traffic demand.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Ensure data accuracy.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Records are efficiently maintained by DBMS.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>DBMS also provides security for the information.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Any person across the world, having internet can access this service.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Availability of seats can be enquired very easily.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Passengers can also cancel their tickets easily.</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Minimum time needed for the various processing</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Better Service</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Minimum time required</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>This would help the corporation prepare and organize its schedules more efficiently on the basis of traffic demand.</goat-text>
 			</li>
 
 		</ol>
@@ -245,13 +245,13 @@ permalink: /:categories/:title/
 	</div>
 	<div class="col-md-7">
 		<h4>Schema:</h4>
-        {% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/schema.sql' language='sql' %}
-		{% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/passenger.sql' language='sql' %}
-        {% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/location.sql' language='sql' %}
-        {% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/vehicle.sql' language='sql' %}
-        {% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/route.sql' language='sql' %}
-        {% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/trip.sql' language='sql' %}
-        {% include plugins/code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/spring.security.sql' language='sql' %}
+        {% include code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/schema.sql' language='sql' %}
+		{% include code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/passenger.sql' language='sql' %}
+        {% include code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/location.sql' language='sql' %}
+        {% include code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/vehicle.sql' language='sql' %}
+        {% include code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/route.sql' language='sql' %}
+        {% include code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/trip.sql' language='sql' %}
+        {% include code-highlighter.html path='https://raw.githubusercontent.com/shivajivarma/transporter/master/web/src/main/resources/db-scripts/spring.security.sql' language='sql' %}
 
     </div>
 </div>
@@ -264,20 +264,20 @@ permalink: /:categories/:title/
 		<goat-text type="paragraph"><a href="https://travis-ci.org/shivajivarma/bus-reservation-system" alt="Build Status"><img title="Build Status" alt="Build Status" src=https://api.travis-ci.org/shivajivarma/bus-reservation-system.svg?branch=master /></a></goat-text>
 		<ol>
 			<li><goat-text type="paragraph">Install Prerequisite Software:</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Java 1.8</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>MySql 5.6 + MySql Connector/J + workbench (<a href="http://dev.mysql.com/downloads/windows/installer/">http://dev.mysql.com/downloads/windows/installer/</a>)</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Eclipse Luna</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span>Install Gradle plugin in Eclipse</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Java 1.8</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>MySql 5.6 + MySql Connector/J + workbench (<a href="http://dev.mysql.com/downloads/windows/installer/">http://dev.mysql.com/downloads/windows/installer/</a>)</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Eclipse Luna</goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Install Gradle plugin in Eclipse</goat-text>
 			</li>
 
 			<li><goat-text type="paragraph">Set Enviroment Variables (Paths may vary based on OS and installation):</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span><code>CLASSPATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span><code>PATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span><code>JAVA_HOME=C:\Program Files\Java\jdk1.8.0_20</code></goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>CLASSPATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>PATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>JAVA_HOME=C:\Program Files\Java\jdk1.8.0_20</code></goat-text>
 			</li>
 
 			<li><goat-text type="paragraph">Clone the source code:</goat-text>
-				<goat-text type="paragraph"><span class="margin-right-10px">&#10003;</span><code>git clone https://github.com/shivajivarma/transporter.git</code></goat-text>
+				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>git clone https://github.com/shivajivarma/transporter.git</code></goat-text>
 			</li>
 
 			<li><goat-text type="paragraph">Import project into eclipse.</goat-text></li>

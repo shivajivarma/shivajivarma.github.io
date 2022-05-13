@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign micro-site = 'blog' %}
-{% include components/breadcrumb.html items=site.data.category-breadcrumbs %}
+{% include breadcrumb.html items=site.data.category-breadcrumbs %}
 {% assign temp = page.title | downcase | replace:' ','-' %}
 <!-- MAIN CONTENT -->
 <div class="container-fluid pb-4">
@@ -21,11 +21,11 @@ layout: default
 		{% endfor %}
 		</div>
 		<div class=col-md-3>
-      {% include components/blog-side-nav-menu.html %}
+      {% include blog-side-nav-menu.html %}
 			<hr/>
-      {% include html/adsence-responsive.html %}
+      {% include adsence-responsive.html %}
 	  <hr/>
-	  {% include html/subscribe.html %}
+	  {% include subscribe.html %}
 		</div>
 	</div>
 </div>

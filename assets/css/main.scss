@@ -11,6 +11,7 @@ html {
   box-sizing: border-box;
   visibility: hidden;
   background: var(--background);
+  font-family: var(--font-family-base);
 }
 
 body {
@@ -211,4 +212,20 @@ html.hydrated {
 
 html[data-theme="dark"] .banner-title {
   background: var(--color-black)
+}
+
+.project-content {
+  padding: var(--spacing-8) 0;
+}
+
+section {
+  padding: var(--spacing-4) 0;
+}
+
+.check-mark {
+  margin-right: var(--spacing-2);
+}
+
+goat-code-highlighter {
+  height: inherit;
 }
