@@ -1,0 +1,17 @@
+<goat-code-highlighter line-numbers {% if include.language %}language="{{include.language}}"{% endif %} class='demo-html'></goat-code-highlighter>
+<script>
+  (function run(currentScript) {
+    $.ajax({
+      type: "GET",
+      url: "https://raw.githubusercontent.com/{{include.repo}}/master/{{include.program}}",
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#{{include.id}}').append('<p>Loading failed, please download to view the code.</p>');
+        $('#{{include.id}} code').html('');
+      }
+    });
+  })(document.currentScript);
+</script>
