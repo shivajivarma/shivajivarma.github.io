@@ -1,16 +1,19 @@
 <!-- Fixed navbar -->
 <nav class="header">
   <goat-header
-    class='brand actions-separated hide-mobile'
-    brand-logo='/assets/img/logo.webp'
-    brand-name="Shivaji Varma"
-    page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
-    brand-url='/'
-  >
+    class='brand actions-separated hide-mobile'>
+
+    <div slot='left-section'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        name="Shivaji Varma"
+        sub-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+        href="/#"></goat-header-brand>
+    </div>
 
     <div slot='right-section'>
       <goat-input placeholder="Search" id="nav-search-input" ></goat-input>
-      <goat-button  icon='sun-fill' id='theme-switcher'></goat-button>
+      <goat-button  icon='sun-fill' class='theme-switcher desktop'></goat-button>
       <goat-button class='full-height'
                    href='/blog#'
                    itemprop=url>Blog</goat-button>
@@ -27,8 +30,15 @@
     brand-url='/'
   >
 
+    <div slot='left-section'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        sub-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+        href="/#"></goat-header-brand>
+    </div>
+
     <div slot='right-section'>
-      <goat-button  icon='sun-fill' id='theme-switcher'></goat-button>
+      <goat-button  icon='sun-fill' class='theme-switcher mobile'></goat-button>
       <goat-button class='full-height'
                    href='/blog#'
                    itemprop=url>Blog</goat-button>

@@ -5,19 +5,22 @@ document.querySelector('#nav-search-input').addEventListener('keyup', function(e
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const themeSwitcher = document.querySelector('#theme-switcher');
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    themeSwitcher.icon = theme === 'dark' ? 'moon-fill' : 'sun-fill';
-    localStorage.setItem('theme', theme);
-  }
+  const themeSwitchers = document.querySelectorAll('.theme-switcher');
+  themeSwitchers.forEach((themeSwitcher) => {
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      themeSwitcher.icon = theme === 'dark' ? 'moon-fill' : 'sun-fill';
+      localStorage.setItem('theme', theme);
+    }
 
-  const theme = localStorage.getItem('theme') || 'light';
-  setTheme(theme);
-
-  themeSwitcher.addEventListener('click', function () {
-    const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+    const theme = localStorage.getItem('theme') || 'light';
     setTheme(theme);
+
+    themeSwitcher.addEventListener('click', function () {
+      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+    });
+
   });
 
   const dirSwitcher = document.querySelector('#dir-switcher');

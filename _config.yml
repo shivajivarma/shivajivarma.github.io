@@ -2,7 +2,7 @@
 encoding: UTF-8
 permalink:	pretty
 highlighter: rouge
-include: ['assets/_bower_components', '.gitignore']
+include: ['.gitignore']
 sass:
     style: compressed
 
@@ -38,7 +38,6 @@ img:      /assets/img
 js:       /assets/js
 fonts:    /assets/fonts
 docs:     /assets/docs
-bower:    /assets/bower_components
 
 compress_html:
   clippings: all

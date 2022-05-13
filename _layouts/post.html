@@ -1,72 +1,87 @@
 ---
 layout: default
 ---
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb capitalize" itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/" itemprop="item" title="Home"><span itemprop="name">Home</span></a></li>
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/{{ page.categories[0] }}/" itemprop="item" title="{{ page.categories[0] | replace:'-',' ' }}"><span itemprop="name">{{ page.categories[0] | replace:'-',' ' }}</span></a></li>
-    {% if page.categories[1] %}
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem"><a href="{{ site.baseurl }}/{{ page.categories[0] }}/{{ page.categories[1] }}/" itemprop="item" title="{{ page.categories[1] | replace:'-',' ' }}"><span itemprop="name">{{ page.categories[1] | replace:'-',' ' }}</span></a></li>
-    {% endif %}
-    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope
-        itemtype="http://schema.org/ListItem" class="active" title="{{ page.title }}"><span itemprop=name>{{ page.title }}</span></li>
-  </ol>
-</nav><!-- /.breadcrumb -->
+<div class="post">
+  <div class="post-container container">
+    <goat-breadcrumb itemscope itemtype="http://schema.org/BreadcrumbList">
+      <goat-breadcrumb-item href="{{ site.baseurl }}/" itemprop="itemListElement" itemscope
+                            itemtype="http://schema.org/ListItem">Home
+      </goat-breadcrumb-item>
+      <goat-breadcrumb-item href="{{ site.baseurl }}/{{ page.categories[0] }}/" itemprop="itemListElement" itemscope
+                            itemtype="http://schema.org/ListItem">{{ page.categories[0] | replace:'-',' ' }}
+      </goat-breadcrumb-item>
+      {% if page.categories[1] %}
+      <goat-breadcrumb-item href="{{ site.baseurl }}/{{ page.categories[0] }}/{{ page.categories[1] }}/"
+                            itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        {{ page.categories[1] | replace:'-',' ' }}
+      </goat-breadcrumb-item>
+      {% endif %}
+      <goat-breadcrumb-item itemprop="itemListElement" itemscope
+                            itemtype="http://schema.org/ListItem" active>{{ page.title }}
+      </goat-breadcrumb-item>
+    </goat-breadcrumb>
 
 
-<article class=container-fluid itemscope itemtype="http://schema.org/Article">
-  <h1 class="h2 m-0" itemprop=name>{{ page.title }}</h1>
-  {% include authoring.html %}
-  <div class=row>
-    <div class=col-md-9>
-      {{ content }}
+    <article itemscope itemtype="http://schema.org/Article">
+      <h1 class="h2 m-0" itemprop=name>{{ page.title }}</h1>
+      {% include authoring.html %}
+      <div class=row>
+        <div class=col-md-9>
+          {{ content }}
 
 
-      <div class="tags">
-        Tags : {% for tag in page.tags %}<span class="badge badge-primary mx-1">{{tag}}</span>{% endfor %}
+          <div class="tags">
+            Tags : {% for tag in page.tags %}<span class="badge badge-primary mx-1">{{tag}}</span>{% endfor %}
+          </div>
+
+          <ul class=pager>
+            {% assign flag = false %}
+            {% assign micro-site = page.categories[0] %}
+            <li class="previous">
+              {% for post in site.categories[micro-site] %}
+
+              {% if flag %}
+              <goat-button
+                href="{{ post.url }}"
+                aria-label="Previous Post: {{ post.title }}"
+                icon="arrow-left">Previous
+              </goat-button>
+              {% break %}
+              {% endif %}
+              {% if post.url == page.url %}
+              {% assign flag = true %}
+              {% endif %}
+
+              {% endfor %}
+            </li>
+
+            {% assign flag = false %}
+            <li class="next">
+              {% for post in site.categories[micro-site] reversed %}
+
+              {% if flag %}
+              <goat-button
+                href="{{ post.url }}"
+                aria-label="Next Post: {{ post.title }}"
+                icon="arrow-right" icon-end>Next
+              </goat-button>
+              {% break %}
+              {% endif %}
+              {% if post.url == page.url %}
+              {% assign flag = true %}
+              {% endif %}
+
+              {% endfor %}
+            </li>
+          </ul>
+        </div>
+        <div class=col-md-3>
+          {% include adsence-responsive.html %}
+          <hr/>
+          {% include subscribe.html %}
+        </div>
       </div>
-
-      <ul class=pager>
-        {% assign flag = false %}
-        {% assign micro-site = page.categories[0] %}
-        <li class="previous">
-          {% for post in site.categories[micro-site] %}
-
-          {% if flag %}
-          <a href="{{ post.url }}" title="Previous Post: {{ post.title }}">Previous</a>
-          {% break %}
-          {% endif %}
-          {% if post.url == page.url %}
-          {% assign flag = true %}
-          {% endif %}
-
-          {% endfor %}
-        </li>
-
-        {% assign flag = false %}
-        <li class="next">
-          {% for post in site.categories[micro-site] reversed %}
-
-          {% if flag %}
-          <a href="{{ post.url }}" title="Previous Post: {{ post.title }}">Next</a>
-          {% break %}
-          {% endif %}
-          {% if post.url == page.url %}
-          {% assign flag = true %}
-          {% endif %}
-
-          {% endfor %}
-        </li>
-      </ul>
-    </div>
-    <div class=col-md-3>
-      {% include adsence-responsive.html %}
-	  <hr/>
-	  {% include subscribe.html %}
-    </div>
+    </article>
+    {% include comments.html %}
   </div>
-</article>
-{% include comments.html %}
+</div>
