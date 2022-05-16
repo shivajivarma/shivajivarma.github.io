@@ -180,6 +180,8 @@ html.hydrated {
   .section-container {
     padding: var(--spacing-5) var(--spacing-24);
   }
+
+
 }
 
 .hide-desktop {
@@ -190,12 +192,16 @@ html.hydrated {
   .hide-mobile {
     display: none;
   }
+  .hide-desktop {
+    display: inherit;
+  }
   .section-container {
     padding: 0 var(--spacing-4);
   }
 }
 
 .banner-title {
+  width: 100vw;
   height: 15rem;
   padding-top: var(--header-height);
   background: var(--color-brand-secondary-10);
@@ -253,4 +259,13 @@ goat-code-highlighter {
      }
     margin-bottom: var(--spacing-4);
   }
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+a.url {
+  word-break: break-all;
 }
