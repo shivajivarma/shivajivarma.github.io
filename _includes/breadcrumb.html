@@ -1,11 +1,7 @@
-<goat-breadcrumb itemscope itemtype="http://schema.org/BreadcrumbList">
-  <goat-breadcrumb-item href="{{ site.baseurl }}/" itemprop="itemListElement" itemscope
-                        itemtype="http://schema.org/ListItem">Home</goat-breadcrumb-item>
+<goat-breadcrumb>
+  <goat-breadcrumb-item href="{{ site.baseurl }}/">Home</goat-breadcrumb-item>
   {% for item in include.items %}
-  <goat-breadcrumb-item itemprop="itemListElement" itemscope
-                        href="{{ site.baseurl }}{{ item.href }}"
-                        itemtype="http://schema.org/ListItem">{{ item.name | capitalize }}</goat-breadcrumb-item>
+  <goat-breadcrumb-item href="{{ site.baseurl }}{{ item.href }}">{{ item.name | capitalize }}</goat-breadcrumb-item>
   {% endfor %}
-  <goat-breadcrumb-item itemprop="itemListElement" itemscope
-                        itemtype="http://schema.org/ListItem" active>{{ page.title }}</goat-breadcrumb-item>
+  <goat-breadcrumb-item active>{{ page.title }}</goat-breadcrumb-item>
 </goat-breadcrumb>

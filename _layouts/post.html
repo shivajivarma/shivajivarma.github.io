@@ -3,21 +3,17 @@ layout: default
 ---
 <div class="post">
   <div class="post-container container">
-    <goat-breadcrumb itemscope itemtype="http://schema.org/BreadcrumbList">
-      <goat-breadcrumb-item href="{{ site.baseurl }}/" itemprop="itemListElement" itemscope
-                            itemtype="http://schema.org/ListItem">Home
+    <goat-breadcrumb>
+      <goat-breadcrumb-item href="{{ site.baseurl }}/">Home
       </goat-breadcrumb-item>
-      <goat-breadcrumb-item href="{{ site.baseurl }}/{{ page.categories[0] }}/" itemprop="itemListElement" itemscope
-                            itemtype="http://schema.org/ListItem">{{ page.categories[0] | replace:'-',' ' }}
+      <goat-breadcrumb-item href="{{ site.baseurl }}/{{ page.categories[0] }}/">{{ page.categories[0] | replace:'-',' ' }}
       </goat-breadcrumb-item>
       {% if page.categories[1] %}
-      <goat-breadcrumb-item href="{{ site.baseurl }}/{{ page.categories[0] }}/{{ page.categories[1] }}/"
-                            itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <goat-breadcrumb-item href="{{ site.baseurl }}/{{ page.categories[0] }}/{{ page.categories[1] }}/">
         {{ page.categories[1] | replace:'-',' ' }}
       </goat-breadcrumb-item>
       {% endif %}
-      <goat-breadcrumb-item itemprop="itemListElement" itemscope
-                            itemtype="http://schema.org/ListItem" active>{{ page.title }}
+      <goat-breadcrumb-item active>{{ page.title }}
       </goat-breadcrumb-item>
     </goat-breadcrumb>
 
