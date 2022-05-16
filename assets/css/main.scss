@@ -158,7 +158,7 @@ html.hydrated {
     transform-origin: bottom left;
     transform: rotate(-90deg);
     bottom: 2rem;
-    right: -7rem;
+    right: -9rem;
     text-align: left
   }
 
@@ -182,9 +182,6 @@ html.hydrated {
   }
 }
 
-.hide-mobile {
-  display: block;
-}
 .hide-desktop {
   display: none;
 }
@@ -192,9 +189,6 @@ html.hydrated {
 @include for-phone-only{
   .hide-mobile {
     display: none;
-  }
-  .hide-desktop {
-    display: block;
   }
   .section-container {
     padding: 0 var(--spacing-4);

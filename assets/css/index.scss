@@ -95,6 +95,16 @@ html[data-theme="dark"] .banner {
   .section-container {
     display: flex;
   }
+  .banner-image-section {
+    position: relative;
+    z-index: 0;
+    svg {
+      width: 100%;
+      image {
+        transform: translateY(50px);
+      }
+    }
+  }
 }
 @include for-phone-only {
   .banner .section-container {
@@ -134,8 +144,8 @@ html[data-theme="dark"] .banner {
     .section-container {
       display: flex;
       align-items: center;
-      .banner-content-section, .banner-image-section {
-        width: 50%;
+      .banner-image-section {
+        width: 600px;
       }
     }
   }
