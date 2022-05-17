@@ -106,6 +106,9 @@ html[data-theme="dark"] .banner {
     }
   }
 }
+
+
+
 @include for-phone-only {
   .banner .section-container {
     height: 100%;
@@ -144,12 +147,14 @@ html[data-theme="dark"] .banner {
     .section-container {
       display: flex;
       align-items: center;
-      .banner-image-section {
-        width: 600px;
-      }
     }
   }
+}
 
+@include for-tablet-landscape-up {
+  .banner .section-container .banner-image-section {
+    width: 600px;
+  }
 }
 
 
