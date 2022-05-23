@@ -152,8 +152,13 @@ html[data-theme="dark"] .banner {
 }
 
 @include for-tablet-landscape-up {
-  .banner .section-container .banner-image-section {
-    width: 600px;
+  .banner .section-container {
+    .banner-content-section {
+      width: 60%;
+    }
+    .banner-image-section {
+      width: 40%;
+    }
   }
 }
 
