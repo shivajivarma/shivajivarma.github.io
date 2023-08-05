@@ -3,7 +3,7 @@
   <goat-header
     class='brand actions-separated hide-mobile'>
 
-    <div slot='left-section'>
+    <div slot='left'>
       <goat-header-brand
         logo="/assets/img/logo.webp"
         name="Shivaji Varma"
@@ -11,40 +11,56 @@
         href="/#"></goat-header-brand>
     </div>
 
-    <div slot='right-section'>
-      <goat-input placeholder="Search" id="nav-search-input" ></goat-input>
-      <goat-button  icon='sun-fill' class='theme-switcher desktop' aria-label="Theme Switch"></goat-button>
-      <goat-button class='full-height'
-                   href='/blog#'
-                   itemprop=url>Blog</goat-button>
-      <goat-button class='full-height'
-                   href='/project#'
-                   itemprop=url>Projects</goat-button>
+
+    <div slot='right'>
+      <div class="header-right-panel">
+        <goat-input placeholder="Search" id="nav-search-input"></goat-input>
+        <goat-button icon='light--filled'
+                     variant="ghost"
+                     color="brand-primary"
+                     kind="simple"
+                     class='theme-switcher'
+                     aria-label="Theme Switch"></goat-button>
+
+        <goat-button kind="simple"
+                     color="brand-primary"
+                     variant="ghost"
+                     href='/blog#'
+                     itemprop=url>Blog
+        </goat-button>
+
+        <goat-button kind="simple"
+                     color="brand-primary"
+                     variant="ghost"
+                     href='/project#'
+                     itemprop=url>Projects
+        </goat-button>
+      </div>
     </div>
   </goat-header>
 
   <goat-header
-    class='brand actions-separated hide-desktop'
+    class='brand actions-separated show-mobile'
     brand-logo='/assets/img/logo.webp'
     page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
     brand-url='/'
   >
 
-    <div slot='left-section'>
+    <div slot='left'>
       <goat-header-brand
         logo="/assets/img/logo.webp"
         sub-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
         href="/#"></goat-header-brand>
     </div>
 
-    <div slot='right-section'>
-      <goat-button  icon='sun-fill' class='theme-switcher mobile' aria-label="Theme Switch"></goat-button>
-      <goat-button class='full-height'
+    <div slot='right'>
+      <goat-button icon='light--filled' class='theme-switcher mobile simple' aria-label="Theme Switch"></goat-button>
+      <goat-button class='simple' icon="blog"
                    href='/blog#'
-                   itemprop=url>Blog</goat-button>
-      <goat-button class='full-height'
+                   itemprop=url></goat-button>
+      <goat-button class='simple' icon="roadmap"
                    href='/project#'
-                   itemprop=url>Projects</goat-button>
+                   itemprop=url></goat-button>
     </div>
   </goat-header>
 </nav>

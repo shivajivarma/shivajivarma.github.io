@@ -1,7 +1,7 @@
 {
   "name": "shivajivarma.com",
   "version": "1.0.0",
-  "description": "[Personal Website](http://shivajivarma.com)\r ================\r Everything I think of...",
+  "description": "[Personal Website](https://shivajivarma.com)\r ================\r Everything I think of...",
   "main": "index.js",
   "scripts": {
     "start": "cd dest && live-server",
@@ -19,7 +19,4 @@
     "url": "https://github.com/shivajivarma/shivajivarma.github.io/issues"
   },
   "homepage": "https://github.com/shivajivarma/shivajivarma.github.io#readme",
-  "dependencies": {
-    "text-to-svg": "^3.1.3"
-  }
 }

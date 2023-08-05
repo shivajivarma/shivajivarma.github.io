@@ -11,7 +11,12 @@ module Jekyll
 
       # Output rendered markup
       render = %Q[
-        <goat-code-highlighter language='#{language}' class='demo-html'><pre><code></code>#{content}</pre></goat-code-highlighter>
+        <goat-code-highlighter language='#{language}' class='demo-html'></goat-code-highlighter>
+        <script>
+          (function run(currentScript) {
+            currentScript.parentElement.querySelector('.demo-html').value = `#{content}`;
+          })(document.currentScript);
+        </script>
       ]
     end
   end

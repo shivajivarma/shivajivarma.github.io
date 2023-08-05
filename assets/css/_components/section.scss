@@ -1,0 +1,47 @@
+.sections-wrapper {
+  padding-bottom: var(--spacing-11);
+
+  .section {
+    padding-top: var(--spacing-11);
+  }
+}
+
+.container {
+  max-width: var(--container-xl);
+  margin: auto;
+  width: 100%;
+}
+
+@include for-phone-only {
+  .sections-wrapper {
+    padding-bottom: var(--spacing-09);
+    .section {
+      padding-top: var(--spacing-09);
+    }
+  }
+  .container {
+    padding: 0 var(--spacing-05);
+  }
+  .container.container-code {
+    padding: 0;
+  }
+}
+
+@include for-tablet-portrait-up {
+  .container {
+    padding: 0 var(--spacing-08);
+  }
+}
+
+@include for-tablet-landscape-up {
+  .container {
+    padding: 0 var(--spacing-08);
+  }
+}
+
+@include for-desktop-up {
+  .container {
+    padding: 0;
+  }
+}
+
