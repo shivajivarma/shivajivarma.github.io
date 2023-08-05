@@ -4,17 +4,19 @@
 @charset "utf-8";
 @import "mixin";
 
+@import "_components/banner";
+
 .project-details {
   display: flex;
-  gap: var(--spacing-4);
-  margin: var(--spacing-8) 0;
+  gap: var(--spacing-05);
+  margin: var(--spacing-09) 0;
   .logo {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 7rem;
     width: 7rem;
-    gap: var(--spacing-2);
+    gap: var(--spacing-03);
     img {
       width: 7rem;
       max-height: 100%;
@@ -25,7 +27,7 @@
   }
   .role {
     [type="heading"] {
-      margin-bottom: var(--spacing-2);
+      margin-bottom: var(--spacing-03);
     }
   }
 }
@@ -35,14 +37,14 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: var(--spacing-2);
+    gap: var(--spacing-03);
   }
 }
 
 
 .item-separator {
   --border-color: var(--active-ui);
-  padding: var(--spacing-2) 0;
+  padding: var(--spacing-03) 0;
 }
 
 

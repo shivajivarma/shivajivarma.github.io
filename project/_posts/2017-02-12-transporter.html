@@ -12,16 +12,11 @@ permalink: /:categories/:title/
 
 <div class="row">
     <div class="col-md-9">
-        <goat-text type="paragraph">{{page.description}}</goat-text>
-        <goat-text type="paragraph">This product is upgrade for our previous product <a href="/project/bus-reservation-system/">Bus Reservation System</a></goat-text>
-        <goat-text type="paragraph">A java project, completely re-written from scratch, using <a href="http://projects.spring.io/spring-boot/">Spring MVC, Spring Boot</a> and <a href="http://gradle.org/">Gradle</a></goat-text>
-        <goat-text type="paragraph"><a class="btn btn-outline-info" onclick="ga('send', 'event', 'button', 'click', 'Transporter View Source Code');" target="_blank" href="//github.com/shivajivarma/transporter" title="View Source Code">View Source Code</a></goat-text>
+        <goat-text expressive>{{page.description}}</goat-text>
+        <goat-text expressive>This product is upgrade for our previous product <a href="/project/bus-reservation-system/">Bus Reservation System</a></goat-text>
+        <goat-text expressive>A java project, completely re-written from scratch, using <a href="http://projects.spring.io/spring-boot/">Spring MVC, Spring Boot</a> and <a href="http://gradle.org/">Gradle</a></goat-text>
+        <goat-text expressive><a class="btn btn-outline-info" onclick="ga('send', 'event', 'button', 'click', 'Transporter View Source Code');" target="_blank" href="//github.com/shivajivarma/transporter" title="View Source Code">View Source Code</a></goat-text>
 
-    <!-- Place this tag where you want the +1 button to render. -->
-	  <div class="g-plusone" data-href="{{ site.url }}{{ page.url }}"></div><br/>
-
-	  <!-- facebook like -->
-	  <div class="fb-like mt-3" data-href="{{ site.url }}{{ page.url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 
 
     </div>
@@ -38,15 +33,15 @@ permalink: /:categories/:title/
     <div class="col-md-4 col-sm-12">
       <div class="content">
         <h3>Transporter V1.0</h3>
-        <goat-text type="paragraph">
+        <goat-text expressive>
           Plan your trip.
         </goat-text>
         <ul>
           <li>Admin Module</li>
           <li>Customer Module</li>
         </ul>
-        <goat-text type="paragraph">Follow us to get further announcements about the application development and release.</goat-text>
-        <a href="//facebook.com/codemons" target="_blank" class="btn btn-outline-primary">Follow</a>
+        <goat-text expressive>Follow us to get further announcements about the application development and release.</goat-text>
+        <a href="//twitter.com/shivajivarma" target="_blank" class="btn btn-outline-primary">Follow</a>
       </div>
     </div>
   </div>
@@ -57,12 +52,12 @@ permalink: /:categories/:title/
             <h3>Login</h3>
         </div>
         <div class=text-right>
-            <goat-text type="paragraph">
+            <goat-text expressive>
                 Common login page for both admin and customer.
             </goat-text>
         </div>
         <div class=pull-right>
-            <a href="//facebook.com/codemons" target="_blank" class="btn btn-outline-primary pull-right">Follow</a>
+            <a href="//twitter.com/shivajivarma" target="_blank" class="btn btn-outline-primary pull-right">Follow</a>
         </div>
       </div>
     </div>
@@ -77,10 +72,10 @@ permalink: /:categories/:title/
 	<div class="col-md-4 col-sm-12">
       <div class="content">
         <h3>My trips</h3>
-        <goat-text type="paragraph">
+        <goat-text expressive>
           History of trips. You can print ticket or make cancellation by selecting the ticket.
         </goat-text>
-        <a href="//facebook.com/codemons" target="_blank" class="btn btn-outline-primary">Follow</a>
+        <a href="//twitter.com/shivajivarma" target="_blank" class="btn btn-outline-primary">Follow</a>
       </div>
     </div>
   </div>
@@ -129,26 +124,26 @@ permalink: /:categories/:title/
 		<ol class="mt-1">
 
 			<li class="mb-3"><h4>Existing system</h4>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Existing system is totally on book and thus a great amount of manual work has to be done. The amount of manual work increases exponentially with increase in services.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>In existing system, there are various problems like keeping records of items, seats available, prices of per/seat and fixing bill generation on each bill.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Finding out details regarding any information is very difficult, as the user has to go through all the books manually.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Major problem was lack of security.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Existing system is totally on book and thus a great amount of manual work has to be done. The amount of manual work increases exponentially with increase in services.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>In existing system, there are various problems like keeping records of items, seats available, prices of per/seat and fixing bill generation on each bill.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Finding out details regarding any information is very difficult, as the user has to go through all the books manually.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Major problem was lack of security.</goat-text>
 			</li>
 
 			<li class="mb-3"><h4>Proposed system</h4>
-				<goat-text type="paragraph">The system is very simple in design and to implement. The system requires very low system resources and the system will work in almost all configurations. It has got following features:</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Ensure data accuracy.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Records are efficiently maintained by DBMS.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>DBMS also provides security for the information.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Any person across the world, having internet can access this service.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Availability of seats can be enquired very easily.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Passengers can also cancel their tickets easily.</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Minimum time needed for the various processing</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Better Service</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Minimum time required</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>This would help the corporation prepare and organize its schedules more efficiently on the basis of traffic demand.</goat-text>
+				<goat-text expressive>The system is very simple in design and to implement. The system requires very low system resources and the system will work in almost all configurations. It has got following features:</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Needs a lot of working staff and extra attention on all the records.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Ensure data accuracy.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Records are efficiently maintained by DBMS.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>DBMS also provides security for the information.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Any person across the world, having internet can access this service.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Availability of seats can be enquired very easily.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Passengers can also cancel their tickets easily.</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Minimum time needed for the various processing</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Better Service</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Minimum time required</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>This would help the corporation prepare and organize its schedules more efficiently on the basis of traffic demand.</goat-text>
 			</li>
 
 		</ol>
@@ -197,7 +192,7 @@ permalink: /:categories/:title/
 <div class="row">
 	<div class="col-md-5">
 		<h4>a.	Requirement Analysis:</h4> <i>What data is needed?</i>
-		<goat-text type="paragraph">List of Entities:</goat-text>
+		<goat-text expressive>List of Entities:</goat-text>
 		<ul>
 			<li>BUS</li>
 			<li>PASSENGER</li>
@@ -205,7 +200,7 @@ permalink: /:categories/:title/
 			<li>RESERVE</li>
 		</ul>
 		<!--p>List of attributes:</goat-text>
-		<goat-text type="paragraph"><strong>BUS:</strong></goat-text>
+		<goat-text expressive><strong>BUS:</strong></goat-text>
 		<ul>
 			<li>Bus ID</li>
 			<li>AC</li>
@@ -214,14 +209,14 @@ permalink: /:categories/:title/
 			<li>Arrival Time</li>
 		</ul>
 
-		<goat-text type="paragraph"><strong>ROUTE:</strong></goat-text>
+		<goat-text expressive><strong>ROUTE:</strong></goat-text>
 		<ul>
 			<li>Route id</li>
 			<li>Origin</li>
 			<li>Destination</li>
 		</ul>
 
-		<goat-text type="paragraph"><strong>PASSENGER:</strong></goat-text>
+		<goat-text expressive><strong>PASSENGER:</strong></goat-text>
 		<ul>
 			<li>Passenger ID</li>
 			<li>Username</li>
@@ -230,9 +225,9 @@ permalink: /:categories/:title/
 			<li>Mobile number</li>
 			<li>E-mail</li>
 		</ul>
-		<goat-text type="paragraph">Constraints: Username should be unique</goat-text>
+		<goat-text expressive>Constraints: Username should be unique</goat-text>
 
-		<goat-text type="paragraph"><strong>RESERVE:</strong></goat-text>
+		<goat-text expressive><strong>RESERVE:</strong></goat-text>
 		<ul>
 			<li>Ticket ID</li>
 			<li>Seat</li>
@@ -261,32 +256,32 @@ permalink: /:categories/:title/
 <div class="row">
 	<div class="col-md-12">
 		<h1>How to Setup:</h1>
-		<goat-text type="paragraph"><a href="https://travis-ci.org/shivajivarma/bus-reservation-system" alt="Build Status"><img title="Build Status" alt="Build Status" src=https://api.travis-ci.org/shivajivarma/bus-reservation-system.svg?branch=master /></a></goat-text>
+		<goat-text expressive><a href="https://travis-ci.org/shivajivarma/bus-reservation-system" alt="Build Status"><img title="Build Status" alt="Build Status" src=https://api.travis-ci.org/shivajivarma/bus-reservation-system.svg?branch=master /></a></goat-text>
 		<ol>
-			<li><goat-text type="paragraph">Install Prerequisite Software:</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Java 1.8</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>MySql 5.6 + MySql Connector/J + workbench (<a href="http://dev.mysql.com/downloads/windows/installer/">http://dev.mysql.com/downloads/windows/installer/</a>)</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Eclipse Luna</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span>Install Gradle plugin in Eclipse</goat-text>
+			<li><goat-text expressive>Install Prerequisite Software:</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Java 1.8</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>MySql 5.6 + MySql Connector/J + workbench (<a href="http://dev.mysql.com/downloads/windows/installer/">http://dev.mysql.com/downloads/windows/installer/</a>)</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Eclipse Luna</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span>Install Gradle plugin in Eclipse</goat-text>
 			</li>
 
-			<li><goat-text type="paragraph">Set Enviroment Variables (Paths may vary based on OS and installation):</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>CLASSPATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>PATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>JAVA_HOME=C:\Program Files\Java\jdk1.8.0_20</code></goat-text>
+			<li><goat-text expressive>Set Enviroment Variables (Paths may vary based on OS and installation):</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span><code>CLASSPATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span><code>PATH=C:\Program Files\Java\jdk1.8.0_20\bin</code></goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span><code>JAVA_HOME=C:\Program Files\Java\jdk1.8.0_20</code></goat-text>
 			</li>
 
-			<li><goat-text type="paragraph">Clone the source code:</goat-text>
-				<goat-text type="paragraph"><span class="check-mark">&#10003;</span><code>git clone https://github.com/shivajivarma/transporter.git</code></goat-text>
+			<li><goat-text expressive>Clone the source code:</goat-text>
+				<goat-text expressive><span class="check-mark">&#10003;</span><code>git clone https://github.com/shivajivarma/transporter.git</code></goat-text>
 			</li>
 
-			<li><goat-text type="paragraph">Import project into eclipse.</goat-text></li>
+			<li><goat-text expressive>Import project into eclipse.</goat-text></li>
 
-			<li><goat-text type="paragraph">Make sure eclispe is using currect JDK.</goat-text></li>
+			<li><goat-text expressive>Make sure eclispe is using currect JDK.</goat-text></li>
 
-			<li><goat-text type="paragraph">Database setup (<a href="https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts">https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts</a>)</goat-text></li>
+			<li><goat-text expressive>Database setup (<a href="https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts">https://github.com/shivajivarma/transporter/tree/master/web/src/main/resources/db-scripts</a>)</goat-text></li>
 
-			<li><goat-text type="paragraph">Run main class in WebApplication.java, It would start the embedded tomcat.</goat-text></li>
+			<li><goat-text expressive>Run main class in WebApplication.java, It would start the embedded tomcat.</goat-text></li>
 		</ol>
 
 	</div>

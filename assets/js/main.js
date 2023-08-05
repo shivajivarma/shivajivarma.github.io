@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   themeSwitchers.forEach((themeSwitcher) => {
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      themeSwitcher.icon = theme === 'dark' ? 'moon-fill' : 'sun-fill';
+      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'light--filled';
       localStorage.setItem('theme', theme);
     }
 

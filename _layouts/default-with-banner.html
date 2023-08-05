@@ -3,33 +3,37 @@ layout: base
 ---
 {% include header.html %}
 <div class="banner-title">
-  <goat-text type="heading">{{page.title}}</goat-text>
+  <goat-text type="heading" heading-size="7">{{page.title}}</goat-text>
 </div>
 <div class="project-content container">
   {{ content }}
 </div>
 
-<div class='social-icons show-desktop hide-mobile'>
+<div class='social-icons hide-mobile'>
   <goat-button variant="link" target="_blank"
+               icon-size="1.5rem"
                href="https://youtube.com/c/{{ site.author.youtube }}" title="Youtube" rel="noopener"
-               icon="youtube"></goat-button>
+               icon="logo--youtube"></goat-button>
   <goat-button variant="link" target="_blank"
+               icon-size="1.5rem"
                href="https://twitter.com/{{ site.author.twitter }}" title="Twitter" rel="noopener"
-               icon="twitter"></goat-button>
+               icon="logo--twitter"></goat-button>
   <goat-button variant="link" target="_blank"
+               icon-size="1.5rem"
                href="https://www.linkedin.com/in/{{ site.author.linkedin }}" title="LinkedIn" rel="noopener"
-               icon="linkedin"></goat-button>
+               icon="logo--linkedin"></goat-button>
   <goat-button variant="link" target="_blank"
+               icon-size="1.5rem"
                href="https://github.com/{{ site.author.github }}" title="Github" rel="noopener"
-               icon="github"></goat-button>
-
+               icon="logo--github"></goat-button>
   <goat-button variant="link" target="_blank"
+               icon-size="1.5rem"
                href="mailto:{{site.email}}" title="Mail" rel="noopener"
-               icon="envelope"></goat-button>
+               icon="email"></goat-button>
 </div>
 
-<div class='made-in-india show-desktop hide-mobile'>
-  <span>&copy; 2022 <goat-link class='no-decoration' href='{{site.author_url}}'>{{site.title}}</goat-link>.</span>
+<div class='made-in-india hide-mobile'>
+  <span>&copy; 2023 <goat-link class='no-decoration' href='{{site.author_url}}'>{{site.title}}</goat-link>.</span>
   <img class='country-flag' src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg' /> Made in
   India.
 </div>

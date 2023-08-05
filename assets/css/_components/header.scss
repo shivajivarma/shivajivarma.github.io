@@ -1,0 +1,21 @@
+.header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+
+  .header-right-panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-05);
+    flex: 1;
+    padding-inline-end: 1rem;
+  }
+}
+
+html[data-theme="dark"] .header {
+  background: var(--color-black);
+}

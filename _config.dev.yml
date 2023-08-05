@@ -1,0 +1,1 @@
+exclude: [".idea", "__blog", "CNAME", "README.md", "_site", ".sass-cache",  ".jekyll-cache", ".github", "_config.dev.yml"]
