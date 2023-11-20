@@ -7,7 +7,8 @@ tags: [jquery]
 <p itemprop=articleBody>JQuery allows smooth scrolling to hashtag</p>
 
 <h3>Code</h3>
-<pre><code class="language-javascript">var $root = $('html, body');
+
+{% GoatHighlighter language:"javascript" %}var $root = $('html, body');
 
 $('a').click(function() {
   var href = $.attr(this, 'href');
@@ -27,8 +28,8 @@ $('a').click(function() {
   });
 
   return false;
-});</code>
-</pre>
+});
+{% endGoatHighlighter %}
 <p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JS/smooth-scrolling.js" class="btn btn-default"><span class="fas fa-download"></span> Raw Code</a></p>
 
 <h3>Example</h3>

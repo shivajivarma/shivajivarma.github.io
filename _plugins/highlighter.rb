@@ -5,13 +5,14 @@ module Jekyll
     def template(context)
       # Declare props as variables here
       content = @props["content"]
-      content = content.gsub(/`/, '\`')
-      content = content.gsub(/</, '&lt;')
       language = @props["language"]
+      format = @props["format"]
 
       # Output rendered markup
       render = %Q[
-        <goat-code-highlighter language='#{language}' class='demo-html'><pre><code></code>#{content}</pre></goat-code-highlighter>
+        <goat-code-highlighter language='#{language}' format='#{format}' class='demo-html'>
+        <pre><code>#{content}</code></pre>
+        </goat-code-highlighter>
       ]
     end
   end

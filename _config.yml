@@ -16,8 +16,8 @@ url: 				'https://shivajivarma.com' # the base hostname & protocol for your site
 domain:           	shivajivarma.com
 type:				website
 google-analytics:	G-KNH50V85RG
-goatuiJs: https://cdn.jsdelivr.net/npm/@goatui/components@1.0.0/dist/goatui/goatui.esm.js
-goatuiCss: https://cdn.jsdelivr.net/npm/@goatui/components@1.0.0/dist/goatui/assets/styles/theme.css
+goatuiJs: https://cdn.jsdelivr.net/npm/@goatui/components@1.8.0/dist/goatui/goatui.esm.js
+goatuiCss: https://cdn.jsdelivr.net/npm/@goatui/components@1.8.0/dist/goatui/assets/styles/theme.css
 
 # Author details
 author:

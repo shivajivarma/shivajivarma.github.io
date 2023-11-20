@@ -8,6 +8,7 @@ plugins:
   fblike: true
   gplus: true
 ---
+
 <p>Short and sweet application. On submitting the form a, b values are passed to self(same page) using GET method. On reload the JS fetches values of a &amp; b from URL using getUrlParameter Method and computes there sum.</p>
 <div class="row">
 	<form role="form" name="SumCalculator" class="col-md-6">
@@ -21,7 +22,7 @@ plugins:
 <h3>Code</h3>
 {% include github-code-highlighter.html id="code-js" program='getUrlParameter.js' repo='shivajivarma/codebase-js' prism='language-javascript' %}
 
-<pre><code class="language-javascript">$(document).ready(function(){
+{% GoatHighlighter language:"javascript" %}$(document).ready(function(){
 	var a = getUrlParameter("a");
 	var b = getUrlParameter("b");
 	if(a!="" && b!=""){
@@ -32,5 +33,4 @@ plugins:
 	}
 	else $("#output").html("Please fill the input and hit add button.");
 });
-</code>
-</pre>
+{% endGoatHighlighter %}

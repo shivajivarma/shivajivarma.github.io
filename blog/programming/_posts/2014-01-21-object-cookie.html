@@ -5,7 +5,8 @@ keywords: [javascript, 'set cookie in browser', 'object cookie', 'json cookie']
 ---
 <p itemprop=articleBody>Setting object as a cookie using javascript.</p>
 <h3>Code</h3>
-<pre><code class="language-javascript">/*Sample function to set JSON Object as cookie*/
+{% GoatHighlighter language:"javascript" %}
+/*Sample function to set JSON Object as cookie*/
 function setJSONCookie(){
 	cookie = {}
 	cookie.firstname = "John";
@@ -43,6 +44,5 @@ function readCookie(name) {
 
 function eraseCookie(name) {
 	createCookie(name, "", -1);
-}</code>
-</pre>
+}{% endGoatHighlighter %}
 <p><a href="https://raw.githubusercontent.com/shivajivarma/code-base/master/JS/object-cookie.js" class="btn btn-default"><span class="fas fa-download"></span> Raw Code</a></p>
