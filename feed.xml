@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shivaji Varma</title>
+    <description>This site is centered around my blog, but contains lots of other content as well. You can use the links at the top, or else jump right to the various sections.</description>
+    <link>https://shivajivarma.com/</link>
+    <atom:link href="https://shivajivarma.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 07 Jan 2024 06:10:13 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Jan 2024 06:10:13 +0000</lastBuildDate>
+    <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Using JavaScript ES6 import/export modules</title>
+        <description>&lt;h3&gt;How to use ES6 modules in your browser&lt;/h3&gt;
+&lt;p&gt;You can include a module in your HTML by adding a script with &lt;mark&gt;&lt;code&gt;type=&quot;module&quot;&lt;/code&gt;&lt;/mark&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;script type=&quot;module&quot;&amp;gt;
+    import {helloWorld} from './hello-world.js';
+    helloWorld();
+&amp;lt;/script&amp;gt;&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const helloWorld = () =&amp;gt; alert ('Hello World!');
+export {
+    helloWorld
+};&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;goat-link href=&quot;https://github.com/shivajivarma/codebase/raw/master/JS/es6-import-export.zip&quot; download&gt;Download Source&lt;/goat-link&gt;
+
+&lt;h4&gt;Steps:&lt;/h4&gt;
+&lt;ol&gt;
+    &lt;li&gt;Download the source code and unzip the files.&lt;/li&gt;
+    &lt;li&gt;Run a static server on the source folder &lt;br&gt;
+      eg: &gt;live-server port=8080
+    &lt;/i&gt;
+    &lt;li&gt;Open the localhost:8080&lt;/li&gt;
+    &lt;li&gt;You would see alert message&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/blog/programming/2018/06/08/using-js-es6-import-export-modules/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/blog/programming/2018/06/08/using-js-es6-import-export-modules/</guid>
+        
+        <category>js</category>
+        
+        
+        <category>blog</category>
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Stack</title>
+        <description>&lt;p&gt;&lt;b&gt;Stack&lt;/b&gt; is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).&lt;/p&gt;
+
+&lt;p&gt;Mainly the following three basic operations are performed in the stack:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;b&gt;Push&lt;/b&gt;: Adds an item in the stack. If the stack is full, then it is said to be an Overflow condition.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Pop&lt;/b&gt;: Removes an item from the stack. The items are popped in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Peek or Top&lt;/b&gt;: Returns top element of stack.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;isEmpty&lt;/b&gt;: Returns true if stack is empty, else false.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 class=mb-5&gt;Code&lt;/h3&gt;
+&lt;div class=&quot;card card-nav-tabs card-code&quot;&gt;
+    &lt;div class=&quot;card-header card-header-primary&quot;&gt;
+        &lt;div class=&quot;nav-tabs-navigation&quot;&gt;
+            &lt;div class=&quot;nav-tabs-wrapper&quot;&gt;
+                &lt;ul class=&quot;nav nav-tabs&quot; data-tabs=&quot;tabs&quot;&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link active&quot; href=&quot;#code-javascript&quot; data-toggle=&quot;tab&quot;&gt;
+                            JavaScript
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;&lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;tab-content&quot;&gt;
+            &lt;div class=&quot;tab-pane active&quot; id=&quot;code-javascript&quot;&gt;
+              &lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-js/master/data-structures/stack/stack.js&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#javascript-highlight').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#javascript-highlight code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2018/06/01/stack/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2018/06/01/stack/</guid>
+        
+        <category>javascript</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Singly Linked List</title>
+        <description>&lt;p&gt;In computer science, a &lt;b&gt;linked list&lt;/b&gt; is a linear collection of data elements, in which linear order is not given by their physical placement in memory. Instead, each element points to the next. It is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence. This structure allows for efficient insertion or removal of elements from any position in the sequence during iteration. More complex variants add additional links, allowing efficient insertion or removal from arbitrary element references. A drawback of linked lists is that access time is linear (and difficult to pipeline). Faster access, such as random access, is not feasible. Arrays have better cache locality as compared to linked lists.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Singly Linked Lists are a type of data structure. It is a type of list. In a singly linked list each node in the list stores the contents of the node and a pointer or reference to the next node in the list..&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;img src=&quot;https://camo.githubusercontent.com/37013b59008ed49a6701968da6b182eb6a9d24c8/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f362f36642f53696e676c792d6c696e6b65642d6c6973742e737667&quot; title=&quot;Singly Linked List&quot; /&gt;
+
+&lt;h3 class=mb-5&gt;Code&lt;/h3&gt;
+&lt;div class=&quot;card card-nav-tabs card-code&quot;&gt;
+    &lt;div class=&quot;card-header card-header-primary&quot;&gt;
+        &lt;div class=&quot;nav-tabs-navigation&quot;&gt;
+            &lt;div class=&quot;nav-tabs-wrapper&quot;&gt;
+                &lt;ul class=&quot;nav nav-tabs&quot; data-tabs=&quot;tabs&quot;&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link active&quot; href=&quot;#code-java&quot; data-toggle=&quot;tab&quot;&gt;
+                            Java
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;#code-javascript&quot; data-toggle=&quot;tab&quot;&gt;
+                            JavaScript
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;&lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;tab-content&quot;&gt;
+            &lt;div class=&quot;tab-pane active&quot; id=&quot;code-java&quot;&gt;
+              &lt;h4 class=&quot;text-white px-2&quot;&gt;// Node&lt;/h4&gt;
+              &lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/linked_lists/single_linked_list/Node.java&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#java-node').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#java-node code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+
+              &lt;h4 class=&quot;text-white px-2&quot;&gt;// SinglyLinkedList&lt;/h4&gt;
+              &lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/linked_lists/single_linked_list/SinglyLinkedList.java&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#java-singly-linked-list').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#java-singly-linked-list code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+            &lt;/div&gt;
+            &lt;div class=&quot;tab-pane&quot; id=&quot;code-javascript&quot;&gt;
+              &lt;h4 class=&quot;text-white px-2&quot;&gt;// Node&lt;/h4&gt;
+              &lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-js/master/data-structures/linked-lists/node/node.js&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#javascript-node').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#javascript-node code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+
+              &lt;h4 class=&quot;text-white px-2&quot;&gt;// SinglyLinkedList&lt;/h4&gt;
+              &lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-js/master/data-structures/linked-lists/singly-linked-list/singly-linked-list.js&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#javascript-singly-linked-list').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#javascript-singly-linked-list code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 27 May 2018 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2018/05/27/singly-linked-list/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2018/05/27/singly-linked-list/</guid>
+        
+        <category>java</category>
+        
+        <category>javascript</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Reversing A String</title>
+        <description>&lt;blockquote&gt;&lt;p&gt;Program to reverse a portion of a sentence from position start to end..&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;C&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/reversing-a-string/reversing-a-string.c&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#c-palindrome').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#c-palindrome code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 27 May 2018 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2018/05/27/reversing-a-string/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2018/05/27/reversing-a-string/</guid>
+        
+        <category>c</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Palindrome</title>
+        <description>&lt;blockquote&gt;&lt;p&gt;Program to check whether a string is palindrome or not.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;C&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/palindrome/palindrome.c&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#c-palindrome').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#c-palindrome code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 27 May 2018 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2018/05/27/palindrome/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2018/05/27/palindrome/</guid>
+        
+        <category>c</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Subsets</title>
+        <description>&lt;blockquote&gt;&lt;p&gt;Program to print all subsets of given set of letters.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;Input&lt;/h3&gt;
+&lt;pre&gt;
+ENTER THE SIZE OF THE ARRAY:
+4
+ENTER THE ELEMENTS INTO THE ARRAY:
+a
+b
+c
+d
+&lt;/pre&gt;
+
+&lt;h3&gt;Output&lt;/h3&gt;
+&lt;pre&gt;
+All combinations:
+{ }
+{ d }
+{ c }
+{ c d }
+{ b }
+{ b d }
+{ b c }
+{ b c d }
+{ a }
+{ a d }
+{ a c }
+{ a c d }
+{ a b }
+{ a b d }
+{ a b c }
+{ a b c d }
+&lt;/pre&gt;
+
+
+&lt;h3&gt;C&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/subsets/subsets.c&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#c-anagram').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#c-anagram code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+</description>
+        <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2018/05/10/subsets/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2018/05/10/subsets/</guid>
+        
+        <category>c</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Spiral Matrix</title>
+        <description>&lt;p&gt;Given a input of N, prints 1 to (N * N) numbers in spiral matrix order.&lt;/p&gt;
+
+&lt;p&gt;E.g.: Input: 5&lt;/p&gt;
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;pre&gt;1	16	15	14	13
+2	17	24	23	12
+3	18	25	22	11
+4	19	20	21	10
+5	6	7	8	9&lt;/pre&gt;
+
+&lt;blockquote&gt;For given matrix size, print number is Spiral form.&lt;/blockquote&gt;
+
+&lt;h3&gt;Java&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/spiral_matrix/SpiralMatrix.java&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#code-java').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#code-java code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+
+</description>
+        <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2018/05/04/spiral-matrix/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2018/05/04/spiral-matrix/</guid>
+        
+        <category>java</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Towers Of Hanoi</title>
+        <description>&lt;p&gt;The Tower of Hanoi (also called the Tower of Brahma or Lucas' Tower) is a mathematical game or puzzle.
+It consists of three rods, and a number of disks of different sizes which can slide onto any rod.
+The puzzle starts with the disks in a neat stack in ascending order of size on one rod,
+the smallest at the top, thus making a conical shape.&lt;/p&gt;
+
+&lt;p&gt;The objective of the puzzle is to move the entire stack to another rod, obeying the following rules:&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;Only one disk may be moved at a time.&lt;/li&gt;
+	&lt;li&gt;Each move consists of taking the upper disk from one of the rods and sliding it onto another rod,
+	on top of the other disks that may already be present on that rod.&lt;/li&gt;
+	&lt;li&gt;No disk may be placed on top of a smaller disk.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Program to Solve Tower of Hanoi Problem using Recursion.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-c/master/src/towers-of-hanoi/towers-of-hanoi.c&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#c-permutation').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#c-permutation code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+</description>
+        <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2017/10/23/towers-of-hanoi/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2017/10/23/towers-of-hanoi/</guid>
+        
+        <category>c</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Sockets (Server - Client Communication)</title>
+        <description>&lt;p&gt;Communicating between two devices using Java &lt;b&gt;Sockets&lt;/b&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Server&lt;/b&gt; : Listens to requests from clients, process them and replies back.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Client&lt;/b&gt; : Takes input from user and send it server, recieves response and displays it.&lt;/p&gt;
+
+&lt;h3&gt;Server Code&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/network/sockets/Server.java&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#java-server').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#java-server code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+
+&lt;h3&gt;Client Code&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/network/sockets/Client.java&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#java-client').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#java-client code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+</description>
+        <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2017/10/23/sockets-server-client-communication/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2017/10/23/sockets-server-client-communication/</guid>
+        
+        <category>java</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+      <item>
+        <title>Display Patterns</title>
+        <description>&lt;p&gt;Programs to display patterns like&lt;p&gt;
+&lt;ol type=&quot;a&quot;&gt;
+	&lt;li&gt;Right angled triangle (Orientation Right).&lt;/li&gt;
+	&lt;li&gt;Right angled triangle (Orientation Left).&lt;/li&gt;
+	&lt;li&gt;Given 'n', print the symbol 'Z' spanning n rows using '*' symbol. Value of n&gt;2 and n&lt;=20.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Right Angled Triangle (Orientation Right)&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Enter the number of rows in triangle :: 6
+Enter a character to be printed :: a
+     a
+    aa
+   aaa
+  aaaa
+ aaaaa
+aaaaaa&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Right Angled Triangle (Orientation Left)&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Enter the number of rows in triangle :: 6
+Enter a character to be printed :: a
+a
+aa
+aaa
+aaaa
+aaaaa
+aaaaaa&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Print Z&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Enter size of 'Z' :: :: 6
+******
+    *
+   *
+  *
+ *
+******&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;goat-code-highlighter line-numbers  class='demo-html'&gt;&lt;/goat-code-highlighter&gt;
+&lt;script&gt;
+  (function run(currentScript) {
+    $.ajax({
+      type: &quot;GET&quot;,
+      url: &quot;https://raw.githubusercontent.com/shivajivarma/codebase-java/master/src/main/java/com/shivajivarma/codebase/display_patterns/DisplayPattern.java&quot;,
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#c-permutation').append('&lt;p&gt;Loading failed, please download to view the code.&lt;/p&gt;');
+        $('#c-permutation code').html('');
+      }
+    });
+  })(document.currentScript);
+&lt;/script&gt;
+
+</description>
+        <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+        <link>https://shivajivarma.com/project/code-base/2017/10/23/display-patterns/</link>
+        <guid isPermaLink="true">https://shivajivarma.com/project/code-base/2017/10/23/display-patterns/</guid>
+        
+        <category>java</category>
+        
+        
+        <category>project</category>
+        
+        <category>code-base</category>
+        
+      </item>
+    
+  </channel>
+</rss>

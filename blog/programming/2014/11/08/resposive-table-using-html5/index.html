@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Table Design &middot; Shivaji Varma</title>
+
+  <!-- Page meta data -->
+  <meta name="author" content="Shivaji Varma">
+  <meta name="copyright" content="(c) 2024 Shivaji Varma">
+  <meta property="og:url" content="https://shivajivarma.com/blog/programming/2014/11/08/resposive-table-using-html5/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shivajivarma.com/assets/img/profile.min.png">
+  <meta property="og:site_name" content="Shivaji Varma">
+
+  <meta property="og:title"
+        content="Responsive Table Design &middot; Shivaji Varma">
+  <meta name="description" property="og:description"
+        content="Don't let tables break your responsive layout anymore. This simple HTML/CSS combo will let your tables adapt to small device screens without everything going to hell.">
+  <meta name="keywords" content="Shivaji Varma, Responsive Table, html5, css">
+
+  <!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
+  <!-- Icons -->
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="author" href="https://twitter.com/shivaji_varma?rel=author">
+  <link rel="publisher" href="https://twitter.com/shivaji_varma">
+  <link rel="canonical" href="https://shivajivarma.com/blog/programming/2014/11/08/resposive-table-using-html5/">
+  <link rel="alternate" type="application/rss+xml" title="Shivaji Varma"
+        href="https://shivajivarma.com/feed.xml">
+
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@goatui/components@1.22.0/dist/goatui/assets/styles/theme.css">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css">
+
+  
+
+  <script src='/assets/node_modules/jquery/dist/jquery.min.js'></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KNH50V85RG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KNH50V85RG');
+</script>
+
+</head>
+
+	<body id=body itemscope itemtype="http://schema.org/WebPage">
+
+		<!-- Fixed navbar -->
+<nav class="header">
+  <goat-header
+    color="brand-secondary"
+    class='hide-mobile'>
+
+    <div slot='left'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        name="Shivaji Varma"
+        sub-title="Responsive Table Design"
+        href="/#"></goat-header-brand>
+    </div>
+
+
+    <div slot='right'>
+      <div class="header-right-panel">
+        <goat-input placeholder="Search" id="nav-search-input"></goat-input>
+
+        <goat-header-action
+          kind="simple"
+          icon='light--filled'
+          itemprop=url
+          class='theme-switcher'
+          aria-label="Theme Switch"></goat-header-action>
+
+
+        <goat-header-action
+          href='/blog#'
+          itemprop=url>
+          Blog
+        </goat-header-action>
+
+        <goat-header-action
+          href='/project#'
+          itemprop=url>
+          Projects
+        </goat-header-action>
+
+      </div>
+    </div>
+  </goat-header>
+
+  <goat-header
+    color="brand-secondary"
+    class='show-mobile'
+    brand-logo='/assets/img/logo.webp'
+    page-title="Responsive Table Design"
+    brand-url='/'
+  >
+
+    <div slot='left'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        sub-title="Responsive Table Design"
+        href="/#"></goat-header-brand>
+    </div>
+
+    <div slot='right'>
+      <goat-header-action icon='light--filled' class='theme-switcher mobile' aria-label="Theme Switch"></goat-header-action>
+      <goat-header-action icon="blog"
+                   href='/blog#'
+                   itemprop=url></goat-header-action>
+      <goat-header-action icon="roadmap"
+                   href='/project#'
+                   itemprop=url></goat-header-action>
+    </div>
+  </goat-header>
+</nav>
+
+
+
+<div id="content">
+	<div class="post">
+  <div class="post-container container">
+    <goat-breadcrumb>
+      <goat-breadcrumb-item href="/">Home
+      </goat-breadcrumb-item>
+      <goat-breadcrumb-item href="/blog/">Blog
+      </goat-breadcrumb-item>
+      
+      <goat-breadcrumb-item href="/blog/programming/">
+        Programming
+      </goat-breadcrumb-item>
+      
+      <goat-breadcrumb-item active>Responsive Table Design
+      </goat-breadcrumb-item>
+    </goat-breadcrumb>
+
+
+    <article itemscope itemtype="http://schema.org/Article">
+      <h1 class="h2 m-0" itemprop=name>Responsive Table Design</h1>
+      <goat-text type="paragraph" size="sm" color="secondary">
+  <small class=text-muted>Posted on November 8, 2014 by <a href="https://shivajivarma.com?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a> &ndash; <a href="https://github.com/shivajivarma/shivajivarma.github.io/edit/master/blog/programming/_posts/2014-11-08-resposive-table-using-html5.html" target="_blank">Edit</a></small>
+</goat-text>
+
+      <div class=row>
+        <div class=col-md-9>
+          <p itemprop=articleBody>Don't let tables break your responsive layout anymore. This simple HTML/CSS combo will let your tables adapt to small device screens without everything going to hell.</p>
+	<h3>Screenshots</h3>
+	<div class="row padding-top-15px padding-bottom-15px bg-color-20b2aa">
+		<div class="col-md-2">
+			<h3>Device Width : 1280px</h3>
+		</div>
+		<div class="col-md-10">
+			<img class="img-thumbnail img-responsive margin-auto full-width" alt="Screen shot of responsive table, Device width: 1280px" title="Screen shot of responsive table, Device width: 1280px" src="//lh6.googleusercontent.com/W81aMBdIRyU-MCfsxoRmE_crZGtMVXYspn5HSAjTLgk=w1518-h172-no">
+		</div>
+	</div>
+		<hr/>
+	<div class="row padding-top-15px padding-bottom-15px bg-color-bdedff">
+		<div class="col-md-9">
+			<img class="img-thumbnail img-responsive margin-auto full-width" alt="Screen shot of responsive table, Device width: 980px" title="Screen shot of responsive table, Device width: 980px" src="//lh6.googleusercontent.com/-KZ-jLMyv214/VF2hprM0f-I/AAAAAAAABs0/ES1WQWFE30s/w1225-h180-no/980.png">
+		</div>
+		<div class="col-md-3">
+			<h3>Device Width : 980px</h3>
+		</div>
+	</div>
+		<hr/>
+	<div class="row padding-top-15px padding-bottom-15px bg-color-f08080">
+		<div class="col-md-2">
+			<h4>Device Width : 800px</h4>
+		</div>
+		<div class="col-md-5">
+			<img class="img-thumbnail img-responsive margin-auto full-width" alt="Screen shot of responsive table, Device width: 800px" title="Screen shot of responsive table, Device width: 800px" src="//lh3.googleusercontent.com/YXMys7Lbe4urr36BtrDUe9jfjD908NE7t-A886sSsZQ=w835-h803-no">
+		</div>
+		<div class="col-md-3">
+			<img class="img-thumbnail img-responsive margin-auto full-width" alt="Screen shot of responsive table, Device width: 320px" title="Screen shot of responsive table, Device width: 320px" src="//lh5.googleusercontent.com/1VaLbAByKXmcjHeL8ls1P0rbVhCuOkp8Xal9K3jS6O4=w334-h803-no">
+		</div>
+		<div class="col-md-2">
+			<h4>Device Width : 320px</h4>
+		</div>
+	</div>
+
+	<h3>Implementation</h3>
+	<p>Minimum and maximize the browser no see the responsiveness.</p>
+	<html>
+		<head>
+			<style>
+			table{
+				background-color: #f9f9f9 !important;
+				border-collapse: collapse!important;
+				color: black !important;
+				margin: 1em 0 !important;
+				text-align: center !important;
+				width: 100% !important;
+			}
+			table tr:nth-child(odd){
+				background-color: #faf5ff !important;
+			}
+
+			table tr th{
+				background-color: #E0CEF2 !important; border-color: #B1A3BF !important
+			}
+			table tr th, table tr td{
+				border: 1px solid #aaa !important;
+			}
+			@media only screen and (max-width: 800px) {
+				#no-more-tables table,
+				#no-more-tables thead,
+				#no-more-tables tbody,
+				#no-more-tables th,
+				#no-more-tables td,
+				#no-more-tables tr {
+						display: block !important
+				}
+
+				/* Hide table headers (but not display: none;, for accessibility)  */
+				#no-more-tables thead tr {
+					position: absolute !important;
+					top: -9999px !important;
+					left: -9999px !important
+				}
+
+
+				/* Behave like a "row" */
+				#no-more-tables td:not(:first-child) {
+					position: relative !important;
+					padding-left: 52% !important;
+					text-align: left !important;
+					border-collapse: collapse !important;
+					border-bottom: 0px !important
+				}
+
+				#no-more-tables td:first-child{
+					text-align: center !important;
+					border-collapse: collapse !important;
+					border-bottom: 0px !important;
+					background-color: blueviolet !important;
+					color:white !important
+				}
+
+				#no-more-tables td:last-child {
+					border: 1px solid #aaa !important
+				}
+
+				#no-more-tables tr{
+					margin-bottom: 10px !important
+				}
+
+				/* Now like a table header */
+				#no-more-tables td:not(:first-child):before {
+					position: absolute !important;
+					left: 0 !important;
+					top: 0 !important;
+					height:100% !important;
+					width: 48% !important;
+					padding-left: 2% !important;
+					background-color: #E0CEF2 !important;
+					border-right: 1px solid #aaa !important;
+					white-space: wrap !important;
+					text-align: left !important;
+					font-weight: bold !important;
+					content: attr(data-title) !important
+				}
+			}
+			</style>
+		</head>
+		  <body >
+		  <div id="no-more-tables">
+			<table>
+			  <thead>
+				<tr>
+				  <th style="text-align: center !important;">#</th>
+				  <th style="text-align: center !important;">Name</th>
+				  <th style="text-align: center !important;">Date Of Birth</th>
+				  <th style="text-align: center !important;">Gender</th>
+				  <th style="text-align: center !important;">Department</th>
+				  <th style="text-align: center !important;">Section</th>
+				  <th style="text-align: center !important;">Fee</th>
+				  <th style="text-align: center !important;">CGPA</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <td data-title="#">1</td>
+				  <td data-title="Name">Janet Baker</td>
+				  <td data-title="Date Of Birth">18-12-1994</td>
+				  <td data-title="Gender">M</td>
+				  <td data-title="Department">CSE</td>
+				  <td data-title="Section">B2</td>
+				  <td data-title="Fee">$5000</td>
+				  <td data-title="CGPA">8.45</td>
+				</tr>
+				<tr>
+				  <td data-title="#">2</td>
+				  <td data-title="Name">Darren Kirk</td>
+				  <td data-title="Date Of Birth">20-12-1993</td>
+				  <td data-title="Gender">M</td>
+				  <td data-title="Department">ECE</td>
+				  <td data-title="Section">D2</td>
+				  <td data-title="Fee">$6000</td>
+				  <td data-title="CGPA">6</td>
+				</tr>
+				<tr>
+				  <td data-title="#">3</td>
+				  <td data-title="Name">Sherly Brown</td>
+				  <td data-title="Date Of Birth">03-12-1994</td>
+				  <td data-title="Gender">F</td>
+				  <td data-title="Department">CSE</td>
+				  <td data-title="Section">B3</td>
+				  <td data-title="Fee">$4500</td>
+				   <td data-title="CGPA">7.5</td>
+				</tr>
+				<tr>
+				  <td data-title="#">4</td>
+				  <td data-title="Name">Ravi Patel</td>
+				  <td data-title="Date Of Birth">21-12-1994</td>
+				  <td data-title="Gender">M</td>
+				  <td data-title="Department">Civil</td>
+				  <td data-title="Section">F1</td>
+				  <td data-title="Fee">$7599</td>
+				   <td data-title="CGPA">9</td>
+				</tr>
+			  </tbody>
+			</table>
+			</div>
+		  </body>
+	</html>
+
+
+	<h3>Code</h3>
+  <goat-code-highlighter line-numbers  class='demo-html'></goat-code-highlighter>
+<script>
+  (function run(currentScript) {
+    $.ajax({
+      type: "GET",
+      url: "https://raw.githubusercontent.com/shivajivarma/code-base/master/HTML/resposive-table.html",
+      async: false,
+      success: function(data){
+        currentScript.parentElement.querySelector('.demo-html').value = data;
+      },
+      error: function(){
+        $('#mark-table').append('<p>Loading failed, please download to view the code.</p>');
+        $('#mark-table code').html('');
+      }
+    });
+  })(document.currentScript);
+</script>
+
+
+
+
+
+
+          <div class="tags">
+            Tags : <span class="badge badge-primary mx-1">css</span>
+          </div>
+
+          <ul class=pager>
+            
+            
+            <li class="previous">
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              <goat-button
+                href="/blog/programming/2014/11/06/tiny-webserver-application-using-python/"
+                aria-label="Previous Post: Tiny Webserver Application [Python]"
+                icon="arrow--left">Previous
+              </goat-button>
+              
+            </li>
+
+            
+            <li class="next">
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              <goat-button
+                href="/blog/my-talks/2014/11/13/my-paintings/"
+                aria-label="Next Post: My Paintings"
+                icon="arrow--right" icon-end>Next
+              </goat-button>
+              
+            </li>
+          </ul>
+        </div>
+        <div class=col-md-3>
+          <div class="ads p-1">
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Responsive -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-3120721550776061"
+		 data-ad-slot="8584695641"
+		 data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+</div>
+
+<div id="adblocker-message">
+  This website is made possible by displaying online advertisements to our visitors.<br>
+  Please consider supporting by disabling your ad blocker.
+</div>
+
+          <hr/>
+          <style>
+     .form-preview {
+      display: block;
+      margin-top: 30px;
+      padding: 40px 50px 40px 50px;
+      max-width: 350px;
+      min-height: 200px;
+      border-radius: 6px;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25);
+      }
+      .form-preview .preview-heading {
+      width: 100%;
+      }
+      .form-preview .preview-input-field {
+      margin-top: 20px;
+      width: 100%;
+      }
+      .form-preview .preview-input-field input {
+      width: 100%;
+      height: 40px;
+      border-radius: 6px;
+      border: 2px solid #e9e8e8;
+      background-color: #fff;
+      outline: none;
+      }
+      .form-preview .preview-input-field input::placeholder, .form-preview .preview-input-field input {
+      opacity: 0.5;
+      color: #000;
+      font-family: "Inter";
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      text-align: center;
+      }
+      .form-preview .preview-submit-button {
+      margin-top: 10px;
+      width: 100%;
+      }
+      .form-preview .preview-submit-button button {
+      width: 100%;
+      height: 40px;
+      border: 0;
+      border-radius: 6px;
+      line-height: 0;
+      }
+      .form-preview .preview-submit-button button:hover {
+      cursor: pointer;
+      }
+
+      </style><form data-v-1adc68e1="" action="https://api.follow.it/subscription-form/SzhWT0dac3BINEVldzBsWmYwQ1Mrby9kZ0FyL1RwUVFDbkdiQXYrd00xQVIybm5XMWx3bkNEMHRUZks5S0VEQzBHOFFZRDFzc2htWjZXRlQwbHFpS3ViRGZTQ0pGdk1NelhvZENnNDdYQ3JObk1PRDFzMzFGU01BVzE4bGxrOU98QTFxd3czdTh3dTJyVWwzSUY1U0lGNzhkNUJFZTFCcDdqZmwyRTVxL1Rwbz0=/8" method="post"><div data-v-1adc68e1="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1adc68e1="" class="preview-heading"><h5 data-v-1adc68e1="" style="font-family: Montserrat; font-weight: 700; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">Get new posts by email:</h5></div> <div data-v-1adc68e1="" class="preview-input-field"><input data-v-1adc68e1="" type="email" name="email" placeholder="Enter your email" spellcheck="false"></div> <div data-v-1adc68e1="" class="preview-submit-button"><button data-v-1adc68e1="" type="submit" style="font-family: Montserrat; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">Subscribe</button></div></div></form>
+
+        </div>
+      </div>
+    </article>
+    <!-- comments -->
+<div id="comments" class="container-fluid margin-bottom-10px">
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="#" class="dsq-brlink">loading comments...</a>
+</div>
+
+<script type="text/javascript" async="true" src="//shivajivarma.disqus.com/embed.js"></script>
+
+  </div>
+</div>
+
+</div>
+<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+  <div class="section-container">
+    <div class="social-links">
+      <goat-text inline expressive>Follow me</goat-text>
+      <div class="social-links__links">
+        <goat-button icon="logo--twitter"
+                     href="https://twitter.com/shivaji_varma"
+                     title="Twitter"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--linkedin"
+                     href="https://www.linkedin.com/in/shivajivarma"
+                     title="LinkedIn"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--github"
+                     href="https://github.com/shivajivarma"
+                     title="Github"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--youtube"
+                     href="https://youtube.com/c/ShivajiVarmaPusapatiVenkata"
+                     title="Youtube"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+                     ></goat-button>
+        <goat-button icon="email"
+                     href="mailto:contact@shivajivarma.com"
+                     title="Mail"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+                     ></goat-button>
+      </div>
+    </div>
+    <div class="first-row">
+      <div class="logo">
+        <img src="/assets/img/logo.webp" alt="Shivaji Varma Logo"></img>
+        <goat-divider vertical></goat-divider>
+        <goat-text>Shivaji Varma</goat-text>
+      </div>
+      <div class="global-links">
+        <goat-link href="/privacy">Privacy</goat-link>
+        <goat-link rel="license noopener" href="/LICENSE">License</goat-link>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<div class='social-icons hide-mobile'>
+  <goat-button icon="logo--twitter"
+               href="https://twitter.com/shivaji_varma"
+               title="Twitter"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--linkedin"
+               href="https://www.linkedin.com/in/shivajivarma"
+               title="LinkedIn"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--github"
+               href="https://github.com/shivajivarma"
+               title="Github"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--youtube"
+               href="https://youtube.com/c/ShivajiVarmaPusapatiVenkata"
+               title="Youtube"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="email"
+               href="mailto:contact@shivajivarma.com"
+               title="Mail"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+</div>
+
+<div class='made-in-india hide-mobile'>
+  <span>&copy; 2023 <goat-link class='no-decoration' href=''>Shivaji Varma</goat-link>.</span>
+  <img class='country-flag' src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg' /> Made in
+  India.
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-c.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+
+<script src="/assets/js/main.js"></script>
+
+<!--   Core JS Files   -->
+<script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@1.22.0/dist/goatui/goatui.esm.js'></script>
+
+
+
+
+
+
+
+	</body>
+</html>

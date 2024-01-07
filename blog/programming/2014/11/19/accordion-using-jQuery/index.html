@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accordion implementation using jQuery &middot; Shivaji Varma</title>
+
+  <!-- Page meta data -->
+  <meta name="author" content="Shivaji Varma">
+  <meta name="copyright" content="(c) 2024 Shivaji Varma">
+  <meta property="og:url" content="https://shivajivarma.com/blog/programming/2014/11/19/accordion-using-jQuery/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shivajivarma.com/assets/img/profile.min.png">
+  <meta property="og:site_name" content="Shivaji Varma">
+
+  <meta property="og:title"
+        content="Accordion implementation using jQuery &middot; Shivaji Varma">
+  <meta name="description" property="og:description"
+        content="Create Simplest Accordion Menu using jQuery">
+  <meta name="keywords" content="Shivaji Varma, accordion, jquery, ui, design">
+
+  <!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
+  <!-- Icons -->
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="author" href="https://twitter.com/shivaji_varma?rel=author">
+  <link rel="publisher" href="https://twitter.com/shivaji_varma">
+  <link rel="canonical" href="https://shivajivarma.com/blog/programming/2014/11/19/accordion-using-jQuery/">
+  <link rel="alternate" type="application/rss+xml" title="Shivaji Varma"
+        href="https://shivajivarma.com/feed.xml">
+
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@goatui/components@1.22.0/dist/goatui/assets/styles/theme.css">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css">
+
+  
+
+  <script src='/assets/node_modules/jquery/dist/jquery.min.js'></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KNH50V85RG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KNH50V85RG');
+</script>
+
+</head>
+
+	<body id=body itemscope itemtype="http://schema.org/WebPage">
+
+		<!-- Fixed navbar -->
+<nav class="header">
+  <goat-header
+    color="brand-secondary"
+    class='hide-mobile'>
+
+    <div slot='left'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        name="Shivaji Varma"
+        sub-title="Accordion implementation using jQuery"
+        href="/#"></goat-header-brand>
+    </div>
+
+
+    <div slot='right'>
+      <div class="header-right-panel">
+        <goat-input placeholder="Search" id="nav-search-input"></goat-input>
+
+        <goat-header-action
+          kind="simple"
+          icon='light--filled'
+          itemprop=url
+          class='theme-switcher'
+          aria-label="Theme Switch"></goat-header-action>
+
+
+        <goat-header-action
+          href='/blog#'
+          itemprop=url>
+          Blog
+        </goat-header-action>
+
+        <goat-header-action
+          href='/project#'
+          itemprop=url>
+          Projects
+        </goat-header-action>
+
+      </div>
+    </div>
+  </goat-header>
+
+  <goat-header
+    color="brand-secondary"
+    class='show-mobile'
+    brand-logo='/assets/img/logo.webp'
+    page-title="Accordion implementation using jQuery"
+    brand-url='/'
+  >
+
+    <div slot='left'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        sub-title="Accordion implementation using jQuery"
+        href="/#"></goat-header-brand>
+    </div>
+
+    <div slot='right'>
+      <goat-header-action icon='light--filled' class='theme-switcher mobile' aria-label="Theme Switch"></goat-header-action>
+      <goat-header-action icon="blog"
+                   href='/blog#'
+                   itemprop=url></goat-header-action>
+      <goat-header-action icon="roadmap"
+                   href='/project#'
+                   itemprop=url></goat-header-action>
+    </div>
+  </goat-header>
+</nav>
+
+
+
+<div id="content">
+	<div class="post">
+  <div class="post-container container">
+    <goat-breadcrumb>
+      <goat-breadcrumb-item href="/">Home
+      </goat-breadcrumb-item>
+      <goat-breadcrumb-item href="/blog/">Blog
+      </goat-breadcrumb-item>
+      
+      <goat-breadcrumb-item href="/blog/programming/">
+        Programming
+      </goat-breadcrumb-item>
+      
+      <goat-breadcrumb-item active>Accordion implementation using jQuery
+      </goat-breadcrumb-item>
+    </goat-breadcrumb>
+
+
+    <article itemscope itemtype="http://schema.org/Article">
+      <h1 class="h2 m-0" itemprop=name>Accordion implementation using jQuery</h1>
+      <goat-text type="paragraph" size="sm" color="secondary">
+  <small class=text-muted>Posted on November 19, 2014 by <a href="https://shivajivarma.com?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a> &ndash; <a href="https://github.com/shivajivarma/shivajivarma.github.io/edit/master/blog/programming/_posts/2014-11-19-accordion-using-jQuery.html" target="_blank">Edit</a></small>
+</goat-text>
+
+      <div class=row>
+        <div class=col-md-9>
+          <p>"So what is an accordion?" you may be thinking to yourself. It's a very simple and sometimes user-friendly alternative when you need to fit quite a bit of content into a small space, not unlike a tabs component.</p>
+
+<p>An accordion is most commonly used in F.A.Q.'s where you have questions and answers. Which, if just displayed straight to the page could potentially become incredibly long, stopping users from actually wanting to read or finding the answer they’re looking for.</p>
+
+<p>That is also another good argument for accordion components, it allows users to see the outline of the content at a glance. Imagine if you were browsing a F.A.Q. and had to scroll all the way down through 20 different section just to find your answer. It would be a nightmare. If you could just scroll through the titles with content temporarily hidden, then it would make for a much better experience.</p>
+
+
+<h3>Implementation</h3>
+<p>Click on the topic and witness the magic around.</p>
+
+<html>
+	<head>
+		<style>
+			.accordion{
+				width:70%;
+				margin: 0 auto;
+			}
+			.accordion .title{
+				background-color: #E0CEF2 !important;
+				padding:1.5%;
+				color: white;
+				cursor: pointer;
+				border-bottom: 1px solid #fff !important;    
+			}
+			.accordion .content{
+				display: none;
+				background-color: #faf5ff !important;
+				padding:1.5%;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$('.accordion > .section').click(function(){
+					$('.accordion > .section > .content').slideUp("slow");
+					
+					var thisContent = $(this).children('.content');
+					if(thisContent.css('display') == 'none')    
+						thisContent.slideDown("fast");
+					thisContent = null;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="accordion">
+			<div class="section">
+				<div class="title">Why Do People Lie?</div>
+				<div class="content">One reason people lie is to achieve personal power. Achieving personal power is helpful for someone who pretends to be more confident than he really is. For example, one of my friends threw a party at his house last month. He asked me to come to his party and bring a date. However, I didn't have a girlfriend. One of my other friends, who had a date to go to the party with, asked me about my date. I didn't want to be embarrassed, so I claimed that I had a lot of work to do. I said I could easily find a date even better than his if I wanted to. I also told him that his date was ugly. I achieved power to help me feel confident; however, I embarrassed my friend and his date. Although this lie helped me at the time, since then it has made me look down on myself.</div>
+			</div>
+			<div class="section">
+				<div class="title">Describe a Stressful Time in Your Life</div>
+				<div class="content">Money causes teenagers to feel stress. It makes them feel bad about themselves and envy other people. My friend, for instance, lives with her family and has to share a room with her sister, who is very cute and intelligent. This girl wishes she could have her own room and have a lot of stuff, but she can't have these things because her family doesn't have much money. Her family's income is pretty low because her father is old and doesn't go to work. Her sister is the only one who works. Because her family can't buy her the things she wants, she feels a lot of stress and gets angry sometimes. Once, she wanted a beautiful dress to wear to a sweetheart dance. She asked her sister for some money to buy the dress. She was disappointed because her sister didn't have money to give her. She sat in silence for a little while and then started yelling out loud. She said her friends got anything they wanted but she didn't. Then she felt sorry for herself and asked why she was born into a poor family. Not having money has caused this girl to think negatively about herself and her family. It has caused a lot of stress in her life.</div>
+			</div>
+			<div class="section">
+				<div class="title">Describe College Life</div>
+				<div class="content">Most students like the freedom they have in college. Usually college students live on their own, in the dormitory or in an apartment. This means they are free to come and go as they like. Their parents can't tell them when to get up, when to go to school, and when to come home. It also means that they are free to wear what they want. There are no parents to comment about their hair styles or their dirty jeans. Finally, they are free to listen to their favorite music without interference from parents.</div>
+			</div>
+			<div class="section">
+				<div class="title">The Best Place to Visit</div>
+				<div class="content">Visakhapatnam is the most wonderful place to visit because of its variety of weather and its beautiful nature. Visitors to Visakhapatnam can find any weather they like. They can find cool temperatures in the summer; also they can find warm weather in the winter. They can find places that are difficult for humans to live in the summer because they are so hot. Or they can find places closed in the winter because of the snow. On the other hand, visitors can find the nature they like. They can find high mountains and low valleys. Visitors can find a huge forest, a dead desert, and a beautiful coast. So Visakhapatnam is the most wonderful place to visit because of its weather and nature.</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<h3>Code</h3>
+<pre><code class="language-markup">&lt;html&gt;
+	&lt;head&gt;
+		&lt;style&gt;
+			.accordion{
+				width:70%;
+				margin: 0 auto;
+			}
+			.accordion .title{
+				background-color: #E0CEF2 !important;
+				padding:1.5%;
+				color: white;
+				cursor: pointer;
+				border-bottom: 1px solid #fff !important;    
+			}
+			.accordion .content{
+				display: none;
+				background-color: #faf5ff !important;
+				padding:1.5%;
+			}
+		&lt;/style&gt;
+		&lt;script src="https://code.jquery.com/jquery-2.1.1.min.js"&gt;&lt;/script&gt;
+		&lt;script&gt;
+			$(document).ready(function(){
+				$('.accordion &gt; .section').click(function(){
+					$('.accordion &gt; .section &gt; .content').slideUp("slow");
+					
+					var thisContent = $(this).children('.content');
+					if(thisContent.css('display') == 'none')    
+						thisContent.slideDown("fast");
+					thisContent = null;
+				});
+			});
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class="accordion"&gt;
+			&lt;div class="section"&gt;
+				&lt;div class="title"&gt;Why Do People Lie?&lt;/div&gt;
+				&lt;div class="content"&gt;One reason people lie is to achieve personal power. Achieving personal power is helpful for someone who pretends to be more confident than he really is. For example, one of my friends threw a party at his house last month. He asked me to come to his party and bring a date. However, I didn't have a girlfriend. One of my other friends, who had a date to go to the party with, asked me about my date. I didn't want to be embarrassed, so I claimed that I had a lot of work to do. I said I could easily find a date even better than his if I wanted to. I also told him that his date was ugly. I achieved power to help me feel confident; however, I embarrassed my friend and his date. Although this lie helped me at the time, since then it has made me look down on myself.&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="section"&gt;
+				&lt;div class="title"&gt;Describe a Stressful Time in Your Life&lt;/div&gt;
+				&lt;div class="content"&gt;Money causes teenagers to feel stress. It makes them feel bad about themselves and envy other people. My friend, for instance, lives with her family and has to share a room with her sister, who is very cute and intelligent. This girl wishes she could have her own room and have a lot of stuff, but she can't have these things because her family doesn't have much money. Her family's income is pretty low because her father is old and doesn't go to work. Her sister is the only one who works. Because her family can't buy her the things she wants, she feels a lot of stress and gets angry sometimes. Once, she wanted a beautiful dress to wear to a sweetheart dance. She asked her sister for some money to buy the dress. She was disappointed because her sister didn't have money to give her. She sat in silence for a little while and then started yelling out loud. She said her friends got anything they wanted but she didn't. Then she felt sorry for herself and asked why she was born into a poor family. Not having money has caused this girl to think negatively about herself and her family. It has caused a lot of stress in her life.&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="section"&gt;
+				&lt;div class="title"&gt;Describe College Life&lt;/div&gt;
+				&lt;div class="content"&gt;Most students like the freedom they have in college. Usually college students live on their own, in the dormitory or in an apartment. This means they are free to come and go as they like. Their parents can't tell them when to get up, when to go to school, and when to come home. It also means that they are free to wear what they want. There are no parents to comment about their hair styles or their dirty jeans. Finally, they are free to listen to their favorite music without interference from parents.&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="section"&gt;
+				&lt;div class="title"&gt;The Best Place to Visit&lt;/div&gt;
+				&lt;div class="content"&gt;Visakhapatnam is the most wonderful place to visit because of its variety of weather and its beautiful nature. Visitors to Visakhapatnam can find any weather they like. They can find cool temperatures in the summer; also they can find warm weather in the winter. They can find places that are difficult for humans to live in the summer because they are so hot. Or they can find places closed in the winter because of the snow. On the other hand, visitors can find the nature they like. They can find high mountains and low valleys. Visitors can find a huge forest, a dead desert, and a beautiful coast. So Visakhapatnam is the most wonderful place to visit because of its weather and nature.&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+
+          <div class="tags">
+            Tags : <span class="badge badge-primary mx-1">js</span>
+          </div>
+
+          <ul class=pager>
+            
+            
+            <li class="previous">
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              <goat-button
+                href="/blog/my-talks/2014/11/13/my-paintings/"
+                aria-label="Previous Post: My Paintings"
+                icon="arrow--left">Previous
+              </goat-button>
+              
+            </li>
+
+            
+            <li class="next">
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              
+
+              
+
+              
+              <goat-button
+                href="/blog/programming/2014/11/27/pipe-program-implemented-in-c/"
+                aria-label="Next Post: Communicate between two processes using PIPE &ndash; Network programming"
+                icon="arrow--right" icon-end>Next
+              </goat-button>
+              
+            </li>
+          </ul>
+        </div>
+        <div class=col-md-3>
+          <div class="ads p-1">
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Responsive -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-3120721550776061"
+		 data-ad-slot="8584695641"
+		 data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+</div>
+
+<div id="adblocker-message">
+  This website is made possible by displaying online advertisements to our visitors.<br>
+  Please consider supporting by disabling your ad blocker.
+</div>
+
+          <hr/>
+          <style>
+     .form-preview {
+      display: block;
+      margin-top: 30px;
+      padding: 40px 50px 40px 50px;
+      max-width: 350px;
+      min-height: 200px;
+      border-radius: 6px;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25);
+      }
+      .form-preview .preview-heading {
+      width: 100%;
+      }
+      .form-preview .preview-input-field {
+      margin-top: 20px;
+      width: 100%;
+      }
+      .form-preview .preview-input-field input {
+      width: 100%;
+      height: 40px;
+      border-radius: 6px;
+      border: 2px solid #e9e8e8;
+      background-color: #fff;
+      outline: none;
+      }
+      .form-preview .preview-input-field input::placeholder, .form-preview .preview-input-field input {
+      opacity: 0.5;
+      color: #000;
+      font-family: "Inter";
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      text-align: center;
+      }
+      .form-preview .preview-submit-button {
+      margin-top: 10px;
+      width: 100%;
+      }
+      .form-preview .preview-submit-button button {
+      width: 100%;
+      height: 40px;
+      border: 0;
+      border-radius: 6px;
+      line-height: 0;
+      }
+      .form-preview .preview-submit-button button:hover {
+      cursor: pointer;
+      }
+
+      </style><form data-v-1adc68e1="" action="https://api.follow.it/subscription-form/SzhWT0dac3BINEVldzBsWmYwQ1Mrby9kZ0FyL1RwUVFDbkdiQXYrd00xQVIybm5XMWx3bkNEMHRUZks5S0VEQzBHOFFZRDFzc2htWjZXRlQwbHFpS3ViRGZTQ0pGdk1NelhvZENnNDdYQ3JObk1PRDFzMzFGU01BVzE4bGxrOU98QTFxd3czdTh3dTJyVWwzSUY1U0lGNzhkNUJFZTFCcDdqZmwyRTVxL1Rwbz0=/8" method="post"><div data-v-1adc68e1="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1adc68e1="" class="preview-heading"><h5 data-v-1adc68e1="" style="font-family: Montserrat; font-weight: 700; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">Get new posts by email:</h5></div> <div data-v-1adc68e1="" class="preview-input-field"><input data-v-1adc68e1="" type="email" name="email" placeholder="Enter your email" spellcheck="false"></div> <div data-v-1adc68e1="" class="preview-submit-button"><button data-v-1adc68e1="" type="submit" style="font-family: Montserrat; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">Subscribe</button></div></div></form>
+
+        </div>
+      </div>
+    </article>
+    <!-- comments -->
+<div id="comments" class="container-fluid margin-bottom-10px">
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="#" class="dsq-brlink">loading comments...</a>
+</div>
+
+<script type="text/javascript" async="true" src="//shivajivarma.disqus.com/embed.js"></script>
+
+  </div>
+</div>
+
+</div>
+<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+  <div class="section-container">
+    <div class="social-links">
+      <goat-text inline expressive>Follow me</goat-text>
+      <div class="social-links__links">
+        <goat-button icon="logo--twitter"
+                     href="https://twitter.com/shivaji_varma"
+                     title="Twitter"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--linkedin"
+                     href="https://www.linkedin.com/in/shivajivarma"
+                     title="LinkedIn"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--github"
+                     href="https://github.com/shivajivarma"
+                     title="Github"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--youtube"
+                     href="https://youtube.com/c/ShivajiVarmaPusapatiVenkata"
+                     title="Youtube"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+                     ></goat-button>
+        <goat-button icon="email"
+                     href="mailto:contact@shivajivarma.com"
+                     title="Mail"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+                     ></goat-button>
+      </div>
+    </div>
+    <div class="first-row">
+      <div class="logo">
+        <img src="/assets/img/logo.webp" alt="Shivaji Varma Logo"></img>
+        <goat-divider vertical></goat-divider>
+        <goat-text>Shivaji Varma</goat-text>
+      </div>
+      <div class="global-links">
+        <goat-link href="/privacy">Privacy</goat-link>
+        <goat-link rel="license noopener" href="/LICENSE">License</goat-link>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<div class='social-icons hide-mobile'>
+  <goat-button icon="logo--twitter"
+               href="https://twitter.com/shivaji_varma"
+               title="Twitter"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--linkedin"
+               href="https://www.linkedin.com/in/shivajivarma"
+               title="LinkedIn"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--github"
+               href="https://github.com/shivajivarma"
+               title="Github"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--youtube"
+               href="https://youtube.com/c/ShivajiVarmaPusapatiVenkata"
+               title="Youtube"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="email"
+               href="mailto:contact@shivajivarma.com"
+               title="Mail"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+</div>
+
+<div class='made-in-india hide-mobile'>
+  <span>&copy; 2023 <goat-link class='no-decoration' href=''>Shivaji Varma</goat-link>.</span>
+  <img class='country-flag' src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg' /> Made in
+  India.
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-c.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+
+<script src="/assets/js/main.js"></script>
+
+<!--   Core JS Files   -->
+<script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@1.22.0/dist/goatui/goatui.esm.js'></script>
+
+
+
+
+
+
+
+	</body>
+</html>

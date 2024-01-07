@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Base &middot; Shivaji Varma</title>
+
+  <!-- Page meta data -->
+  <meta name="author" content="Shivaji Varma">
+  <meta name="copyright" content="(c) 2024 Shivaji Varma">
+  <meta property="og:url" content="https://shivajivarma.com/project/code-base/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shivajivarma.com/assets/img/profile.min.png">
+  <meta property="og:site_name" content="Shivaji Varma">
+
+  <meta property="og:title"
+        content="Code Base &middot; Shivaji Varma">
+  <meta name="description" property="og:description"
+        content="It is a repository of programs, using which you can analyse, hack and learn basic programming. Related to these things I discuss in my blog.">
+  <meta name="keywords" content="Shivaji Varma, data structures, algorithms, search algorithms, sorting algorithms, graph, linked list, tree, string">
+
+  <!-- RSS ><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"-->
+  <!-- Icons -->
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="author" href="https://twitter.com/shivaji_varma?rel=author">
+  <link rel="publisher" href="https://twitter.com/shivaji_varma">
+  <link rel="canonical" href="https://shivajivarma.com/project/code-base/">
+  <link rel="alternate" type="application/rss+xml" title="Shivaji Varma"
+        href="https://shivajivarma.com/feed.xml">
+
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@goatui/components@1.22.0/dist/goatui/assets/styles/theme.css">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css">
+
+  
+
+  <script src='/assets/node_modules/jquery/dist/jquery.min.js'></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KNH50V85RG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KNH50V85RG');
+</script>
+
+</head>
+
+	<body id=body itemscope itemtype="http://schema.org/WebPage">
+
+		<!-- Fixed navbar -->
+<nav class="header">
+  <goat-header
+    color="brand-secondary"
+    class='hide-mobile'>
+
+    <div slot='left'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        name="Shivaji Varma"
+        sub-title="Code Base"
+        href="/#"></goat-header-brand>
+    </div>
+
+
+    <div slot='right'>
+      <div class="header-right-panel">
+        <goat-input placeholder="Search" id="nav-search-input"></goat-input>
+
+        <goat-header-action
+          kind="simple"
+          icon='light--filled'
+          itemprop=url
+          class='theme-switcher'
+          aria-label="Theme Switch"></goat-header-action>
+
+
+        <goat-header-action
+          href='/blog#'
+          itemprop=url>
+          Blog
+        </goat-header-action>
+
+        <goat-header-action
+          href='/project#'
+          itemprop=url>
+          Projects
+        </goat-header-action>
+
+      </div>
+    </div>
+  </goat-header>
+
+  <goat-header
+    color="brand-secondary"
+    class='show-mobile'
+    brand-logo='/assets/img/logo.webp'
+    page-title="Code Base"
+    brand-url='/'
+  >
+
+    <div slot='left'>
+      <goat-header-brand
+        logo="/assets/img/logo.webp"
+        sub-title="Code Base"
+        href="/#"></goat-header-brand>
+    </div>
+
+    <div slot='right'>
+      <goat-header-action icon='light--filled' class='theme-switcher mobile' aria-label="Theme Switch"></goat-header-action>
+      <goat-header-action icon="blog"
+                   href='/blog#'
+                   itemprop=url></goat-header-action>
+      <goat-header-action icon="roadmap"
+                   href='/project#'
+                   itemprop=url></goat-header-action>
+    </div>
+  </goat-header>
+</nav>
+
+
+
+<div class="banner-title">
+  <goat-text type="heading" heading-size="7">Code Base</goat-text>
+</div>
+<div class="project-content container">
+  <goat-breadcrumb>
+  <goat-breadcrumb-item href="/">Home</goat-breadcrumb-item>
+  
+  <goat-breadcrumb-item href="/project">Project</goat-breadcrumb-item>
+  
+  <goat-breadcrumb-item active>Code Base</goat-breadcrumb-item>
+</goat-breadcrumb>
+
+<goat-text type="paragraph" size="sm" color="secondary">
+  <small class=text-muted>Posted on January 1, 2016 by <a href="https://shivajivarma.com?rel=author" rel="author"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span  itemprop="name">Shivaji Varma</span></span></a> &ndash; <a href="https://github.com/shivajivarma/shivajivarma.github.io/edit/master/project/_posts/2016-01-01-code-base.html" target="_blank">Edit</a></small>
+</goat-text>
+
+<div class="project" itemscope itemtype="http://schema.org/Article">
+  <div class="row">
+  <div id=post-list class=col-md-9>
+    <p class="lead">'<b>Code Base</b>' is a repository contains examples of many popular algorithms and data structures.</goat-text>
+
+    <h3>Data Structures</h3>
+    <goat-text expressive>Data structure is a particular way of organizing and storing data in a computer so that it can be accessed and modified efficiently. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.</goat-text>
+    <ul>
+      <li>
+        <b>Linked Lists</b>
+        <ul>
+          <li>
+	<a class="no-underline" href="/project/code-base/2018/05/27/singly-linked-list" title="Singly Linked List">Singly Linked List</a>
+</li>
+
+        </ul>
+      </li>
+      <li>
+	<a class="no-underline" href="/project/code-base/2018/06/01/stack" title="Stack">Stack</a>
+</li>
+
+    </ul>
+
+    <h3>Algorithms</h3>
+    <goat-text expressive>Algorithm is an unambiguous specification of how to solve a class of problems. Algorithm is a set of rules that precisely defines a sequence of operations.</goat-text>
+
+    <h4>Algorithms by Topic</h4>
+
+
+    <ul>
+
+      <li>
+        <b>Date</b>
+        <ul>
+          <li>
+	<a class="no-underline" href="/project/code-base/2017/07/08/leap-year" title="Leap Year">Leap Year</a>
+</li>
+
+        </ul>
+      </li>
+
+      <li>
+        <b>Math</b>
+        <ul>
+          <li>
+	<a class="no-underline" href="/project/code-base/2014/12/28/armstrong-number" title="Armstrong Number">Armstrong Number</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2015/01/03/greatest-common-divisor" title="Greatest Common Divisor">Greatest Common Divisor</a>
+</li>
+
+        </ul>
+      </li>
+
+      <li>
+        <b>Search</b>
+        <ul>
+          <li>
+	<a class="no-underline" href="/project/code-base/2015/01/05/binary-search" title="Binary Search">Binary Search</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2015/01/05/linear-search" title="Linear Search">Linear Search</a>
+</li>
+
+        </ul>
+      </li>
+
+      <li>
+        <b>Sorting</b>
+        <ul>
+          <li>
+	<a class="no-underline" href="/project/code-base/2014/12/28/bubble-sort" title="Bubble Sort">Bubble Sort</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2014/12/28/insertion-sort" title="Insertion Sort">Insertion Sort</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2015/01/02/merge-sort" title="Merge Sort">Merge Sort</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2015/01/02/quick-sort" title="Quick Sort">Quick Sort</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2015/01/02/selection-sort" title="Selection Sort">Selection Sort</a>
+</li>
+
+        </ul>
+      </li>
+
+      <li>
+        <b>String</b>
+        <ul>
+          <li>
+	<a class="no-underline" href="/project/code-base/2014/12/28/anagram" title="Anagram">Anagram</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2014/12/30/longest-palindrome-substring-length" title="Longest Palindrome Sub String Length">Longest Palindrome Sub String Length</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2018/05/27/palindrome" title="Palindrome">Palindrome</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2018/05/27/reversing-a-string" title="Reversing A String">Reversing A String</a>
+</li>
+
+        </ul>
+      </li>
+
+      <li>
+        <b>Uncategorized</b>
+        <ul>
+          <li>
+            Display Patterns
+            <ol type="I">
+              <li>
+	<a class="no-underline" href="/project/code-base/2017/10/23/display-patterns" title="Right Angled Triangle">Right Angled Triangle</a>
+</li>
+
+              <li>
+	<a class="no-underline" href="/project/code-base/2017/10/23/display-patterns" title="Print Z">Print Z</a>
+</li>
+
+            </ol>
+          </li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2017/10/22/permutations" title="Permutations">Permutations</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2018/05/04/spiral-matrix" title="Spiral Matrix">Spiral Matrix</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2018/05/10/subsets" title="Subsets">Subsets</a>
+</li>
+
+          <li>
+	<a class="no-underline" href="/project/code-base/2017/10/23/towers-of-hanoi" title="Towers Of Hanoi">Towers Of Hanoi</a>
+</li>
+
+
+          <li>
+            Networking
+            <ol type="I">
+              <li>
+	<a class="no-underline" href="/project/code-base/2017/10/23/sockets-server-client-communication" title="Sockets (Server - Client Communication)">Sockets (Server - Client Communication)</a>
+</li>
+
+            </ol>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <goat-text expressive>and more...</goat-text>
+
+    <h3>Contribute</h3>
+    <goat-text expressive>Did you find a bug? any way to do it better? please feel free to pull-request it (or) drop a mail at <b><a class="no-underline" href="mailto:&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;" title="&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#115;&#104;&#105;&#118;&#97;&#106;&#105;&#118;&#97;&#114;&#109;&#97;&#46;&#99;&#111;&#109;</a></b> :)</goat-text>
+
+  </div>
+  <div class=col-md-3>
+    <hr class="d-block d-md-none">
+<h3 class="h4"> Tags </h3>
+<ul class="nav flex-column">
+  
+  <li>
+      <a href="/project/code-base/tag/?filter=c" title="C" class="nav-link">C</a>
+  </li>
+  
+  <li>
+      <a href="/project/code-base/tag/?filter=python" title="Python" class="nav-link">Python</a>
+  </li>
+  
+  <li>
+      <a href="/project/code-base/tag/?filter=java" title="Java" class="nav-link">Java</a>
+  </li>
+  
+  <li>
+      <a href="/project/code-base/tag/?filter=javascript" title="JavaScript" class="nav-link">JavaScript</a>
+  </li>
+  
+</ul>
+
+    <hr/>
+    <div class="ads p-1">
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Responsive -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-3120721550776061"
+		 data-ad-slot="8584695641"
+		 data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+</div>
+
+<div id="adblocker-message">
+  This website is made possible by displaying online advertisements to our visitors.<br>
+  Please consider supporting by disabling your ad blocker.
+</div>
+
+  </div>
+</div>
+
+</div>
+<!-- comments -->
+<div id="comments" class="container-fluid margin-bottom-10px">
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="#" class="dsq-brlink">loading comments...</a>
+</div>
+
+<script type="text/javascript" async="true" src="//shivajivarma.disqus.com/embed.js"></script>
+
+
+</div>
+
+<div class='social-icons hide-mobile'>
+  <goat-button icon="logo--twitter"
+               href="https://twitter.com/shivaji_varma"
+               title="Twitter"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--linkedin"
+               href="https://www.linkedin.com/in/shivajivarma"
+               title="LinkedIn"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--github"
+               href="https://github.com/shivajivarma"
+               title="Github"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--youtube"
+               href="https://youtube.com/c/ShivajiVarmaPusapatiVenkata"
+               title="Youtube"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="email"
+               href="mailto:contact@shivajivarma.com"
+               title="Mail"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+</div>
+
+<div class='made-in-india hide-mobile'>
+  <span>&copy; 2023 <goat-link class='no-decoration' href=''>Shivaji Varma</goat-link>.</span>
+  <img class='country-flag' src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg' /> Made in
+  India.
+</div>
+
+
+<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+  <div class="section-container">
+    <div class="social-links">
+      <goat-text inline expressive>Follow me</goat-text>
+      <div class="social-links__links">
+        <goat-button icon="logo--twitter"
+                     href="https://twitter.com/shivaji_varma"
+                     title="Twitter"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--linkedin"
+                     href="https://www.linkedin.com/in/shivajivarma"
+                     title="LinkedIn"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--github"
+                     href="https://github.com/shivajivarma"
+                     title="Github"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+        ></goat-button>
+        <goat-button icon="logo--youtube"
+                     href="https://youtube.com/c/ShivajiVarmaPusapatiVenkata"
+                     title="Youtube"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+                     ></goat-button>
+        <goat-button icon="email"
+                     href="mailto:contact@shivajivarma.com"
+                     title="Mail"
+
+                     icon-size='lg'
+                     variant='ghost'
+                     color='dark'
+                     dark-mode-color='light'
+                     rel="noopener"
+                     ></goat-button>
+      </div>
+    </div>
+    <div class="first-row">
+      <div class="logo">
+        <img src="/assets/img/logo.webp" alt="Shivaji Varma Logo"></img>
+        <goat-divider vertical></goat-divider>
+        <goat-text>Shivaji Varma</goat-text>
+      </div>
+      <div class="global-links">
+        <goat-link href="/privacy">Privacy</goat-link>
+        <goat-link rel="license noopener" href="/LICENSE">License</goat-link>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-c.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+
+<script src="/assets/js/main.js"></script>
+
+<!--   Core JS Files   -->
+<script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@1.22.0/dist/goatui/goatui.esm.js'></script>
+
+
+
+
+
+
+	</body>
+</html>
