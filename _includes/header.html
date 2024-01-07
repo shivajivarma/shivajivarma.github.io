@@ -1,7 +1,8 @@
 <!-- Fixed navbar -->
 <nav class="header">
   <goat-header
-    class='brand actions-separated hide-mobile'>
+    color="brand-secondary"
+    class='hide-mobile'>
 
     <div slot='left'>
       <goat-header-brand
@@ -15,32 +16,34 @@
     <div slot='right'>
       <div class="header-right-panel">
         <goat-input placeholder="Search" id="nav-search-input"></goat-input>
-        <goat-button icon='light--filled'
-                     variant="ghost"
-                     color="brand-primary"
-                     kind="simple"
-                     class='theme-switcher'
-                     aria-label="Theme Switch"></goat-button>
 
-        <goat-button kind="simple"
-                     color="brand-primary"
-                     variant="ghost"
-                     href='/blog#'
-                     itemprop=url>Blog
-        </goat-button>
+        <goat-header-action
+          kind="simple"
+          icon='light--filled'
+          itemprop=url
+          class='theme-switcher'
+          aria-label="Theme Switch"></goat-header-action>
 
-        <goat-button kind="simple"
-                     color="brand-primary"
-                     variant="ghost"
-                     href='/project#'
-                     itemprop=url>Projects
-        </goat-button>
+
+        <goat-header-action
+          href='/blog#'
+          itemprop=url>
+          Blog
+        </goat-header-action>
+
+        <goat-header-action
+          href='/project#'
+          itemprop=url>
+          Projects
+        </goat-header-action>
+
       </div>
     </div>
   </goat-header>
 
   <goat-header
-    class='brand actions-separated show-mobile'
+    color="brand-secondary"
+    class='show-mobile'
     brand-logo='/assets/img/logo.webp'
     page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
     brand-url='/'
@@ -54,13 +57,13 @@
     </div>
 
     <div slot='right'>
-      <goat-button icon='light--filled' class='theme-switcher mobile simple' aria-label="Theme Switch"></goat-button>
-      <goat-button class='simple' icon="blog"
+      <goat-header-action icon='light--filled' class='theme-switcher mobile' aria-label="Theme Switch"></goat-header-action>
+      <goat-header-action icon="blog"
                    href='/blog#'
-                   itemprop=url></goat-button>
-      <goat-button class='simple' icon="roadmap"
+                   itemprop=url></goat-header-action>
+      <goat-header-action icon="roadmap"
                    href='/project#'
-                   itemprop=url></goat-button>
+                   itemprop=url></goat-header-action>
     </div>
   </goat-header>
 </nav>

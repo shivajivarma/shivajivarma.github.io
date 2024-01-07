@@ -1,7 +1,7 @@
 .banner {
   height: 100vh;
   padding-top: var(--header-height);
-  background: var(--color-brand-primary-10);
+  background: var(--color-brand-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,8 +9,6 @@
   .container {
     display: flex;
   }
-
-
 
   .banner-content-section {
     display: flex;
@@ -32,21 +30,12 @@
 }
 
 .banner-title {
-  width: 100vw;
   height: 15rem;
   padding-top: var(--header-height);
   background: var(--header-background);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-html[data-theme="dark"] .banner {
-  background: var(--color-black);
-}
-
-html[data-theme="dark"] .banner-title {
-  background: var(--color-black)
 }
 
 @include for-phone-only {

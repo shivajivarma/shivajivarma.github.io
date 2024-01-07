@@ -20,30 +20,48 @@ html {
 }
 
 :root {
-  --color-brand-secondary: var(--color-purple);
-  --color-brand-secondary-10: var(--color-purple-10);
-  --color-brand-secondary-20: var(--color-purple-20);
-  --color-brand-secondary-30: var(--color-purple-30);
-  --color-brand-secondary-40: var(--color-purple-40);
-  --color-brand-secondary-50: var(--color-purple-50);
-  --color-brand-secondary-60: var(--color-purple-60);
-  --color-brand-secondary-70: var(--color-purple-70);
-  --color-brand-secondary-80: var(--color-purple-80);
-  --color-brand-secondary-90: var(--color-purple-90);
-  --color-brand-secondary-100: var(--color-purple-100);
+  --color-brand-secondary: #ffba08;
+  --color-brand-secondary-10: #fff1ce;
+  --color-brand-secondary-20: #ffe39c;
+  --color-brand-secondary-30: #ffd66b;
+  --color-brand-secondary-40: #ffc839;
+  --color-brand-secondary-50: #ffba08;
+  --color-brand-secondary-60: #cc9506;
+  --color-brand-secondary-70: #997005;
+  --color-brand-secondary-80: #664a03;
+  --color-brand-secondary-90: #332502;
+  --color-brand-secondary-100: #000000;
 
-  --color-brand-primary: #F16A5F;
-  --color-brand-primary-10: #FEEBDF;
-  --color-brand-primary-20: #FDD3C0;
-  --color-brand-primary-30: #FCBFAB;
-  --color-brand-primary-40: #F89380;
-  --color-brand-primary-50: #F16A5F;
-  --color-brand-primary-60: #E82D2F;
+  --color-brand-primary: #e82d2f;
+  --color-brand-primary-10: #fad5d5;
+  --color-brand-primary-20: #f6abac;
+  --color-brand-primary-30: #f18182;
+  --color-brand-primary-40: #ed5759;
+  --color-brand-primary-50: #e82d2f;
+  --color-brand-primary-60: #ba2426;
+  --color-brand-primary-70: #8b1b1c;
+  --color-brand-primary-80: #5d1213;
+  --color-brand-primary-90: #2e0909;
+  --color-brand-primary-100: #000000;
 
   --header-height: 5rem;
-  --header-background: var(--color-brand-primary-10);
-  --header-background-dark: var(--color-black);
+  --header-background: var(--color-brand-secondary);
   --font-family-base: "Inter", sans-serif;
+}
+
+html[data-theme='dark'] {
+  --color-brand-secondary: #7a3b00;
+  --color-brand-secondary-10: #e4d8cc;
+  --color-brand-secondary-20: #cab199;
+  --color-brand-secondary-30: #af8966;
+  --color-brand-secondary-40: #956233;
+  --color-brand-secondary-50: #7a3b00;
+  --color-brand-secondary-60: #622f00;
+  --color-brand-secondary-70: #492300;
+  --color-brand-secondary-80: #311800;
+  --color-brand-secondary-90: #180c00;
+  --color-brand-secondary-100: #000000;
+
 }
 
 body {
@@ -102,7 +120,7 @@ html.hydrated {
 
 
 .footer {
-  margin: 0 var(--spacing-12);
+  margin: 0 var(--spacing-12) var(--spacing-06);
 
   goat-divider {
     height: 100%;
@@ -184,12 +202,13 @@ html.hydrated {
 
 .social-icons {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  --button-color: var(--text-primary);
   position: fixed;
-  font-size: 1rem;
   bottom: 2rem;
-  right: 0;
-  gap: 1rem;
+  right: 0.5rem;
+  flex-direction: column;
 
   &:after {
     content: "";
@@ -210,7 +229,7 @@ html.hydrated {
 
 @include for-phone-only {
   .footer {
-    margin: 0 var(--spacing-05);
+    margin: 0 var(--spacing-05) var(--spacing-06);
   }
   .footer .social-links {
     .social-links__links {

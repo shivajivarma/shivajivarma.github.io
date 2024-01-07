@@ -10,26 +10,56 @@ layout: base
 </div>
 
 <div class='social-icons hide-mobile'>
-  <goat-button variant="link" target="_blank"
-               icon-size="1.5rem"
-               href="https://youtube.com/c/{{ site.author.youtube }}" title="Youtube" rel="noopener"
-               icon="logo--youtube"></goat-button>
-  <goat-button variant="link" target="_blank"
-               icon-size="1.5rem"
-               href="https://twitter.com/{{ site.author.twitter }}" title="Twitter" rel="noopener"
-               icon="logo--twitter"></goat-button>
-  <goat-button variant="link" target="_blank"
-               icon-size="1.5rem"
-               href="https://www.linkedin.com/in/{{ site.author.linkedin }}" title="LinkedIn" rel="noopener"
-               icon="logo--linkedin"></goat-button>
-  <goat-button variant="link" target="_blank"
-               icon-size="1.5rem"
-               href="https://github.com/{{ site.author.github }}" title="Github" rel="noopener"
-               icon="logo--github"></goat-button>
-  <goat-button variant="link" target="_blank"
-               icon-size="1.5rem"
-               href="mailto:{{site.email}}" title="Mail" rel="noopener"
-               icon="email"></goat-button>
+  <goat-button icon="logo--twitter"
+               href="https://twitter.com/{{ site.author.twitter }}"
+               title="Twitter"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--linkedin"
+               href="https://www.linkedin.com/in/{{ site.author.linkedin }}"
+               title="LinkedIn"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--github"
+               href="https://github.com/{{ site.author.github }}"
+               title="Github"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="logo--youtube"
+               href="https://youtube.com/c/{{ site.author.youtube }}"
+               title="Youtube"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
+  <goat-button icon="email"
+               href="mailto:{{site.email}}"
+               title="Mail"
+
+               icon-size='lg'
+               variant='ghost'
+               color='dark'
+               dark-mode-color='light'
+               rel="noopener"
+  ></goat-button>
 </div>
 
 <div class='made-in-india hide-mobile'>
@@ -37,6 +67,7 @@ layout: base
   <img class='country-flag' src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg' /> Made in
   India.
 </div>
+
 
 {% include footer.html %}
 {% include scripts.html %}

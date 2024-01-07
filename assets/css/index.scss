@@ -17,8 +17,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 7rem;
-    width: 7rem;
+    height: 5.5rem;
+    width: 5.5rem;
     gap: var(--spacing-03);
     img {
       max-width: 100%;
@@ -60,8 +60,7 @@
 .showcase {
   background: var(--color-brand-primary);
   color: var(--text-04);
-  margin-top: var(--spacing-11);
-  padding-bottom: var(--spacing-11);
+  padding: var(--spacing-11) 0;
 }
 
 

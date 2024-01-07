@@ -1,10 +1,15 @@
 .sections-wrapper {
-  padding-bottom: var(--spacing-11);
-
-  .section {
-    padding-top: var(--spacing-11);
-  }
+  margin: var(--spacing-12) 0;
 }
+
+.sections-wrapper .section {
+  margin-bottom: var(--spacing-09);
+}
+
+.sections-wrapper .section:last-child {
+  margin-bottom: 0;
+}
+
 
 .container {
   max-width: var(--container-xl);
@@ -13,12 +18,6 @@
 }
 
 @include for-phone-only {
-  .sections-wrapper {
-    padding-bottom: var(--spacing-09);
-    .section {
-      padding-top: var(--spacing-09);
-    }
-  }
   .container {
     padding: 0 var(--spacing-05);
   }
