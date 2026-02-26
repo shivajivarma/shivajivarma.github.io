@@ -1,7 +1,7 @@
 .banner {
   height: 100vh;
   padding-top: var(--header-height);
-  background: var(--color-brand-secondary);
+  background: var(--color-primary-container);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,13 +18,8 @@
   .banner-image-section {
     display: flex;
     align-items: center;
-
-    svg {
-      width: 100%;
-
-      image {
-        transform: translateY(50px);
-      }
+    img {
+      border-radius: 50%;
     }
   }
 }

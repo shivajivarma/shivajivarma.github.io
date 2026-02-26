@@ -6,6 +6,10 @@
   z-index: 1000;
   box-sizing: border-box;
 
+  goat-header {
+    background: var(--color-primary-container);
+  }
+
   .header-right-panel {
     display: flex;
     align-items: center;
@@ -14,8 +18,4 @@
     flex: 1;
     padding-inline-end: 1rem;
   }
-}
-
-html[data-theme="dark"] .header {
-  background: var(--color-black);
 }

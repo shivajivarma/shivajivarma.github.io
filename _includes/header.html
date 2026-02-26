@@ -1,7 +1,6 @@
 <!-- Fixed navbar -->
 <nav class="header">
   <goat-header
-    color="brand-secondary"
     class='hide-mobile'>
 
     <div slot='left'>
@@ -17,32 +16,33 @@
       <div class="header-right-panel">
         <goat-input placeholder="Search" id="nav-search-input"></goat-input>
 
-        <goat-header-action
-          kind="simple"
-          icon='light--filled'
+        <icon-button
+          variant="text"
+          name='light_mode'
           itemprop=url
           class='theme-switcher'
-          aria-label="Theme Switch"></goat-header-action>
+          aria-label="Theme Switch"></icon-button>
 
 
-        <goat-header-action
+        <base-button
           href='/blog#'
+          variant="text"
           itemprop=url>
           Blog
-        </goat-header-action>
+        </base-button>
 
-        <goat-header-action
+        <base-button
+          variant="text"
           href='/project#'
           itemprop=url>
           Projects
-        </goat-header-action>
+        </base-button>
 
       </div>
     </div>
   </goat-header>
 
   <goat-header
-    color="brand-secondary"
     class='show-mobile'
     brand-logo='/assets/img/logo.webp'
     page-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
