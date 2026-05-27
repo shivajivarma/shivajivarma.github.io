@@ -1,0 +1,82 @@
+---
+interface Props {
+  title: string;
+  img: string;
+  imgTitle?: string;
+  imgDescription?: string;
+  description: string;
+  characters: string[];
+  readMoreUrl?: string;
+  floatRight?: boolean;
+}
+
+const { title, img, imgTitle, imgDescription, description, characters, readMoreUrl, floatRight = false } = Astro.props;
+const anchorId = title.replace(/\s/g, '');
+---
+
+<a class="anchor" name={anchorId} id={anchorId}></a>
+<div class={`row p-3 rounded cartoon-card${floatRight ? ' flex-row-reverse' : ''}`}>
+  <div class="col-md-8">
+    <img
+      class="img-thumbnail img-responsive margin-auto full-width"
+      alt={imgTitle}
+      title={imgTitle}
+      src={img}
+    />
+    {imgDescription && (
+      <p class="text-align-center">
+        <small>{imgDescription}</small>
+      </p>
+    )}
+  </div>
+  <div class="col-md-4">
+    <h2>{title}</h2>
+    <div set:html={description} />
+    <h4>Characters:</h4>
+    <ul>
+      {characters.map((character) => (
+        <li>{character}</li>
+      ))}
+    </ul>
+    {readMoreUrl && (
+      <button
+        class="btn btn-sm btn-primary cartoon-read-more"
+        data-url={readMoreUrl}
+        data-title={title}
+      >
+        Read more
+      </button>
+    )}
+  </div>
+</div>
+
+<hr class="my-4" />
+
+{readMoreUrl && (
+  <dialog id={`dialog-${anchorId}`}>
+    <div class="dialog-header">
+      <h2>{title}</h2>
+      <button class="close-dialog" autofocus>Close</button>
+    </div>
+    <div class="dialog-body"></div>
+  </dialog>
+)}
+
+<script>
+  document.querySelectorAll('.cartoon-read-more').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const url = (btn as HTMLElement).dataset.url;
+      const title = (btn as HTMLElement).dataset.title;
+      const anchorId = title?.replace(/\s/g, '') ?? '';
+      const dialog = document.getElementById(`dialog-${anchorId}`) as HTMLDialogElement;
+      if (!dialog) return;
+      const body = dialog.querySelector('.dialog-body');
+      if (body && url) {
+        const res = await fetch(url);
+        body.innerHTML = await res.text();
+      }
+      dialog.showModal();
+      dialog.querySelector('.close-dialog')?.addEventListener('click', () => dialog.close());
+    });
+  });
+</script>

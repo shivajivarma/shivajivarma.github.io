@@ -1,0 +1,43 @@
+---
+import Base from './Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Scripts from '../components/Scripts.astro';
+import { AUTHOR, SITE_TITLE } from '../siteconfig';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  css?: string[];
+  isRoot?: boolean;
+  js?: string[];
+  scripts?: string[];
+}
+
+const { title, description, keywords, css, isRoot = false, js, scripts } = Astro.props;
+---
+
+<Base title={title} description={description} keywords={keywords} css={css}>
+  <Header pageTitle={title} />
+  <div id="content">
+    <slot />
+  </div>
+  <Footer />
+
+  <div class="social-icons hide-mobile">
+    <goat-button icon="logo--twitter" href={`https://twitter.com/${AUTHOR.twitter}`} title="Twitter" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
+    <goat-button icon="logo--linkedin" href={`https://www.linkedin.com/in/${AUTHOR.linkedin}`} title="LinkedIn" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
+    <goat-button icon="logo--github" href={`https://github.com/${AUTHOR.github}`} title="Github" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
+    <goat-button icon="logo--youtube" href={`https://youtube.com/c/${AUTHOR.youtube}`} title="Youtube" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
+    <goat-button icon="email" href={`mailto:${AUTHOR.email}`} title="Mail" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
+  </div>
+
+  <div class="made-in-india hide-mobile">
+    <span>&copy; 2023 <goat-link class="no-decoration" href="/">{SITE_TITLE}</goat-link>.</span>
+    <img class="country-flag" src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg" /> Made in
+    India.
+  </div>
+
+  <Scripts isRoot={isRoot} js={js} scripts={scripts} />
+</Base>

@@ -1,0 +1,79 @@
+---
+import Post from '../../../layouts/Post.astro';
+import { getCollection } from 'astro:content';
+import { BLOG_CATEGORIES } from '../../../siteconfig';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+
+  return BLOG_CATEGORIES.flatMap((category) => {
+    const categoryPosts = allPosts
+      .filter((p) => p.id.startsWith(`${category}/`))
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+    return categoryPosts.map((post, index) => {
+      const filename = post.id.split('/').pop()!.replace(/\.(html|mdx?|md)$/, '');
+      const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+      if (!match) return null;
+      const [, year, month, day, slug] = match;
+
+      const prevPost = categoryPosts[index - 1];
+      const nextPost = categoryPosts[index + 1];
+
+      function makeUrl(p: (typeof categoryPosts)[number]) {
+        const f = p.id.split('/').pop()!.replace(/\.(html|mdx?|md)$/, '');
+        const m = f.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+        if (!m) return '#';
+        const [, y, mo, d, s] = m;
+        return `/blog/${category}/${y}/${mo}/${d}/${s}/`;
+      }
+
+      return {
+        params: { category, slug: `${year}/${month}/${day}/${slug}` },
+        props: {
+          post,
+          category,
+          prevPost: prevPost ? { url: makeUrl(prevPost), title: prevPost.data.title ?? prevPost.id } : undefined,
+          nextPost: nextPost ? { url: makeUrl(nextPost), title: nextPost.data.title ?? nextPost.id } : undefined,
+        },
+      };
+    }).filter(Boolean);
+  });
+}
+
+interface Props {
+  post: Awaited<ReturnType<typeof getCollection<'blog'>>>[number];
+  category: string;
+  prevPost?: { url: string; title: string };
+  nextPost?: { url: string; title: string };
+}
+
+const { post, category, prevPost, nextPost } = Astro.props;
+const { Content } = await post.render();
+
+const postTitle = post.data.title ?? (() => {
+  const filename = post.id.split('/').pop()!.replace(/\.(html|mdx?|md)$/, '');
+  const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+})();
+
+const breadcrumbs = [
+  { name: 'Blog', href: '/blog/' },
+  { name: category.replace(/-/g, ' '), href: `/blog/${category}/` },
+];
+---
+
+<Post
+  title={postTitle}
+  description={post.data.description}
+  keywords={post.data.keywords}
+  tags={post.data.tags}
+  date={post.data.date}
+  breadcrumbs={breadcrumbs}
+  prevPost={prevPost}
+  nextPost={nextPost}
+  relativePath={post.id}
+  js={post.data.js}
+>
+  <Content />
+</Post>

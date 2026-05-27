@@ -1,0 +1,301 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+@import "mixin";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  visibility: hidden;
+  background: var(--background);
+  font-family: var(--font-family-base);
+}
+
+:root {
+  --color-brand-secondary: #ffba08;
+  --color-brand-secondary-10: #fff1ce;
+  --color-brand-secondary-20: #ffe39c;
+  --color-brand-secondary-30: #ffd66b;
+  --color-brand-secondary-40: #ffc839;
+  --color-brand-secondary-50: #ffba08;
+  --color-brand-secondary-60: #cc9506;
+  --color-brand-secondary-70: #997005;
+  --color-brand-secondary-80: #664a03;
+  --color-brand-secondary-90: #332502;
+  --color-brand-secondary-100: #000000;
+
+  --color-brand-primary: #e82d2f;
+  --color-brand-primary-10: #fad5d5;
+  --color-brand-primary-20: #f6abac;
+  --color-brand-primary-30: #f18182;
+  --color-brand-primary-40: #ed5759;
+  --color-brand-primary-50: #e82d2f;
+  --color-brand-primary-60: #ba2426;
+  --color-brand-primary-70: #8b1b1c;
+  --color-brand-primary-80: #5d1213;
+  --color-brand-primary-90: #2e0909;
+  --color-brand-primary-100: #000000;
+
+  --header-height: 5rem;
+  --header-background: var(--color-primary-container);
+  --font-family-base: "Inter", sans-serif;
+}
+
+html[data-theme='dark'] {
+  --color-brand-secondary: #7a3b00;
+  --color-brand-secondary-10: #e4d8cc;
+  --color-brand-secondary-20: #cab199;
+  --color-brand-secondary-30: #af8966;
+  --color-brand-secondary-40: #956233;
+  --color-brand-secondary-50: #7a3b00;
+  --color-brand-secondary-60: #622f00;
+  --color-brand-secondary-70: #492300;
+  --color-brand-secondary-80: #311800;
+  --color-brand-secondary-90: #180c00;
+  --color-brand-secondary-100: #000000;
+
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html.hydrated {
+  visibility: visible;
+}
+
+#nav-search-input {
+  margin: 0 1rem;
+}
+
+.color-brand {
+  color: var(--color-brand-primary);
+}
+
+.color-success {
+  color: var(--color-success);
+}
+
+
+@import "_components/section";
+@import "_components/header";
+@import "_components/banner";
+
+.bullet-pointer-shock {
+  padding-bottom: var(--spacing-05);
+  goat-text {
+    display: flex;
+  }
+  goat-text:before {
+    content: "⚡";
+  }
+}
+
+@include for-phone-only {
+  .hide-mobile {
+    display: none !important;
+  }
+  .show-mobile {
+    display: inherit;
+  }
+}
+
+@include for-tablet-portrait-up {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+
+
+
+.footer {
+  margin: 0 var(--spacing-12) var(--spacing-06);
+
+  goat-divider {
+    height: 100%;
+  }
+
+  /*.section-container {
+    padding-bottom: var(--spacing-05);
+  }*/
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    padding-top: var(--spacing-05);
+    gap: var(--spacing-05);
+
+    .social-links__links {
+      display: flex;
+      gap: var(--spacing-05);
+    }
+  }
+
+  .first-row {
+    padding-top: var(--spacing-05);
+    display: flex;
+    align-items: center;
+
+    .logo {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      height: 2.5rem;
+      padding: .5rem 0;
+
+      img {
+        height: 2rem;
+      }
+    }
+
+    .global-links {
+      display: flex;
+      gap: var(--spacing-09);
+    }
+  }
+}
+
+
+
+.social-icons {
+  align-items: center;
+}
+
+
+.made-in-india {
+  display: flex;
+  position: fixed;
+  font-size: 1rem;
+  transform-origin: bottom left;
+  transform: rotate(-90deg);
+  bottom: 2rem;
+  left: 2rem;
+  text-align: left;
+  align-items: center;
+  gap: 1rem;
+  .country-flag {
+    height: 1rem;
+    padding: 0 var(--spacing-02);
+  }
+
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 1px;
+    width: 25px;
+    background: var(--text-primary);
+    gap: .5rem;
+  }
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  --button-color: var(--text-primary);
+  position: fixed;
+  bottom: 2rem;
+  right: 0.5rem;
+  flex-direction: column;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 25px;
+    width: 1px;
+    background: var(--text-primary);
+  }
+}
+
+ /* .section-container {
+    padding: var(--spacing-09) 0;
+  }
+*/
+
+
+
+@include for-phone-only {
+  .footer {
+    margin: 0 var(--spacing-05) var(--spacing-06);
+  }
+  .footer .social-links {
+    .social-links__links {
+      gap: var(--spacing-02);
+      goat-button {
+        --button-padding: .75rem;
+      }
+    }
+  }
+}
+
+
+
+.project-content {
+  padding-top: var(--spacing-09);
+  padding-bottom: var(--spacing-09);
+}
+
+
+section {
+  padding: var(--spacing-05) 0;
+}
+
+.check-mark {
+  margin-right: var(--spacing-03);
+}
+
+goat-code-highlighter {
+  height: inherit;
+}
+
+.pager {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  .previous {
+    flex: 1;
+  }
+}
+
+.post {
+  padding-top: var(--header-height);
+  article {
+    padding: var(--spacing-05) 0;
+  }
+}
+
+.post-container {
+  padding: var(--spacing-09) 0;
+}
+
+.blog-posts {
+  margin-top: var(--spacing-05);
+  .item {
+     [type="heading"] {
+       margin-bottom: 0;
+     }
+    margin-bottom: var(--spacing-05);
+  }
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+a.url {
+  word-break: break-all;
+}

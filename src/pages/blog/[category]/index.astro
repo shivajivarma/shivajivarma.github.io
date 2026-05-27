@@ -1,0 +1,27 @@
+---
+import CategoryBlog from '../../../layouts/CategoryBlog.astro';
+import { getCollection } from 'astro:content';
+import { BLOG_CATEGORIES } from '../../../siteconfig';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  return BLOG_CATEGORIES.map((category) => ({
+    params: { category },
+    props: {
+      posts: allPosts.filter((p) => p.id.startsWith(`${category}/`)),
+      category,
+    },
+  }));
+}
+
+interface Props {
+  posts: Awaited<ReturnType<typeof getCollection<'blog'>>>;
+  category: string;
+}
+
+const { posts, category } = Astro.props;
+
+const title = category.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+---
+
+<CategoryBlog title={title} category={category} posts={posts} />

@@ -1,0 +1,23 @@
+---
+import { AUTHOR, SITE_TYPE, SITE_URL } from '../siteconfig';
+---
+
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Search · Shivaji Varma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content={AUTHOR.name} />
+  <meta name="copyright" content={`(c) ${new Date().getFullYear()} ${AUTHOR.name}`} />
+  <meta property="og:url" content={`${SITE_URL}/search/`} />
+  <meta property="og:type" content={SITE_TYPE} />
+  <meta property="og:image" content={`${SITE_URL}/assets/img/profile.webp`} />
+  <meta property="og:site_name" content={AUTHOR.name} />
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="author" href={`https://twitter.com/${AUTHOR.twitter}?rel=author`} />
+  <link rel="publisher" href={`https://twitter.com/${AUTHOR.twitter}`} />
+</head>
+<body>
+  <script async src="https://cse.google.com/cse.js?cx=a6e8d995b2836489c"></script>
+  <div class="gcse-search"></div>
+</body>

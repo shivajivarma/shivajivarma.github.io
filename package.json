@@ -1,22 +1,28 @@
 {
   "name": "shivajivarma.com",
-  "version": "1.0.0",
-  "description": "[Personal Website](https://shivajivarma.com)\r ================\r Everything I think of...",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "[Personal Website](https://shivajivarma.com)",
   "scripts": {
-    "start": "cd dest && live-server",
-    "build": "jekyll build",
-    "build-incremental": "jekyll build --incremental --config \"_config.yml,_config_dev.yml\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shivajivarma/shivajivarma.github.io.git"
   },
-  "author": "",
+  "author": "Shivaji Varma",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shivajivarma/shivajivarma.github.io/issues"
   },
-  "homepage": "https://github.com/shivajivarma/shivajivarma.github.io#readme"
+  "homepage": "https://github.com/shivajivarma/shivajivarma.github.io#readme",
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.4",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.2.1",
+    "sass": "^1.99.0"
+  }
 }

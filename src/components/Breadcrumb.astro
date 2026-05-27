@@ -1,0 +1,23 @@
+---
+interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  currentTitle: string;
+}
+
+const { items, currentTitle } = Astro.props;
+---
+
+<goat-breadcrumb>
+  <goat-breadcrumb-item href="/">Home</goat-breadcrumb-item>
+  {items.map((item) => (
+    <goat-breadcrumb-item href={item.href}>
+      {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+    </goat-breadcrumb-item>
+  ))}
+  <goat-breadcrumb-item active>{currentTitle}</goat-breadcrumb-item>
+</goat-breadcrumb>

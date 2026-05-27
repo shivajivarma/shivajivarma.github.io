@@ -1,0 +1,43 @@
+---
+import DefaultWithBanner from '../../layouts/DefaultWithBanner.astro';
+import { getCollection } from 'astro:content';
+import { BLOG_CATEGORIES } from '../../siteconfig';
+
+const allPosts = await getCollection('blog');
+
+function getPostUrl(id: string): string {
+  const parts = id.split('/');
+  const category = parts[0];
+  const filename = parts[parts.length - 1].replace(/\.(html|mdx?|md)$/, '');
+  const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  if (!match) return '#';
+  const [, year, month, day, slug] = match;
+  return `/blog/${category}/${year}/${month}/${day}/${slug}/`;
+}
+
+function getPostTitle(id: string, title?: string): string {
+  if (title) return title;
+  const filename = id.split('/').pop()!.replace(/\.(html|mdx?|md)$/, '');
+  const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+const sortedPosts = [...allPosts].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<DefaultWithBanner title="Blog" description="My blog posts on programming, music, stories, and more.">
+  <div class="blog-posts">
+    {sortedPosts.map((post) => (
+      <div class="item">
+        <goat-text type="heading" heading-size="4">
+          <a href={getPostUrl(post.id)} title={getPostTitle(post.id, post.data.title)}>
+            {getPostTitle(post.id, post.data.title)}
+          </a>
+        </goat-text>
+        <small class="text-muted">
+          {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+        </small>
+      </div>
+    ))}
+  </div>
+</DefaultWithBanner>

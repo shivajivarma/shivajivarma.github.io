@@ -1,0 +1,22 @@
+---
+interface Category {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  categories: Category[];
+}
+
+const { title, categories } = Astro.props;
+---
+
+<h3 class="h4">{title}</h3>
+<ul class="nav flex-column">
+  {categories.map((cat) => (
+    <li>
+      <a class="nav-link" href={cat.url} title={cat.name}>{cat.name}</a>
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,29 @@
+---
+import DefaultWithBanner from './DefaultWithBanner.astro';
+import Authoring from '../components/Authoring.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Comments from '../components/Comments.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string[];
+  date: Date;
+  relativePath?: string;
+  js?: string[];
+  scripts?: string[];
+}
+
+const { title, description, keywords, date, relativePath, js, scripts } = Astro.props;
+
+const breadcrumbs = [{ name: 'Project', href: '/project/' }];
+---
+
+<DefaultWithBanner title={title} description={description} keywords={keywords} js={js} scripts={scripts}>
+  <Breadcrumb items={breadcrumbs} currentTitle={title} />
+  <Authoring date={date} relativePath={relativePath} />
+  <div class="project" itemscope itemtype="http://schema.org/Article">
+    <slot />
+  </div>
+  <Comments />
+</DefaultWithBanner>

@@ -1,0 +1,26 @@
+---
+import { BLOG_CATEGORIES } from '../siteconfig';
+
+interface Props {
+  currentCategory?: string;
+}
+const { currentCategory } = Astro.props;
+
+const categories = [...BLOG_CATEGORIES].sort();
+---
+
+<hr class="d-block d-md-none" />
+<h3 class="h4">Categories</h3>
+<ul class="nav flex-column">
+  {categories.map((category) => (
+    <li>
+      <a
+        class={`nav-link${currentCategory === category ? ' active bg-primary text-white rounded' : ''}`}
+        href={`/blog/${category}/`}
+        title={category}
+      >
+        {category.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
+      </a>
+    </li>
+  ))}
+</ul>

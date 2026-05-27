@@ -1,0 +1,8 @@
+{
+  "name": "assets",
+  "version": "1.0.0",
+  "devDependencies": {
+    "jquery": "^3.5.1",
+    "bootstrap": "^5.1.3"
+  }
+}

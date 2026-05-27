@@ -1,0 +1,32 @@
+---
+interface Props {
+  repo: string;
+  program: string;
+  language?: string;
+  id?: string;
+}
+const { repo, program, language, id } = Astro.props;
+const elementId = id ?? `code-${Math.random().toString(36).slice(2, 7)}`;
+---
+
+<goat-code-highlighter
+  id={elementId}
+  line-numbers
+  language={language}
+  class="demo-html"
+></goat-code-highlighter>
+
+<script define:vars={{ repo, program, elementId }}>
+  (function () {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    fetch(`https://raw.githubusercontent.com/${repo}/master/${program}`)
+      .then((r) => r.text())
+      .then((data) => {
+        el.value = data;
+      })
+      .catch(() => {
+        el.insertAdjacentHTML('afterend', '<p>Loading failed, please download to view the code.</p>');
+      });
+  })();
+</script>

@@ -1,0 +1,74 @@
+---
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION, SITE_URL, SITE_TYPE, GOATUI_CSS_CDN, GOOGLE_ANALYTICS_ID, AUTHOR } from '../siteconfig';
+import '../styles/main.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  pageUrl?: string;
+  css?: string[];
+}
+
+const {
+  title,
+  description,
+  keywords = [],
+  pageUrl = Astro.url.pathname,
+  css = [],
+} = Astro.props;
+
+const pageTitle = title
+  ? `${title} · ${SITE_TITLE}`
+  : `${SITE_TITLE} · ${SITE_TAGLINE}`;
+const pageDescription = description ?? SITE_DESCRIPTION;
+const canonicalUrl = `${SITE_URL}${pageUrl}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+
+    <!-- Page meta data -->
+    <meta name="author" content={AUTHOR.name} />
+    <meta name="copyright" content={`(c) ${new Date().getFullYear()} ${AUTHOR.name}`} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={SITE_TYPE} />
+    <meta property="og:image" content={`${SITE_URL}/assets/img/profile.webp`} />
+    <meta property="og:site_name" content={AUTHOR.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta name="description" property="og:description" content={pageDescription} />
+    <meta name="keywords" content={[SITE_TITLE, ...keywords].join(', ')} />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
+    <link rel="author" href={`https://twitter.com/${AUTHOR.twitter}?rel=author`} />
+    <link rel="publisher" href={`https://twitter.com/${AUTHOR.twitter}`} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TITLE}
+      href={`${SITE_URL}/feed.xml`}
+    />
+
+    <link rel="stylesheet" type="text/css" href={GOATUI_CSS_CDN} />
+
+    {css.map((href) => (
+      <link rel="stylesheet" type="text/css" media="screen" href={href} />
+    ))}
+
+    <script is:inline type="module" src="https://cdn.jsdelivr.net/npm/@redvars/peacock@3.2.1/dist/peacock-loader.js"></script>
+
+    <GoogleAnalytics id={GOOGLE_ANALYTICS_ID} />
+  </head>
+
+  <body id="body" itemscope itemtype="http://schema.org/WebPage">
+    <slot />
+  </body>
+</html>

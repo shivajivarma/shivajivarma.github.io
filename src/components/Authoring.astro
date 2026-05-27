@@ -1,0 +1,34 @@
+---
+import { AUTHOR } from '../siteconfig';
+
+interface Props {
+  date: Date;
+  relativePath?: string;
+}
+const { date, relativePath } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<goat-text type="paragraph" size="sm" color="secondary">
+  <small class="text-muted">
+    Posted on {formattedDate} by{' '}
+    <a href="https://shivajivarma.com?rel=author" rel="author">
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">{AUTHOR.name}</span>
+      </span>
+    </a>
+    {relativePath && (
+      <>
+        {' '}&ndash;{' '}
+        <a href={`https://github.com/shivajivarma/shivajivarma.github.io/edit/master/${relativePath}`} target="_blank">
+          Edit
+        </a>
+      </>
+    )}
+  </small>
+</goat-text>
