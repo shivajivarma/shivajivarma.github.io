@@ -1,5 +1,5 @@
 ---
-import { AUTHOR, SITE_TITLE } from '../siteconfig';
+import { AUTHOR, SITE_TITLE } from "../siteconfig";
 
 interface Props {
   pageTitle?: string;
@@ -14,9 +14,8 @@ const { pageTitle } = Astro.props;
       <goat-header-brand
         logo="/assets/img/logo.webp"
         name="Shivaji Varma"
-        sub-title={pageTitle ?? ''}
-        href="/#"
-      ></goat-header-brand>
+        sub-title={pageTitle ?? ""}
+        href="/#"></goat-header-brand>
     </div>
     <div slot="right">
       <div class="header-right-panel">
@@ -26,10 +25,13 @@ const { pageTitle } = Astro.props;
           name="light_mode"
           itemprop="url"
           class="theme-switcher"
-          aria-label="Theme Switch"
-        ></icon-button>
-        <base-button href="/blog#" variant="text" itemprop="url">Blog</base-button>
-        <base-button variant="text" href="/project#" itemprop="url">Projects</base-button>
+          aria-label="Theme Switch"></icon-button>
+        <base-button href="/blog/#" variant="text" itemprop="url"
+          >Blog</base-button
+        >
+        <base-button variant="text" href="/project/#" itemprop="url"
+          >Projects</base-button
+        >
       </div>
     </div>
   </goat-header>
@@ -44,13 +46,17 @@ const { pageTitle } = Astro.props;
       <goat-header-brand
         logo="/assets/img/logo.webp"
         sub-title={pageTitle ?? SITE_TITLE}
-        href="/#"
-      ></goat-header-brand>
+        href="/#"></goat-header-brand>
     </div>
     <div slot="right">
-      <goat-header-action icon="light--filled" class="theme-switcher mobile" aria-label="Theme Switch"></goat-header-action>
-      <goat-header-action icon="blog" href="/blog#" itemprop="url"></goat-header-action>
-      <goat-header-action icon="roadmap" href="/project#" itemprop="url"></goat-header-action>
+      <goat-header-action
+        icon="light--filled"
+        class="theme-switcher mobile"
+        aria-label="Theme Switch"></goat-header-action>
+      <goat-header-action icon="blog" href="/blog/#" itemprop="url"
+      ></goat-header-action>
+      <goat-header-action icon="roadmap" href="/project/#" itemprop="url"
+      ></goat-header-action>
     </div>
   </goat-header>
 </nav>
