@@ -1,0 +1,42 @@
+---
+title: Stack
+description: Stack is a linear data structure which follows a particular order in which the operations are performed.
+keywords: ['stack', 'data structures']
+tags: [javascript]
+date: 2018-06-01T00:00:00.000Z
+---
+
+import GithubCodeHighlighter from '../../components/GithubCodeHighlighter.astro';
+
+<p><b>Stack</b> is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).</p>
+
+<p>Mainly the following three basic operations are performed in the stack:</p>
+
+<ul>
+  <li><b>Push</b>: Adds an item in the stack. If the stack is full, then it is said to be an Overflow condition.</li>
+  <li><b>Pop</b>: Removes an item from the stack. The items are popped in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition.</li>
+  <li><b>Peek or Top</b>: Returns top element of stack.</li>
+  <li><b>isEmpty</b>: Returns true if stack is empty, else false.</li>
+</ul>
+
+<h3 class="mb-5">Code</h3>
+<div class="card card-nav-tabs card-code">
+    <div class="card-header card-header-primary">
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#code-javascript" data-toggle="tab">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="tab-content">
+            <div class="tab-pane active" id="code-javascript">
+              <GithubCodeHighlighter id="javascript-highlight" repo="shivajivarma/codebase-js" program="data-structures/stack/stack.js" language="javascript" />
+            </div>
+        </div>
+    </div>
+</div>

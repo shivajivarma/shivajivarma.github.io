@@ -1,10 +1,10 @@
 ---
-import Default from './Default.astro';
-import Authoring from '../components/Authoring.astro';
-import Breadcrumb from '../components/Breadcrumb.astro';
-import AdsenseResponsive from '../components/AdsenseResponsive.astro';
-import Subscribe from '../components/Subscribe.astro';
-import Comments from '../components/Comments.astro';
+import DefaultWithTitle from "./DefaultWithTitle.astro";
+import Authoring from "../components/Authoring.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import AdsenseResponsive from "../components/AdsenseResponsive.astro";
+import Subscribe from "../components/Subscribe.astro";
+import Comments from "../components/Comments.astro";
 
 interface BreadcrumbItem {
   name: string;
@@ -45,10 +45,16 @@ const {
 } = Astro.props;
 ---
 
-<Default title={title} description={description} keywords={keywords} js={js} scripts={scripts}>
+<DefaultWithTitle
+  title={title}
+  description={description}
+  keywords={keywords}
+  js={js}
+  scripts={scripts}
+>
   <div class="post">
     <div class="post-container container">
-      <Breadcrumb items={breadcrumbs} currentTitle={title ?? ''} />
+      <Breadcrumb items={breadcrumbs} currentTitle={title ?? ""} />
 
       <article itemscope itemtype="http://schema.org/Article">
         <h1 class="h2 m-0" itemprop="name">{title}</h1>
@@ -59,26 +65,42 @@ const {
             <slot />
 
             <div class="tags">
-              Tags:{' '}
-              {tags.map((tag) => (
-                <span class="badge badge-primary mx-1">{tag}</span>
-              ))}
+              Tags:{" "}
+              {
+                tags.map((tag) => (
+                  <span class="badge badge-primary mx-1">{tag}</span>
+                ))
+              }
             </div>
 
             <ul class="pager">
               <li class="previous">
-                {prevPost && (
-                  <goat-button href={prevPost.url} aria-label={`Previous Post: ${prevPost.title}`} icon="arrow--left">
-                    Previous
-                  </goat-button>
-                )}
+                {
+                  prevPost && (
+                    <wc-button
+                      href={prevPost.url}
+                      aria-label={`Previous Post: ${prevPost.title}`}
+                      leading-icon
+                    >
+                      <wc-icon name="arrow_back" slot="icon"></wc-icon>
+                      Previous
+                    </wc-button>
+                  )
+                }
               </li>
               <li class="next">
-                {nextPost && (
-                  <goat-button href={nextPost.url} aria-label={`Next Post: ${nextPost.title}`} icon="arrow--right" icon-end>
-                    Next
-                  </goat-button>
-                )}
+                {
+                  nextPost && (
+                    <wc-button
+                      href={nextPost.url}
+                      aria-label={`Next Post: ${nextPost.title}`}
+                      trailing-icon
+                    >
+                      Next
+                      <wc-icon name="arrow_forward" slot="icon"></wc-icon>
+                    </wc-button>
+                  )
+                }
               </li>
             </ul>
           </div>
@@ -93,4 +115,4 @@ const {
       <Comments />
     </div>
   </div>
-</Default>
+</DefaultWithTitle>

@@ -9,12 +9,11 @@ const { repo, program, language, id } = Astro.props;
 const elementId = id ?? `code-${Math.random().toString(36).slice(2, 7)}`;
 ---
 
-<goat-code-highlighter
+<wc-code-highlighter
   id={elementId}
   line-numbers
   language={language}
-  class="demo-html"
-></goat-code-highlighter>
+  class="demo-html"></wc-code-highlighter>
 
 <script define:vars={{ repo, program, elementId }}>
   (function () {
@@ -26,7 +25,10 @@ const elementId = id ?? `code-${Math.random().toString(36).slice(2, 7)}`;
         el.value = data;
       })
       .catch(() => {
-        el.insertAdjacentHTML('afterend', '<p>Loading failed, please download to view the code.</p>');
+        el.insertAdjacentHTML(
+          "afterend",
+          "<p>Loading failed, please download to view the code.</p>",
+        );
       });
   })();
 </script>

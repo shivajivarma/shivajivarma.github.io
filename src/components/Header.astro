@@ -20,17 +20,17 @@ const { pageTitle } = Astro.props;
     <div slot="right">
       <div class="header-right-panel">
         <goat-input placeholder="Search" id="nav-search-input"></goat-input>
-        <icon-button
+        <wc-icon-button
           variant="text"
           name="light_mode"
           itemprop="url"
           class="theme-switcher"
-          aria-label="Theme Switch"></icon-button>
-        <base-button href="/blog/#" variant="text" itemprop="url"
-          >Blog</base-button
+          aria-label="Theme Switch"
+          ><wc-icon name="light_mode"></wc-icon></wc-icon-button
         >
-        <base-button variant="text" href="/project/#" itemprop="url"
-          >Projects</base-button
+        <wc-button href="/blog/#" variant="text" itemprop="url">Blog</wc-button>
+        <wc-button variant="text" href="/projects/#" itemprop="url"
+          >Projects</wc-button
         >
       </div>
     </div>
@@ -49,14 +49,18 @@ const { pageTitle } = Astro.props;
         href="/#"></goat-header-brand>
     </div>
     <div slot="right">
-      <goat-header-action
+      <wc-icon-button
         icon="light--filled"
         class="theme-switcher mobile"
-        aria-label="Theme Switch"></goat-header-action>
-      <goat-header-action icon="blog" href="/blog/#" itemprop="url"
-      ></goat-header-action>
-      <goat-header-action icon="roadmap" href="/project/#" itemprop="url"
-      ></goat-header-action>
+        aria-label="Theme Switch"></wc-icon-button>
+
+      <wc-icon-button icon="blog" href="/blog/#" itemprop="url">
+        <wc-icon icon="blog"></wc-icon>
+      </wc-icon-button>
+
+      <wc-icon-button href="/projects/#" itemprop="url">
+        <wc-icon icon="roadmap"></wc-icon>
+      </wc-icon-button>
     </div>
   </goat-header>
 </nav>

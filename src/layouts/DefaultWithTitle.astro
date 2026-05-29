@@ -1,0 +1,42 @@
+---
+import Base from "./Default.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Scripts from "../components/Scripts.astro";
+import { AUTHOR, SITE_TITLE } from "../siteconfig";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  js?: string[];
+  scripts?: string[];
+}
+
+const { title, description, keywords, js, scripts } = Astro.props;
+---
+
+<Base title={title} description={description} keywords={keywords}>
+  <style>
+    .default-with-banner {
+      background-color: var(--color-surface);
+      padding-block: 1rem 3rem;
+    }
+    .banner-title {
+      margin-bottom: 1rem;
+    }
+  </style>
+  <div class="default-with-banner">
+    <wc-container size="max">
+      <div class="banner-title">
+        <h1 class="text-display">{title}</h1>
+      </div>
+      <div class="project-content container">
+        <slot />
+      </div>
+    </wc-container>
+  </div>
+
+  <Footer />
+  <Scripts js={js} scripts={scripts} />
+</Base>

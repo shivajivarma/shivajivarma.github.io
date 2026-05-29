@@ -1,18 +1,17 @@
 @charset "utf-8";
 @import "mixin";
-@import "_components/banner";
 
 .project-details {
   display: flex;
-  gap: var(--spacing-05);
-  margin: var(--spacing-09) 0;
+  gap: var(--spacing-200);
+  margin: var(--spacing-600) 0;
   .logo {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 7rem;
     width: 7rem;
-    gap: var(--spacing-03);
+    gap: var(--spacing-300);
     img {
       width: 7rem;
       max-height: 100%;

@@ -12,12 +12,14 @@ interface Props {
 const { items, currentTitle } = Astro.props;
 ---
 
-<goat-breadcrumb>
-  <goat-breadcrumb-item href="/">Home</goat-breadcrumb-item>
-  {items.map((item) => (
-    <goat-breadcrumb-item href={item.href}>
-      {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-    </goat-breadcrumb-item>
-  ))}
-  <goat-breadcrumb-item active>{currentTitle}</goat-breadcrumb-item>
-</goat-breadcrumb>
+<wc-breadcrumb>
+  <wc-breadcrumb-item href="/">Home</wc-breadcrumb-item>
+  {
+    items.map((item) => (
+      <wc-breadcrumb-item href={item.href}>
+        {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+      </wc-breadcrumb-item>
+    ))
+  }
+  <wc-breadcrumb-item active>{currentTitle}</wc-breadcrumb-item>
+</wc-breadcrumb>

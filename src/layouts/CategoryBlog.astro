@@ -1,68 +1,88 @@
 ---
-import Default from './Default.astro';
-import Breadcrumb from '../components/Breadcrumb.astro';
-import BlogSideNav from '../components/BlogSideNav.astro';
-import AdsenseResponsive from '../components/AdsenseResponsive.astro';
-import Subscribe from '../components/Subscribe.astro';
-import type { CollectionEntry } from 'astro:content';
+import DefaultWithTitle from "./DefaultWithTitle.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import BlogSideNav from "../components/BlogSideNav.astro";
+import AdsenseResponsive from "../components/AdsenseResponsive.astro";
+import Subscribe from "../components/Subscribe.astro";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
   title: string;
   category: string;
-  posts: CollectionEntry<'blog'>[];
+  posts: CollectionEntry<"blog">[];
 }
 
 const { title, category, posts } = Astro.props;
 
-const breadcrumbs = [{ name: 'Blog', href: '/blog/' }];
+const breadcrumbs = [{ name: "Blog", href: "/blog/" }];
 
 function formatDate(date: Date) {
-  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
-function getPostUrl(post: CollectionEntry<'blog'>) {
-  const filename = post.id.split('/').pop()!;
+function getPostUrl(post: CollectionEntry<"blog">) {
+  const filename = post.id.split("/").pop()!;
   const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (!match) return '#';
+  if (!match) return "#";
   const [, year, month, day, slug] = match;
   return `/blog/${category}/${year}/${month}/${day}/${slug}/`;
 }
 
-function getPostTitle(post: CollectionEntry<'blog'>) {
+function getPostTitle(post: CollectionEntry<"blog">) {
   if (post.data.title) return post.data.title;
-  const filename = post.id.split('/').pop()!;
-  const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.(html|mdx?|md)$/, '');
-  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  const filename = post.id.split("/").pop()!;
+  const slug = filename
+    .replace(/^\d{4}-\d{2}-\d{2}-/, "")
+    .replace(/\.(html|mdx?|md)$/, "");
+  return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-const sortedPosts = [...posts].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const sortedPosts = [...posts].sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
 ---
 
-<Default title={title}>
+<DefaultWithTitle title={title}>
   <Breadcrumb items={breadcrumbs} currentTitle={title} />
   <div class="container-fluid pb-4">
     <h1 class="h2">{title}</h1>
     <div class="row">
       <div id="post-list" class="col-md-9">
-        {sortedPosts.map((post) => (
-          <div>
-            <h3 class="h4 mt-2">
-              <a class="no-underline" href={getPostUrl(post)} title={getPostTitle(post)}>
-                {getPostTitle(post)}
-              </a>
-            </h3>
-            <small class="text-muted">
-              Posted on {formatDate(post.data.date)}
-              | Category:{' '}
-              <a href={`/blog/${category}/`}>
-                {category.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
-              </a>
-              {post.data.tags && post.data.tags.length > 0 && (
-                <>| Tags: {post.data.tags.map((t) => t.charAt(0).toUpperCase() + t.slice(1)).join(' ')}</>
-              )}
-            </small>
-          </div>
-        ))}
+        {
+          sortedPosts.map((post) => (
+            <div>
+              <h3 class="h4 mt-2">
+                <a
+                  class="no-underline"
+                  href={getPostUrl(post)}
+                  title={getPostTitle(post)}
+                >
+                  {getPostTitle(post)}
+                </a>
+              </h3>
+              <small class="text-muted">
+                Posted on {formatDate(post.data.date)}| Category:{" "}
+                <a href={`/blog/${category}/`}>
+                  {category
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, (c) => c.toUpperCase())}
+                </a>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <>
+                    | Tags:{" "}
+                    {post.data.tags
+                      .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
+                      .join(" ")}
+                  </>
+                )}
+              </small>
+            </div>
+          ))
+        }
       </div>
       <div class="col-md-3">
         <BlogSideNav currentCategory={category} />
@@ -73,4 +93,4 @@ const sortedPosts = [...posts].sort((a, b) => b.data.date.getTime() - a.data.dat
       </div>
     </div>
   </div>
-</Default>
+</DefaultWithTitle>

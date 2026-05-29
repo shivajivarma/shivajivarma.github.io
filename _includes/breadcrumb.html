@@ -1,7 +1,0 @@
-<goat-breadcrumb>
-  <goat-breadcrumb-item href="{{ site.baseurl }}/">Home</goat-breadcrumb-item>
-  {% for item in include.items %}
-  <goat-breadcrumb-item href="{{ site.baseurl }}{{ item.href }}">{{ item.name | capitalize }}</goat-breadcrumb-item>
-  {% endfor %}
-  <goat-breadcrumb-item active>{{ page.title }}</goat-breadcrumb-item>
-</goat-breadcrumb>

@@ -1,35 +1,25 @@
 ---
-import { GOATUI_JS_CDN } from '../siteconfig';
+import { GOATUI_JS_CDN } from "../siteconfig";
 
 interface Props {
-  isRoot?: boolean;
   js?: string[];
   scripts?: string[];
 }
-const { isRoot = false, js = [], scripts = [] } = Astro.props;
+const { js = [], scripts = [] } = Astro.props;
 ---
 
-<script is:inline src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-{!isRoot && (
-  <>
-    <script is:inline type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
-    <script is:inline type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-c.min.js"></script>
-    <script is:inline type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
-    <script is:inline type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-sql.min.js"></script>
-    <script is:inline type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
-  </>
-)}
+<script is:inline src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+></script>
 
 <script is:inline src="/assets/js/main.js"></script>
 
 <!-- Core JS Files -->
 <script is:inline type="module" src={GOATUI_JS_CDN}></script>
 
-{js.map((file) => (
-  <script is:inline type="text/javascript" src={`/assets/js/${file}`}></script>
-))}
+{
+  js.map((file) => (
+    <script is:inline type="text/javascript" src={`/assets/js/${file}`} />
+  ))
+}
 
-{scripts.map((src) => (
-  <script is:inline type="text/javascript" src={src}></script>
-))}
+{scripts.map((src) => <script is:inline type="text/javascript" src={src} />)}

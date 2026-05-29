@@ -1,29 +1,94 @@
 ---
-import { AUTHOR, SITE_TITLE } from '../siteconfig';
+import {
+  AUTHOR,
+  REPO_URL,
+  PRIVACY_URL,
+  LICENSE_URL,
+  SPONSOR_URL,
+  GITHUB_USERNAME,
+} from "../siteconfig";
+import "../styles/footer.scss";
 ---
 
-<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-  <div class="section-container">
-    <div class="social-links">
-      <goat-text inline expressive>Follow me</goat-text>
-      <div class="social-links__links">
-        <goat-button icon="logo--twitter" href={`https://twitter.com/${AUTHOR.twitter}`} title="Twitter" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-        <goat-button icon="logo--linkedin" href={`https://www.linkedin.com/in/${AUTHOR.linkedin}`} title="LinkedIn" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-        <goat-button icon="logo--github" href={`https://github.com/${AUTHOR.github}`} title="Github" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-        <goat-button icon="logo--youtube" href={`https://youtube.com/c/${AUTHOR.youtube}`} title="Youtube" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-        <goat-button icon="email" href={`mailto:${AUTHOR.email}`} title="Mail" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-      </div>
+<footer class="footer-with-about">
+  <section class="about">
+    <div class="about-content">
+      <h2 class="text-headline section-title">Shivaji Varma</h2>
+      <p class="text-body-large">
+        Staff Software Engineer & Architect based in India. I build and scale
+        cloud-based applications, contribute to open source, and share what I
+        learn along the way.
+      </p>
     </div>
-    <div class="first-row">
-      <div class="logo">
-        <img src="/assets/img/logo.webp" alt="Shivaji Varma Logo" />
-        <goat-divider vertical></goat-divider>
-        <goat-text>Shivaji Varma</goat-text>
-      </div>
-      <div class="global-links">
-        <goat-link href="/privacy/">Privacy</goat-link>
-        <goat-link rel="license noopener" href="/LICENSE/">License</goat-link>
-      </div>
-    </div>
+  </section>
+
+  <nav class="footer-links" aria-label="Footer links">
+    <h2 class="text-title-large section-title">Links</h2>
+    <ul class="section-nav-links">
+      <li><wc-link href={PRIVACY_URL}>Privacy Policy</wc-link></li>
+      <li><wc-link href={LICENSE_URL}>License</wc-link></li>
+      <li><wc-link href={SPONSOR_URL} target="_blank">Sponsor</wc-link></li>
+    </ul>
+  </nav>
+
+  <div class="footer-social-links" aria-label="Social links">
+    <h2 class="text-title-large section-title">Social</h2>
+
+    <ul class="section-nav-links">
+      <li>
+        <wc-icon-button
+          variant="outlined"
+          color="surface"
+          href={`https://twitter.com/${AUTHOR.twitter}`}
+          target="_blank"
+          aria-label="X (Twitter)"
+        >
+          <wc-icon name="logo--twitter" provider="carbon"></wc-icon>
+        </wc-icon-button>
+      </li>
+      <li>
+        <wc-icon-button
+          variant="outlined"
+          color="surface"
+          href={`https://www.linkedin.com/in/${AUTHOR.linkedin}`}
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <wc-icon name="logo--linkedin" provider="carbon"></wc-icon>
+        </wc-icon-button>
+      </li>
+      <li>
+        <wc-icon-button
+          variant="outlined"
+          color="surface"
+          href={`https://github.com/${AUTHOR.github}`}
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <wc-icon name="logo--github" provider="carbon"></wc-icon>
+        </wc-icon-button>
+      </li>
+      <li>
+        <wc-icon-button
+          variant="outlined"
+          color="surface"
+          href={`https://youtube.com/c/${AUTHOR.youtube}`}
+          target="_blank"
+          aria-label="YouTube"
+        >
+          <wc-icon name="logo--youtube" provider="carbon"></wc-icon>
+        </wc-icon-button>
+      </li>
+      <li>
+        <wc-icon-button
+          variant="outlined"
+          color="surface"
+          href={`mailto:${AUTHOR.email}`}
+          aria-label="Email"
+        >
+          <wc-icon name="email" provider="carbon"></wc-icon>
+        </wc-icon-button>
+      </li>
+    </ul>
   </div>
 </footer>

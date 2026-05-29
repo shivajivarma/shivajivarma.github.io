@@ -1,15 +1,11 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import pagefind from "astro-pagefind";
 
 export default defineConfig({
-  site: 'https://shivajivarma.com',
-  trailingSlash: 'always',
-  integrations: [
-    mdx(),
-    sitemap({
-      filter: (page: string) => !page.includes('/assets/includes/'),
-    }),
-  ],
+  devToolbar: { enabled: false },
+  site: "https://shivajivarma.com",
+  integrations: [pagefind(), sitemap(), mdx()],
   redirects: {},
 });

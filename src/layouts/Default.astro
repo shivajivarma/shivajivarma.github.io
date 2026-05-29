@@ -1,43 +1,118 @@
 ---
-import Base from './Base.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Scripts from '../components/Scripts.astro';
-import { AUTHOR, SITE_TITLE } from '../siteconfig';
+import Base from "./Base.astro";
+import Scripts from "../components/Scripts.astro";
+import SideNavigation from "@/components/navigation/SideNavigation.astro";
+import MobileNavigation from "@/components/navigation/MobileNavigation.astro";
+import PagefindModal from "@/components/navigation/PagefindModal.astro";
+import "../styles/layout/default.scss";
 
 interface Props {
   title?: string;
   description?: string;
   keywords?: string[];
-  css?: string[];
-  isRoot?: boolean;
   js?: string[];
   scripts?: string[];
 }
 
-const { title, description, keywords, css, isRoot = false, js, scripts } = Astro.props;
+const { title, description, keywords, js, scripts } = Astro.props;
 ---
 
-<Base title={title} description={description} keywords={keywords} css={css}>
-  <Header pageTitle={title} />
+<Base title={title} description={description} keywords={keywords}>
+  <div class="default-layout">
+    <!-- For desktop and tablet -->
+    <div class="side-navigation-container">
+      <SideNavigation />
+    </div>
+
+    <div class="default-layout-content">
+      <!-- For mobile -->
+      <MobileNavigation />
+
+      <slot />
+    </div>
+  </div>
+
+  <wc-notification-manager
+    position="bottom-right"
+    class="page-notification-manager"></wc-notification-manager>
+
+  <PagefindModal />
+
+  <!-- <Header pageTitle={title} />
   <div id="content">
     <slot />
   </div>
   <Footer />
 
   <div class="social-icons hide-mobile">
-    <goat-button icon="logo--twitter" href={`https://twitter.com/${AUTHOR.twitter}`} title="Twitter" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-    <goat-button icon="logo--linkedin" href={`https://www.linkedin.com/in/${AUTHOR.linkedin}`} title="LinkedIn" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-    <goat-button icon="logo--github" href={`https://github.com/${AUTHOR.github}`} title="Github" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-    <goat-button icon="logo--youtube" href={`https://youtube.com/c/${AUTHOR.youtube}`} title="Youtube" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
-    <goat-button icon="email" href={`mailto:${AUTHOR.email}`} title="Mail" icon-size="lg" variant="ghost" color="dark" dark-mode-color="light" rel="noopener"></goat-button>
+    <wc-icon-button
+      icon="logo--twitter"
+      href={`https://twitter.com/${AUTHOR.twitter}`}
+      title="Twitter"
+      variant="text"
+      color="dark"
+      dark-mode-color="light"
+      rel="noopener"
+    >
+      <wc-icon name="logo--twitter" provider="carbon"></wc-icon>
+    </wc-icon-button>
+    <wc-icon-button
+      icon="logo--linkedin"
+      href={`https://www.linkedin.com/in/${AUTHOR.linkedin}`}
+      title="LinkedIn"
+      variant="text"
+      color="dark"
+      dark-mode-color="light"
+      rel="noopener"
+    >
+      <wc-icon name="logo--linkedin" provider="carbon"></wc-icon>
+    </wc-icon-button>
+    <wc-icon-button
+      icon="logo--github"
+      href={`https://github.com/${AUTHOR.github}`}
+      title="Github"
+      variant="text"
+      color="dark"
+      dark-mode-color="light"
+      rel="noopener"
+    >
+      <wc-icon name="logo--github" provider="carbon"></wc-icon>
+    </wc-icon-button>
+    <wc-icon-button
+      icon="logo--youtube"
+      href={`https://youtube.com/c/${AUTHOR.youtube}`}
+      title="Youtube"
+      variant="text"
+      color="dark"
+      dark-mode-color="light"
+      rel="noopener"
+    >
+      <wc-icon name="logo--youtube" provider="carbon"></wc-icon>
+    </wc-icon-button>
+    <wc-icon-button
+      icon="email"
+      href={`mailto:${AUTHOR.email}`}
+      title="Mail"
+      variant="text"
+      color="dark"
+      dark-mode-color="light"
+      rel="noopener"
+    >
+      <wc-icon name="email" provider="carbon"></wc-icon>
+    </wc-icon-button>
   </div>
 
   <div class="made-in-india hide-mobile">
-    <span>&copy; 2023 <goat-link class="no-decoration" href="/">{SITE_TITLE}</goat-link>.</span>
-    <img class="country-flag" src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg" /> Made in
-    India.
-  </div>
+    <span
+      >&copy; 2023 <goat-link class="no-decoration" href="/"
+        >{SITE_TITLE}</goat-link
+      >.</span
+    >
+    <img
+      class="country-flag"
+      src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg"
+    /> Made in India.
+  </div> -->
 
-  <Scripts isRoot={isRoot} js={js} scripts={scripts} />
+  <Scripts js={js} scripts={scripts} />
 </Base>

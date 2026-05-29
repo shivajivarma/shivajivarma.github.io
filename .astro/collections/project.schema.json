@@ -29,6 +29,13 @@
         "type": "string"
       }
     },
+    "scripts": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "navlinks": {
       "default": [],
       "type": "array",

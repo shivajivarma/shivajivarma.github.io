@@ -1,0 +1,34 @@
+﻿---
+title: Using JavaScript ES6 import/export modules
+description: 'Using JavaScript ES6 import/export modules.'
+keywords: [javascript, 'es6 import export modules']
+tags: [js]
+date: 2018-06-08T00:00:00.000Z
+---
+
+<h3>How to use ES6 modules in your browser</h3>
+<p>You can include a module in your HTML by adding a script with <mark><code>type="module"</code></mark>:</p>
+
+```html
+<script type="module">
+    import {helloWorld} from './hello-world.js';
+    helloWorld();
+</script>
+```
+
+```javascript
+const helloWorld = () => alert ('Hello World!');
+export {
+    helloWorld
+};
+```
+
+<goat-link href="https://github.com/shivajivarma/codebase/raw/master/JS/es6-import-export.zip" download>Download Source</goat-link>
+
+<h4>Steps:</h4>
+<ol>
+    <li>Download the source code and unzip the files.</li>
+    <li>Run a static server on the source folder, eg: <code>live-server port=8080</code></li>
+    <li>Open the localhost:8080</li>
+    <li>You would see alert message</li>
+</ol>

@@ -1,0 +1,68 @@
+---
+const pathname = Astro.url.pathname;
+
+const isBlogPage = pathname === "/blog" || pathname.startsWith("/blog/");
+const isHomePage = pathname === "/";
+const isProjectsPage =
+  pathname === "/projects" || pathname.startsWith("/projects/");
+---
+
+<style lang="scss">
+  .navigation-rail {
+    position: fixed;
+    --nav-rail-width: var(--side-navigation-width);
+    --nav-rail-container-color: var(--container-surface-container-high);
+  }
+</style>
+
+<wc-navigation-rail class="navigation-rail">
+  <wc-fab
+    slot="header"
+    id="search-btn"
+    class="search-button"
+    lowered
+    color="primary"
+    aria-label="Search components"><wc-icon name="search"></wc-icon></wc-fab
+  >
+
+  <wc-navigation-rail-item
+    href="/#"
+    aria-label="Go to Home"
+    active={isHomePage ? true : null}
+  >
+    <img
+      src="/assets/img/logo.webp"
+      slot="icon"
+      class="logo"
+      alt="peacock"
+      style="width: 32px;"
+    />
+    Home
+  </wc-navigation-rail-item>
+
+  <wc-navigation-rail-item
+    href="/blog"
+    title="Go to Blog"
+    active={isBlogPage ? true : null}
+  >
+    <wc-icon slot="icon" name="pages"></wc-icon>
+    Blog
+  </wc-navigation-rail-item>
+
+  <wc-navigation-rail-item
+    href="/projects"
+    aria-label="Go to Projects"
+    active={isProjectsPage ? true : null}
+  >
+    <wc-icon slot="icon" name="grid_view"></wc-icon>
+    Projects
+  </wc-navigation-rail-item>
+
+  <wc-navigation-rail-item
+    slot="footer"
+    class="theme-switcher"
+    aria-label="Toggle light/dark mode"
+  >
+    <wc-icon slot="icon" class="icon"></wc-icon>
+  </wc-navigation-rail-item>
+</wc-navigation-rail>

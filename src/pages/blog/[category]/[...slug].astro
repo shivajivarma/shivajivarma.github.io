@@ -1,6 +1,6 @@
 ---
 import Post from '../../../layouts/Post.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { BLOG_CATEGORIES } from '../../../siteconfig';
 
 export async function getStaticPaths() {
@@ -49,7 +49,7 @@ interface Props {
 }
 
 const { post, category, prevPost, nextPost } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const postTitle = post.data.title ?? (() => {
   const filename = post.id.split('/').pop()!.replace(/\.(html|mdx?|md)$/, '');

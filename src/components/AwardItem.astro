@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string;
+  issuer: string;
+  date: string;
+}
+
+const { title, issuer, date } = Astro.props;
+---
+
+<div class="award-card">
+  <div class="award-header">
+    <span class="award-medal">🏅</span>
+  </div>
+  <div class="award-body">
+    <p class="text-title-medium award-title">{title}</p>
+    <div class="award-meta">
+      <span class="text-body-small">{issuer}</span>
+      <span class="dot"></span>
+      <span class="text-body-small">{date}</span>
+    </div>
+    <p class="text-body-medium award-desc"><slot /></p>
+  </div>
+</div>
+
+<style lang="scss">
+  .award-card {
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--shape-corner-medium);
+    background: var(--color-surface);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition:
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+    }
+  }
+
+  .award-header {
+    background: var(--color-primary-container);
+    padding: var(--spacing-300) var(--spacing-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .award-medal {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+  }
+
+  .award-body {
+    padding: var(--spacing-300);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+    flex: 1;
+  }
+
+  .award-title {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .award-meta {
+    display: flex;
+    align-items: center;
+    color: var(--color-on-surface-variant);
+  }
+
+  .dot {
+    display: inline-block;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background: currentColor;
+    vertical-align: middle;
+    margin-inline: 0.4rem;
+  }
+
+  .award-desc {
+    margin: 0;
+    color: var(--color-on-surface-variant);
+  }
+</style>

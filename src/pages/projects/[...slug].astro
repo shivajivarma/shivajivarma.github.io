@@ -1,0 +1,39 @@
+---
+import Project from '../../layouts/Project.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('project');
+  return projects
+    .filter((post) => {
+      // code-base is served by project/code-base/index.astro
+      const slug = post.id.replace(/\.(html|mdx?|md)$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+      return slug !== 'code-base';
+    })
+    .map((post) => {
+      const slug = post.id.replace(/\.(html|mdx?|md)$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+      return {
+        params: { slug },
+        props: { post },
+      };
+    });
+}
+
+interface Props {
+  post: Awaited<ReturnType<typeof getCollection<'project'>>>[number];
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Project
+  title={post.data.title}
+  description={post.data.description}
+  keywords={post.data.keywords}
+  date={post.data.date}
+  relativePath={post.id}
+  scripts={post.data.scripts}
+>
+  <Content />
+</Project>

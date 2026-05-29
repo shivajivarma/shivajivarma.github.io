@@ -4,23 +4,25 @@
   height: 100vh;
   padding-top: var(--header-height);
   background: var(--color-primary-container);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   .container {
     display: flex;
+    height: calc(100vh - var(--header-height));
   }
 
   .banner-content-section {
     display: flex;
     align-items: center;
+
+    .banner-content h1 {
+      margin-bottom: var(--spacing-200);
+    }
   }
 
   .banner-image-section {
     display: flex;
     align-items: center;
     img {
+      width: 100%;
       border-radius: 50%;
     }
   }
@@ -36,9 +38,9 @@
 }
 
 @include for-phone-only {
-  .banner .section-container {
+  .banner .container {
     height: 100%;
-    padding: 0 var(--spacing-05);
+    padding: 0 var(--spacing-200);
     flex-direction: column;
 
     .banner-content-section {

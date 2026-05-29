@@ -1,0 +1,50 @@
+---
+title: Snake Game
+description: 'Snake Game using HTML and JS'
+keywords: ['snake game', 'html js game']
+date: 2014-10-04T00:00:00.000Z
+scripts: ['//shivajivarma.com/snake-game/snake-game.js']
+---
+
+import GithubCodeHighlighter from '../../components/GithubCodeHighlighter.astro';
+
+<a class="anchor" id="game-top"></a>
+<goat-text expressive>Snake game written using javascript</goat-text>
+<div class="row flex-row-reverse">
+  <div class="col-md-4">
+    <div class="card m-auto" style="max-width: 18rem;">
+      <div class="card-header card-header-primary">Score Card</div>
+      <div class="card-body">
+        <goat-text expressive>Score : <span id="score">0</span></goat-text>
+        <goat-text expressive>Best &nbsp;: <span id="best-score">0</span></goat-text>
+        <goat-text expressive><span id="displayBoard">&nbsp;</span></goat-text>
+        <goat-text expressive><a href="#game-top" class="btn btn-outline-primary">Scroll to game top</a></goat-text>
+        <goat-text expressive><span class="text-danger">*</span> Use arrow keys to play the game</goat-text>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8" id="canvas-wrapper">
+    <canvas id="canvas" height="500"></canvas>
+  </div>
+
+  <script>{`
+    var canvas = document.getElementsByTagName('canvas')[0];
+    var wrapperWidth = document.getElementById('canvas-wrapper').offsetWidth;
+    canvas.width = wrapperWidth - (wrapperWidth % 10);
+  `}</script>
+
+</div>
+
+<h3>HTML Code</h3>
+<GithubCodeHighlighter id="code-html" program="index.html" repo="shivajivarma/snake-game" language="markup" />
+
+<h3>JS Code</h3>
+<GithubCodeHighlighter id="code-js" program="snake-game.js" repo="shivajivarma/snake-game" language="javascript" />
+
+<script type="text/javascript">{`
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof snakeGame !== 'undefined') {
+      snakeGame.init();
+    }
+  });
+`}</script>

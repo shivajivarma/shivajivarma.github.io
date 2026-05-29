@@ -1,0 +1,97 @@
+---
+import DefaultWithTitle from "../../layouts/DefaultWithTitle.astro";
+import "../../styles/projects.scss";
+---
+
+<DefaultWithTitle
+  title="Projects"
+  description="Showcase of few of my works. Do check them out once."
+  keywords={[]}
+>
+  <div class="showcase-item">
+    <div class="project-details">
+      <div class="logo">
+        <img
+          style="color: #8a3ffc"
+          src="/assets/img/projects/bus-reservation-system/icon.png"
+          title="Bus Reservation System"
+          alt="Bus Reservation System"
+        />
+      </div>
+      <div class="details">
+        <goat-text type="heading" heading-size="4"
+          >Bus Reservation System</goat-text
+        >
+        <goat-text type="body" expressive
+          >A Java + Oracle DBMS academic project for managing bus routes, seat
+          reservations, and ticket cancellations.</goat-text
+        >
+        <wc-button
+          class="read-more"
+          href="/projects/bus-reservation-system/"
+          trailing-icon
+          >Read More
+          <wc-icon name="arrow_forward" slot="icon"></wc-icon>
+        </wc-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase-item">
+    <div class="project-details">
+      <div class="logo">
+        <img
+          src="https://peacock.redvars.com/assets/img/logo-plain.webp"
+          title="Peacock"
+          alt="Peacock"
+        />
+      </div>
+      <div class="details">
+        <goat-text type="heading" heading-size="4">Peacock</goat-text>
+        <goat-text type="body" expressive
+          >A lightweight web component library, build using lit js.</goat-text
+        >
+        <goat-text type="body" expressive>
+          Peacock contains most used web components built using Lit. So you
+          don't need to include any additional framework dependencies, You can
+          simply import required component js, and right away start using it.
+        </goat-text>
+        <wc-button
+          class="read-more"
+          href="https://goatui.com"
+          target="_blank"
+          trailing-icon
+          >Read More
+          <wc-icon name="arrow_forward" slot="icon"></wc-icon>
+        </wc-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase-item">
+    <div class="project-details">
+      <div class="logo">
+        <img
+          style="color: #8a3ffc"
+          src="/assets/img/projects/search-engine/icon.png"
+          title="Search Engine"
+          alt="Search Engine"
+        />
+      </div>
+      <div class="details">
+        <goat-text type="heading" heading-size="4">Search Engine</goat-text>
+        <goat-text type="body" expressive
+          >A PHP academic project implementing a search engine from scratch —
+          crawler, indexer, and query parser.</goat-text
+        >
+        <wc-button
+          class="read-more"
+          href="/projects/search-engine/"
+          trailing-icon
+          >Read More
+          <wc-icon name="arrow_forward" slot="icon"></wc-icon>
+        </wc-button>
+      </div>
+    </div>
+  </div>
+</DefaultWithTitle>

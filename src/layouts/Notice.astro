@@ -1,37 +1,32 @@
 ---
-import Base from './Base.astro';
-import Scripts from '../components/Scripts.astro';
-
-interface Props {
-  title?: string;
-  description?: string;
-  keywords?: string[];
-}
-
-const { title, description, keywords } = Astro.props;
+import Layout from "./Default.astro";
+const { title, description, keywords } = Astro.props.frontmatter;
 ---
 
-<Base title={title} description={description} keywords={keywords}>
-  <style is:global>
-    .notice-container {
-      max-width: var(--container-xl);
-      margin: 0 auto;
-      padding: var(--spacing-4);
+<Layout title={title} description={description} keywords={keywords}>
+  <style>
+    .default-layout-content {
+      background: var(--color-surface);
     }
-    .notice-content {
-      padding-top: var(--spacing-05);
-    }
-    .notice-content goat-text {
-      padding-top: var(--spacing-03);
+    .back-to-home {
+      margin-top: var(--spacing-300);
     }
   </style>
-  <div class="notice-container">
-    <goat-text type="heading" size="sm">
-      {title}
-    </goat-text>
-    <div class="notice-content">
-      <slot />
-    </div>
-  </div>
-  <Scripts />
-</Base>
+  <main>
+    <wc-container size="lg">
+      <article class="markdown">
+        <slot />
+      </article>
+
+      <wc-button
+        class="back-to-home"
+        type="secondary"
+        icon-align="start"
+        href="/#"
+      >
+        <wc-icon name="arrow_left_alt" slot="icon"></wc-icon>
+        Back to home
+      </wc-button>
+    </wc-container>
+  </main>
+</Layout>

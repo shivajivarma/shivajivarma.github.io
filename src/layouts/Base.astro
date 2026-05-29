@@ -1,7 +1,16 @@
 ---
-import GoogleAnalytics from '../components/GoogleAnalytics.astro';
-import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION, SITE_URL, SITE_TYPE, GOATUI_CSS_CDN, GOOGLE_ANALYTICS_ID, AUTHOR } from '../siteconfig';
-import '../styles/main.scss';
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import {
+  SITE_TITLE,
+  SITE_TAGLINE,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  SITE_TYPE,
+  GOOGLE_ANALYTICS_ID,
+  AUTHOR,
+} from "../siteconfig";
+
+import "../styles/layout/base.scss";
 
 interface Props {
   title?: string;
@@ -23,10 +32,10 @@ const pageTitle = title
   ? `${title} · ${SITE_TITLE}`
   : `${SITE_TITLE} · ${SITE_TAGLINE}`;
 const pageDescription = description ?? SITE_DESCRIPTION;
-const canonicalUrl = `${SITE_URL}${pageUrl}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -36,20 +45,31 @@ const canonicalUrl = `${SITE_URL}${pageUrl}`;
 
     <!-- Page meta data -->
     <meta name="author" content={AUTHOR.name} />
-    <meta name="copyright" content={`(c) ${new Date().getFullYear()} ${AUTHOR.name}`} />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta
+      name="copyright"
+      content={`(c) ${new Date().getFullYear()} ${AUTHOR.name}`}
+    />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={SITE_TYPE} />
     <meta property="og:image" content={`${SITE_URL}/assets/img/profile.webp`} />
     <meta property="og:site_name" content={AUTHOR.name} />
     <meta property="og:title" content={pageTitle} />
-    <meta name="description" property="og:description" content={pageDescription} />
-    <meta name="keywords" content={[SITE_TITLE, ...keywords].join(', ')} />
+    <meta
+      name="description"
+      property="og:description"
+      content={pageDescription}
+    />
+    <meta name="keywords" content={[SITE_TITLE, ...keywords].join(", ")} />
+    <GoogleAnalytics id={GOOGLE_ANALYTICS_ID} />
 
     <!-- Icons -->
     <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
-    <link rel="author" href={`https://twitter.com/${AUTHOR.twitter}?rel=author`} />
+    <link
+      rel="author"
+      href={`https://twitter.com/${AUTHOR.twitter}?rel=author`}
+    />
     <link rel="publisher" href={`https://twitter.com/${AUTHOR.twitter}`} />
-    <link rel="canonical" href={canonicalUrl} />
+    <link rel="canonical" href={canonicalURL} />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -57,18 +77,34 @@ const canonicalUrl = `${SITE_URL}${pageUrl}`;
       href={`${SITE_URL}/feed.xml`}
     />
 
-    <link rel="stylesheet" type="text/css" href={GOATUI_CSS_CDN} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    {css.map((href) => (
-      <link rel="stylesheet" type="text/css" media="screen" href={href} />
-    ))}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Pacifico&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-    <script is:inline type="module" src="https://cdn.jsdelivr.net/npm/@redvars/peacock@3.2.1/dist/peacock-loader.js"></script>
+    <!-- Peacock styles -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@redvars/peacock@3.8.5/dist/assets/styles.css"
+      rel="stylesheet"
+    />
 
-    <GoogleAnalytics id={GOOGLE_ANALYTICS_ID} />
+    <style>
+      body {
+        background: var(--color-surface-container-highest);
+        color: var(--color-on-surface);
+      }
+    </style>
   </head>
 
-  <body id="body" itemscope itemtype="http://schema.org/WebPage">
+  <body itemscope itemtype="http://schema.org/WebPage">
     <slot />
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@redvars/peacock@3.8.5/dist/loader.js"
+    ></script>
   </body>
 </html>
