@@ -36,13 +36,9 @@ const projects = allProjects
             </div>
           )}
           <div class="details">
-            <goat-text type="heading" heading-size="4">
-              {project.data.title}
-            </goat-text>
+            <h2 class="text-headline-large">{project.data.title}</h2>
             {project.data.description && (
-              <goat-text type="body" expressive>
-                {project.data.description}
-              </goat-text>
+              <p class="text-body-large">{project.data.description}</p>
             )}
             <wc-button
               class="read-more"
