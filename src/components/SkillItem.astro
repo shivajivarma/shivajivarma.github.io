@@ -1,0 +1,34 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  alt: string;
+}
+
+const { src, title, alt } = Astro.props;
+---
+
+<div class="skill-item">
+  <img src={src} title={title} alt={alt} width="26" height="26" />
+  <span class="skill-label">{title}</span>
+  <wc-tooltip>{title}</wc-tooltip>
+</div>
+
+<style>
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-50, 4px);
+  }
+
+  .skill-label {
+    font-size: 0.6rem;
+    text-align: center;
+    max-width: 52px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.75;
+  }
+</style>
