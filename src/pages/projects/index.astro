@@ -1,6 +1,20 @@
 ---
+import { getCollection } from "astro:content";
 import DefaultWithTitle from "../../layouts/DefaultWithTitle.astro";
 import "../../styles/projects.scss";
+
+const allProjects = await getCollection("project");
+
+const projects = allProjects
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((post) => {
+    const slug = post.id
+      .replace(/\.(html|mdx?|md)$/, "")
+      .replace(/^\d{4}-\d{2}-\d{2}-/, "");
+    const href = post.data.externalUrl ?? `/projects/${slug}/`;
+    const isExternal = !!post.data.externalUrl;
+    return { ...post, slug, href, isExternal };
+  });
 ---
 
 <DefaultWithTitle
@@ -8,90 +22,40 @@ import "../../styles/projects.scss";
   description="Showcase of few of my works. Do check them out once."
   keywords={[]}
 >
-  <div class="showcase-item">
-    <div class="project-details">
-      <div class="logo">
-        <img
-          style="color: #8a3ffc"
-          src="/assets/img/projects/bus-reservation-system/icon.png"
-          title="Bus Reservation System"
-          alt="Bus Reservation System"
-        />
+  {
+    projects.map((project) => (
+      <div class="showcase-item">
+        <div class="project-details">
+          {project.data.icon && (
+            <div class="logo">
+              <img
+                src={project.data.icon}
+                title={project.data.title}
+                alt={project.data.title}
+              />
+            </div>
+          )}
+          <div class="details">
+            <goat-text type="heading" heading-size="4">
+              {project.data.title}
+            </goat-text>
+            {project.data.description && (
+              <goat-text type="body" expressive>
+                {project.data.description}
+              </goat-text>
+            )}
+            <wc-button
+              class="read-more"
+              href={project.href}
+              target={project.isExternal ? "_blank" : undefined}
+              trailing-icon
+            >
+              {project.isExternal ? "Visit Website" : "Read More"}
+              <wc-icon name="arrow_forward" slot="icon" />
+            </wc-button>
+          </div>
+        </div>
       </div>
-      <div class="details">
-        <goat-text type="heading" heading-size="4"
-          >Bus Reservation System</goat-text
-        >
-        <goat-text type="body" expressive
-          >A Java + Oracle DBMS academic project for managing bus routes, seat
-          reservations, and ticket cancellations.</goat-text
-        >
-        <wc-button
-          class="read-more"
-          href="/projects/bus-reservation-system/"
-          trailing-icon
-          >Read More
-          <wc-icon name="arrow_forward" slot="icon"></wc-icon>
-        </wc-button>
-      </div>
-    </div>
-  </div>
-
-  <div class="showcase-item">
-    <div class="project-details">
-      <div class="logo">
-        <img
-          src="https://peacock.redvars.com/assets/img/logo-plain.webp"
-          title="Peacock"
-          alt="Peacock"
-        />
-      </div>
-      <div class="details">
-        <goat-text type="heading" heading-size="4">Peacock</goat-text>
-        <goat-text type="body" expressive
-          >A lightweight web component library, build using lit js.</goat-text
-        >
-        <goat-text type="body" expressive>
-          Peacock contains most used web components built using Lit. So you
-          don't need to include any additional framework dependencies, You can
-          simply import required component js, and right away start using it.
-        </goat-text>
-        <wc-button
-          class="read-more"
-          href="https://goatui.com"
-          target="_blank"
-          trailing-icon
-          >Read More
-          <wc-icon name="arrow_forward" slot="icon"></wc-icon>
-        </wc-button>
-      </div>
-    </div>
-  </div>
-
-  <div class="showcase-item">
-    <div class="project-details">
-      <div class="logo">
-        <img
-          style="color: #8a3ffc"
-          src="/assets/img/projects/search-engine/icon.png"
-          title="Search Engine"
-          alt="Search Engine"
-        />
-      </div>
-      <div class="details">
-        <goat-text type="heading" heading-size="4">Search Engine</goat-text>
-        <goat-text type="body" expressive
-          >A PHP academic project implementing a search engine from scratch —
-          crawler, indexer, and query parser.</goat-text
-        >
-        <wc-button
-          class="read-more"
-          href="/projects/search-engine/"
-          trailing-icon
-          >Read More
-          <wc-icon name="arrow_forward" slot="icon"></wc-icon>
-        </wc-button>
-      </div>
-    </div>
-  </div>
+    ))
+  }
 </DefaultWithTitle>

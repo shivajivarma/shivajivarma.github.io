@@ -7,8 +7,9 @@ export async function getStaticPaths() {
   return projects
     .filter((post) => {
       // code-base is served by project/code-base/index.astro
+      // external projects link directly to their website and have no detail page
       const slug = post.id.replace(/\.(html|mdx?|md)$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
-      return slug !== 'code-base';
+      return slug !== 'code-base' && !post.data.externalUrl;
     })
     .map((post) => {
       const slug = post.id.replace(/\.(html|mdx?|md)$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');

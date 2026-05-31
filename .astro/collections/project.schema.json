@@ -22,6 +22,12 @@
     "bg": {
       "type": "string"
     },
+    "icon": {
+      "type": "string"
+    },
+    "externalUrl": {
+      "type": "string"
+    },
     "redirect_from": {
       "default": [],
       "type": "array",

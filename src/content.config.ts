@@ -23,6 +23,8 @@ const projectCollection = defineCollection({
     keywords: z.array(z.string()).optional().default([]),
     date: z.date(),
     bg: z.string().optional(),
+    icon: z.string().optional(),
+    externalUrl: z.string().optional(),
     redirect_from: z.array(z.string()).optional().default([]),
     scripts: z.array(z.string()).optional().default([]),
     navlinks: z

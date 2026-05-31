@@ -62,5 +62,6 @@ export default new Map([
 ["src/content/project/2016-01-17-age-calculator.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fproject%2F2016-01-17-age-calculator.mdx&astroContentModuleFlag=true")],
 ["src/content/project/2017-02-12-transporter.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fproject%2F2017-02-12-transporter.mdx&astroContentModuleFlag=true")],
 ["src/content/project/2017-02-26-spring-boot-webapp-boilerplate.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fproject%2F2017-02-26-spring-boot-webapp-boilerplate.mdx&astroContentModuleFlag=true")],
-["src/content/project/2017-06-24-rule-engine.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fproject%2F2017-06-24-rule-engine.mdx&astroContentModuleFlag=true")]]);
+["src/content/project/2017-06-24-rule-engine.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fproject%2F2017-06-24-rule-engine.mdx&astroContentModuleFlag=true")],
+["src/content/project/peacock.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fproject%2Fpeacock.mdx&astroContentModuleFlag=true")]]);
 		
