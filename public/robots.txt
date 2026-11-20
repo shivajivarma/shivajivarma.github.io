@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Disallow: /no-search/
-Sitemap: https://shivajivarma.com/sitemap.xml
+Sitemap: https://shivajivarma.com/sitemap-index.xml

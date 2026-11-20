@@ -1,0 +1,67 @@
+---
+type Kind = "note" | "decision" | "tradeoff" | "lesson";
+
+interface Props {
+  kind?: Kind;
+  title?: string;
+}
+
+const META: Record<Kind, { icon: string; label: string }> = {
+  note: { icon: "info", label: "Note" },
+  decision: { icon: "gavel", label: "Decision" },
+  tradeoff: { icon: "balance", label: "Trade-off" },
+  lesson: { icon: "lightbulb", label: "Lesson" },
+};
+
+const { kind = "note", title } = Astro.props;
+const meta = META[kind];
+---
+
+<aside class:list={["callout", `callout-${kind}`]}>
+  <div class="callout-head">
+    <wc-icon name={meta.icon}></wc-icon>
+    <span class="mono">{title ?? meta.label}</span>
+  </div>
+  <div class="callout-body"><slot /></div>
+</aside>
+
+<style>
+  .callout {
+    --tone: var(--color-primary);
+    margin: 2em 0;
+    padding: var(--spacing-250) var(--spacing-300);
+    border: 1px solid color-mix(in srgb, var(--tone) 30%, var(--hairline));
+    border-left: 4px solid var(--tone);
+    border-radius: var(--shape-corner-medium);
+    background: color-mix(in srgb, var(--tone) 6%, var(--color-surface));
+  }
+  .callout-decision {
+    --tone: var(--color-blue-50);
+  }
+  .callout-tradeoff {
+    --tone: var(--color-orange-50);
+  }
+  .callout-lesson {
+    --tone: var(--color-green-50);
+  }
+  .callout-head {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-100);
+    margin-bottom: var(--spacing-100);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tone);
+    --icon-size: 1.15rem;
+    --icon-color: var(--tone);
+  }
+  .callout-body {
+    font-size: 1.0125rem;
+    line-height: 1.7;
+  }
+  .callout-body :global(> * + *) {
+    margin-top: 0.75em;
+  }
+</style>

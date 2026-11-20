@@ -1,0 +1,187 @@
+---
+title: "Two rule engines, nine years apart"
+description: "The small JSON rule engine I wrote in 2017, what it got right and wrong, and how those lessons shaped the rules module in Redvars, the platform I'm building now."
+date: 2026-11-20
+format: case-study
+tags: [Rule engines, Platform engineering, Redvars, JavaScript, TypeScript]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import RulesPath from "../../components/diagrams/RulesPath.astro";
+
+In June 2017 I wrote a small [rule engine](https://github.com/shivajivarma/rule-engine) in
+JavaScript. The idea was simple: describe a business rule as JSON, hand it some facts, and get back
+true or false.
+
+Nine years later I needed a rule engine again, this time for Redvars, the platform I'm building,
+where rules run around every record write. This post puts the two side by side: what the first one
+taught me, and how the second one is built.
+
+## The 2017 version
+
+A rule was a tree of conditions. The root is `all` or `any`, branches can nest, and each leaf
+compares a left-hand side with a right-hand side:
+
+```js
+const rule = new Rule({
+  conditions: {
+    any: [{
+      all: [
+        { lhs: ["student.age"], operator: "lessThan", rhs: 40 },
+        { lhs: ["student.name"], operator: "equal", rhs: ["user.fullname"] },
+      ],
+    }],
+  },
+});
+
+rule.run({ student, user }); // true or false
+```
+
+The one trick I still like is how values were written. A side wrapped in an array is a path into
+the facts, and anything else is a literal, so `["student.age"]` means "look up student.age" while
+`40` just means 40. A small `deepFind` walked the dotted path and returned `undefined` if anything
+along the way was missing.
+
+The code handled six operators: `equal` and `notEqual`, with strict equality, plus `lessThan`,
+`lessThanInclusive`, `greaterThan` and `greaterThanInclusive`, which only compared numbers. In July
+I converted it to an ES2015 class.
+
+## What it taught me
+
+It was a prototype, and looking back, the places where it stopped point straight at the hard parts
+of the problem.
+
+The README sketched where I wanted to take it next: pattern matching, list operators such as `in`
+and `contains`, and a fluent `.success()` / `.fail()` style for handling the result. The code
+started with the core comparisons, and `run()` returned a plain boolean.
+
+The biggest lesson was about mistakes. An operator the engine didn't recognise, or a typo in a fact
+path, simply evaluated to false. So a rule with an error in it looked exactly like a rule that
+didn't match, and nothing told you the difference.
+
+Rules over lists, like checking each of a student's subjects, were the other hard part. `forEach`
+was still a work in progress when I moved on, and it's a good reminder that iterating over
+collections is where a condition language stops being trivial.
+
+<Callout kind="lesson">
+  A rule engine is a small language. A syntax isn't enough; it also needs something that checks a
+  rule before it runs, so a mistake shows up as an error instead of a rule that quietly never fires.
+</Callout>
+
+## What a platform needs from rules
+
+Redvars lets teams build business applications from metadata, and rules are how they add behaviour
+without writing a service. When a P1 network incident comes in, assign it to the network on-call.
+When a task is created, make its subtasks. Nobody calls these rules from application code. They
+have to run around every write to a table, whoever makes it, without becoming a way around
+security.
+
+That changes the shape of the problem. A rule now has to say when it runs, not just whether it
+matches.
+
+## How the Redvars rules module works
+
+### A rule says when, whether and what
+
+A rule names a table, the operations it watches (create, update, delete), a phase (before or after
+the write) and an order. Its condition says whether it applies. Its actions say what happens: set
+fields, reject the write, run a script, or call a tool that another module provides.
+
+```ts
+// a rule
+{ name: "P1 to on-call", table: "acme_itsm.incident", operations: ["create"],
+  phase: "before", order: 10,
+  condition: { all: [
+    { field: "priority", op: "is", value: { const: 1 } },
+    { field: "category", op: "is", value: { const: "network" } },
+  ] } }
+
+// its action
+{ type: "set", config: { values: { assigned_to: { const: "<network on-call>" } } } }
+```
+
+The condition tree will look familiar. It's the 2017 idea, grown up: `all`, `any` and now `not`,
+with leaves that compare a field to an operand. Operands say exactly where a value comes from: a
+constant, another field, the field's previous value, the caller's identity, or the current time
+with an offset. A field path can walk up to three references (`team.manager`), and it reads them
+as the caller, so a reference you're not allowed to read reads as empty.
+
+Rules can also be grouped. A group runs every member whose condition holds, or only the first one,
+so a member with no condition placed last works as an "otherwise".
+
+### Operators belong to types
+
+Which operators a condition can use depends on the column's type. Every type gets `is`, `is_not`,
+`is_empty`, `is_not_empty`, `changes`, `changes_to` and `changes_from`. Text adds things like
+`contains` and `starts_with`, numbers add `between` and `at_least`, dates add `within_last` and
+`within_next`. A secret column offers no operators at all, so no condition can read one.
+
+The `changes` family is the one I wish I'd had in 2017. It lets a rule react to a value moving,
+like a status becoming Closed, rather than to whatever the value happens to be.
+
+### Checked when it's saved, not when it runs
+
+This is where that first lesson landed. Every write to the rules tables goes through
+checks that refuse anything that wouldn't run: a missing table or phase, a condition that reads a
+column that doesn't exist or uses an operator its type doesn't have, an action of an unknown type,
+or one that can't run in that phase. The refusal comes back as a validation error, with one message
+per problem. A broken rule can't be saved, so it can't sit there quietly never firing.
+
+### Where rules run
+
+<Figure n="1" caption="Sync rules run inside the caller's transaction. Async after-rules are queued in that same transaction and run once by the rules-worker after commit.">
+  <RulesPath />
+</Figure>
+
+Sync rules run inside the caller's transaction. A before-rule sees what earlier rules set, and a
+rejection stops the rest and fails the write. Sync after-rules run once the row is written, still in
+the same transaction, so if one of them fails, the row rolls back too.
+
+Async after-rules are for work that shouldn't slow the save down, like creating those subtasks.
+Each one becomes a job on the kernel's queue, written in the same transaction as the record, so a
+write that rolls back queues nothing. After commit, the rules-worker daemon claims the job and runs
+it once, in a transaction of its own. If anything fails, it all rolls back and the run is recorded as
+failed; it isn't retried. If a worker dies mid-run, the work rolls back with it and the job runs one
+more time. And a rule whose last ten async runs all failed gets suspended, so a broken rule stops
+piling up failures.
+
+<Callout kind="decision" title="Run once, in one transaction">
+  An async rule's writes happen together or not at all, and the job is marked done in that same
+  transaction. A rule author never has to clean up after a half-finished run.
+</Callout>
+
+### Guard rails
+
+Sync rules sit in the save path, so they get budgets. A script gets 50 ms of CPU, 200 ms of wall
+time and 20 platform calls, and all the rules of one write share 500 ms. Rules whose writes trigger
+more rules can nest eight deep, and a rule never runs again on a record it's already running on.
+Going over a limit fails the write with an error that names the rule, or the chain.
+
+### Seeing what happened
+
+Every async run, every failed sync run, and every run of a rule with tracing switched on is written
+to a `rule_runs` table, on a connection of its own, so a failure that rolls the write back still
+leaves a record. On a traced request, an administrator can see each rule that ran, how long it took,
+which actions it took, and its scripts' log lines.
+
+### Everything else is a tool
+
+There are only four action types. Anything another module wants to offer a rule, it offers as a
+tool, which means a rule, a flow, an AI agent and an MCP client all reach that capability the same
+way.
+
+## Still to come
+
+The module isn't finished. Scheduled rules, starting a flow from a rule, rules on other
+applications' tables, and a visual builder in the system UI are all still on the list.
+
+## What nine years changed
+
+Side by side, the condition tree barely changed. Nested `all` and `any` with simple comparisons at
+the leaves was a good idea in 2017, and it still is.
+
+Everything around it changed. The first engine answered one question: does this rule match these
+facts? A platform's engine also has to answer when it runs, as whom, in which transaction, what
+happens when it fails, and how anyone finds out. Most of the work in the new module went into those
+answers.

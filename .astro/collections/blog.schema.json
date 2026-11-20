@@ -8,12 +8,22 @@
     "description": {
       "type": "string"
     },
-    "keywords": {
-      "default": [],
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "format": {
+      "default": "field-notes",
+      "type": "string",
+      "enum": [
+        "white-paper",
+        "case-study",
+        "field-notes"
+      ]
     },
     "tags": {
       "default": [],
@@ -22,36 +32,17 @@
         "type": "string"
       }
     },
-    "date": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "redirect_from": {
-      "default": [],
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "css": {
-      "default": [],
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "js": {
-      "default": [],
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+    "draft": {
+      "default": false,
+      "type": "boolean"
     },
     "$schema": {
       "type": "string"
     }
   },
   "required": [
+    "title",
+    "description",
     "date"
   ]
 }

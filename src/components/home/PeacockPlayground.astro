@@ -1,0 +1,143 @@
+---
+// A small live demo inside the Peacock tile: the controls are Peacock components, and they restyle
+// Peacock components next to them, so a visitor can see the library working on this very page.
+---
+
+<div class="playground" aria-label="Live Peacock demo">
+  <div class="pg-head mono">
+    <span class="live-dot" aria-hidden="true"></span> Live · rendered by Peacock on this page
+  </div>
+
+  <div class="pg-preview">
+    <div class="pg-row">
+      <wc-button class="pg-button" variant="filled">Deploy</wc-button>
+      <wc-button class="pg-button" variant="filled" color="secondary">Preview</wc-button>
+      <wc-icon-button class="pg-button" variant="filled" aria-label="Favourite"><wc-icon name="favorite"></wc-icon></wc-icon-button>
+    </div>
+    <div class="pg-row">
+      <wc-tag accent="purple" size="sm">Lit</wc-tag>
+      <wc-tag accent="blue" size="sm">TypeScript</wc-tag>
+      <wc-tag accent="green" size="sm">Web standards</wc-tag>
+      <wc-checkbox checked label="Accessible"></wc-checkbox>
+    </div>
+  </div>
+
+  <div class="pg-controls">
+    <wc-segmented-button-group class="pg-variant" label="Button variant" value="filled" size="sm">
+      <wc-segmented-button value="filled">Filled</wc-segmented-button>
+      <wc-segmented-button value="tonal">Tonal</wc-segmented-button>
+      <wc-segmented-button value="outlined">Outlined</wc-segmented-button>
+    </wc-segmented-button-group>
+    <div class="pg-row pg-row-split">
+      <wc-switch class="pg-dense" label="Compact"></wc-switch>
+      <wc-slider class="pg-radius" label="Corners" min="0" max="24" value="20" size="sm"></wc-slider>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".playground").forEach((pg) => {
+    const buttons = () => pg.querySelectorAll<HTMLElement>(".pg-button");
+    const valueOf = (event: Event) =>
+      (event as CustomEvent<{ value?: string | number }>).detail?.value ??
+      (event.target as HTMLInputElement).value;
+
+    pg.querySelector(".pg-variant")?.addEventListener("change", (event) => {
+      const variant = String(valueOf(event) || "filled");
+      buttons().forEach((b) => b.setAttribute("variant", variant));
+    });
+
+    pg.querySelector(".pg-dense")?.addEventListener("change", (event) => {
+      const checked =
+        (event as CustomEvent<{ checked?: boolean }>).detail?.checked ??
+        (event.target as HTMLInputElement).checked;
+      if (checked) pg.dataset.density = "compact";
+      else delete pg.dataset.density;
+    });
+
+    const setRadius = (event: Event) => {
+      pg.style.setProperty("--pg-radius", `${Number(valueOf(event))}px`);
+    };
+    pg.querySelector(".pg-radius")?.addEventListener("input", setRadius);
+    pg.querySelector(".pg-radius")?.addEventListener("change", setRadius);
+  });
+</script>
+
+<style>
+  .playground {
+    --pg-radius: 20px;
+    min-width: 0;
+    display: grid;
+    gap: var(--spacing-200);
+    padding: var(--spacing-200);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--shape-corner-large);
+    background: var(--color-surface-container-low);
+    color: var(--color-on-surface);
+    transition: background-color 300ms ease;
+  }
+
+  .pg-head {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-100);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-on-surface-variant);
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-success);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-success) 60%, transparent);
+    animation: live 2s infinite;
+  }
+
+  .pg-preview {
+    display: grid;
+    gap: var(--spacing-150);
+    padding: var(--spacing-200);
+    border-radius: var(--shape-corner-medium);
+    background: var(--color-surface);
+    border: 1px dashed var(--color-outline-variant);
+  }
+
+  .pg-button {
+    --button-container-shape: var(--pg-radius);
+  }
+
+  .pg-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-100);
+  }
+
+  .pg-controls {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-150);
+  }
+
+  .pg-row-split {
+    flex-wrap: nowrap;
+    gap: var(--spacing-200);
+  }
+  .pg-row-split wc-slider {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @keyframes live {
+    70% {
+      box-shadow: 0 0 0 8px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+</style>

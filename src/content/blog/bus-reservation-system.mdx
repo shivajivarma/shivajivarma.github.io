@@ -1,0 +1,288 @@
+---
+title: "Bus reservation system: database design and ER diagram"
+description: "My bus reservation system, written up properly: the requirements, the ER diagram, the MySQL schema, the one unique index that stops double booking, and how the Java Swing app sits on Spring JDBC."
+date: 2014-02-09
+updated: 2026-11-20
+format: white-paper
+tags: [Database design, ER diagram, MySQL, Java, Spring JDBC]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import BusReservationER from "../../components/diagrams/BusReservationER.astro";
+
+In 2014 I built a bus reservation system as my academic mini project: a desktop app where
+passengers find buses on a route, pick their seats and cancel tickets. It's written in Java, with a
+Swing interface, Spring JDBC and MySQL, and the
+[code is on GitHub](https://github.com/shivajivarma/bus-reservation-system).
+
+The old page about it is one of the most visited on this site, so I've rewritten it properly: the
+requirements, the ER diagram, the schema and the constraints that keep the data honest, how the app
+is put together, and what I'd do differently now.
+
+## What it had to fix
+
+Picture a bus operator that books on paper. Someone has to keep several records in step by hand:
+which buses run on which route, what each one costs and when it leaves, and which seats are taken
+on which date. Finding anything means flipping through the books. Mistakes in seat allocation or
+billing turn into arguments with customers, and paper is hard to keep secure.
+
+The goal was one shared database that every booking goes through, so that:
+
+- a passenger can check availability and pick specific seats,
+- no seat is ever sold twice,
+- a ticket can be cancelled by the person who booked it, and
+- every booking leaves a record that a ticket can be printed from.
+
+## What the app does
+
+My original project write-up named three modules: enquiry, reservation and cancellation. Accounts
+and a ticket history round it out.
+
+| Module | What it does | Database work |
+| --- | --- | --- |
+| Accounts | Register and sign in | Insert into `passenger`; look up by username |
+| Enquiry | Find buses and free seats for a route and date | Read `route`, `bus` and `reserve` |
+| Reservation | Book one or more seats and print the tickets | Insert one `reserve` row per seat |
+| Cancellation | Cancel a ticket by its number | Delete the `reserve` row, if it's yours |
+| History | List past tickets and reprint them | Read the `reservation` view |
+
+## Finding the entities
+
+Read the requirements looking for nouns and four entities fall out:
+
+- **Route**: an origin and a destination.
+- **Bus**: a service on one route, with a fare, AC or not, and departure and arrival times.
+- **Passenger**: an account with a username, password, name, email and mobile number.
+- **Reservation**: one seat, on one bus, on one date, booked by one passenger. In the schema it's
+  the `reserve` table, and every row is a ticket.
+
+Two things sound like entities but aren't tables. A seat is just a number from 1 to 40, because
+every bus has the same 40-seat layout. And a trip is just a bus plus a date.
+
+<Callout kind="tradeoff" title="A trip is a bus plus a date">
+  The model assumes each bus runs its route every day, so a reservation only needs the bus and the
+  travel date to pin down the journey. That saves a trip table and a join in every query. The price
+  is flexibility: buses that skip days, or fares that change by date, would need a real `trip`
+  table.
+</Callout>
+
+## The ER diagram
+
+<Figure n="1" caption="The schema in crow's-foot notation. Every column is NOT NULL. Reserve is the associative entity between passengers and buses: one row per seat, per bus, per date.">
+  <BusReservationER />
+</Figure>
+
+Here's how to read it:
+
+- A route is served by zero or more buses, and each bus runs exactly one route: `bus.routeid` is a
+  required foreign key to `route.id`.
+- A passenger makes zero or more reservations, and each reservation belongs to exactly one
+  passenger.
+- A bus carries zero or more reservations, and each one is for exactly one bus.
+
+Step back and passengers and buses are many-to-many: a passenger rides many buses, and a bus
+carries many passengers. `reserve` breaks that into two one-to-many relationships, and it's also
+where the facts about each pairing live: the travel date (`dt`), the seat, and the date it was
+booked (`tstamp`).
+
+## The schema
+
+These are the table definitions from `db/setup.sql`, tidied up a little. The script creates them
+in a schema called `brs`, which is the database the app connects to.
+
+```sql
+CREATE TABLE route (
+  id          INT NOT NULL AUTO_INCREMENT,
+  origin      VARCHAR(20) NOT NULL,
+  destination VARCHAR(20) NOT NULL,
+  PRIMARY KEY (id)
+) AUTO_INCREMENT = 10;
+CREATE UNIQUE INDEX ROUTE_UNIQUE ON route (origin, destination);
+
+CREATE TABLE bus (
+  id            INT NOT NULL AUTO_INCREMENT,
+  routeid       INT NOT NULL,
+  ac            BOOLEAN NOT NULL,
+  fare          INT NOT NULL,
+  departuretime VARCHAR(6) NOT NULL,
+  arrivaltime   VARCHAR(6) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (routeid) REFERENCES route (id)
+) AUTO_INCREMENT = 200;
+
+CREATE TABLE passenger (
+  id       INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(20) NOT NULL UNIQUE,
+  password VARCHAR(20) NOT NULL,
+  name     VARCHAR(40) NOT NULL,
+  email    VARCHAR(32) NOT NULL,
+  mobile   BIGINT NOT NULL,
+  PRIMARY KEY (id)
+) AUTO_INCREMENT = 500;
+
+CREATE TABLE reserve (
+  id          INT NOT NULL AUTO_INCREMENT,
+  passengerid INT NOT NULL,
+  busid       INT NOT NULL,
+  dt          DATE NOT NULL,  -- travel date
+  tstamp      DATE NOT NULL,  -- date of booking
+  seat        INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (passengerid) REFERENCES passenger (id),
+  FOREIGN KEY (busid) REFERENCES bus (id)
+) AUTO_INCREMENT = 1000;
+CREATE UNIQUE INDEX SEAT_UNIQUE ON reserve (busid, dt, seat);
+```
+
+Two details are easy to miss. Each table starts counting from its own number: routes from 10, buses
+from 200, passengers from 500 and tickets from 1000. While the tables are small, an id tells you on
+its own which table it came from, and every ticket number has at least four digits. And departure
+and arrival times are plain text, like `'20:00'`. The app only ever displays them.
+
+## Constraints that do the real work
+
+Three unique indexes carry the business rules:
+
+| Constraint | Rule it enforces |
+| --- | --- |
+| `ROUTE_UNIQUE (origin, destination)` | Each route is listed once |
+| `passenger.username UNIQUE` | No two accounts share a username |
+| `SEAT_UNIQUE (busid, dt, seat)` | A seat on a bus is sold once per date |
+
+<Callout kind="decision" title="Let the database refuse a double booking">
+  The seat screen loads the seats that are already taken and disables them. That alone isn't
+  enough: two people can open the same bus at the same moment and both see seat 12 as free. The
+  unique index on `(busid, dt, seat)` means the database turns down the second booking, whatever
+  either screen showed. I added it in the 2.0 rewrite.
+</Callout>
+
+Registration works the same way on a smaller scale. The app checks that a username is free before
+inserting, and the `UNIQUE` constraint backs that check up.
+
+## Counting free seats
+
+The bus list shows how many seats are left on each bus for the date you picked. There's no counter
+column to keep in step; the query just counts reservations as it reads. Here it is, simplified from
+`BusDAOImpl`:
+
+```sql
+SELECT id, ac, departuretime, arrivaltime, fare,
+       (SELECT 40 - COUNT(*) FROM reserve
+         WHERE busid = bus.id AND dt = ?) AS availability
+FROM bus
+WHERE routeid IN (SELECT id FROM route WHERE origin = ? AND destination = ?);
+```
+
+Because availability is worked out rather than stored, it can never disagree with the
+reservations. It costs one count per bus per search, and since `SEAT_UNIQUE` already starts with
+`(busid, dt)`, that count is an index lookup.
+
+## The reservation view
+
+The History tab shows each ticket with its route and times, and those live in two other tables. A
+view joins them once. Here it is with explicit joins; its `ORDER BY` is what keeps the History tab
+in order:
+
+```sql
+CREATE VIEW reservation AS
+SELECT reserve.id, reserve.passengerid, reserve.busid, reserve.seat,
+       reserve.dt, reserve.tstamp,
+       route.origin, route.destination,
+       bus.departuretime, bus.arrivaltime
+FROM reserve
+JOIN bus   ON reserve.busid = bus.id
+JOIN route ON bus.routeid = route.id
+ORDER BY reserve.id;
+```
+
+The app reads a passenger's history with one query against the view and maps each row straight onto
+a `ReservationBean`, the same object the printed ticket is built from.
+
+## Booking a ticket, step by step
+
+| Step | Screen | What happens in the database |
+| --- | --- | --- |
+| 1 | Sign in | Look up `passenger` by username; the app compares the password |
+| 2 | Reservation tab | List origins that have at least one bus, then their destinations; the app requires a future date |
+| 3 | Bus selection | Run the availability query above |
+| 4 | Seat selection | Load the seats taken for that bus and date, and disable them in a grid of 40 seats, four to a row |
+| 5 | Book | Insert one `reserve` row per selected seat, then print the tickets as an HTML page |
+| 6 | Cancel tab | Load the ticket, and delete it only if it belongs to the signed-in passenger |
+
+Origins come from `SELECT DISTINCT origin FROM route WHERE id IN (SELECT routeid FROM bus)`, so a
+route with no buses never shows up in the drop-downs.
+
+## How the code is organised
+
+There are four layers, a package each:
+
+- **Views** (`ui`): Swing panels, one per screen.
+- **Controllers** (`controller`): one per screen, connecting view events to services.
+  `MasterController` swaps panels in the main window as you move between screens.
+  `HomeTabsMediator` creates the Reservation, Cancel and History tabs and keeps them in step; for
+  example, it refreshes the history when you switch tabs.
+- **Services** (`model.service`): rules like "only the passenger who booked a ticket can cancel
+  it".
+- **Data access** (`model.dao`): the SQL, built on Spring's `JdbcDaoSupport` and `JdbcTemplate`.
+  `BeanPropertyRowMapper` maps rows onto entity classes, and `spring-jdbc.xml` wires the data source
+  into each DAO.
+
+The first public release, in May 2015, ran against Oracle. Spring JDBC came that June. The 2.0
+rewrite in autumn 2015 reorganised the code into these layers, moved the build to Maven and the
+database to MySQL, and added the seat index. In 2023 I updated the dependencies and added a GitHub
+Actions build.
+
+## What I'd change today
+
+Looking at the code again now, here's what I'd change.
+
+**Under load.** I'd read each new ticket number from the insert's generated key. Right now the app
+runs `SELECT MAX(id)` straight after inserting, which can hand back someone else's ticket if two
+bookings land at the same moment. I'd also book all the selected seats in one transaction and turn
+the duplicate-key error into a friendly "that seat was just taken". As it stands, each seat is
+inserted on its own, so a failure halfway through leaves the earlier seats booked and prints no
+tickets.
+
+**Security.** Passwords are stored as plain text and compared in the app. They should be hashed
+with something deliberately slow, like bcrypt or Argon2.
+
+**The data model.** I'd record the fare on each reservation; it lives only on the bus, so the price
+someone actually paid isn't kept. I'd use proper types: `TIME` for departure and arrival,
+`DATETIME` for when a ticket was booked (`tstamp` is a `DATE`, so the time of day is lost), and real
+dates instead of strings parsed with `STR_TO_DATE`. Each bus would get a capacity, instead of the
+number 40 written into both the availability query and the seat screen. And cancelled tickets would
+get a status column instead of being deleted, so there's an audit trail and something to report
+on.
+
+**The application.** One Spring context for the whole app, and a connection pool. Today each
+service builds its own context, and `DriverManagerDataSource` opens a fresh connection for every
+query.
+
+<Callout kind="lesson">
+  The schema has held up better than the code around it. What still stands is what the database
+  enforces: required foreign keys, unique indexes, and availability counted from the reservations
+  instead of stored beside them. Most of my list is that same lesson taken further. Let the
+  database hand out keys and guard transactions, and keep the facts the business will want later,
+  like what a ticket cost.
+</Callout>
+
+## Run it yourself
+
+The source is on [GitHub](https://github.com/shivajivarma/bus-reservation-system). You'll need
+Java 8 or later, Maven and MySQL.
+
+One warning first: the app was built on Windows and assumes it in two places. Printed tickets are
+saved to `%APPDATA%` and opened with a Windows command. And the SQL in the app writes table names in
+mixed case, like `Bus`, which MySQL on Windows doesn't mind. On Linux, MySQL treats table names as
+case sensitive by default, so those queries fail.
+
+1. Clone the repository:
+   `git clone https://github.com/shivajivarma/bus-reservation-system.git`
+2. Create a MySQL user `admin` with the password `admin`, or put your own credentials in
+   `src/main/resources/spring-jdbc.xml`.
+3. Run `db/setup.sql`, then `db/data.sql`. The data adds 12 routes between Visakhapatnam,
+   Hyderabad, Bangalore and Tirupati, and 11 buses.
+4. Import the project into your IDE as a Maven project, build it, and run
+   `com.shivajivarma.brs.AppLauncher`.
+5. Register an account on the first screen, then book a seat.

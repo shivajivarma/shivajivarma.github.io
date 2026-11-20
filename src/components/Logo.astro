@@ -1,0 +1,64 @@
+---
+// The site's mark: an S drawn as a circuit trace between two solder pads. It takes its colour from
+// --logo-color, Peacock's red-50 by default, so it stays the brand red in light and dark mode.
+// public/assets/img/logo.svg is the same drawing as a standalone file.
+interface Props {
+  size?: number;
+  /** Give the mark an accessible name; leave it out when text beside it already names the site. */
+  title?: string;
+}
+
+const { size = 30, title } = Astro.props;
+---
+
+<svg
+  class="logo"
+  viewBox="0 0 100 100"
+  width={size}
+  height={size}
+  role={title ? "img" : undefined}
+  aria-label={title}
+  aria-hidden={title ? undefined : "true"}
+  focusable="false"
+>
+  <path
+    class="logo-trace"
+    d="M69 20 H40 L28 32 V38 L40 50 H60 L72 62 V68 L60 80 H31"
+    pathLength="100"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="11"
+    stroke-linejoin="round"></path>
+  <circle cx="76" cy="20" r="7" fill="none" stroke="currentColor" stroke-width="5"></circle>
+  <circle cx="24" cy="80" r="7" fill="none" stroke="currentColor" stroke-width="5"></circle>
+</svg>
+
+<style>
+  .logo {
+    flex: none;
+    color: var(--logo-color, var(--color-red-50, #e32e25));
+  }
+
+  /* Hovering the brand link sends a signal along the trace, pad to pad. */
+  :global(a:hover) > .logo .logo-trace,
+  :global(a:focus-visible) > .logo .logo-trace {
+    stroke-dasharray: 100;
+    animation: logo-signal 700ms ease-out;
+  }
+
+  @keyframes logo-signal {
+    from {
+      stroke-dashoffset: 100;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(a:hover) > .logo .logo-trace,
+    :global(a:focus-visible) > .logo .logo-trace {
+      animation: none;
+    }
+  }
+</style>

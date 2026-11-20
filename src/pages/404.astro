@@ -1,19 +1,68 @@
 ---
-import Blank from '../layouts/Blank.astro';
+import Base from "../layouts/Base.astro";
 ---
 
-<Blank title="404" description="404!! This is not the web page you are looking for.">
-  <style is:global>
-    goat-empty-state {
-      height: 100vh;
-      width: 100vw;
+<Base title="Page not found" description="This page isn't on the drawing." noindex>
+  <section class="nf">
+    <div class="blueprint"></div>
+    <div class="wrap nf-inner">
+      <span class="eyebrow">Error 404 · Sheet missing</span>
+      <p class="nf-code mono" aria-hidden="true">4<span class="grad">0</span>4</p>
+      <h1 class="nf-title">This page isn't on the drawing.</h1>
+      <p class="nf-lede">
+        It may have moved when the site was redesigned. Older posts on programming, music and stories
+        were retired; the architecture journal replaces them.
+      </p>
+      <div class="nf-actions">
+        <a class="btn btn-primary" href="/">Back to home</a>
+        <a class="btn btn-ghost" href="/blog/">Browse the journal</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    min-height: calc(100vh - var(--header-height) - 8rem);
+    place-items: center;
+    padding-block: var(--spacing-800);
+  }
+  .nf-inner {
+    display: grid;
+    justify-items: center;
+    gap: var(--spacing-250);
+    text-align: center;
+  }
+  .nf-code {
+    font-size: clamp(6rem, 22vw, 12rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--color-primary);
+
+    .grad {
+      -webkit-text-stroke: 0;
     }
-  </style>
-  <goat-empty-state
-    illustration="page"
-    headline="404 : Page not found :("
-    description="The requested page could not be found."
-    action="Go to home page"
-    action-url="/"
-  ></goat-empty-state>
-</Blank>
+  }
+  .nf-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+  }
+  .nf-lede {
+    max-width: 34rem;
+    color: var(--ink-soft);
+    font-size: 1.0625rem;
+  }
+  .nf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-150);
+    margin-top: var(--spacing-100);
+  }
+</style>

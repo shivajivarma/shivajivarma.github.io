@@ -1,0 +1,118 @@
+---
+title: "One door to the data: how Redvars enforces security"
+description: "Every read and write in Redvars goes through one path, a persistence layer that asks one authorizer before it touches storage. Why that matters, and what gets enforced along the way."
+date: 2026-11-20
+format: white-paper
+tags: [Redvars, Security, Access control, PostgreSQL, Platform engineering]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import DataPath from "../../components/diagrams/DataPath.astro";
+
+Security that's applied at the edge gets bypassed eventually, usually by an internal caller nobody
+was thinking about: a background job, a script, an admin tool. In
+[Redvars](/blog/redvars-platform-architecture/) there's exactly one door to the data, and everything
+goes through it: the gateway, the UI, a rule's action, a custom page, the AI assistant.
+
+## The path
+
+<Figure n="1" caption="Every caller enters through kernel.api. Persistence asks the authorizer before it touches storage, and row-level security sits behind it all.">
+  <DataPath />
+</Figure>
+
+Entry points get in only through the kernel's public API, which authenticates the caller into a
+session bound to one identity and one scope. From there, every read and write goes through
+persistence, and persistence's security handler asks the authorizer before it touches storage.
+
+Because there's one choke point, role checks, auditing, validation and rule triggering can't be
+skipped, and each of them is implemented exactly once. The structure enforces it, too. Modules can
+change what the kernel does, but daemons can only call it, so an entry point can never get a
+privileged path to data. It's simply never handed one.
+
+## Real tables, not EAV
+
+Persistence is part of the kernel, so it's always loaded. It lets people create tables, fields and
+relationships at runtime, and it runs every record read and write.
+
+Each table someone defines becomes a real PostgreSQL table, namespaced per application and described
+by a metadata catalog. Not entity-attribute-value rows, and not one JSON blob per record. Real
+tables get indexes, constraints, joins, the query planner and ordinary tooling for reporting and
+backups. EAV is slow and hostile to SQL, and a single JSONB column gives up integrity.
+
+Adding or changing a field produces an ordered, transactional DDL migration, recorded in the
+catalog. Destructive changes, like dropping a column or narrowing a type, are explicit and gated.
+
+Every table gets the same system columns: an id, who created and last updated it and when, a version
+number, a soft-delete flag, and a domain column on tables that use
+[domain separation](/blog/one-instance-per-organisation/). The version is for optimistic concurrency.
+Enterprise forms stay open for a long time, so locking would hurt; instead a lost update is
+detected when it's saved. And enterprise data is rarely truly deleted, so soft delete plus an audit
+trail is worth the storage.
+
+Queries are structured descriptions (a filter, a sort, the fields to return, related records to
+expand, a page) compiled to parameterised SQL. SQL is never built as a string from user input.
+
+## Who you are, and what you may do
+
+Identity and access are two modules. `identity` works out who the caller is: users, groups,
+credentials, sign-in. Authenticators stack, tried in order (passwords, then SSO, then API keys), and
+each one produces the same kind of identity. `access` decides what that identity may do, and there's
+only ever one of it.
+
+The model is RBAC. Users belong to groups, groups hold roles, roles grant permissions, and a
+permission is a resource plus an operation, optionally with conditions. Resources range from tables
+and fields down to single records, pages, workflows and admin functions. The default is deny: no
+permission, no access. Roles only ever add, so nobody has to puzzle out whether a deny beats an
+allow.
+
+<Callout kind="decision" title="Conditions are compiled into SQL">
+  Record-level conditions, such as `owner = $user` or `department in $user.departments`, become part
+  of the query's WHERE clause, so the database does the filtering. Filtering after fetching leaks
+  counts, breaks pagination and doesn't scale. Pushing it into the query makes the secure path the
+  fast path as well.
+</Callout>
+
+## Closing the gaps
+
+A few smaller decisions close the holes that usually appear around a model like this.
+
+The two built-in roles live in code, not in rows. `admin` is for an organisation's administrators.
+`root` is for platform development; an organisation's own users never hold it, and it can't be granted anywhere but a
+developer's own machine. Rows are data, and an administrator could delete them and lock every other
+administrator out. Code is fixed, visible and tested.
+
+A module can mark one of its tables as restricted in its schema: password hashes, session secrets,
+who owns what. Then no ACL and no administrator can reach it. A list kept as data could be edited by
+the very people it restricts, but a schema only changes with its module's release.
+
+PostgreSQL row-level security sits behind the authorizer, so a bug in a module isn't enough to leak
+another domain's rows. Decisions are cached per identity and dropped when roles change. Every
+denial and every privileged action is logged. And when an administrator acts as someone else, the
+session keeps the real person alongside, every audit column is filled in as the person being acted
+as, and every page shows a banner for as long as it lasts.
+
+## The assistant is just another caller
+
+This is also why the AI assistant fitted in safely. It calls the kernel's API in the person's own
+session, like any other caller, so the authorizer decides every read and write. It has no identity or
+access of its own, so it can never do more than the person using it could. There's more on that in
+[AI native, never AI only](/blog/ai-native-components/).
+
+## What it costs
+
+One path means one place to get right, so that place has to be fast: real indexed tables,
+authorization pushed into SQL, and cached metadata and decisions.
+
+Runtime schema changes are operationally sensitive, because a migration can lock a large table, so
+they use online-safe patterns and limits during peak load. Very large tables are a problem for after
+the first release.
+
+And pure RBAC can sprawl into too many roles. Groups and condition templates keep that in check. If
+an organisation ever needs richer policy, based on time, location or relationships, a different module
+that provides the authorizer can replace `access` without any caller changing.
+
+## The one rule I'd keep
+
+If I could keep only one rule from all of Redvars, it would be this one. There's one door to the
+data, and everyone has to come through it, including the platform's own parts.

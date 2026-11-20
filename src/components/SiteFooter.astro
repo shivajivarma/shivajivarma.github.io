@@ -1,0 +1,83 @@
+---
+import Logo from "./Logo.astro";
+import {
+  AUTHOR,
+  FEED_URL,
+  LICENSE_URL,
+  PEACOCK_REPO,
+  PEACOCK_SITE,
+  PEACOCK_VERSION,
+  PRIVACY_URL,
+  SITE_TITLE,
+  SOCIAL,
+} from "../siteconfig";
+
+const year = new Date().getFullYear();
+---
+
+<wc-site-footer class="site-footer">
+  <a slot="brand" class="brand" href="/">
+    <Logo />
+    <span>{SITE_TITLE}<span class="brand-dot">.</span></span>
+  </a>
+  <p slot="brand" class="footer-line">
+    Software architect, with expertise in platform engineering and UI. I design platforms and design systems, and write down how
+    they were built.
+  </p>
+
+  <wc-site-footer-group label="Explore">
+    <a href="/#work">Selected work</a>
+    <a href="/#approach">How I build</a>
+    <a href="/#experience">Experience</a>
+    <a href="/blog/">Journal</a>
+  </wc-site-footer-group>
+
+  <wc-site-footer-group label="Connect">
+    <a href={`mailto:${AUTHOR.email}`}>Email</a>
+    {SOCIAL.map((s) => <a href={s.href} target="_blank" rel="noopener">{s.label}</a>)}
+  </wc-site-footer-group>
+
+  <wc-site-footer-group label="Site">
+    <a href={AUTHOR.resume} target="_blank">Résumé (PDF)</a>
+    <a href={FEED_URL}>RSS feed</a>
+    <a href={PRIVACY_URL}>Privacy</a>
+    <a href={LICENSE_URL}>License</a>
+  </wc-site-footer-group>
+
+  <span slot="legal">© {year} {SITE_TITLE}</span>
+  <span slot="legal">
+    Built with <a href={PEACOCK_SITE} target="_blank" rel="noopener">Peacock {PEACOCK_VERSION}</a>
+    and Astro
+  </span>
+  <a slot="legal" href={PRIVACY_URL}>Privacy</a>
+  <a slot="legal" href={LICENSE_URL}>License</a>
+
+  {
+    SOCIAL.map((s) => (
+      <wc-icon-button
+        slot="social"
+        variant="text"
+        shape="round"
+        href={s.href}
+        target="_blank"
+        rel="noopener"
+        aria-label={s.label}
+      >
+        <wc-icon name={s.icon} provider="carbon" />
+      </wc-icon-button>
+    ))
+  }
+</wc-site-footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    --site-footer-background: var(--color-surface-container-low);
+  }
+  .footer-line {
+    max-width: 22rem;
+    color: var(--color-on-surface-variant);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+</style>

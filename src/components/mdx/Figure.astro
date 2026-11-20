@@ -1,0 +1,51 @@
+---
+interface Props {
+  /** Figure number shown before the caption, e.g. "1". */
+  n?: string | number;
+  caption: string;
+  wide?: boolean;
+}
+const { n, caption, wide = false } = Astro.props;
+---
+
+<figure class:list={["figure", { wide }]}>
+  <div class="figure-body">
+    <slot />
+  </div>
+  <figcaption>
+    {n !== undefined && <span class="mono">Fig. {n}</span>}
+    {caption}
+  </figcaption>
+</figure>
+
+<style>
+  .figure {
+    margin: 2.25em 0;
+  }
+  .figure-body {
+    padding: clamp(1rem, 3vw, 1.75rem);
+    border: 1px solid var(--hairline);
+    border-radius: var(--shape-corner-large);
+    background:
+      linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 16px 16px,
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 16px 16px,
+      var(--color-surface-container-lowest);
+    overflow-x: auto;
+  }
+  figcaption {
+    display: flex;
+    gap: var(--spacing-100);
+    margin-top: var(--spacing-150);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  figcaption .mono {
+    flex: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    padding-top: 0.15rem;
+  }
+</style>

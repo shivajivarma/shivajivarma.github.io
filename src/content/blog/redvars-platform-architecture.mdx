@@ -1,0 +1,159 @@
+---
+title: "Redvars: a modular monolith for a metadata-driven platform"
+description: "How I'm structuring Redvars: a kernel that owns the only path to the data, modules that extend it, daemons that drive it, and runtimes that decide what each process ships."
+date: 2026-11-20
+format: white-paper
+tags: [Redvars, Platform engineering, System architecture, Modular monolith, PostgreSQL]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import RedvarsLayers from "../../components/diagrams/RedvarsLayers.astro";
+
+Redvars is the platform I'm building for enterprise web applications. Teams describe their data,
+behaviour, access rules and screens as metadata, and the platform turns that into a running, secured
+application. When metadata isn't enough, they drop down to code without leaving the platform.
+
+It's still in development, but its shape is settled, and the shape is the interesting part. This is
+how it's put together, and why.
+
+## What it has to do
+
+The goals are short:
+
+1. Let a team stand up a secure, multi-user business application by configuring, not coding, the
+   common 80%.
+2. Give them a way into real code for the other 20%, one that never turns into a rewrite.
+3. Enforce security the same way everywhere. No path to data skips authorization.
+4. Run locally with one command, and scale out later without re-architecting.
+
+There are also things it deliberately doesn't do, at least for now: multi-region active-active
+deployments, databases other than PostgreSQL, and shared multi-tenant hosting. Every organisation runs
+its own instance, which I've written about in
+[One instance per organisation](/blog/one-instance-per-organisation/).
+
+## Interpret metadata, don't generate code
+
+The first big decision: table definitions, forms, workflows and roles are stored as data and
+interpreted at runtime. Redvars doesn't generate source code per application.
+
+Interpreting metadata is what lets someone change an app live in the Studio, with no build and
+deploy cycle, and that's the whole promise of low-code. Generated code hands an app's owners a fork
+they then have to maintain, and it makes every platform upgrade painful. The cost is an
+interpretation layer at runtime, which I pay back with caching and compiled query plans.
+
+That sounds like the opposite of what I did with [Peacock](/blog/generate-dont-handwrite/), where
+the framework packages are generated. The difference is who edits the result. Nobody edits Peacock's
+generated bindings, but a low-code app changes every day.
+
+## A modular monolith
+
+Redvars is one codebase, built from separate packages with explicit interfaces. There are four kinds
+of part.
+
+<Figure n="1" caption="Daemons drive the kernel through its public API, modules extend it from inside, and only the kernel talks to the database and the cache.">
+  <RedvarsLayers />
+</Figure>
+
+The **kernel** is in every process and can't be replaced. It owns persistence, the security
+handler, who owns which asset, schema loading, the service registry and the job queue.
+
+**Modules** extend the kernel from inside. They add tables, interceptors, data types and services.
+`identity`, `access`, `apps` and `rules` are all modules, and a module may change what the kernel
+does.
+
+**Daemons** are long-running entry points that drive the kernel: the HTTP gateway, the
+rules-worker, and later a scheduler. A daemon reaches data only through the kernel's public API,
+exactly like an outside caller, so it can't get around security. It isn't given a way to.
+
+A **runtime** is a named, static list of modules and daemons, built into an image.
+
+### Why not microservices
+
+The modules are bound together by transactions. A record write, its permission check and its
+before-rules have to succeed or fail together. Splitting them over a network early would mean
+distributed transactions and a lot more to operate, for a platform that has to stay lean.
+
+The boundaries are strict all the same. No module reaches into another's internals, and that's
+exactly what lets the same modules be assembled into differently shaped processes.
+
+### Capabilities, not names
+
+The kernel doesn't know any module by name. Modules declare which capabilities they provide, require
+or can use if present, as typed service tokens such as `AUTHENTICATOR` and `AUTHORIZER`, and the
+kernel orders them by those. A missing provider or a cycle fails the boot.
+
+So a fake, or an LDAP-backed module, can stand in for the real one by providing the same token, and
+a fake with the right name can't quietly satisfy a requirement it doesn't meet. Two checks hold in
+every runtime: `AUTHORIZER` has exactly one provider, and `AUTHENTICATOR` has at least one. A
+process simply can't boot without a security model.
+
+## Two runtimes, one codebase
+
+There are two runtimes today.
+
+`web` has everything: the gateway, the UI, every module and the rules-worker. It's what you run
+locally (one `docker compose up` starts it with PostgreSQL and a cache), it's enough for small
+deployments, and it's the only runtime that serves users. It's also where user writes arrive, so
+it's where synchronous before-rules run, inside the user's own transaction.
+
+`worker` is the headless one. It has the kernel, `identity`, `access`, `scripts` and `rules`, and a
+rules-worker that runs eight jobs at once instead of one. There's no UI, no gateway and no inbound
+listener. Its only job is to pull asynchronous work off the queue, so a high volume of workflows can
+spread across many cheap workers instead of weighing on the nodes people use.
+
+| Part | `web` | `worker` |
+| --- | --- | --- |
+| Kernel | yes | yes |
+| `identity`, `access`, `scripts`, `rules` | yes | yes |
+| `apps` | yes | no |
+| Gateway and UI | yes | no |
+| rules-worker | one job at a time | eight at a time |
+
+Configuration can switch parts off at boot, but only parts that are in the image. You can't turn a
+worker into a user-facing node with a setting, because the gateway isn't in it. The attack surface
+of an image is whatever its composition says.
+
+<Callout kind="decision" title="A runtime is a list you can read">
+  What a process runs is written down in one place and reviewed like any other code. Discovering
+  whatever happens to be installed would make behaviour depend on the environment, and a kernel that
+  names its modules would need a new release every time a module or runtime changed.
+</Callout>
+
+## Events as the seam
+
+State changes emit internal events: a record about to be inserted, a record updated, a schema
+changed. Rules and cache invalidation listen to them. Persistence doesn't know rules exist; it just
+publishes. New listeners, like audit, search indexing or webhooks, can be added without touching the
+write path.
+
+## Scaling without a rewrite
+
+The plan for scaling out is a list of deployment steps, not a list of rewrites:
+
+1. Run several stateless `web` nodes behind a load balancer.
+2. Add `worker` pools, and start the `web` nodes with their own rules-worker switched off, so they
+   only queue jobs.
+3. Split the worker pools by domain, application or priority, and autoscale on queue depth.
+4. Move hot paths, like the workflow executor or bulk data processing, to Rust or Go behind the
+   module interface that already exists.
+5. Add read replicas. The query path already tells reads from writes.
+
+Each step is either a new composition or an extraction along a boundary the monolith already has.
+
+## The trade-offs
+
+| Choice | What it buys | What it costs |
+| --- | --- | --- |
+| Interpret metadata | Live changes and painless upgrades | An interpretation layer that has to stay fast |
+| A modular monolith | Transactions stay local, in one codebase | The module contract becomes an interface that's hard to change, so it's kept small and versioned |
+| Runtimes as static lists | You can read exactly what a process runs | A new shape of process needs a new runtime file |
+| PostgreSQL only | Transactional DDL, JSONB, row-level security, one database to run | Lock-in, accepted on purpose |
+| An instance per organisation | The strongest isolation, and independent upgrades | Tooling to provision, upgrade and monitor a fleet |
+
+## The rule underneath all of it
+
+If I had to pick the one decision everything else leans on, it's the one about data: there's exactly
+one way in, and every caller uses it, whether that's a person in the browser, a rule, a script or the
+AI assistant. That path, and everything it enforces along the way, gets its own post:
+[One door to the data](/blog/one-data-path/).

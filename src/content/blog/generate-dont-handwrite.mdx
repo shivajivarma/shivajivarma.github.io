@@ -1,0 +1,104 @@
+---
+title: "Generate, don't hand-write: one manifest, three framework packages"
+description: "Field notes on generating Peacock's React, Vue and Angular packages from custom-elements.json: the rules it puts on component authors, and the tests that keep generated code honest."
+date: 2026-10-30
+format: field-notes
+tags: [Peacock, Code generation, React, Vue, Angular]
+---
+
+import Callout from "../../components/mdx/Callout.astro";
+
+## Why wrappers at all
+
+[Peacock](/blog/peacock-architecture/)'s components are custom elements, so they already render
+inside React, Vue and Angular. What people miss in those frameworks is the native feel: typed
+props, typed events, and two-way binding that works with each framework's own forms.
+
+```tsx
+import "@redvars/peacock/styles.css";
+import { Input } from "@redvars/peacock-react";
+
+<Input label="Name" value={name} onInput={(event) => setName(event.detail.value)} />;
+```
+
+Writing that layer by hand for three frameworks and nearly two hundred elements means keeping three
+copies of every API in step. They'd drift apart the first time someone forgot one. So nobody
+writes it.
+
+## The manifest is the contract
+
+The build analyses the components into `custom-elements.json`. A generator script reads that
+manifest and writes each framework package's bindings into its `src/generated` folder. The rest of
+each package is small and kept by hand: its `package.json`, the entry file that re-exports the
+bindings, and a demo app. Every generated file starts with a header that says where it came from
+and asks you not to edit it.
+
+The consequence I care about most is this: **a component's public API is whatever the analyzer can
+see.** If it isn't in the manifest, it isn't public.
+
+## What it asks of component authors
+
+These rules live in the component guidelines, because the generator depends on them.
+
+Public, writable fields become props, so internals get a `_` prefix or are marked `private` or
+`readonly` to keep them out of the bindings.
+
+Every event is documented with `@fires name` and a `CustomEvent<Detail>` type, and the detail type
+is exported. Skip that and the bindings fall back to `CustomEvent<unknown>`.
+
+Two-way binding is detected, not declared. A component gets it when it has `value` plus an `input`
+or `change` event whose detail has `value`, or `checked` plus `change`.
+
+Tag names are written out literally in templates (`<wc-icon`), never built from strings, because
+the bindings work out which elements a component renders by scanning its source.
+
+```ts
+/**
+ * @fires {CustomEvent<{ value: string }>} input - Dispatched while the value changes.
+ * @fires {CustomEvent<{ value: string }>} change - Dispatched when the value is committed.
+ */
+```
+
+<Callout kind="lesson">
+  The [API conventions](/blog/component-api-conventions/) and the generator prop each other up. One
+  event contract means one rule for two-way binding, and a generator that depends on that contract
+  makes the convention hard to break.
+</Callout>
+
+## What comes out
+
+Each package gets a **registration layer**: one module per tag that defines the element plus the
+tags it renders. Import `Input` and `wc-input` is registered along with everything inside it, so a
+framework app never loads `loader.js`.
+
+On top of that, each framework gets its own idiom:
+
+| Package | Two-way binding |
+| --- | --- |
+| `@redvars/peacock-react` | `value` and `checked` with `onInput` and `onChange` |
+| `@redvars/peacock-vue` | `v-model` |
+| `@redvars/peacock-angular` | `ngModel`, `formControl`, `formControlName` |
+
+## Keeping generated code honest
+
+Generated code tends to fail quietly. A missing event type doesn't break the build; it just makes
+the types weaker. Two kinds of tests watch for that. Generator tests (`node --test`) run after any
+change to a component's API. And a smoke test builds a small demo app for each framework, serves
+it, and drives it in Chrome with Puppeteer, so the bindings get checked in a real browser, the way
+an app would use them.
+
+## Once you trust it, you see it everywhere
+
+Generation shows up in other corners of Peacock too. The theme engine is plain ESM with no
+Node-only imports, so the same code builds `tokens.css` in Node and runs the docs theme builder in
+the browser, and the two can't disagree. The generative view's catalog, the allow-list of
+components that AI answers may render, takes each prop's type, enum values and description from
+the component manifest. A test fails when the committed catalog goes stale.
+
+## Notes to self
+
+- Generate from something the build already produces and checks, so there's no second source to
+  keep in sync.
+- Put the generator's assumptions in the authoring guidelines, where component authors will
+  actually read them.
+- Test generated code in the runtime it targets, not just with the compiler.

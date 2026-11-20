@@ -1,5 +1,7 @@
 ---
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import {
   SITE_TITLE,
   SITE_TAGLINE,
@@ -8,24 +10,29 @@ import {
   SITE_TYPE,
   GOOGLE_ANALYTICS_ID,
   AUTHOR,
+  PEACOCK_CDN,
+  FEED_URL,
 } from "../siteconfig";
-
-import "../styles/layout/base.scss";
+import "../styles/global.scss";
 
 interface Props {
   title?: string;
   description?: string;
   keywords?: string[];
-  pageUrl?: string;
-  css?: string[];
+  /** "article" for journal posts. */
+  ogType?: string;
+  image?: string;
+  /** Keep the page out of search results and give it no canonical URL (the 404 page). */
+  noindex?: boolean;
 }
 
 const {
   title,
   description,
   keywords = [],
-  pageUrl = Astro.url.pathname,
-  css = [],
+  ogType = SITE_TYPE,
+  image = `${SITE_URL}${AUTHOR.avatar}`,
+  noindex = false,
 } = Astro.props;
 
 const pageTitle = title
@@ -33,78 +40,69 @@ const pageTitle = title
   : `${SITE_TITLE} · ${SITE_TAGLINE}`;
 const pageDescription = description ?? SITE_DESCRIPTION;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Components seen above the fold, preloaded so the header doesn't wait on the loader's discovery.
+const preload = ["site-header.js", "icon.js", "icon-button.js", "link-button.js"];
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
-
-    <!-- Page meta data -->
+    <meta name="description" content={pageDescription} />
     <meta name="author" content={AUTHOR.name} />
-    <meta
-      name="copyright"
-      content={`(c) ${new Date().getFullYear()} ${AUTHOR.name}`}
-    />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:type" content={SITE_TYPE} />
-    <meta property="og:image" content={`${SITE_URL}/assets/img/profile.webp`} />
-    <meta property="og:site_name" content={AUTHOR.name} />
-    <meta property="og:title" content={pageTitle} />
-    <meta
-      name="description"
-      property="og:description"
-      content={pageDescription}
-    />
-    <meta name="keywords" content={[SITE_TITLE, ...keywords].join(", ")} />
-    <GoogleAnalytics id={GOOGLE_ANALYTICS_ID} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 
-    <!-- Icons -->
-    <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
-    <link
-      rel="author"
-      href={`https://twitter.com/${AUTHOR.twitter}?rel=author`}
-    />
-    <link rel="publisher" href={`https://twitter.com/${AUTHOR.twitter}`} />
-    <link rel="canonical" href={canonicalURL} />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title={SITE_TITLE}
-      href={`${SITE_URL}/feed.xml`}
-    />
+    {!noindex && <meta property="og:url" content={canonicalURL} />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content={`@${AUTHOR.twitter}`} />
+    <meta name="theme-color" content="#be0b0e" />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} · Journal`} href={FEED_URL} />
+
+    <!-- Apply a saved theme before first paint; with none saved, Peacock follows the system setting. -->
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark" || theme === "light") document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Pacifico&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400..600&family=Noto+Sans:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@500..700&display=swap"
     />
+    <link rel="stylesheet" href={`${PEACOCK_CDN}/assets/styles.css`} />
+    {preload.map((file) => <link rel="modulepreload" href={`${PEACOCK_CDN}/${file}`} crossorigin />)}
 
-    <!-- Peacock styles -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/@redvars/peacock@3.8.6/dist/assets/styles.css"
-      rel="stylesheet"
-    />
-
-    <style>
-      body {
-        background: var(--color-surface-container-highest);
-        color: var(--color-on-surface);
-      }
-    </style>
+    <GoogleAnalytics id={GOOGLE_ANALYTICS_ID} />
+    <slot name="head" />
   </head>
 
-  <body itemscope itemtype="http://schema.org/WebPage">
-    <slot />
+  <body>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
 
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@redvars/peacock@3.8.6/dist/loader.js"
-    ></script>
+    <script is:inline type="module" src={`${PEACOCK_CDN}/loader.js`}></script>
+    <script>
+      import "../scripts/site";
+    </script>
   </body>
 </html>

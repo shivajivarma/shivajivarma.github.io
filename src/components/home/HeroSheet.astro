@@ -1,0 +1,377 @@
+---
+// The hero drawing: a full-stack system drawn as an isometric stack of layers on a drafting sheet,
+// with a title block like the corner of an architectural drawing.
+import { AUTHOR, CAREER_START } from "../../siteconfig";
+
+const cx = 165;
+const hw = 115; // half width of a plate
+const hh = 57.5; // half height of a plate
+const t = 12; // plate thickness
+
+/** Maps plate coordinates (-1..1, -1..1) to the isometric drawing. */
+const iso = (cy: number, x: number, y: number) =>
+  `${(cx + ((x - y) * hw) / 2).toFixed(1)},${(cy + ((x + y) * hh) / 2).toFixed(1)}`;
+
+const rect = (cy: number, x0: number, y0: number, x1: number, y1: number) =>
+  [iso(cy, x0, y0), iso(cy, x1, y0), iso(cy, x1, y1), iso(cy, x0, y1)].join(" ");
+
+const layers = [
+  { key: "data", name: "Data", caption: "Schemas · storage · scale", cy: 320 },
+  { key: "platform", name: "Platform", caption: "APIs · rules · access", cy: 245 },
+  { key: "components", name: "Components", caption: "Peacock · Lit elements", cy: 170 },
+  { key: "interface", name: "Interface", caption: "Accessible, themeable UI", cy: 95 },
+];
+
+const tiles: [number, number][] = [];
+for (const x of [-0.72, -0.15, 0.42]) for (const y of [-0.72, -0.15, 0.42]) tiles.push([x, y]);
+---
+
+<figure class="sheet" aria-label="Drawing of a full-stack system: interface, components, platform and data layers">
+  <div class="sheet-head mono" aria-hidden="true">
+    <span>A-01</span>
+    <span>System section · full stack</span>
+    <span>Scale 1:1</span>
+  </div>
+
+  <svg class="stack" viewBox="0 0 480 410" role="presentation" aria-hidden="true">
+    <defs>
+      <linearGradient id="plate-top" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" style="stop-color: var(--grad-start)"></stop>
+        <stop offset="55%" style="stop-color: var(--grad-mid)"></stop>
+        <stop offset="100%" style="stop-color: var(--grad-end)"></stop>
+      </linearGradient>
+    </defs>
+
+    <!-- Dimension line: the whole stack is one person's scope -->
+    <g class="dim">
+      <line x1="18" y1="38" x2="18" y2="390"></line>
+      <line x1="10" y1="38" x2="26" y2="38"></line>
+      <line x1="10" y1="390" x2="26" y2="390"></line>
+      <text x="0" y="0" transform="translate(12 214) rotate(-90)" text-anchor="middle">END TO END</text>
+    </g>
+
+    {
+      layers.map((layer, i) => (
+        <g class={`plate plate-${layer.key}`} style={`--i:${3 - i}`}>
+          <polygon
+            class="side side-l"
+            points={`${cx - hw},${layer.cy} ${cx},${layer.cy + hh} ${cx},${layer.cy + hh + t} ${cx - hw},${layer.cy + t}`}
+          />
+          <polygon
+            class="side side-r"
+            points={`${cx},${layer.cy + hh} ${cx + hw},${layer.cy} ${cx + hw},${layer.cy + t} ${cx},${layer.cy + hh + t}`}
+          />
+          <polygon class="top" points={rect(layer.cy, -1, -1, 1, 1)} />
+
+          {layer.key === "interface" && (
+            <g class="detail">
+              <polygon points={rect(layer.cy, -0.74, -0.74, 0.74, 0.74)} class="detail-line" />
+              <polygon points={rect(layer.cy, -0.74, -0.74, 0.74, -0.46)} class="detail-fill" />
+              <polygon points={rect(layer.cy, -0.6, -0.3, 0.05, 0.55)} class="detail-fill soft" />
+              <polygon points={rect(layer.cy, 0.18, -0.3, 0.6, 0.1)} class="detail-fill soft" />
+              <polygon points={rect(layer.cy, 0.18, 0.22, 0.6, 0.55)} class="detail-fill soft" />
+            </g>
+          )}
+          {layer.key === "components" && (
+            <g class="detail">
+              {tiles.map(([x, y]) => (
+                <polygon points={rect(layer.cy, x, y, x + 0.42, y + 0.42)} class="detail-tile" />
+              ))}
+            </g>
+          )}
+          {layer.key === "platform" && (
+            <g class="detail">
+              <polygon points={rect(layer.cy, -0.7, -0.7, -0.15, 0.7)} class="detail-tile" />
+              <polygon points={rect(layer.cy, 0.15, -0.7, 0.7, -0.1)} class="detail-tile" />
+              <polygon points={rect(layer.cy, 0.15, 0.1, 0.7, 0.7)} class="detail-tile" />
+              <polyline
+                points={`${iso(layer.cy, -0.15, 0)} ${iso(layer.cy, 0, 0)} ${iso(layer.cy, 0, -0.4)} ${iso(layer.cy, 0.15, -0.4)}`}
+                class="detail-line"
+              />
+              <polyline points={`${iso(layer.cy, 0, 0)} ${iso(layer.cy, 0, 0.4)} ${iso(layer.cy, 0.15, 0.4)}`} class="detail-line" />
+            </g>
+          )}
+          {layer.key === "data" && (
+            <g class="detail">
+              {[-0.55, -0.2, 0.15, 0.5].map((y) => (
+                <polyline points={`${iso(layer.cy, -0.7, y)} ${iso(layer.cy, 0.7, y)}`} class="detail-line" />
+              ))}
+              <polyline points={`${iso(layer.cy, -0.25, -0.7)} ${iso(layer.cy, -0.25, 0.7)}`} class="detail-line" />
+            </g>
+          )}
+
+          <g class="label">
+            <line x1={cx + hw + 6} y1={layer.cy} x2={cx + hw + 30} y2={layer.cy} />
+            <circle cx={cx + hw + 6} cy={layer.cy} r="2.5" />
+            <text class="label-name" x={cx + hw + 38} y={layer.cy - 2}>{layer.name}</text>
+            <text class="label-caption" x={cx + hw + 38} y={layer.cy + 15}>{layer.caption}</text>
+          </g>
+        </g>
+      ))
+    }
+
+    <!-- Requests flowing through every layer -->
+    <line class="flow" x1={cx} y1="95" x2={cx} y2="320"></line>
+    <circle class="packet" cx={cx} cy="95" r="4"></circle>
+  </svg>
+
+  <figcaption class="title-block">
+    <img src={AUTHOR.avatar} alt={AUTHOR.name} width="64" height="64" fetchpriority="high" />
+    <dl>
+      <div><dt>Drawn by</dt><dd>{AUTHOR.name}</dd></div>
+      <div><dt>Role</dt><dd>Software architect</dd></div>
+      <div><dt>Since</dt><dd>{CAREER_START.getFullYear()}</dd></div>
+      <div><dt>Based in</dt><dd>India</dd></div>
+    </dl>
+  </figcaption>
+</figure>
+
+<style>
+  .sheet {
+    position: relative;
+    margin: 0;
+    padding: var(--spacing-200);
+    border: 1px solid var(--grid-line-strong);
+    border-radius: var(--shape-corner-extra-large);
+    background:
+      linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 20px 20px,
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 20px 20px,
+      color-mix(in srgb, var(--color-surface-container-lowest) 88%, transparent);
+    box-shadow:
+      0 1px 0 var(--grid-line-strong) inset,
+      0 40px 80px -48px color-mix(in srgb, var(--color-primary) 60%, transparent);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Registration marks in the corners */
+  .sheet::before,
+  .sheet::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--color-primary);
+    border-style: solid;
+    opacity: 0.6;
+  }
+  .sheet::before {
+    top: 10px;
+    left: 10px;
+    border-width: 1.5px 0 0 1.5px;
+  }
+  .sheet::after {
+    right: 10px;
+    bottom: 10px;
+    border-width: 0 1.5px 1.5px 0;
+  }
+
+  .sheet-head {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-100);
+    padding: var(--spacing-050) var(--spacing-150) var(--spacing-150);
+    border-bottom: 1px dashed var(--grid-line-strong);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-on-surface-variant);
+  }
+
+  .stack {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-block: var(--spacing-100);
+    overflow: visible;
+  }
+
+  .dim line {
+    stroke: var(--color-on-surface-variant);
+    stroke-width: 1;
+    opacity: 0.55;
+  }
+  .dim text {
+    font-family: var(--font-family-monospace);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    fill: var(--color-on-surface-variant);
+  }
+
+  .plate {
+    animation:
+      plate-in 900ms var(--easing-emphasized-decelerate, ease-out) both,
+      plate-float 6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 140ms), calc(900ms + var(--i) * 400ms);
+  }
+
+  .top {
+    stroke: color-mix(in srgb, var(--color-primary) 55%, transparent);
+    stroke-width: 1;
+  }
+  .side {
+    stroke: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    stroke-width: 1;
+  }
+  .plate-interface .top {
+    fill: url(#plate-top);
+  }
+  .plate-interface .side-l {
+    fill: color-mix(in srgb, var(--grad-start) 70%, var(--color-surface-container-highest));
+  }
+  .plate-interface .side-r {
+    fill: color-mix(in srgb, var(--grad-end) 60%, var(--color-surface-container-highest));
+  }
+  .plate-components .top {
+    fill: color-mix(in srgb, var(--color-primary) 30%, var(--color-surface-container-lowest));
+  }
+  .plate-platform .top {
+    fill: color-mix(in srgb, var(--color-primary) 18%, var(--color-surface-container-lowest));
+  }
+  .plate-data .top {
+    fill: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface-container-lowest));
+  }
+  .plate:not(.plate-interface) .side-l {
+    fill: color-mix(in srgb, var(--color-primary) 22%, var(--color-surface-container-high));
+  }
+  .plate:not(.plate-interface) .side-r {
+    fill: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-container-highest));
+  }
+
+  .detail-line {
+    fill: none;
+    stroke: color-mix(in srgb, var(--color-on-surface) 45%, transparent);
+    stroke-width: 1;
+  }
+  .plate-interface .detail-line {
+    stroke: color-mix(in srgb, white 85%, transparent);
+  }
+  .detail-fill {
+    fill: color-mix(in srgb, white 70%, transparent);
+  }
+  .detail-fill.soft {
+    fill: color-mix(in srgb, white 35%, transparent);
+  }
+  .detail-tile {
+    fill: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    stroke: color-mix(in srgb, var(--color-primary) 70%, transparent);
+    stroke-width: 0.8;
+  }
+
+  .label line {
+    stroke: var(--color-primary);
+    stroke-width: 1;
+    stroke-dasharray: 3 3;
+  }
+  .label circle {
+    fill: var(--color-primary);
+  }
+  .label-name {
+    font-family: var(--font-family-brand);
+    font-size: 16px;
+    font-weight: 700;
+    fill: var(--color-on-surface);
+  }
+  .label-caption {
+    font-family: var(--font-family-monospace);
+    font-size: 10.5px;
+    fill: var(--color-on-surface-variant);
+  }
+
+  .flow {
+    stroke: var(--color-on-surface);
+    stroke-width: 1.4;
+    stroke-dasharray: 2 7;
+    stroke-linecap: round;
+    opacity: 0.55;
+    animation: flow 1.6s linear infinite;
+  }
+  .packet {
+    fill: var(--color-on-surface);
+    stroke: var(--color-surface);
+    stroke-width: 2;
+    animation: packet 3.2s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+  }
+
+  .title-block {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-200);
+    align-items: center;
+    padding: var(--spacing-150);
+    border: 1px solid var(--grid-line-strong);
+    border-radius: var(--shape-corner-large);
+    background: var(--color-surface-container-lowest);
+  }
+  .title-block img {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--shape-corner-medium);
+    object-fit: cover;
+  }
+  .title-block dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-100) var(--spacing-200);
+    margin: 0;
+  }
+  .title-block dt {
+    font-family: var(--font-family-monospace);
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-on-surface-variant);
+  }
+  .title-block dd {
+    margin: 0;
+    font-family: var(--font-family-brand);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  @keyframes plate-in {
+    from {
+      opacity: 0;
+      transform: translateY(-28px);
+    }
+  }
+  @keyframes plate-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+  @keyframes flow {
+    to {
+      stroke-dashoffset: -18;
+    }
+  }
+  @keyframes packet {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    10%,
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(225px);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plate,
+    .flow,
+    .packet {
+      animation: none;
+    }
+    .packet {
+      display: none;
+    }
+  }
+</style>

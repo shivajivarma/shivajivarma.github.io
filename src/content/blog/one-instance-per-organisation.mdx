@@ -1,0 +1,125 @@
+---
+title: "One instance per organisation: tenancy in Redvars"
+description: "Why every organisation that uses Redvars gets its own database and deployment instead of a shared multi-tenant platform, and how a service provider can still run many organisations from one instance."
+date: 2026-11-20
+format: case-study
+tags: [Redvars, Multi-tenancy, Platform engineering, Security, PostgreSQL]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import DomainTree from "../../components/diagrams/DomainTree.astro";
+
+Every platform that serves more than one organisation has to answer the same question early: do they
+share the system, or does each one get its own? It's one of those decisions that's cheap to make and
+very expensive to change, because the answer ends up in every query, cache key and queued job.
+
+For [Redvars](/blog/redvars-platform-architecture/), I chose one instance per organisation. This is
+why, and how service providers who look after many organisations still fit.
+
+## Two ways to serve many organisations
+
+Shared multi-tenancy puts everyone in one deployment and tells them apart with a tenant key. It's
+cheap to run, but that key has to be threaded through every query, every cache entry and every job,
+forever. Forget it once and one organisation sees another's data.
+
+An instance per organisation gives each one its own deployment: its own PostgreSQL database, its own
+cache, its own runtime nodes. Isolation comes from the infrastructure, not from code remembering to
+filter.
+
+<Callout kind="decision" title="What I chose">
+  An instance per organisation. The platform has no concept of a tenant at all, and no database ever
+  holds more than one organisation's data.
+</Callout>
+
+## Why
+
+It's the strongest isolation for the least engineering. Data, noisy neighbours and the blast radius
+of a bad day are all separated by default, and there's no tenant key to thread through anything.
+Each organisation also gets its own upgrade schedule, its own data residency, and its own backup and
+restore. And it's what enterprises tend to ask for anyway.
+
+On a host, instances live side by side in a project folder. Each one has a folder of its own for its
+configuration, secrets, logs and application cache, and they share only the platform releases, which
+never change once they're unpacked. So sharing a release can't let one instance break another.
+
+It isn't free. A fleet of instances needs tooling to provision, upgrade and monitor them that a
+shared platform wouldn't. I treat that as an operations problem that sits outside the core runtime,
+and how that tooling works across many hosts is still an open question.
+
+## Keeping instances apart in the browser, too
+
+There's a less obvious kind of isolation. Instances run pages and scripts their owners write, so the
+browser is part of the security boundary too. Redvars leans on what modern browsers already enforce,
+and uses it strictly.
+
+The login session lives in one cookie. It's `HttpOnly`, so page scripts never see it. It carries
+the `__Secure-` prefix, so browsers only accept it over HTTPS. It's `SameSite=Strict` and limited to
+the API's path, so it isn't sent with requests that start on another site. And it's set without a
+`Domain`, so it belongs to the instance's own host and nothing else.
+
+Any request that rides on that cookie and changes something has to come from the instance's own
+origin, or one an administrator has listed, and has to carry an `X-Requested-With` header, which a
+cross-site form can't send. Sign-in calls get the same check, so a hostile page can't even log a
+browser in. Other origins get no credentialed CORS access unless they're explicitly allowed; by
+default it's same origin only.
+
+Application pages go one step further. They run in a sandboxed iframe without same-origin access, so
+they have no cookies at all. Instead they call the API with a token the shell hands them, scoped to
+their application.
+
+None of this is exotic. It's the cookie and isolation features every current browser supports,
+switched on and kept on.
+
+## What about service providers?
+
+One kind of organisation doesn't fit neatly: managed service providers. An MSP looks after many
+organisations with one team, one configuration baseline and one bill, and a separate instance for
+each organisation it manages doesn't give them that.
+
+For them, an instance can be split into **domains**, arranged as a tree: a global root, an optional
+provider domain, and a domain for each organisation the provider manages. Every user belongs to one
+domain, and tables that opt in get a domain column, which persistence stamps on every write.
+
+<Figure n="1" caption="A user sees their own domain, everything below it, and global records marked shared. Siblings and ancestors stay invisible.">
+  <DomainTree />
+</Figure>
+
+The visibility rule is simple to say. You see records in your own domain and the domains below it,
+plus global records marked as shared. Sibling and ancestor domains are invisible. So the provider
+sees across every organisation it manages, and no organisation ever sees the others.
+
+Configuration follows the same tree. Roles, forms, lists and rules can be defined at a parent domain
+and inherited, or overridden further down, and the most specific definition wins. An MSP can build
+an application once and adjust it per organisation, instead of copying it for every one.
+
+Domain separation is opt-in per table, and it's off by default. An instance that serves a single
+organisation keeps everything in the default domain, and the only overhead is one constant column.
+
+## Enforced where it can't be forgotten
+
+The domain filter isn't something each screen or API has to remember. It's a predicate that the
+persistence layer adds to every query through the access module, right next to the role checks.
+PostgreSQL row-level security on the domain column sits behind it as a backstop, in case a module
+has a bug.
+
+Background work follows the same rule. A queued job carries the domain of the record that triggered
+it, runs in that domain, and picks up the most specific workflow definition for it. Worker pools can
+even be assigned to a domain, so one busy organisation can't hold up another's jobs. Across instances
+you get that for free, of course.
+
+## Domains are weaker than instances, on purpose
+
+Domains share a database, so they're logical separation, not physical. An organisation with hard
+isolation, residency or regulatory needs gets its own instance. Domains are for organisations that
+are happy to trust the provider's boundary.
+
+The price on the platform side is complexity: working out the effective configuration when
+definitions are inherited and overridden. That's kept out of the hot path by resolving the effective
+definitions per domain and caching them.
+
+## If you're making the same call
+
+Start with isolation from the infrastructure, and add logical separation only where an organisation
+actually needs it. Going the other way, starting shared and carving out isolation later, means
+revisiting every query you've ever written.

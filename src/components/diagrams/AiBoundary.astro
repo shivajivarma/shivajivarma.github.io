@@ -1,0 +1,59 @@
+---
+// Where AI sits around Peacock: the app pushes state in, interactive features call one provider
+// the app registers, and only the app talks to a model (ADR-030002).
+---
+
+<svg class="diagram" viewBox="0 0 760 330" role="img" aria-labelledby="ai-title ai-desc">
+  <title id="ai-title">Peacock never calls a model</title>
+  <desc id="ai-desc">
+    The app pushes presentation state such as suggestions, streamed values and citations into
+    Peacock components. Interactive features such as ghost text, rewrite, summarize and parse call
+    a provider the app registers with setPeacockAi, and only the app's provider talks to a model
+    service. Peacock itself never reaches a model.
+  </desc>
+  <defs>
+    <marker id="ai-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow-head-accent"></path>
+    </marker>
+  </defs>
+
+  <rect class="region" x="262" y="14" width="246" height="302" rx="18"></rect>
+  <text class="tag" x="282" y="40">PEACOCK · NO MODEL CALLS</text>
+
+  <text class="tag" x="20" y="40">YOUR APP</text>
+  <rect class="box" x="20" y="120" width="190" height="90" rx="12"></rect>
+  <text class="label" x="36" y="154">Page & data</text>
+  <text class="sub" x="36" y="174">owns records, access,</text>
+  <text class="sub" x="36" y="190">and what to show</text>
+
+  <rect class="box-accent" x="282" y="62" width="206" height="98" rx="12"></rect>
+  <text class="label" x="298" y="94">Presentation state</text>
+  <text class="code" x="298" y="118" style="font-size:12px">suggestion · value</text>
+  <text class="code" x="298" y="136" style="font-size:12px">streaming · citations</text>
+
+  <rect class="box-accent" x="282" y="196" width="206" height="98" rx="12"></rect>
+  <text class="label" x="298" y="228">Interactive features</text>
+  <text class="code" x="298" y="252" style="font-size:12px">complete · transform</text>
+  <text class="code" x="298" y="270" style="font-size:12px">summarize · parse</text>
+
+  <text class="tag" x="560" y="40">PLATFORM</text>
+  <text class="tag" x="560" y="186">YOUR APP</text>
+  <rect class="box" x="560" y="196" width="180" height="98" rx="12"></rect>
+  <text class="code" x="576" y="230" style="font-size:12px">{"setPeacockAi({"}</text>
+  <text class="code" x="592" y="248" style="font-size:12px">{"provider })"}</text>
+  <text class="sub" x="576" y="274">one per page</text>
+
+  <rect class="box" x="560" y="62" width="180" height="98" rx="12"></rect>
+  <text class="label" x="576" y="96">Model service</text>
+  <text class="sub" x="576" y="118">credentials,</text>
+  <text class="sub" x="576" y="134">access checks</text>
+
+  <path class="edge-accent" d="M210 150 C246 150 246 111 280 111" marker-end="url(#ai-arrow)"></path>
+  <text class="sub" x="196" y="104">pushes in</text>
+
+  <path class="edge-accent" d="M488 245 L558 245" marker-end="url(#ai-arrow)"></path>
+  <text class="sub" x="494" y="236">signal</text>
+
+  <path class="edge-accent" d="M700 196 L700 162" marker-end="url(#ai-arrow)"></path>
+  <text class="sub" x="636" y="184">calls</text>
+</svg>

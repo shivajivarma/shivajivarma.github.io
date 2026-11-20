@@ -1,0 +1,62 @@
+---
+// Redvars' single data path: every caller enters through kernel.api into a session, persistence
+// asks the authorizer before touching storage, and PostgreSQL row-level security is the backstop.
+// Source: redvars/engineering ARCHITECTURE.md, sections 3.3, 4 and 6.
+---
+
+<svg class="diagram" viewBox="0 0 760 290" role="img" aria-labelledby="dp-title dp-desc">
+  <title id="dp-title">One door to the data</title>
+  <desc id="dp-desc">
+    Callers such as the gateway, the UI, rules, scripts and the AI assistant enter through
+    kernel.api, which authenticates them into a session bound to one identity and one scope.
+    Persistence runs every read and write as parameterised SQL, and before touching storage it asks
+    the authorizer, which applies roles, compiles record conditions into the WHERE clause and denies
+    by default. PostgreSQL holds real tables and applies row-level security as a backstop.
+  </desc>
+  <defs>
+    <marker id="dp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow-head-accent"></path>
+    </marker>
+  </defs>
+
+  <rect class="region" x="168" y="22" width="392" height="252" rx="16"></rect>
+  <text class="tag" x="188" y="46">THE KERNEL'S ONE DATA PATH</text>
+
+  <rect class="box" x="20" y="72" width="128" height="96" rx="12"></rect>
+  <text class="label" x="36" y="100">Callers</text>
+  <text class="sub" x="36" y="122">gateway · UI</text>
+  <text class="sub" x="36" y="138">rules · scripts</text>
+  <text class="sub" x="36" y="154">AI assistant</text>
+
+  <path class="edge-accent" d="M148 120 L186 120" marker-end="url(#dp-arrow)"></path>
+
+  <rect class="box-accent" x="188" y="72" width="160" height="96" rx="12"></rect>
+  <text class="code" x="204" y="100">kernel.api</text>
+  <text class="sub" x="204" y="122">a session bound to</text>
+  <text class="sub" x="204" y="138">one identity and</text>
+  <text class="sub" x="204" y="154">one scope</text>
+
+  <path class="edge-accent" d="M348 120 L378 120" marker-end="url(#dp-arrow)"></path>
+
+  <rect class="box-accent" x="380" y="72" width="160" height="96" rx="12"></rect>
+  <text class="label" x="396" y="100">Persistence</text>
+  <text class="sub" x="396" y="122">every read and write,</text>
+  <text class="sub" x="396" y="138">as parameterised SQL</text>
+  <text class="sub" x="396" y="154">never string-built</text>
+
+  <path class="edge-accent" d="M460 168 L460 190" marker-start="url(#dp-arrow)" marker-end="url(#dp-arrow)"></path>
+  <text class="sub" x="470" y="184">asks first</text>
+
+  <rect class="box" x="380" y="192" width="160" height="70" rx="12"></rect>
+  <text class="label" x="396" y="216">Authorizer</text>
+  <text class="sub" x="396" y="236">roles, conditions in</text>
+  <text class="sub" x="396" y="252">WHERE, default deny</text>
+
+  <path class="edge-accent" d="M540 120 L578 120" marker-end="url(#dp-arrow)"></path>
+
+  <rect class="box" x="580" y="72" width="160" height="96" rx="12"></rect>
+  <text class="label" x="596" y="100">PostgreSQL</text>
+  <text class="sub" x="596" y="122">real tables per app</text>
+  <text class="sub" x="596" y="138">row-level security</text>
+  <text class="sub" x="596" y="154">as the backstop</text>
+</svg>

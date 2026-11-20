@@ -1,0 +1,321 @@
+---
+// Entity-relationship diagram of the bus reservation system's MySQL schema (db/setup.sql in
+// shivajivarma/bus-reservation-system): four tables in crow's-foot notation, the reservation view
+// the History tab reads, and a legend for the notation.
+type Key = "PK" | "FK" | "UQ";
+interface Column {
+  name: string;
+  type: string;
+  key?: Key;
+}
+interface Table {
+  name: string;
+  kind: string;
+  x: number;
+  y: number;
+  columns: Column[];
+  note?: string;
+  accent?: boolean;
+}
+
+const W = 260; // table width
+const HEAD = 38; // header height
+const ROW = 24; // row height
+const NOTE = 28; // height of the constraint footer
+
+const tables: Table[] = [
+  {
+    name: "route",
+    kind: "ENTITY",
+    x: 20,
+    y: 40,
+    columns: [
+      { name: "id", type: "INT", key: "PK" },
+      { name: "origin", type: "VARCHAR(20)" },
+      { name: "destination", type: "VARCHAR(20)" },
+    ],
+    note: "UNIQUE (origin, destination)",
+  },
+  {
+    name: "passenger",
+    kind: "ENTITY",
+    x: 400,
+    y: 40,
+    columns: [
+      { name: "id", type: "INT", key: "PK" },
+      { name: "username", type: "VARCHAR(20)", key: "UQ" },
+      { name: "password", type: "VARCHAR(20)" },
+      { name: "name", type: "VARCHAR(40)" },
+      { name: "email", type: "VARCHAR(32)" },
+      { name: "mobile", type: "BIGINT" },
+    ],
+  },
+  {
+    name: "bus",
+    kind: "ENTITY",
+    x: 20,
+    y: 290,
+    columns: [
+      { name: "id", type: "INT", key: "PK" },
+      { name: "routeid", type: "INT", key: "FK" },
+      { name: "ac", type: "BOOLEAN" },
+      { name: "fare", type: "INT" },
+      { name: "departuretime", type: "VARCHAR(6)" },
+      { name: "arrivaltime", type: "VARCHAR(6)" },
+    ],
+  },
+  {
+    name: "reserve",
+    kind: "ASSOCIATIVE ENTITY",
+    x: 400,
+    y: 290,
+    accent: true,
+    columns: [
+      { name: "id", type: "INT", key: "PK" },
+      { name: "passengerid", type: "INT", key: "FK" },
+      { name: "busid", type: "INT", key: "FK" },
+      { name: "dt", type: "DATE" },
+      { name: "tstamp", type: "DATE" },
+      { name: "seat", type: "INT" },
+    ],
+    note: "UNIQUE (busid, dt, seat)",
+  },
+];
+
+const heightOf = (t: Table) => HEAD + t.columns.length * ROW + (t.note ? NOTE : 0);
+
+// A path for the header band: rounded on top, square where it meets the rows.
+const headPath = (t: Table) =>
+  `M${t.x} ${t.y + HEAD} V${t.y + 12} Q${t.x} ${t.y} ${t.x + 12} ${t.y} H${t.x + W - 12} Q${t.x + W} ${t.y} ${t.x + W} ${t.y + 12} V${t.y + HEAD} Z`;
+
+const legendBadges: { key: Key; x: number; text: string }[] = [
+  { key: "PK", x: 318, text: "primary key" },
+  { key: "FK", x: 446, text: "foreign key" },
+  { key: "UQ", x: 574, text: "unique" },
+];
+---
+
+<svg class="diagram er" viewBox="0 18 680 658" role="img" aria-labelledby="er-title er-desc">
+  <title id="er-title">ER diagram of the bus reservation system</title>
+  <desc id="er-desc">
+    Four tables. Route has id, origin and destination, unique by origin and destination. Bus has id,
+    routeid, ac, fare, departure time and arrival time; each bus runs exactly one route, and a route
+    is served by zero or more buses. Passenger has id, a unique username, password, name, email and
+    mobile. Reserve is one ticket: id, passengerid, busid, travel date, booking date and seat, unique
+    by bus, date and seat. A passenger makes zero or more reservations and a bus carries zero or more
+    reservations; each reservation belongs to exactly one passenger and one bus. A view named
+    reservation joins reserve, bus and route for the History tab.
+  </desc>
+  <defs>
+    <!-- Crow's-foot ends. In marker space +x points into the table and x = refX is its edge. -->
+    <marker
+      id="er-one"
+      viewBox="0 0 20 16"
+      refX="20"
+      refY="8"
+      markerWidth="20"
+      markerHeight="16"
+      markerUnits="userSpaceOnUse"
+      orient="auto-start-reverse"
+    >
+      <path class="er-mark" d="M8 2 V14 M13 2 V14"></path>
+    </marker>
+    <marker
+      id="er-many"
+      viewBox="0 0 28 16"
+      refX="28"
+      refY="8"
+      markerWidth="28"
+      markerHeight="16"
+      markerUnits="userSpaceOnUse"
+      orient="auto-start-reverse"
+    >
+      <path class="er-mark" d="M14 8 L28 1 M14 8 L28 15 M14 8 L28 8"></path>
+      <circle class="er-ring" cx="7" cy="8" r="4.5"></circle>
+    </marker>
+  </defs>
+
+  {/* Relationships, drawn first so the tables sit on top of the line ends. */}
+  <path class="edge-accent" d="M100 178 V290" marker-start="url(#er-one)" marker-end="url(#er-many)"></path>
+  <text class="label-sm" x="114" y="230">served by</text>
+  <text class="sub" x="114" y="247">FK bus.routeid</text>
+
+  <path class="edge-accent" d="M480 222 V290" marker-start="url(#er-one)" marker-end="url(#er-many)"></path>
+  <text class="label-sm" x="494" y="252">makes</text>
+  <text class="sub" x="494" y="269">FK reserve.passengerid</text>
+
+  <path class="edge-accent" d="M280 392 H400" marker-start="url(#er-one)" marker-end="url(#er-many)"></path>
+  <text class="label-sm" x="340" y="376" text-anchor="middle">carries</text>
+  <text class="sub" x="340" y="414" text-anchor="middle">FK reserve.busid</text>
+
+  {
+    tables.map((t) => {
+      const h = heightOf(t);
+      const noteY = t.y + HEAD + t.columns.length * ROW;
+      return (
+        <g>
+          <rect class="er-body" x={t.x} y={t.y} width={W} height={h} rx="12" />
+          <path class:list={["er-head", { "er-head-accent": t.accent }]} d={headPath(t)} />
+          <text class="er-name" x={t.x + 16} y={t.y + 25}>
+            {t.name}
+          </text>
+          <text class="er-kind" x={t.x + W - 16} y={t.y + 24} text-anchor="end">
+            {t.kind}
+          </text>
+          <line class="er-rule" x1={t.x} y1={t.y + HEAD} x2={t.x + W} y2={t.y + HEAD} />
+          {t.columns.map((c, i) => {
+            const top = t.y + HEAD + i * ROW;
+            return (
+              <g>
+                {i > 0 && <line class="er-sep" x1={t.x + 12} y1={top} x2={t.x + W - 12} y2={top} />}
+                {c.key && (
+                  <>
+                    <rect class={`er-badge er-badge-${c.key.toLowerCase()}`} x={t.x + 12} y={top + 5} width="28" height="15" rx="4" />
+                    <text class={`er-badge-text er-badge-text-${c.key.toLowerCase()}`} x={t.x + 26} y={top + 16} text-anchor="middle">
+                      {c.key}
+                    </text>
+                  </>
+                )}
+                <text class:list={["code", { "er-pk": c.key === "PK" }]} x={t.x + 50} y={top + 17}>
+                  {c.name}
+                </text>
+                <text class="sub" x={t.x + W - 14} y={top + 17} text-anchor="end">
+                  {c.type}
+                </text>
+              </g>
+            );
+          })}
+          {t.note && (
+            <>
+              <line class="er-note-rule" x1={t.x + 12} y1={noteY} x2={t.x + W - 12} y2={noteY} />
+              <text class="er-note" x={t.x + 16} y={noteY + 18}>
+                {t.note}
+              </text>
+            </>
+          )}
+          <rect class:list={["er-outline", { "er-outline-accent": t.accent }]} x={t.x} y={t.y} width={W} height={h} rx="12" />
+        </g>
+      );
+    })
+  }
+
+  {/* The read model used by the History tab. */}
+  <rect class="region" x="20" y="536" width="640" height="84" rx="14"></rect>
+  <text class="tag" x="40" y="562">VIEW · RESERVATION</text>
+  <text class="code" x="40" y="587">reserve JOIN bus JOIN route</text>
+  <text class="sub" x="40" y="606">one row per ticket, with origin, destination and times · read by the History tab</text>
+
+  {/* Legend */}
+  <path class="edge-accent" d="M20 656 H58" marker-end="url(#er-one)"></path>
+  <text class="sub" x="66" y="660">exactly one</text>
+  <path class="edge-accent" d="M160 656 H206" marker-end="url(#er-many)"></path>
+  <text class="sub" x="214" y="660">zero or many</text>
+  {
+    legendBadges.map((b) => (
+      <g>
+        <rect class={`er-badge er-badge-${b.key.toLowerCase()}`} x={b.x} y="648" width="28" height="15" rx="4" />
+        <text class={`er-badge-text er-badge-text-${b.key.toLowerCase()}`} x={b.x + 14} y="659" text-anchor="middle">
+          {b.key}
+        </text>
+        <text class="sub" x={b.x + 36} y="660">
+          {b.text}
+        </text>
+      </g>
+    ))
+  }
+</svg>
+
+<style>
+  .er .er-body {
+    fill: var(--color-surface-container-lowest);
+  }
+  .er .er-head {
+    fill: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface-container-lowest));
+  }
+  .er .er-head-accent {
+    fill: color-mix(in srgb, var(--color-primary) 20%, var(--color-surface-container-lowest));
+  }
+  .er .er-outline {
+    fill: none;
+    stroke: var(--color-outline);
+    stroke-width: 1;
+  }
+  .er .er-outline-accent {
+    stroke: var(--color-primary);
+    stroke-width: 1.6;
+  }
+  .er .er-rule {
+    stroke: var(--color-outline);
+    stroke-width: 1;
+  }
+  .er .er-sep {
+    stroke: var(--color-outline-variant);
+    stroke-width: 1;
+    opacity: 0.6;
+  }
+  .er .er-note-rule {
+    stroke: var(--color-outline-variant);
+    stroke-dasharray: 3 4;
+  }
+  .er .er-name {
+    font-family: var(--font-family-monospace);
+    font-size: 15px;
+    font-weight: 700;
+    fill: var(--color-on-surface);
+  }
+  .er .er-kind {
+    font-family: var(--font-family-monospace);
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    fill: var(--color-primary);
+  }
+  .er .er-pk {
+    font-weight: 700;
+  }
+  .er .er-note {
+    font-family: var(--font-family-monospace);
+    font-size: 11px;
+    font-weight: 600;
+    fill: var(--color-primary);
+  }
+  .er .er-badge {
+    stroke-width: 1;
+  }
+  .er .er-badge-pk {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+  }
+  .er .er-badge-fk {
+    fill: var(--color-surface-container-lowest);
+    stroke: var(--color-primary);
+  }
+  .er .er-badge-uq {
+    fill: var(--color-surface-container-lowest);
+    stroke: var(--color-outline);
+  }
+  .er .er-badge-text {
+    font-family: var(--font-family-monospace);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .er .er-badge-text-pk {
+    fill: var(--color-on-primary);
+  }
+  .er .er-badge-text-fk {
+    fill: var(--color-primary);
+  }
+  .er .er-badge-text-uq {
+    fill: var(--color-on-surface-variant);
+  }
+  .er .er-mark {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 1.6;
+  }
+  .er .er-ring {
+    fill: var(--color-surface-container-lowest);
+    stroke: var(--color-primary);
+    stroke-width: 1.6;
+  }
+</style>

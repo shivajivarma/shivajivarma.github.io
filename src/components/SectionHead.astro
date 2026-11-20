@@ -1,0 +1,17 @@
+---
+interface Props {
+  /** Mono annotation above the title, e.g. "01 — Selected work". */
+  eyebrow: string;
+  title: string;
+  id?: string;
+  level?: "h1" | "h2";
+}
+const { eyebrow, title, id, level = "h2" } = Astro.props;
+const Heading = level;
+---
+
+<header class="section-head" data-reveal>
+  <span class="eyebrow">{eyebrow}</span>
+  <Heading class="section-title" id={id}><Fragment set:html={title} /></Heading>
+  {Astro.slots.has("default") && <p class="section-lede"><slot /></p>}
+</header>

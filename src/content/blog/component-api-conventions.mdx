@@ -1,0 +1,121 @@
+---
+title: "Writing the rules before writing 46 more components"
+description: "How an audit of Peacock's 85 components turned into one decision record: when to split a component, one event contract, one vocabulary, and what the migration cost."
+date: 2026-11-09
+format: case-study
+tags: [Peacock, API design, ADR, Design systems]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import EventFunnel from "../../components/diagrams/EventFunnel.astro";
+
+## Eight ways to say "close"
+
+By late 2026, [Peacock](/blog/peacock-architecture/) had about 85 components, written over several
+years. The roadmap in front of me added roughly 46 more and reworked most of the existing ones.
+Every pattern already in the library was about to be copied dozens of times, so it felt like the
+right moment to stop and look at what I had.
+
+I audited the old components before writing any new ones, and the same ideas kept turning up
+spelled different ways. "Close" had eight event names: `closed`, `modal-close`,
+`side-sheet-close`, `snackbar-close`, `notification-dismiss`, `tag--dismiss` and two more. Fields
+fired three different event shapes, so code that read one field's value broke on the next.
+`variant` meant visual style on buttons and meaning on alerts. And some modes dragged along options
+that did nothing: `wc-input type="password"` and `wc-date-field range` both carried settings that
+were dead in the component's other modes.
+
+None of these is a bug. Put together, though, they make a library you have to look up instead of
+learn.
+
+## Three ways forward
+
+I could fix things case by case. That costs nothing today, but every phase of the roadmap would
+argue about the same questions again, and the drift would carry on.
+
+I could adopt another design system's API wholesale, say Material Web or Shoelace. It would be
+consistent, sure, but their names clash with Peacock's, and switching would break more than it
+fixed.
+
+Or I could write Peacock's own conventions, based on what most components already did, and bring
+the rest in line through deprecations.
+
+<Callout kind="decision" title="What I picked">
+  The third. If the rules describe what the majority already does, most components are compliant on
+  day one. The rest would migrate through a deprecation window in 3.x, and the old names would go in
+  one major release, 4.0.
+</Callout>
+
+## The rules
+
+### When a mode becomes its own component
+
+A mode becomes a separate component when it changes the value you read or write, or when it brings
+options that do nothing in the other modes. It stays an option only when it mirrors a native HTML
+attribute (`multiple`, `disabled`, `required`) and every other option still applies.
+
+Questions that used to be judgement calls now have an answer. `wc-password-field` and
+`wc-date-range-field` became components. `wc-select multiple` stayed an option.
+
+### One event contract
+
+Value controls fire `input` while the value changes and `change` when it's committed. Both are
+`CustomEvent<{ value }>`, and controls that hold several values add `values`. Overlays and
+disclosures fire `open` and `close`, and `close` says why in `detail.reason`. Event names are plain
+kebab-case verbs, never `component-name-verb` or `block--modifier`, and every custom event bubbles
+and crosses shadow boundaries.
+
+<Figure n="1" caption="In 4.0 the overlays' many spellings of “close” became one close event, with the reason in its detail. Events that weren't about overlays got plain names of their own.">
+  <EventFunnel />
+</Figure>
+
+### One vocabulary
+
+Same idea, same word, everywhere:
+
+| Concept | Name |
+| --- | --- |
+| Visual style | `variant` |
+| Meaning | `intent`: `info`, `success`, `warning`, `danger` |
+| Chosen item | `selected` |
+| Current location | `current` |
+| Accessible name | `label` |
+| Overlay position | `placement`, logical: `top`, `bottom`, `start`, `end` |
+| Can be closed by the user | `dismissible` |
+| Open state | `open`, with `show()`, `hide()`, `toggle()` |
+| Busy | `loading` |
+| Size | one scale, `sm`, `md`, `lg`, the same height on buttons and fields |
+
+One small rule does more than you'd expect: booleans default to `false`. That way you can switch
+any boolean on from HTML just by adding the attribute. If a feature is on by default, its attribute
+is spelled as the opposite, like `hide-toolbar`. Rules like this are easiest to apply to new
+components. A few older ones, such as the code editor's line numbers, still need converting.
+
+### Deprecate first, break once
+
+Renamed and removed APIs kept working through the whole 3.x line. An old name logs one console
+warning per page, and its docs page lists it. 4.0 removed them all and shipped with a migration
+guide.
+
+## How it shipped
+
+There was no big migration project. Each phase of the roadmap brought the components it touched
+into line, so the cleanup rode along with work that was happening anyway. Peacock 4.0 then removed
+the shims and shipped one event contract, one vocabulary, one size scale and logical placements
+across the library, plus more than 50 new components built to the same rules.
+
+## What changed
+
+Some things got easier. Learn one component and you can guess the next. Code reviews check against
+a list instead of someone's taste. Even the generated
+[React, Vue and Angular packages](/blog/generate-dont-handwrite/) got simpler, because there's only
+one event shape to map to two-way binding.
+
+Some got harder. Existing components needed renames and deprecation shims, people saw console
+warnings until they migrated, and a major version had to carry the cleanup.
+
+<Callout kind="lesson" title="What I took from it">
+  An API convention is architecture, even though it never runs. Write it before a big build-out and
+  it shapes every new component at no extra cost. Write it afterwards and you're migrating
+  everything you just built.
+</Callout>
