@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LinkedIn banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500&family=Noto+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --red: #e32e25;
+    --red-deep: #be0b0e;
+    --red-dark: #8f0a0c;
+    --magenta: #e6067a;
+    --orange: #ee6803;
+    --ink: #201a19;
+    --ink-soft: #5a4644;
+    --paper: #fff8f7;
+    --grid: rgba(190, 11, 14, 0.045);
+    --grid-strong: rgba(190, 11, 14, 0.085);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1584px; height: 396px; }
+  body {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(520px 300px at 92% -10%, rgba(230, 6, 122, 0.12), transparent 70%),
+      radial-gradient(560px 320px at 108% 110%, rgba(238, 104, 3, 0.12), transparent 70%),
+      linear-gradient(var(--grid-strong) 1px, transparent 1px) 0 0 / 96px 96px,
+      linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px) 0 0 / 96px 96px,
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+      var(--paper);
+    font-family: "Noto Sans", sans-serif;
+    color: var(--ink);
+  }
+
+  /* Corner ticks, like the edge of a drawing sheet. */
+  .tick { position: absolute; width: 18px; height: 18px; border-color: var(--red); opacity: 0.5; }
+  .tick.tl { top: 18px; left: 18px; border-top: 2px solid; border-left: 2px solid; }
+  .tick.tr { top: 18px; right: 18px; border-top: 2px solid; border-right: 2px solid; }
+  .tick.br { bottom: 18px; right: 18px; border-bottom: 2px solid; border-right: 2px solid; }
+
+  .copy {
+    position: absolute;
+    left: 452px;
+    top: 92px;
+    width: 640px;
+  }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Noto Sans Mono", monospace;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red-deep);
+  }
+  .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--red-deep); }
+  h1 {
+    margin-top: 14px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+  .grad {
+    background: linear-gradient(100deg, var(--magenta), var(--red) 52%, var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub {
+    margin-top: 18px;
+    font-size: 19px;
+    color: var(--ink-soft);
+  }
+  .sub b { color: var(--ink); font-weight: 500; }
+  .sub .dot { color: var(--red); margin: 0 8px; }
+
+  .url {
+    position: absolute;
+    right: 56px;
+    bottom: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .url .dotc { color: var(--red); }
+
+  .stack { position: absolute; left: 1118px; top: 26px; }
+  .stack text { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 17px; fill: var(--ink); }
+  .stack .meta { font-family: "Noto Sans Mono", monospace; font-weight: 400; font-size: 11.5px; fill: var(--ink-soft); }
+</style>
+</head>
+<body>
+  <span class="tick tl"></span><span class="tick tr"></span><span class="tick br"></span>
+
+  <!-- Circuit traces running in from the left edge, echoing the logo. Kept above the photo's corner. -->
+  <svg style="position:absolute;left:0;top:44px" width="420" height="200" viewBox="0 0 420 200" aria-hidden="true">
+    <g fill="none" stroke="#e32e25" stroke-width="3" stroke-linejoin="round" opacity="0.28">
+      <path d="M0 30 H170 L198 58 H344" />
+      <path d="M0 86 H96 L124 114 H262 L290 86 H372" />
+    </g>
+    <g fill="#fff8f7" stroke="#e32e25" stroke-width="3" opacity="0.45">
+      <circle cx="352" cy="58" r="7" />
+      <circle cx="380" cy="86" r="7" />
+    </g>
+  </svg>
+
+  <div class="copy">
+    <p class="eyebrow">Software architect · Platform engineering · UI</p>
+    <h1>Architecting systems.<br />Engineering <span class="grad">interfaces.</span></h1>
+    <p class="sub"><b>Creator of Peacock</b><span class="dot">·</span>Building Redvars<span class="dot">·</span>14+ years in software</p>
+  </div>
+
+  <!-- Layered system drawing: interface, components, platform, data. -->
+  <svg class="stack" width="440" height="300" viewBox="0 0 440 300" aria-hidden="true">
+    <defs>
+      <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#e6067a" />
+        <stop offset="0.55" stop-color="#e32e25" />
+        <stop offset="1" stop-color="#ee6803" />
+      </linearGradient>
+    </defs>
+
+    <!-- Data -->
+    <g transform="translate(0 196)">
+      <polygon points="110,0 210,44 110,88 10,44" fill="#fdeeec" stroke="#e8a59f" stroke-width="1.5" />
+      <polygon points="10,44 10,52 110,96 110,88" fill="#f6d3cf" />
+      <polygon points="110,88 110,96 210,52 210,44" fill="#efc0bb" />
+      <path d="M58 44 L142 7 M78 53 L162 16 M98 62 L182 25" stroke="#e8a59f" stroke-width="1.2" fill="none" />
+    </g>
+    <!-- Platform -->
+    <g transform="translate(0 136)">
+      <polygon points="110,0 210,44 110,88 10,44" fill="#fbe1de" stroke="#e38d85" stroke-width="1.5" />
+      <polygon points="10,44 10,52 110,96 110,88" fill="#f3c6c1" />
+      <polygon points="110,88 110,96 210,52 210,44" fill="#ebb1ab" />
+      <polygon points="70,40 100,27 128,39 98,52" fill="#ef9f97" />
+      <polygon points="116,58 146,45 172,56 142,69" fill="#ef9f97" />
+    </g>
+    <!-- Components -->
+    <g transform="translate(0 76)">
+      <polygon points="110,0 210,44 110,88 10,44" fill="#f9d2ce" stroke="#dc6f66" stroke-width="1.5" />
+      <polygon points="10,44 10,52 110,96 110,88" fill="#efb2ab" />
+      <polygon points="110,88 110,96 210,52 210,44" fill="#e79c94" />
+      <polygon points="56,44 76,35 96,44 76,53" fill="#e8776e" />
+      <polygon points="88,30 108,21 128,30 108,39" fill="#e8776e" />
+      <polygon points="92,58 112,49 132,58 112,67" fill="#e8776e" />
+      <polygon points="124,44 144,35 164,44 144,53" fill="#e8776e" />
+    </g>
+    <!-- Interface -->
+    <g transform="translate(0 16)">
+      <polygon points="110,0 210,44 110,88 10,44" fill="url(#top)" />
+      <polygon points="10,44 10,54 110,98 110,88" fill="#b10f3c" />
+      <polygon points="110,88 110,98 210,54 210,44" fill="#c4410f" />
+      <polygon points="110,14 182,44 110,74 38,44" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" />
+      <polygon points="96,32 128,32 140,44 108,56 76,44" fill="rgba(255,255,255,0.28)" />
+    </g>
+
+    <!-- Labels with leaders -->
+    <g>
+      <path d="M212 60 H244" stroke="#e32e25" stroke-width="1.5" stroke-dasharray="3 4" /><circle cx="212" cy="60" r="3" fill="#e32e25" />
+      <text x="254" y="58">Interface</text><text class="meta" x="254" y="76">accessible, themeable</text>
+      <path d="M212 120 H244" stroke="#e32e25" stroke-width="1.5" stroke-dasharray="3 4" /><circle cx="212" cy="120" r="3" fill="#e32e25" />
+      <text x="254" y="118">Components</text><text class="meta" x="254" y="136">Peacock design system</text>
+      <path d="M212 180 H244" stroke="#e32e25" stroke-width="1.5" stroke-dasharray="3 4" /><circle cx="212" cy="180" r="3" fill="#e32e25" />
+      <text x="254" y="178">Platform</text><text class="meta" x="254" y="196">APIs · rules · access</text>
+      <path d="M212 240 H244" stroke="#e32e25" stroke-width="1.5" stroke-dasharray="3 4" /><circle cx="212" cy="240" r="3" fill="#e32e25" />
+      <text x="254" y="238">Data</text><text class="meta" x="254" y="256">schemas · storage</text>
+    </g>
+  </svg>
+
+  <div class="url">
+    <svg width="28" height="28" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M69 20 H40 L28 32 V38 L40 50 H60 L72 62 V68 L60 80 H31" fill="none" stroke="#e32e25" stroke-width="11" stroke-linejoin="round" />
+      <circle cx="76" cy="20" r="7" fill="none" stroke="#e32e25" stroke-width="5" />
+      <circle cx="24" cy="80" r="7" fill="none" stroke="#e32e25" stroke-width="5" />
+    </svg>
+    <span>shivajivarma<span class="dotc">.</span>com</span>
+  </div>
+</body>
+</html>

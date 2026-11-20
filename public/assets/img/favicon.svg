@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .t { fill: none; stroke: #E32E25; }
+    .p { fill: #E32E25; }
+    @media (prefers-color-scheme: dark) {
+      .t { stroke: #FF5545; }
+      .p { fill: #FF5545; }
+    }
+  </style>
+  <path class="t" d="M70 20 H40 L28 32 V38 L40 50 H60 L72 62 V68 L60 80 H30" stroke-width="14" stroke-linejoin="round"/>
+  <circle class="p" cx="76" cy="20" r="10"/>
+  <circle class="p" cx="24" cy="80" r="10"/>
+</svg>

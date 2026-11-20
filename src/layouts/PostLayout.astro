@@ -1,0 +1,360 @@
+---
+import Base from "./Base.astro";
+import { FORMATS } from "../content.config";
+import { AUTHOR, SITE_URL } from "../siteconfig";
+import { formatDate, getPostUrl, readingTime, type Post } from "../utils/posts";
+
+interface Props {
+  post: Post;
+  sheet: string;
+  newer?: Post;
+  older?: Post;
+}
+
+const { post, sheet, newer, older } = Astro.props;
+const { title, description, date, updated, format, tags } = post.data;
+const fmt = FORMATS[format];
+const minutes = readingTime(post.body);
+const url = new URL(getPostUrl(post), SITE_URL).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: title,
+  description,
+  datePublished: date.toISOString(),
+  ...(updated && { dateModified: updated.toISOString() }),
+  author: { "@type": "Person", name: AUTHOR.name, url: SITE_URL },
+  url,
+};
+---
+
+<Base title={title} description={description} keywords={tags} ogType="article">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="reading-progress" aria-hidden="true"></div>
+
+  <header class="post-hero" data-format={format}>
+    <div class="blueprint"></div>
+    <div class="wrap"><div class="post-hero-inner">
+      <a class="back mono" href="/blog/">
+        <wc-icon name="arrow_back"></wc-icon> Journal
+      </a>
+      <div class="kicker">
+        <wc-tag variant="tonal" size="md">
+          <wc-icon slot="icon" name={fmt.icon}></wc-icon>
+          {fmt.label}
+        </wc-tag>
+        <span class="mono sheet">Sheet S-{sheet}</span>
+      </div>
+      <h1 class="post-title">{title}</h1>
+      <p class="post-lede">{description}</p>
+      <div class="byline">
+        <img src={AUTHOR.avatar} alt="" width="44" height="44" />
+        <div>
+          <span class="byline-name">{AUTHOR.name}</span>
+          <span class="byline-meta mono">
+            <time datetime={date.toISOString()}>{formatDate(date)}</time>
+            <span aria-hidden="true">·</span>
+            {minutes} min read
+            {
+              updated && (
+                <>
+                  <span aria-hidden="true">·</span> Updated {formatDate(updated, "short")}
+                </>
+              )
+            }
+          </span>
+        </div>
+      </div>
+    </div></div>
+  </header>
+
+  <div class="wrap post-grid">
+    <article class="prose post-body" id="post-body" data-progress-target>
+      <slot />
+    </article>
+
+    <aside class="post-aside">
+      <div class="aside-sticky">
+        <wc-anchor-nav for="post-body" headline="On this page" class="toc"></wc-anchor-nav>
+        {
+          tags.length > 0 && (
+            <div class="aside-block">
+              <span class="aside-label mono">Topics</span>
+              <div class="tag-row">
+                {tags.map((tag) => (
+                  <wc-tag size="sm" variant="outlined">{tag}</wc-tag>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div>
+    </aside>
+  </div>
+
+  <section class="wrap post-end" aria-label="After the article">
+    <div class="discuss">
+      <img src={AUTHOR.avatar} alt="" width="56" height="56" loading="lazy" />
+      <div class="discuss-copy">
+        <strong>Written by {AUTHOR.name}</strong>
+        <p>
+          Software architect and creator of Peacock, with expertise in platform engineering and UI. Questions, pushback or a better idea? I'd
+          like to hear it.
+        </p>
+      </div>
+      <div class="discuss-actions">
+        <wc-link-button href={`mailto:${AUTHOR.email}?subject=${encodeURIComponent(`Re: ${title}`)}`} variant="tonal">
+          <wc-icon slot="icon" name="mail"></wc-icon>Email me
+        </wc-link-button>
+        <wc-link-button
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
+          target="_blank"
+          variant="outlined"
+        >
+          Share on LinkedIn
+        </wc-link-button>
+      </div>
+    </div>
+
+    {
+      (newer || older) && (
+        <nav class="pager" aria-label="More from the journal">
+          {older ? (
+            <a class="tile pager-link" href={getPostUrl(older)}>
+              <span class="mono pager-dir">
+                <wc-icon name="arrow_back" /> Previous
+              </span>
+              <span class="pager-title">{older.data.title}</span>
+            </a>
+          ) : (
+            <span />
+          )}
+          {newer && (
+            <a class="tile pager-link next" href={getPostUrl(newer)}>
+              <span class="mono pager-dir">
+                Next <wc-icon name="arrow_forward" />
+              </span>
+              <span class="pager-title">{newer.data.title}</span>
+            </a>
+          )}
+        </nav>
+      )
+    }
+  </section>
+</Base>
+
+<style>
+  .reading-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 20;
+    height: 3px;
+    background: var(--brand-gradient);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+  }
+
+  .post-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2.5rem, 5vw, 3.5rem);
+    border-bottom: 1px solid var(--hairline);
+    background: radial-gradient(50rem 22rem at 85% 0%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 70%);
+  }
+  .post-hero-inner {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-250);
+    max-width: 52rem;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-075);
+    width: fit-content;
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+    --icon-size: 1rem;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+  }
+  .sheet {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .post-title {
+    font-size: clamp(2.1rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+  .post-lede {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-150);
+    margin-top: var(--spacing-100);
+
+    img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  .byline-name {
+    display: block;
+    font-weight: 600;
+  }
+  .byline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--spacing-075);
+    font-size: 0.8125rem;
+    color: var(--ink-soft);
+  }
+
+  .post-grid {
+    display: grid;
+    gap: var(--spacing-500);
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+  }
+  @media (min-width: 64rem) {
+    .post-grid {
+      grid-template-columns: minmax(0, 46rem) minmax(14rem, 1fr);
+      justify-content: space-between;
+    }
+  }
+
+  .post-body {
+    min-width: 0;
+  }
+
+  .post-aside {
+    display: none;
+  }
+  @media (min-width: 64rem) {
+    .post-aside {
+      display: block;
+    }
+  }
+  .aside-sticky {
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+    display: grid;
+    gap: var(--spacing-400);
+  }
+  .toc {
+    --anchor-nav-current-color: var(--color-primary);
+  }
+  .aside-block {
+    display: grid;
+    gap: var(--spacing-100);
+  }
+  .aside-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .post-end {
+    display: grid;
+    gap: var(--spacing-400);
+    padding-bottom: clamp(3rem, 7vw, 5rem);
+  }
+
+  .discuss {
+    display: grid;
+    gap: var(--spacing-250);
+    align-items: center;
+    max-width: 46rem;
+    padding: var(--spacing-300);
+    border: 1px solid var(--hairline);
+    border-radius: var(--shape-corner-extra-large);
+    background: var(--panel);
+
+    img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  @media (min-width: 40rem) {
+    .discuss {
+      grid-template-columns: auto 1fr;
+    }
+    .discuss-actions {
+      grid-column: 2;
+    }
+  }
+  .discuss-copy p {
+    margin-top: 0.2rem;
+    color: var(--ink-soft);
+  }
+  .discuss-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-100);
+  }
+
+  .pager {
+    display: grid;
+    gap: var(--spacing-200);
+    max-width: 46rem;
+  }
+  @media (min-width: 40rem) {
+    .pager {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .pager-link {
+    gap: var(--spacing-100);
+    padding: var(--spacing-250);
+  }
+  .pager-link.next {
+    text-align: right;
+    align-items: flex-end;
+  }
+  .pager-dir {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-075);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    --icon-size: 1rem;
+    --icon-color: currentColor;
+  }
+  .pager-title {
+    font-family: var(--font-family-brand);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+</style>

@@ -1,0 +1,160 @@
+---
+title: "AI native, never AI only: AI in a component library that never calls a model"
+description: "Why Peacock's AI components never talk to a model, how one switch removes AI cleanly, and how drafts, labels and allow-lists keep people in control."
+date: 2026-11-16
+format: white-paper
+tags: [Peacock, AI, Architecture, Security, Accessibility]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import AiBoundary from "../../components/diagrams/AiBoundary.astro";
+
+Redvars, the platform I'm building, has one rule about AI: **AI native, never AI only.** The
+assistant acts as the person using it. It can read freely, it only ever writes drafts that the
+person confirms, and every page has to work completely with AI switched off.
+
+Apps on Redvars build their pages with [Peacock](/blog/peacock-architecture/), which puts a lot of
+that rule in Peacock's hands. Peacock decides how suggested values, drafts, generated text,
+citations and streaming answers look and behave, and whether switching AI off really makes them go
+away. This is how I designed it: a component library that supports an assistant everywhere, but
+never calls a model itself.
+
+## Where I started
+
+Before this work, Peacock had no AI pieces at all. Every app would have drawn its own "suggested"
+marker, found its own way to stream text, and reached a model on its own. The platform rule would
+have been honoured differently on every page, or not at all.
+
+## The options
+
+Leaving it to apps meant nothing to build. But every app would draw its own markers and call its
+own model, and the platform rule forbids exactly that.
+
+Components that call a model themselves, with an `endpoint` property and a built-in client, make
+for quick demos. They also open a second road to a model, next to the platform's model service,
+with its own credentials and no access checks.
+
+The third option was model-free components with one registered provider. Components show whatever
+AI state the app passes in, and the few interactive features call a single provider that the app
+registers.
+
+<Callout kind="decision" title="What I chose">
+  The third. Peacock never calls a model. It renders AI state and asks one provider for text, so
+  credentials, access checks and the choice of model all stay in the platform, where they belong.
+</Callout>
+
+## How it works
+
+<Figure n="1" caption="The app pushes AI state in. Interactive features call the provider the app registered. Only app code talks to a model.">
+  <AiBoundary />
+</Figure>
+
+### Most of it is just properties
+
+Most AI features only need to show something: a field's `suggestion`, a summary's `value` while
+it's `streaming`, a list of `citations`, a draft card's `state`. The app sets these like any other
+property. That works with any backend and doesn't need a provider at all.
+
+### A few features ask for text
+
+A handful of features do need to ask for text: ghost text while you type, rewriting a selection,
+summarising, and turning a sentence into filters. They call the provider registered for the page:
+
+```js
+import { setPeacockAi } from "https://cdn.jsdelivr.net/npm/@redvars/peacock@4.5.1/dist/loader.js";
+
+setPeacockAi({
+  provider: {
+    complete: ({ before, after, signal }) => myModel.complete(before, after, { signal }),
+    transform: ({ action, text, instruction, signal }) => myModel.stream(action, text, instruction, { signal }),
+    summarize: ({ kind, text, signal }) => myModel.stream("summarize", text, kind, { signal }),
+    parse: ({ target, text, schema, signal }) => myModel.json(target, text, schema, { signal }),
+  },
+});
+```
+
+Every method is optional, and a feature only appears when its method exists. Each call gets an
+`AbortSignal` and a context that holds only the text that component owns. Streams are
+`AsyncIterable<string>`.
+
+### Switching AI off
+
+`setPeacockAi({ enabled: false })` turns AI off for the whole page. To drop a single capability,
+call it again without that capability, for example
+`setPeacockAi({ provider, features: { summarize: false } })`. Each call replaces the whole
+configuration, so the provider has to come along. Any element with `no-ai` opts out on its own.
+
+When AI is off, anything that refers to the assistant renders nothing: badges, "Ask" buttons, AI
+menu groups. Interactive features aren't offered. The neutral pieces keep working, because they
+were never really about AI. A typing indicator also shows people typing, a citation is just a
+reference to a record, and streaming Markdown is just streaming.
+
+### AI output is always labelled
+
+There's one marker, `wc-ai-badge`, with three states: `suggested` for a value the person hasn't
+accepted yet, `draft` for something waiting for confirmation, and `generated` for read-only output
+such as a summary. It always carries text, never colour alone. It can show a `reason`, and it can be
+cleared in one action.
+
+### The assistant only writes drafts
+
+No component turns AI output into a committed value without the person doing something. Ghost text
+needs Tab, a rewrite needs Accept, and a draft card needs Confirm. If the draft can't be undone, it
+asks a second time.
+
+Suggested values work the same way. Give a form control `suggestion = { value, reason }` and it
+holds the value, shows a Suggested badge with the reason, and remembers what it replaced. Editing
+the value, or submitting the form, accepts it. The badge's clear button puts the old value back.
+
+### Where the trust lines are
+
+A field marked `sensitive` is never sent to the provider, and its AI features are hidden. Password
+and PIN fields are always sensitive.
+
+Model text is treated as untrusted. It only reaches the screen through `wc-markdown`, which renders
+raw HTML as text and allows only safe links, or through `wc-generative-view`. Nothing executes it
+or submits it on its own.
+
+Citations never follow URLs a model wrote. A citation is written `[1](cite:record-id)`, and the app
+looks up the record itself.
+
+### Generative view: what it refuses matters most
+
+`wc-generative-view` shows an answer as Peacock components described by JSON nodes, for answers
+that read better as a chart or a table than as text. The data comes from the platform; the model
+only arranges it. What keeps it safe is everything it refuses to render.
+
+It renders only a hand-kept catalog of components and props. A test fails if the committed catalog
+is stale, or if it allows a prop that can navigate, load an address or run code, such as `href`,
+`src` or a callback. Anything outside the catalog is dropped and reported. A view stops at 12 levels
+and 500 nodes, and text is never parsed as HTML. And `generativeViewSchema()` hands the catalog to
+the model service as a JSON Schema for structured output, so the model is only asked for what the
+view can actually render.
+
+### Accessibility
+
+Streaming text sets `aria-busy` and is announced once, when it's complete, not word by word.
+Indicators use `role="status"`, and the motion stops under `prefers-reduced-motion`.
+
+## What it cost
+
+Some things got easier. Every app labels AI output the same way. Switching AI off is one call.
+Changing model providers happens in the platform and nowhere else. And components can be tested
+with a scripted provider, no model required.
+
+Some things got harder. Every AI-enhanced component has to be designed and tested twice, once with
+AI on and once with it off. The provider contract is public API now, too, so it follows the same
+deprecation rules as everything else.
+
+<Callout kind="tradeoff" title="The risk I can't remove: prompt injection">
+  Text inside records can steer a model, and Peacock can't stop that. What it can do is limit the
+  damage: model output becomes drafts that a person has to confirm, and text is rendered without
+  HTML. The assistant's own defences belong to the platform.
+</Callout>
+
+## The short version
+
+Putting AI into a component library turned out to be mostly about where you draw the lines.
+Peacock's are easy to say out loud. The library never calls a model. Anything AI wrote is labelled.
+Every write is a draft. And every page still works when AI is switched off.

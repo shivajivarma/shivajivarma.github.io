@@ -1,0 +1,32 @@
+---
+import { render } from "astro:content";
+import PostLayout from "../../layouts/PostLayout.astro";
+import { getPosts, sheetNumber, type Post } from "../../utils/posts";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      sheet: sheetNumber(post, posts),
+      newer: posts[i - 1],
+      older: posts[i + 1],
+    },
+  }));
+}
+
+interface Props {
+  post: Post;
+  sheet: string;
+  newer?: Post;
+  older?: Post;
+}
+
+const { post, sheet, newer, older } = Astro.props;
+const { Content } = await render(post);
+---
+
+<PostLayout post={post} sheet={sheet} newer={newer} older={older}>
+  <Content />
+</PostLayout>

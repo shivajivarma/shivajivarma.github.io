@@ -1,0 +1,53 @@
+---
+// Domain separation inside one Redvars instance: a global root, a service provider's domain and a
+// domain per organisation it manages, with what a user at each level can see.
+// Source: redvars/engineering ARCHITECTURE.md 3.4.
+---
+
+<svg class="diagram" viewBox="0 0 760 320" role="img" aria-labelledby="dt-title dt-desc">
+  <title id="dt-title">Domains inside one instance</title>
+  <desc id="dt-desc">
+    A tree of domains: the global domain at the root, a service provider's domain under it, and one
+    domain for each organisation the provider manages. A user sees their own domain, the domains below
+    it, and global records marked shared. A provider user therefore sees both organisations; a user in
+    Organisation A sees Organisation A and shared global records, but never Organisation B or the
+    provider's own records.
+  </desc>
+  <defs>
+    <marker id="dt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow-head"></path>
+    </marker>
+  </defs>
+
+  <rect class="box" x="170" y="24" width="190" height="60" rx="12"></rect>
+  <text class="label" x="188" y="50">Global domain</text>
+  <text class="sub" x="188" y="70">records marked shared</text>
+
+  <path class="edge" d="M265 84 L265 116" marker-end="url(#dt-arrow)"></path>
+
+  <rect class="box" x="170" y="118" width="190" height="60" rx="12"></rect>
+  <text class="label" x="188" y="144">Provider domain</text>
+  <text class="sub" x="188" y="164">a service provider</text>
+
+  <path class="edge" d="M220 178 C220 198 120 196 120 218" marker-end="url(#dt-arrow)"></path>
+  <path class="edge" d="M310 178 C310 198 410 196 410 218" marker-end="url(#dt-arrow)"></path>
+
+  <rect class="box-accent" x="30" y="220" width="180" height="60" rx="12"></rect>
+  <text class="label" x="48" y="246">Organisation A</text>
+  <text class="sub" x="48" y="266">managed by the provider</text>
+
+  <rect class="box" x="320" y="220" width="180" height="60" rx="12"></rect>
+  <text class="label" x="338" y="246">Organisation B</text>
+  <text class="sub" x="338" y="266">managed by the provider</text>
+
+  <rect class="region" x="530" y="112" width="210" height="74" rx="12"></rect>
+  <text class="tag" x="546" y="134">PROVIDER USERS SEE</text>
+  <text class="sub" x="546" y="154">their domain, Organisations</text>
+  <text class="sub" x="546" y="170">A and B, and shared globals</text>
+
+  <rect class="region" x="530" y="208" width="210" height="88" rx="12"></rect>
+  <text class="tag" x="546" y="230">ORGANISATION A USERS SEE</text>
+  <text class="sub" x="546" y="250">their domain and shared</text>
+  <text class="sub" x="546" y="266">globals; never B or the</text>
+  <text class="sub" x="546" y="282">provider's own records</text>
+</svg>

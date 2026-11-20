@@ -1,0 +1,148 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { AUTHOR, GOOGLE_ANALYTICS_ID, PEACOCK_VERSION } from "../siteconfig";
+
+const summary = [
+  { icon: "person_off", title: "No accounts", text: "Nothing to sign up for, no forms, no comments." },
+  { icon: "monitoring", title: "One analytics tool", text: "Google Analytics counts visits and pages read." },
+  { icon: "cloud", title: "Three content hosts", text: "GitHub Pages, jsDelivr and Google Fonts serve the files." },
+  { icon: "contrast", title: "One local setting", text: "Your light or dark choice stays in your browser." },
+];
+---
+
+<LegalLayout
+  title="Privacy"
+  eyebrow="Privacy policy"
+  heading='Privacy, <span class="grad">plainly.</span>'
+  description="What this website collects, who else sees a request when you visit, and how to opt out. The short version: very little, and nothing you have to give me."
+  updated="November 20, 2026"
+>
+  <section slot="summary" class="wrap summary" aria-label="Summary">
+    {
+      summary.map((item) => (
+        <div class="tile summary-card">
+          <span class="icon-badge">
+            <wc-icon name={item.icon} />
+          </span>
+          <strong>{item.title}</strong>
+          <p>{item.text}</p>
+        </div>
+      ))
+    }
+  </section>
+
+  <h2 id="who">Who is responsible</h2>
+  <p>
+    This is the personal website of {AUTHOR.name}, at shivajivarma.com. I run it on my own, and I am
+    responsible for how it handles your data. You can reach me at
+    <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>.
+  </p>
+
+  <h2 id="collect">What I collect</h2>
+  <p>
+    The site is a set of static pages. It has no accounts, no sign-up, no comment system and no
+    forms, so it never asks you for personal information. If you email me, I use your address and
+    message only to reply.
+  </p>
+
+  <h2 id="analytics">Analytics</h2>
+  <p>
+    The site uses <strong>Google Analytics 4</strong> (property <code>{GOOGLE_ANALYTICS_ID}</code>) to
+    understand which pages are read and how people find them. Google Analytics sets first-party
+    cookies (such as <code>_ga</code>) and receives details like the page you visited, the referring
+    site, your approximate location derived from your IP address, and your browser and device type.
+    I only see aggregate reports; I can't identify you from them.
+  </p>
+  <ul>
+    <li>
+      You can opt out with Google's
+      <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">opt-out browser add-on</a>,
+      or by blocking cookies or scripts from <code>googletagmanager.com</code> in your browser.
+    </li>
+    <li>
+      Google's handling of this data is described in its
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.
+    </li>
+  </ul>
+
+  <h2 id="hosts">Services that serve the site</h2>
+  <p>
+    Loading a page means your browser asks these services for files. Each of them sees your IP
+    address and browser details as part of that request, as any web server does.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>What it serves</th><th>Policy</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GitHub Pages</td>
+        <td>The pages, images and the résumé PDF</td>
+        <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub</a></td>
+      </tr>
+      <tr>
+        <td>jsDelivr</td>
+        <td>Peacock {PEACOCK_VERSION} components and icons</td>
+        <td><a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank" rel="noopener">jsDelivr</a></td>
+      </tr>
+      <tr>
+        <td>Google Fonts</td>
+        <td>The Noto Sans, Noto Sans Mono and Space Grotesk fonts</td>
+        <td><a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener">Google Fonts</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="storage">What is stored on your device</h2>
+  <ul>
+    <li>
+      <strong>Theme.</strong> If you switch between light and dark mode, the choice is saved in your
+      browser's local storage under the key <code>theme</code>. It never leaves your device.
+    </li>
+    <li><strong>Analytics cookies</strong>, as described above.</li>
+  </ul>
+  <p>The site sets no advertising cookies and does not track you across other websites.</p>
+
+  <h2 id="links">Links to other sites</h2>
+  <p>
+    Posts and pages link to other sites, such as GitHub, LinkedIn and npm. Sharing a post on LinkedIn
+    only opens LinkedIn when you click the button. Once you leave this site, the other site's privacy
+    policy applies.
+  </p>
+
+  <h2 id="rights">Your choices</h2>
+  <p>
+    You can browse the whole site with cookies and third-party scripts blocked; every page still
+    works. If you have a question about your data, or want me to delete an email you sent, write to
+    <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>.
+  </p>
+
+  <h2 id="changes">Changes to this policy</h2>
+  <p>
+    If what the site collects changes, I'll update this page and the date at the top. The version
+    history is public in the site's
+    <a href="https://github.com/shivajivarma/shivajivarma.github.io/commits/main/src/pages/privacy.astro" target="_blank" rel="noopener">repository</a>.
+  </p>
+</LegalLayout>
+
+<style>
+  .summary {
+    display: grid;
+    gap: var(--spacing-200);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  }
+  .summary-card {
+    gap: var(--spacing-100);
+
+    strong {
+      margin-top: var(--spacing-100);
+      font-family: var(--font-family-brand);
+      font-size: 1.1rem;
+    }
+    p {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+  }
+</style>

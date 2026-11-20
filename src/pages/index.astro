@@ -1,431 +1,972 @@
 ---
-import Default from "../layouts/Default.astro";
-import ExperienceItem from "../components/ExperienceItem.astro";
-import SkillSet from "../components/SkillSet.astro";
-import SkillItem from "../components/SkillItem.astro";
-import AwardItem from "../components/AwardItem.astro";
-import Footer from "../components/Footer.astro";
+import Base from "../layouts/Base.astro";
+import SectionHead from "../components/SectionHead.astro";
+import PostCard from "../components/PostCard.astro";
+import HeroSheet from "../components/home/HeroSheet.astro";
+import PeacockPlayground from "../components/home/PeacockPlayground.astro";
+import {
+  AUTHOR,
+  CAREER_START,
+  PEACOCK_REPO,
+  PEACOCK_SITE,
+  REDVARS_URL,
+  SOCIAL,
+  yearsSince,
+} from "../siteconfig";
+import { getPosts, sheetNumber } from "../utils/posts";
 
-import "../styles/index.scss";
+const years = yearsSince(CAREER_START);
+const posts = await getPosts();
+const latest = posts.slice(0, 3);
 
-function jumpingSentence(sentence: string) {
-  let len = sentence.length;
-  return sentence
-    .split(" ")
-    .map((word) => {
-      return `<div class='jumping-word'>${word
-        .split("")
-        .map((char, index) => {
-          if (char === " ") return char;
-          return `<h1 style='z-index:${len--};' class='jumping-text'>${char}</h1>`;
-        })
-        .join("")}</div>`;
-    })
-    .join(" ");
-}
+const proof = [
+  { value: `${years}+ years`, label: "building software, since 2012" },
+  { value: "Staff Software Engineer", label: "at ServiceNow, since 2017" },
+  { value: "3× UTG Llama", label: "awards for leadership & performance" },
+  { value: "Peacock", label: "creator, 190+ web components" },
+  {
+    value: "Open source contributor",
+    label: "listed in ",
+    link: {
+      text: "jQuery's AUTHORS",
+      href: "https://github.com/jquery/jquery/blob/4f2fae08f23b54ce09322e62e73cce6161b8d3cb/AUTHORS.txt#L253",
+    },
+  },
+];
+
+const pillars = [
+  {
+    icon: "account_tree",
+    title: "Platform architecture",
+    text: "Systems that stay simple as they grow: clear boundaries, one way to do each thing, and decisions written down where the next engineer will find them.",
+    principles: [
+      ["Decide in writing", "Context, options, decision, consequences: a record for every choice that shapes the system."],
+      ["Measure before optimizing", "Performance work starts from a profile, not a hunch. That is how release-critical issues get fixed in days."],
+    ],
+    evidence: { label: "White paper: the Redvars platform", href: "/blog/redvars-platform-architecture/" },
+  },
+  {
+    icon: "widgets",
+    title: "UI engineering",
+    text: "Interfaces built on the web platform itself: custom elements, design tokens and accessibility that work in whichever framework a team picks.",
+    principles: [
+      ["Standards outlive frameworks", "Web components run in plain HTML, React, Vue and Angular, so the design system survives every framework migration."],
+      ["Accessible and themeable by default", "Keyboard, screen readers, high contrast, right-to-left and dark mode are part of the component, not a follow-up ticket."],
+    ],
+    evidence: { label: "White paper: Peacock", href: "/blog/peacock-architecture/" },
+  },
+  {
+    icon: "stars",
+    title: "Built for change",
+    text: "Automate the repetitive parts, and add AI in ways people can switch off and still finish their work.",
+    principles: [
+      ["Generate, don't hand-write", "One manifest produces typed React, Vue and Angular packages; one token source produces every theme."],
+      ["AI native, never AI only", "AI suggests and drafts; people confirm. Every page still works with AI turned off."],
+    ],
+    evidence: { label: "White paper: AI-native components", href: "/blog/ai-native-components/" },
+  },
+];
+
+const experience = [
+  {
+    company: "ServiceNow",
+    role: "Staff Software Engineer",
+    period: "Dec 2017 – Present",
+    location: "Hyderabad, India",
+    current: true,
+    text: "Builds and evolves products on the ServiceNow platform: Major Incident Management, On-Call Management, Task Communication Management, Universal Request and the Microsoft Teams integration. Led the re-architecture of the on-call scheduling engine.",
+    tags: ["Platform", "Scheduling", "Integrations", "Technical leadership"],
+  },
+  {
+    company: "Kagami India (startup)",
+    role: "Software Engineer",
+    period: "Jul 2016 – Dec 2017",
+    location: "Hyderabad, India",
+    text: "A next-generation ERP that lets business users build ERP modules, package them and deploy them to the cloud. Built the product's user interfaces from scratch.",
+    tags: ["Product UI", "ERP"],
+  },
+  {
+    company: "Oracle",
+    role: "Applications Engineer",
+    period: "Jul 2015 – Jun 2016",
+    location: "Bangalore, India",
+    text: "Oracle Primavera P6, a project management application. Rebuilt its applet pages with modern UI technologies.",
+    tags: ["Enterprise UI", "Modernization"],
+  },
+  {
+    company: "Wipro",
+    role: "Senior Software Engineer",
+    period: "Jun 2012 – Jul 2015",
+    location: "Bangalore, India",
+    text: "Oracle Primavera P6 (project management). Rebuilt applet pages with modern UI technologies and delivered a responsive microsite.",
+    tags: ["Web", "Responsive UI"],
+  },
+];
+
+const awards = [
+  { year: "2024", title: "UTG Llama Award", org: "ServiceNow", text: "Technical leadership on the re-architecture of the on-call scheduling engine: significantly faster, with critical scheduling problems resolved." },
+  { year: "2023", title: "UTG Llama Award", org: "ServiceNow", text: "Guided engineering teams through complex technical problems and drove a major on-call product feature with a full UX revamp." },
+  { year: "2021", title: "UTG Llama Award", org: "ServiceNow", text: "Resolved a release-critical performance issue for a customer (SAP) in a short window, so their release went ahead at the go/no-go call." },
+  { year: "2015", title: "Inspiring Performance", org: "Wipro", text: "Responsive microsite implementation and best performance in the project." },
+  { year: "2014", title: "Best Rookie", org: "Wipro", text: "Quick learning and best performance in the project." },
+  { year: "2014", title: "Code Star", org: "Wipro", text: "Won the CodeStorm programming contest." },
+];
 ---
 
-<Default
+<Base
   keywords={[
-    "Shivaji Varma About Me",
-    "Contact Shivaji Varma",
-    "Shivaji Varma Profile",
-    "Shivaji Varma Resume",
-    "personal website",
-    "programmer",
-    "software engineering",
-    "web developer",
+    "Shivaji Varma",
+    "software architect",
+    "platform engineering",
+    "UI architecture",
+    "web components",
+    "design systems",
+    "Peacock",
+    "Lit",
+    "ServiceNow",
   ]}
 >
-  <div class="banner">
-    <div class="banner-content">
-      <div class="logo-card-container">
-        <div class="logo-card">
-          <img src="/assets/img/profile.webp" />
-        </div>
-      </div>
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="blueprint"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
 
-      <h1 class="banner-title text-display">
-        <Fragment set:html={jumpingSentence("Hi, I'm Shivaji Varma")} /><span
-          class="color-brand">.</span
-        >
-      </h1>
-      <p class="text-headline">
-        Staff Software Engineer & Architect based out of India.
-      </p>
-
-      <div class="banner-actions">
-        <wc-button href="#about-content" trailing-icon size="md"
-          >About Me
-          <wc-icon name="chevron_right" slot="icon"></wc-icon>
-        </wc-button>
-        <wc-button
-          href="/projects/"
-          size="md"
-          type="secondary"
-          variant="tonal"
-          value=""
-          color="primary"
-          shape="square"
-          has-label="">Projects</wc-button
-        >
-      </div>
-    </div>
-  </div>
-
-  <div class="intro-section sections-wrapper">
-    <wc-container size="xl">
-      <div class="about-content section" id="about-content">
-        <h3 class="text-headline-large">
-          About<span class="color-brand">.</span>
-        </h3>
-        <div class="bullet-pointer-shock">
-          <p class="text-body-large">
-            Based in India with over <span class="experience"></span> years of experience,
-            I architect and scale cloud-based applications from the ground up. I specialize
-            in bridging the gap between high-fidelity UI and robust backend systems—managing
-            everything from Lit-based component libraries to enterprise schemas, server
-            provisioning, and DNS configuration.
-          </p>
-
-          <p class="text-body-large">
-            I’m in this for the long run. Since 2010, I’ve been a dedicated
-            contributor to the open-source ecosystem, currently maintaining 10+
-            npm packages focused on performance and developer experience.
-          </p>
-        </div>
-
-        <p class="text-body-large">
-          <b>Fun fact:</b> You can find my name in the list of
-          <wc-link
-            href="https://github.com/jquery/jquery/blob/4f2fae08f23b54ce09322e62e73cce6161b8d3cb/AUTHORS.txt#L253"
-            target="_blank">jQuery authors</wc-link
-          >
-          .
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="status mono">
+          <span class="pulse" aria-hidden="true"></span>
+          {AUTHOR.role} · {AUTHOR.location}
         </p>
 
-        <wc-button
-          href="/assets/docs/shivaji-resume-infographic.pdf"
-          target="_blank"
-          icon="download"
-          icon-end
-          >Download Resume
-        </wc-button>
-      </div>
+        <h1 id="hero-title" class="hero-title">
+          Architecting systems.<br />
+          Engineering <span class="grad">interfaces.</span>
+        </h1>
 
-      <div class="skills section">
-        <h3 class="text-headline-large">
-          Skills<span class="color-brand">.</span>
-        </h3>
+        <p class="hero-lede">
+          I'm <strong>Shivaji Varma</strong>, a software architect with {years}+ years of building
+          software end to end. My expertise is platform engineering and UI, from schemas and services
+          to the components people click. I created
+          <a href={PEACOCK_SITE} target="_blank" rel="noopener">Peacock</a>, a web-component design
+          system, and I'm building Redvars, a platform for enterprise applications.
+        </p>
 
-        <SkillSet title="LANGUAGES">
-          JavaScript, Typescript (NodeJS, DENO), Java, SQL, C, BASH, HTML5,
-          SASS/CSS3, Python, PHP
-        </SkillSet>
-
-        <SkillSet title="FRAMEWORKS & TOOLS">
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg"
-            title="Spring"
-            alt="Spring"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg"
-            title="AngularJS"
-            alt="AngularJS"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
-            title="React"
-            alt="React"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"
-            title="Express"
-            alt="Express"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg"
-            title="Bootstrap"
-            alt="Bootstrap"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
-            title="MySQL"
-            alt="MySQL"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
-            title="MongoDB"
-            alt="MongoDB"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg"
-            title="Oracle"
-            alt="Oracle"
-          />
-          <SkillItem
-            src="/assets/img/skills/servicenow.png"
-            title="ServiceNow"
-            alt="ServiceNow"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"
-            title="Git"
-            alt="Git"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg"
-            title="Azure"
-            alt="Azure"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-            title="AWS"
-            alt="AWS"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg"
-            title="Jenkins"
-            alt="Jenkins"
-          />
-        </SkillSet>
-
-        <SkillSet title="INTEGRATIONS">
-          <SkillItem
-            src="/assets/img/skills/twilio.svg"
-            title="Twilio"
-            alt="Twilio"
-          />
-          <SkillItem
-            src="/assets/img/skills/microsoft-teams.png"
-            title="Microsoft Teams"
-            alt="Microsoft Teams"
-          />
-          <SkillItem
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/slack/slack-original.svg"
-            title="Slack"
-            alt="Slack"
-          />
-          <SkillItem
-            src="/assets/img/skills/zoom.svg"
-            title="Zoom"
-            alt="Zoom"
-          />
-          <SkillItem
-            src="/assets/img/skills/whatsapp.svg"
-            title="Whatsapp"
-            alt="Whatsapp"
-          />
-        </SkillSet>
-      </div>
-
-      <div class="experience-section section">
-        <h3 class="text-headline-large">
-          Experience<span class="color-brand">.</span>
-        </h3>
-
-        <div class="experience-list">
-          <ExperienceItem
-            logo="/assets/img/experience/servicenow.svg"
-            logoAlt="ServiceNow"
-            title="Staff Software Engineer"
-            company="ServiceNow"
-            location="Hyderabad, India"
-            period="Dec 2017 - Present"
-            durationClass="latest-experience"
-            duration="+ yrs"
-          >
-            <p class="text-body-large">
-              ServiceNow automates enterprise IT operations, creating a single
-              system of record for all IT processes within an organization.
-            </p>
-            <p class="text-body-large">
-              Worked on ServiceNow Platform and developed/enhanced products like
-              Major Incident Management, On-Call Management, Task Communication
-              Management, Universal Request, Microsoft Teams integrations etc.
-            </p>
-          </ExperienceItem>
-
-          <ExperienceItem
-            logo="/assets/img/experience/kagami.webp"
-            logoAlt="Kagami"
-            title="Software Engineer"
-            company="Kagami India Pvt. Ltd. (StartUp)"
-            location="Hyderabad, India"
-            period="Jul 2016 - Dec 2017"
-            duration="1 yr 6 mos"
-          >
-            <p class="text-body-large">
-              Kagami, is a next generation ERP solution, which allows Business
-              users to develop ERP modules, package them and deploy to cloud.
-            </p>
-            <p class="text-body-large">
-              Developed user interfaces for products from scratch.
-            </p>
-          </ExperienceItem>
-
-          <ExperienceItem
-            logo="/assets/img/experience/oracle.png"
-            logoAlt="Oracle"
-            title="Applications Engineer"
-            company="Oracle"
-            location="Bangalore, India"
-            period="Jul 2015 - Jun 2016"
-            duration="1 yr"
-          >
-            <p class="text-body-large">
-              Oracle Primavera P6 (Project Management Tool) application.
-            </p>
-            <p class="text-body-large">
-              Revamped applet pages with modern UI technologies.
-            </p>
-          </ExperienceItem>
-
-          <ExperienceItem
-            logo="/assets/img/experience/wipro.svg"
-            logoAlt="Wipro"
-            title="Senior Software Engineer"
-            company="Wipro"
-            location="Bangalore, India"
-            period="Jun 2012 - Jul 2015"
-            duration="3 yrs 2 mos"
-          >
-            <p class="text-body-large">
-              Oracle Primavera P6 (Project Management Tool).
-            </p>
-            <p class="text-body-large">
-              Revamped applet pages with modern UI technologies.
-            </p>
-          </ExperienceItem>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">
+            See selected work
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <a class="btn btn-ghost" href="/blog/">Read the journal</a>
         </div>
+
+        <ul class="hero-social" aria-label="Profiles">
+          {
+            SOCIAL.map((s) => (
+              <li>
+                <wc-icon-button variant="outlined" shape="round" href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
+                  <wc-icon name={s.icon} provider="carbon" />
+                </wc-icon-button>
+              </li>
+            ))
+          }
+        </ul>
       </div>
 
-      <div class="honors-awards section">
-        <h3 class="text-headline-large">
-          Honors & awards<span class="color-brand">.</span>
-        </h3>
-
-        <div class="awards-grid">
-          <AwardItem
-            title="UTG LLama Award"
-            issuer="ServiceNow"
-            date="Dec 2024"
-          >
-            Recognized for technical leadership in re-architecting the on-call
-            scheduling engine, significantly boosting performance and resolving
-            critical scheduling challenges. product feature and a comprehensive
-            UX revamp.
-          </AwardItem>
-          <AwardItem
-            title="UTG LLama Award"
-            issuer="ServiceNow"
-            date="Dec 2023"
-          >
-            Technical leader recognized for guiding engineering teams,
-            architecting robust solutions, and unblocking complex technical
-            challenges. Successfully drove the implementation of a major on-call
-          </AwardItem>
-          <AwardItem
-            title="UTG LLama Award"
-            issuer="ServiceNow"
-            date="Dec 2021"
-          >
-            Recognized for supporting SAP customer in resolving a
-            release‑critical performance issue within a short timeframe. At a
-            decisive go/no‑go moment, timely intervention enabled the customer’s
-            release to move forward successfully.
-          </AwardItem>
-          <AwardItem
-            title="Inspiring Performance"
-            issuer="Wipro Technologies"
-            date="Feb 2015"
-          >
-            This certificate is awarded for Responsive Micro site implementation
-            and Best Performance in the project.
-          </AwardItem>
-          <AwardItem
-            title="Best Rookie"
-            issuer="Wipro Technologies"
-            date="Aug 2014"
-          >
-            This certificate is awarded for Quick learning and Best Performance
-            in the project.
-          </AwardItem>
-          <AwardItem
-            title="Code Star"
-            issuer="Wipro Technologies"
-            date="May 2014"
-          >
-            This certificate is awarded for winning in 'CodeStrom' programming
-            contest.
-          </AwardItem>
-        </div>
+      <div class="hero-art">
+        <HeroSheet />
       </div>
+    </div>
+  </section>
 
-      <div class="showcase section">
-        <h3 class="text-headline-large">
-          Showcase<span class="color-success">.</span>
-        </h3>
-        <goat-text>List of notable personal projects outside of work.</goat-text
-        >
-        <br />
-        <br />
-        <div class="showcase-item">
-          <div class="project-details">
-            <img
-              class="logo"
-              src="https://peacock.redvars.com/assets/img/logo-plain.webp"
-              title="PEACOCK LOGO"
-              alt="PEACOCK LOGO"
-            />
-            <div class="details">
-              <h4 class="text-headline-medium">Peacock</h4>
-              <p class="text-body-large">
-                A lightweight web component library, build using lit js.
-              </p>
-              <p class="text-body-large">
-                Peacock contains most used web components built using Lit. So
-                you don't need to include any additional framework dependencies,
-                You can simply import required component js, and right away
-                start using it.
-              </p>
-              <wc-button
-                href="https://peacock.redvars.com"
-                variant="tonal"
-                target="_blank"
-                icon="launch">Read More</wc-button
-              >
+  <!-- ── Proof strip ──────────────────────────────────────────────────── -->
+  <section class="proof band" aria-label="At a glance">
+    <ul class="wrap proof-list">
+      {
+        proof.map((item) => (
+          <li>
+            <strong>{item.value}</strong>
+            <span>
+              {item.label}
+              {item.link && (
+                <a href={item.link.href} target="_blank" rel="noopener">
+                  {item.link.text}
+                </a>
+              )}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- ── Selected work ────────────────────────────────────────────────── -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <SectionHead eyebrow="01 — Selected work" title="Things I've designed and built" id="work-title">
+        A design system used across frameworks, a platform in the making, and the products I lead at
+        ServiceNow.
+      </SectionHead>
+
+      <div class="bento">
+        <article class="tile work-feature" data-reveal>
+          <div class="work-feature-copy">
+            <div class="work-brand">
+              <img src="/assets/img/work/peacock.webp" alt="" width="56" height="56" loading="lazy" />
+              <div>
+                <span class="mono work-kicker">Open source · Creator & maintainer</span>
+                <h3 class="work-title">Peacock</h3>
+              </div>
+            </div>
+            <p class="work-text">
+              A design system of 190+ Lit custom elements. One library for plain HTML and every
+              framework, with typed React, Vue and Angular packages generated from its component
+              manifest. This site is built with it.
+            </p>
+            <ul class="feature-list">
+              <li><wc-icon name="palette"></wc-icon>Design tokens in DTCG format, one theme engine for build and browser</li>
+              <li><wc-icon name="gavel"></wc-icon>Written API conventions and decision records ahead of new components</li>
+              <li><wc-icon name="stars"></wc-icon>AI-ready components that never call a model themselves</li>
+            </ul>
+            <div class="tag-row">
+              <wc-tag size="sm" variant="outlined">Lit</wc-tag>
+              <wc-tag size="sm" variant="outlined">TypeScript</wc-tag>
+              <wc-tag size="sm" variant="outlined">Web Components</wc-tag>
+              <wc-tag size="sm" variant="outlined">Design tokens</wc-tag>
+              <wc-tag size="sm" variant="outlined">Apache-2.0</wc-tag>
+            </div>
+            <div class="work-actions">
+              <wc-link-button href="/blog/peacock-architecture/" variant="filled">Read the white paper</wc-link-button>
+              <wc-link-button href={PEACOCK_REPO} target="_blank" variant="outlined">GitHub</wc-link-button>
+              <wc-link-button href={PEACOCK_SITE} target="_blank" variant="text">peacock.redvars.com</wc-link-button>
             </div>
           </div>
-        </div>
+          <PeacockPlayground />
+        </article>
 
-        <wc-button class="view-all-projects" href="/projects/" trailing-icon
-          >View all projects
-          <wc-icon name="arrow_forward" slot="icon"></wc-icon>
-        </wc-button>
+        <article class="tile" data-reveal style="--reveal-index:1">
+          <div class="work-brand">
+            <img class="work-logo-sm" src="/assets/img/work/redvars.webp" alt="" width="40" height="40" loading="lazy" />
+            <div>
+              <span class="mono work-kicker">Creator · In development</span>
+              <h3 class="work-title sm">Redvars</h3>
+            </div>
+          </div>
+          <p class="work-text">
+            An enterprise application platform: describe tables, forms, rules and access as metadata
+            and run them as a secured application, from the database to the UI.
+          </p>
+          <ul class="mini-pillars mono">
+            <li>Code less</li>
+            <li>Scale everywhere</li>
+            <li>Build natively</li>
+          </ul>
+          <div class="tag-row">
+            <wc-tag size="sm" variant="outlined">TypeScript</wc-tag>
+            <wc-tag size="sm" variant="outlined">PostgreSQL</wc-tag>
+            <wc-tag size="sm" variant="outlined">Peacock</wc-tag>
+          </div>
+          <div class="push link-pair">
+            <a class="link-arrow" href="/blog/redvars-platform-architecture/">Read the white paper <wc-icon name="arrow_forward"></wc-icon></a>
+            <a class="link-arrow" href={REDVARS_URL} target="_blank" rel="noopener">redvars.com <wc-icon name="arrow_outward"></wc-icon></a>
+          </div>
+        </article>
+
+        <article class="tile" data-reveal style="--reveal-index:2">
+          <div class="work-brand">
+            <span class="icon-badge"><wc-icon name="event_repeat"></wc-icon></span>
+            <div>
+              <span class="mono work-kicker">ServiceNow · Technical lead</span>
+              <h3 class="work-title sm">On-call scheduling engine</h3>
+            </div>
+          </div>
+          <p class="work-text">
+            Led the re-architecture of the engine that works out who is on call and when. It is
+            significantly faster, and critical scheduling problems are resolved. Recognised with a
+            UTG Llama award.
+          </p>
+          <div class="tag-row push">
+            <wc-tag size="sm" variant="outlined">Scheduling</wc-tag>
+            <wc-tag size="sm" variant="outlined">Performance</wc-tag>
+            <wc-tag size="sm" variant="outlined">Re-architecture</wc-tag>
+          </div>
+        </article>
+
+        <article class="tile" data-reveal style="--reveal-index:3">
+          <div class="work-brand">
+            <span class="icon-badge"><wc-icon name="hub"></wc-icon></span>
+            <div>
+              <span class="mono work-kicker">ServiceNow · Product engineering</span>
+              <h3 class="work-title sm">Incident & collaboration</h3>
+            </div>
+          </div>
+          <p class="work-text">
+            Major Incident Management, On-Call Management, Task Communication Management and
+            Universal Request, plus the Microsoft Teams integration that brings them into the tools
+            people already use.
+          </p>
+          <div class="tag-row push">
+            <wc-tag size="sm" variant="outlined">Microsoft Teams</wc-tag>
+            <wc-tag size="sm" variant="outlined">Slack</wc-tag>
+            <wc-tag size="sm" variant="outlined">Zoom</wc-tag>
+            <wc-tag size="sm" variant="outlined">Twilio</wc-tag>
+          </div>
+        </article>
       </div>
-    </wc-container>
-  </div>
+    </div>
+  </section>
 
-  <Footer />
+  <!-- ── Approach ─────────────────────────────────────────────────────── -->
+  <section class="section approach band" id="approach" aria-labelledby="approach-title">
+    <div class="blueprint faint"></div>
+    <div class="wrap">
+      <SectionHead eyebrow="02 — Approach" title="How I build" id="approach-title">
+        Six working principles, each one backed by something I've shipped or written down.
+      </SectionHead>
 
-  <script type="text/javascript">
-    function getAge(dateString) {
-      const today = new Date();
-      const birthDate = new Date(dateString);
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-      return age;
+      <div class="pillars">
+        {
+          pillars.map((pillar, i) => (
+            <article class="tile pillar" data-reveal style={`--reveal-index:${i}`}>
+              <span class="icon-badge">
+                <wc-icon name={pillar.icon} />
+              </span>
+              <h3 class="pillar-title">{pillar.title}</h3>
+              <p class="pillar-text">{pillar.text}</p>
+              <ol class="principles" start={i * 2 + 1}>
+                {pillar.principles.map(([title, text], j) => (
+                  <li>
+                    <span class="principle-num mono">{String(i * 2 + j + 1).padStart(2, "0")}</span>
+                    <div>
+                      <strong>{title}</strong>
+                      <p>{text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <a class="link-arrow push" href={pillar.evidence.href}>
+                {pillar.evidence.label} <wc-icon name="arrow_forward" />
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ───────────────────────────────────────────────────── -->
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="wrap">
+      <SectionHead eyebrow="03 — Experience" title={`${years} years, four companies, one thread`} id="experience-title">
+        From enterprise UI modernisation to platform architecture: the work has always been about
+        making complex systems usable.
+      </SectionHead>
+
+      <div class="experience-grid">
+        <wc-timeline class="timeline" data-reveal>
+          {
+            experience.map((job) => (
+              <wc-timeline-item class:list={["job", { current: job.current }]}>
+                <wc-icon slot="dot" name={job.current ? "work" : "work_history"} />
+                <span class="job-head">
+                  <span class="job-role">{job.role}</span>
+                  <span class="job-company">{job.company}</span>
+                </span>
+                <div slot="content" class="job-body">
+                  <p class="job-meta mono">
+                    {job.period} · {job.location}
+                    {job.current && <wc-tag size="sm" accent="green">Current</wc-tag>}
+                  </p>
+                  <p class="job-text">{job.text}</p>
+                  <div class="tag-row">
+                    {job.tags.map((tag) => (
+                      <wc-tag size="sm" variant="outlined">{tag}</wc-tag>
+                    ))}
+                  </div>
+                </div>
+              </wc-timeline-item>
+            ))
+          }
+        </wc-timeline>
+
+        <aside class="awards" aria-labelledby="awards-title">
+          <h3 id="awards-title" class="awards-title">
+            <wc-icon name="trophy"></wc-icon> Recognition
+          </h3>
+          <ul class="award-list">
+            {
+              awards.map((award, i) => (
+                <li class="award" data-reveal style={`--reveal-index:${i}`}>
+                  <span class="award-year mono">{award.year}</span>
+                  <div>
+                    <strong>{award.title}</strong>
+                    <span class="award-org"> · {award.org}</span>
+                    <p>{award.text}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Journal ──────────────────────────────────────────────────────── -->
+  {
+    latest.length > 0 && (
+      <section class="section journal band" aria-labelledby="journal-title">
+        <div class="wrap">
+          <div class="journal-head">
+            <SectionHead eyebrow="04 — Journal" title="Notes from the drawing board" id="journal-title">
+              White papers, case studies and field notes on how my projects are designed and built.
+            </SectionHead>
+            <wc-link-button href="/blog/" variant="outlined" trailing-icon>
+              All posts
+              <wc-icon slot="icon" name="arrow_forward" />
+            </wc-link-button>
+          </div>
+          <div class:list={["post-grid", `count-${latest.length}`]}>
+            {latest.map((post, i) => (
+              <div data-reveal style={`--reveal-index:${i}`}>
+                <PostCard post={post} sheet={sheetNumber(post, posts)} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- ── Contact ──────────────────────────────────────────────────────── -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-panel" data-reveal>
+        <div class="blueprint"></div>
+        <span class="eyebrow">05 — Contact</span>
+        <h2 id="contact-title" class="contact-title">Let's talk <span class="grad">architecture.</span></h2>
+        <p class="contact-lede">
+          Platforms, design systems, web components, or a hard problem you're stuck on: I'm always up
+          for a good technical conversation.
+        </p>
+        <div class="contact-actions">
+          <wc-link-button href={`mailto:${AUTHOR.email}`} variant="filled" size="md">
+            <wc-icon slot="icon" name="mail"></wc-icon>
+            {AUTHOR.email}
+          </wc-link-button>
+          <wc-link-button href={`https://www.linkedin.com/in/${AUTHOR.linkedin}`} target="_blank" variant="outlined" size="md">
+            Connect on LinkedIn
+          </wc-link-button>
+        </div>
+        <p class="contact-foot mono">{AUTHOR.location}</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(3.5rem, 8vw, 6.5rem);
+    overflow: hidden;
+  }
+  .glow-a {
+    top: -16rem;
+    right: -10rem;
+  }
+  .glow-b {
+    bottom: -24rem;
+    left: -18rem;
+    opacity: 0.12;
+  }
+  .hero-grid {
+    position: relative;
+    display: grid;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (min-width: 62rem) {
+    .hero-grid {
+      grid-template-columns: 1.08fr 1fr;
     }
+  }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelector(".experience").innerText = getAge("06/20/2012");
-      document.querySelector(".latest-experience").innerText =
-        getAge("12/15/2017");
-    });
-  </script>
-</Default>
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-100);
+    padding: var(--spacing-075) var(--spacing-150);
+    border: 1px solid var(--hairline);
+    border-radius: var(--shape-corner-full);
+    background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+    font-size: 0.8125rem;
+    color: var(--ink-soft);
+  }
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-success);
+    animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-success) 55%, transparent);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 10px transparent;
+    }
+  }
+
+  .hero-title {
+    margin-top: var(--spacing-300);
+    font-size: clamp(2.6rem, 6.4vw, 4.75rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-lede {
+    max-width: 36rem;
+    margin-top: var(--spacing-300);
+    font-size: clamp(1.0625rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+
+    strong {
+      color: var(--ink);
+      font-weight: 650;
+    }
+    a {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-underline-offset: 3px;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-150);
+    margin-top: var(--spacing-400);
+  }
+
+  .hero-social {
+    display: flex;
+    gap: var(--spacing-100);
+    margin: var(--spacing-400) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero-art {
+    max-width: 34rem;
+    width: 100%;
+    justify-self: center;
+  }
+
+  /* Proof strip */
+  .proof-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+    gap: var(--spacing-100) 0;
+    margin-block: 0;
+    padding-block: var(--spacing-300);
+    list-style: none;
+
+    li {
+      padding: var(--spacing-150) var(--spacing-200);
+      border-left: 1px solid var(--hairline);
+    }
+    @media (max-width: 47.99rem) {
+      li {
+        padding-inline: var(--spacing-150);
+      }
+    }
+    span a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+    strong {
+      display: block;
+      font-family: var(--font-family-brand);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+    }
+  }
+
+  /* Work */
+  .bento {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-300);
+
+    > * {
+      min-width: 0;
+    }
+  }
+  @media (min-width: 56rem) {
+    .bento {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .work-feature {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .work-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-400);
+    background:
+      radial-gradient(60rem 30rem at 0% 0%, color-mix(in srgb, var(--color-primary) 8%, transparent), transparent 60%),
+      var(--color-surface-container-lowest);
+  }
+  @media (min-width: 56rem) {
+    .work-feature {
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      padding: var(--spacing-500);
+    }
+  }
+  .work-feature-copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-250);
+  }
+
+  .work-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+
+    img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+    .work-logo-sm {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--shape-corner-medium);
+    }
+  }
+  .work-kicker {
+    display: block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .work-title {
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    font-weight: 700;
+
+    &.sm {
+      font-size: 1.35rem;
+    }
+  }
+  .work-text {
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .work-feature .work-text {
+    font-size: 1.0625rem;
+  }
+
+  .feature-list {
+    display: grid;
+    gap: var(--spacing-100);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      gap: var(--spacing-150);
+      align-items: flex-start;
+      font-size: 0.975rem;
+    }
+    wc-icon {
+      flex: none;
+      margin-top: 0.2rem;
+      --icon-size: 1.15rem;
+      --icon-color: var(--color-primary);
+    }
+  }
+
+  .work-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-100);
+  }
+
+  .mini-pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-050) var(--spacing-150);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+
+    li::before {
+      content: "▸ ";
+    }
+  }
+
+  .push {
+    margin-top: auto;
+  }
+  .link-pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-100) var(--spacing-300);
+  }
+
+  /* Approach */
+  .approach {
+    overflow: hidden;
+  }
+  .blueprint.faint {
+    opacity: 0.6;
+  }
+  .pillars {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-300);
+  }
+  @media (min-width: 60rem) {
+    .pillars {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .pillar-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .pillar-text {
+    color: var(--ink-soft);
+  }
+  .principles {
+    display: grid;
+    gap: var(--spacing-200);
+    margin: var(--spacing-100) 0 var(--spacing-100);
+    padding: var(--spacing-200) 0 0;
+    border-top: 1px dashed var(--hairline);
+    list-style: none;
+
+    li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--spacing-150);
+    }
+    strong {
+      font-family: var(--font-family-brand);
+      font-size: 1.0625rem;
+    }
+    p {
+      margin-top: 0.15rem;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+  }
+  .principle-num {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    padding-top: 0.2rem;
+  }
+
+  /* Experience */
+  .experience-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-500);
+  }
+  @media (min-width: 62rem) {
+    .experience-grid {
+      grid-template-columns: 1.45fr 1fr;
+      align-items: start;
+    }
+    .awards {
+      position: sticky;
+      top: calc(var(--header-height) + 1.5rem);
+    }
+  }
+
+  .timeline {
+    --timeline-dot-size: 2.5rem;
+    --timeline-line-color: var(--hairline);
+  }
+  .job {
+    --timeline-dot-bg: var(--color-secondary-container);
+    --timeline-dot-color: var(--color-on-secondary-container);
+  }
+  .job.current {
+    --timeline-dot-bg: var(--color-primary);
+    --timeline-dot-color: var(--color-on-primary);
+  }
+  .job-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 var(--spacing-100);
+  }
+  .job-role {
+    font-family: var(--font-family-brand);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .job-company {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-075);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .job-body {
+    display: grid;
+    gap: var(--spacing-150);
+    padding-bottom: var(--spacing-400);
+  }
+  .job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-100);
+    font-size: 0.8125rem;
+    color: var(--ink-soft);
+  }
+  .job-text {
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .awards {
+    padding: var(--spacing-300);
+    border: 1px solid var(--hairline);
+    border-radius: var(--shape-corner-extra-large);
+    background: var(--panel);
+  }
+  .awards-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-100);
+    font-size: 1.25rem;
+    font-weight: 700;
+    --icon-size: 1.5rem;
+    --icon-color: var(--color-primary);
+  }
+  .award-list {
+    display: grid;
+    margin: var(--spacing-200) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .award {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: var(--spacing-150);
+    padding-block: var(--spacing-200);
+    border-top: 1px solid var(--hairline);
+
+    p {
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+  }
+  .award-year {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    padding-top: 0.1rem;
+  }
+  .award-org {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  /* Journal */
+  .journal-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-200);
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+
+    :global(.section-head) {
+      margin-bottom: 0;
+    }
+  }
+  .post-grid {
+    display: grid;
+    gap: var(--spacing-300);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  }
+  .post-grid.count-1 {
+    grid-template-columns: minmax(0, 32rem);
+  }
+
+  /* Contact */
+  .contact-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    justify-items: center;
+    gap: var(--spacing-250);
+    padding: clamp(2.5rem, 7vw, 5.5rem) var(--gutter);
+    border: 1px solid var(--grid-line-strong);
+    border-radius: calc(var(--shape-corner-extra-large) + 8px);
+    text-align: center;
+    background:
+      radial-gradient(40rem 20rem at 50% 0%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 70%),
+      var(--color-surface-container-lowest);
+
+    .blueprint {
+      z-index: -1;
+    }
+  }
+  .contact-title {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .contact-lede {
+    max-width: 36rem;
+    font-size: 1.125rem;
+    color: var(--ink-soft);
+  }
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-150);
+    margin-top: var(--spacing-100);
+  }
+  .contact-foot {
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+</style>

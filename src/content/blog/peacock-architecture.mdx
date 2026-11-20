@@ -1,0 +1,164 @@
+---
+title: "Peacock: a design system built on web standards"
+description: "How I put Peacock together: custom elements that work in any framework, framework packages and themes generated from one source, and the rules I wrote down before the components."
+date: 2026-10-19
+format: white-paper
+tags: [Peacock, Web Components, Lit, Design systems, Design tokens]
+---
+
+import Figure from "../../components/mdx/Figure.astro";
+import Callout from "../../components/mdx/Callout.astro";
+import PipelineDiagram from "../../components/diagrams/PipelineDiagram.astro";
+
+[Peacock](https://github.com/redvars/peacock) is the design system I created and still maintain.
+You install it as `@redvars/peacock` and get about 190 custom elements built with Lit, a theme made
+of design tokens, and generated packages for React, Vue and Angular. The site you're reading runs
+on it.
+
+This is the long version of how it's put together, and why it ended up that way.
+
+## Why I didn't tie it to a framework
+
+Design systems tied to one framework tend not to last. A team picks a different framework, or a
+product migrates, and the components get rebuilt. For a while you maintain two versions that slowly
+stop matching.
+
+There's a second kind of drift, and it happens inside the library. When Peacock reached about 85
+components, I audited it and found the same idea spelled many different ways. "Close" alone had
+eight event names. Each of those is a small thing a developer has to stop and look up.
+
+So I had two questions to answer. How can one library serve every framework? And how does it stay
+predictable once it has well over a hundred components?
+
+## What I wanted from it
+
+I held it to four goals:
+
+1. It should work everywhere: plain HTML, any framework, and nothing to install for the simplest
+   case.
+2. Each concern gets one source of truth. The component API lives in one manifest, and visual
+   decisions live in one set of tokens.
+3. Once you've learned one component, you should be able to guess the next.
+4. Accessibility, theming and localisation are there from the start, not bolted on later.
+
+## How it's built
+
+### Components are Lit custom elements
+
+Every component is a `LitElement` written in strict TypeScript. Each one lives in its own folder
+(`src/<name>/`) with its styles in SCSS. Shadow DOM keeps those styles to itself, and components
+talk to the page with ordinary `CustomEvent`s that bubble and cross the shadow boundary.
+
+Because they're custom elements, they behave like built-in HTML anywhere HTML works, and a lot of
+platform behaviour comes along with that. Form fields and toggles are form-associated, so
+`required` blocks submission, `:invalid` matches, and `checkValidity()`, `reportValidity()` and
+`setCustomValidity()` work just as they do on an `<input>`.
+
+Layout uses logical CSS properties, and the style linter rejects physical `left` and `right` in
+component styles, so putting `dir="rtl"` on any container mirrors everything inside it. In
+forced-colors mode, selected and current items switch to system colours. And `data-density` on a
+container tightens up buttons, fields and table rows.
+
+Text gets the same treatment. Every string a component renders has an English default that
+`setPeacockStrings()` can replace for the whole page, and numbers and dates go through `Intl`,
+using the nearest `lang` attribute.
+
+### Getting it onto a page
+
+The simplest install is two tags:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@redvars/peacock@4.5.1/dist/assets/styles.css" />
+<script type="module" src="https://cdn.jsdelivr.net/npm/@redvars/peacock@4.5.1/dist/loader.js"></script>
+
+<wc-button>Button</wc-button>
+```
+
+`loader.js` defines most components the moment it runs. The heavy ones (editors, charts, calendar
+views, diagrams) wait until they're needed. A `MutationObserver` watches the document, and the
+first time one of those tags shows up, the loader imports its module. It also wraps `attachShadow`
+once, so components rendered inside other shadow roots load the same way. If a page has to stay on
+its own origin, `loader-full.js` serves icons from the package instead of a CDN.
+
+<Callout kind="tradeoff" title="The catch with an eager core">
+  Everyday components arrive with the loader, so they're ready as soon as it runs, and a page only
+  pays for an editor or a chart when it actually shows one. The catch is that nothing is defined
+  until the loader's modules have downloaded. On this site I handle that two ways: `modulepreload`
+  hints fetch the header, icon and button modules alongside the loader, and the hero is plain HTML,
+  so nothing above the fold waits on a component.
+</Callout>
+
+### Nobody writes the framework wrappers
+
+Custom elements already run inside React, Vue and Angular. What developers in those frameworks miss
+is the comfortable part: typed props, typed events and two-way binding. Peacock gives them that
+without anyone writing wrappers by hand. The build analyses the components into
+`custom-elements.json`, and a generator writes each framework package's bindings from that file.
+
+<Figure n="1" caption="One source per concern. Components are analysed into a manifest that generates the bindings of three framework packages; tokens go through one theme engine for both the build and the browser.">
+  <PipelineDiagram />
+</Figure>
+
+Every prop and event in the bindings is typed. Where a component has `value` or `checked` plus the
+matching event, they add two-way binding: `onInput` and `onChange` in React, `v-model` in Vue,
+`ngModel` and `formControl` in Angular. They also register the elements they use, so a framework
+app never needs `loader.js`. I wrote up the rules this puts on component authors in
+[Generate, don't hand-write](/blog/generate-dont-handwrite/).
+
+### One theme engine, used twice
+
+Visual decisions are design tokens in the [DTCG](https://www.designtokens.org/) format: accent
+palettes, status colours, spacing, motion, elevation and the type scale. A small theme config picks
+the parts that vary, like the primary seed colour, the palette variant, the contrast level, the
+corner shapes and the fonts.
+
+The theme engine turns tokens plus config into CSS custom properties. It builds tonal palettes from
+the seed with Material's colour utilities, then writes the CSS with Terrazzo. It's plain ESM with no
+`node:*` imports, so the same code runs in Node, where it builds the default `tokens.css`, and in
+the browser, where it powers the docs theme builder. Whatever the theme builder hands you is exactly
+what a build would produce for the same config. This site's red theme came out of that same engine.
+
+Tokens only help if components actually use them, so two stylelint rules reject raw colours and
+hard-coded corner radii in component styles. The one exception is a raw colour used as a `var()`
+fallback.
+
+### The rules are part of the architecture
+
+The last layer isn't code at all. Before starting a roadmap that added dozens of components, I
+wrote Peacock's API conventions down in a decision record. It covers when a mode should become its
+own component, one event contract for every value control and overlay, one shared vocabulary
+(`variant`, `intent`, `selected`, `current`, `label`), one size scale, and a deprecation policy.
+The [case study](/blog/component-api-conventions/) tells the story of that record and what the
+migration cost.
+
+## The trade-offs
+
+| Choice | What it buys | What it costs |
+| --- | --- | --- |
+| Custom elements built with Lit | One library for plain HTML and every framework | Components exist only after their script runs, so first paint needs some care |
+| Framework packages generated from the manifest | One source for the API, so types and bindings can't drift | Component code has to follow the analyzer's rules |
+| One loader from a CDN, heavy components on demand | One script tag; editors and charts cost nothing until used | Nothing is defined until the loader arrives, so preload what matters |
+| One theme engine for build and browser | The theme builder and the build always agree | A small engine to maintain |
+| Written conventions with a deprecation policy | APIs you can guess; reviews check a list, not taste | Renames, and console warnings until people migrate |
+
+## Where it is now
+
+Peacock 4.0 brought the whole library in line with those conventions (one event contract, one
+vocabulary, one size scale, logical placements) and added more than 50 components on top. Later
+releases have kept to the same rules: 4.3 added the site header and footer you can see on this
+page, and 4.5 added calendar editing and a calendar timeline. The framework packages still come out
+of the same build, so nobody hand-writes React, Vue or Angular bindings for a new component.
+
+## If you're starting a design system
+
+A few things I'd tell anyone starting one.
+
+Write your conventions down early. Around the tenth component, renaming things is cheap. Around the
+eighty-fifth, it's a migration.
+
+Treat the manifest as the contract. If the analyzer can't see something, it isn't public API.
+
+Put visual decisions in tokens, and lint for them. A rule nobody checks doesn't stay a rule for
+long.
+
+And bet on the platform. Frameworks come and go much faster than the standards they run on.

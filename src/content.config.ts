@@ -1,53 +1,31 @@
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
-const blogCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
-  schema: z.object({
-    title: z.string().optional(),
-    description: z.string().optional(),
-    keywords: z.array(z.string()).optional().default([]),
-    tags: z.array(z.string()).optional().default([]),
-    date: z.date(),
-    redirect_from: z.array(z.string()).optional().default([]),
-    css: z.array(z.string()).optional().default([]),
-    js: z.array(z.string()).optional().default([]),
-  }),
-});
+/**
+ * The architecture journal: the one kind of content on the site. `format` is a label for the badge,
+ * not a separate kind of page — every entry uses the same route and layout.
+ */
+export const FORMATS = {
+  "white-paper": { label: "White paper", icon: "description" },
+  "case-study": { label: "Case study", icon: "architecture" },
+  "field-notes": { label: "Field notes", icon: "edit_note" },
+} as const;
 
-const projectCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/project' }),
+export type Format = keyof typeof FORMATS;
+
+const blog = defineCollection({
+  loader: glob({ pattern: "*.{md,mdx}", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string(),
-    description: z.string().optional(),
-    keywords: z.array(z.string()).optional().default([]),
+    description: z.string(),
     date: z.date(),
-    bg: z.string().optional(),
-    icon: z.string().optional(),
-    externalUrl: z.string().optional(),
-    redirect_from: z.array(z.string()).optional().default([]),
-    scripts: z.array(z.string()).optional().default([]),
-    navlinks: z
-      .array(z.object({ name: z.string(), url: z.string() }))
-      .optional()
-      .default([]),
+    updated: z.date().optional(),
+    format: z
+      .enum(Object.keys(FORMATS) as [Format, ...Format[]])
+      .default("field-notes"),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
   }),
 });
 
-const codebaseCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/code-base' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-    keywords: z.array(z.string()).optional().default([]),
-    tags: z.array(z.string()).optional().default([]),
-    date: z.date(),
-    redirect_from: z.array(z.string()).optional().default([]),
-  }),
-});
-
-export const collections = {
-  blog: blogCollection,
-  project: projectCollection,
-  'code-base': codebaseCollection,
-};
+export const collections = { blog };

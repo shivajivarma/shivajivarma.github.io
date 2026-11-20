@@ -1,0 +1,219 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { AUTHOR, PEACOCK_REPO } from "../siteconfig";
+
+const year = new Date().getFullYear();
+const REPO = "https://github.com/shivajivarma/shivajivarma.github.io";
+
+const columns = [
+  {
+    icon: "check_circle",
+    tone: "ok",
+    title: "Permissions",
+    items: ["Commercial use", "Modification", "Distribution", "Private use"],
+  },
+  {
+    icon: "info",
+    tone: "info",
+    title: "Conditions",
+    items: ["Include the copyright notice", "Include the license text"],
+  },
+  {
+    icon: "block",
+    tone: "no",
+    title: "Limitations",
+    items: ["No liability", "No warranty"],
+  },
+];
+
+const credits = [
+  { name: "Peacock", what: "Web components and design tokens", license: "Apache-2.0", href: PEACOCK_REPO },
+  { name: "Astro", what: "Static site framework", license: "MIT", href: "https://github.com/withastro/astro" },
+  { name: "Material Symbols", what: "Interface icons", license: "Apache-2.0", href: "https://github.com/google/material-design-icons" },
+  { name: "Carbon icons", what: "Social logos", license: "Apache-2.0", href: "https://github.com/carbon-design-system/carbon" },
+  { name: "Noto Sans, Noto Sans Mono, Space Grotesk", what: "Typefaces", license: "SIL OFL 1.1", href: "https://fonts.google.com/" },
+];
+---
+
+<LegalLayout
+  title="License"
+  eyebrow="License"
+  heading='Open by <span class="grad">default.</span>'
+  description="This website is released under the MIT License. Read it, learn from it, reuse it; just keep the notice."
+  updated="November 20, 2026"
+>
+  <section slot="summary" class="wrap license-summary" aria-label="License at a glance">
+    <div class="tile license-badge">
+      <span class="mono badge-kicker">SPDX</span>
+      <strong class="badge-id">MIT</strong>
+      <p>Short and permissive: use it for almost anything, as long as the copyright and license notice travel with it.</p>
+      <a class="link-arrow" href={REPO} target="_blank" rel="noopener">
+        View the source <wc-icon name="arrow_outward"></wc-icon>
+      </a>
+    </div>
+    {
+      columns.map((col) => (
+        <div class:list={["tile license-col", `tone-${col.tone}`]}>
+          <strong class="col-title">{col.title}</strong>
+          <ul>
+            {col.items.map((item) => (
+              <li>
+                <wc-icon name={col.icon} />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </section>
+
+  <h2 id="license-text">The MIT License (MIT)</h2>
+  <div class="license-doc">
+    <p class="mono doc-copy">Copyright (c) {year} {AUTHOR.name}</p>
+    <p>
+      Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+      associated documentation files (the "Software"), to deal in the Software without restriction,
+      including without limitation the rights to use, copy, modify, merge, publish, distribute,
+      sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+      furnished to do so, subject to the following conditions:
+    </p>
+    <p>
+      The above copyright notice and this permission notice shall be included in all copies or
+      substantial portions of the Software.
+    </p>
+    <p class="caps">
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+      NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+      NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+      DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    </p>
+  </div>
+
+  <h2 id="credits">Built with</h2>
+  <p>
+    The site stands on open-source work by others. Each of these keeps its own license, linked below.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Project</th><th>Used for</th><th>License</th></tr>
+    </thead>
+    <tbody>
+      {
+        credits.map((c) => (
+          <tr>
+            <td>
+              <a href={c.href} target="_blank" rel="noopener">{c.name}</a>
+            </td>
+            <td>{c.what}</td>
+            <td><code>{c.license}</code></td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <h2 id="questions">Questions</h2>
+  <p>
+    Not sure whether your use is covered? Email <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>
+    and I'll be happy to help.
+  </p>
+</LegalLayout>
+
+<style>
+  .license-summary {
+    display: grid;
+    gap: var(--spacing-200);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  }
+  @media (min-width: 64rem) {
+    .license-summary {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    }
+  }
+
+  .license-badge {
+    gap: var(--spacing-100);
+    background:
+      radial-gradient(20rem 12rem at 0% 0%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 70%),
+      var(--color-surface-container-lowest);
+
+    p {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+  }
+  .badge-kicker {
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
+  .badge-id {
+    font-family: var(--font-family-brand);
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .license-col {
+    --tone: var(--color-success);
+    gap: var(--spacing-150);
+
+    &.tone-info {
+      --tone: var(--color-blue-50);
+    }
+    &.tone-no {
+      --tone: var(--color-error);
+    }
+    ul {
+      display: grid;
+      gap: var(--spacing-100);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-100);
+      font-size: 0.95rem;
+      --icon-size: 1.1rem;
+      --icon-color: var(--tone);
+    }
+  }
+  .col-title {
+    font-family: var(--font-family-mono, var(--font-family-monospace));
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tone);
+  }
+
+  .license-doc {
+    position: relative;
+    padding: clamp(1.25rem, 4vw, 2.25rem);
+    border: 1px solid var(--hairline);
+    border-radius: var(--shape-corner-large);
+    background:
+      linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 100% 2rem,
+      var(--color-surface-container-lowest);
+    font-size: 1rem;
+    line-height: 1.75;
+
+    p + p {
+      margin-top: 1em;
+    }
+  }
+  .doc-copy {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+  }
+  .caps {
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+  }
+</style>

@@ -1,0 +1,57 @@
+---
+// How Peacock 4.0 renamed its close and dismiss events (ADR-030001, MIGRATION.md): overlays share
+// one `close` event with a reason; non-overlay events got their own plain names.
+const overlay = ["modal-close", "side-sheet-close", "snackbar-close", "other overlay events"];
+const others = [
+  { from: "tag--dismiss", to: "dismiss", note: "wc-chip" },
+  { from: "notification-dismiss", to: "peacock-toast-dismiss", note: "window event" },
+];
+---
+
+<svg class="diagram" viewBox="0 0 720 330" role="img" aria-labelledby="funnel-title funnel-desc">
+  <title id="funnel-title">Close and dismiss events, before and after 4.0</title>
+  <desc id="funnel-desc">
+    Overlay events such as modal-close, side-sheet-close and snackbar-close are replaced by one close
+    event whose detail.reason says why it closed. tag--dismiss on the chip became dismiss, and the
+    window event notification-dismiss became peacock-toast-dismiss.
+  </desc>
+  <defs>
+    <marker id="ef-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow-head"></path>
+    </marker>
+  </defs>
+
+  <text class="tag" x="20" y="16">3.x · OVERLAYS</text>
+  {
+    overlay.map((name, i) => (
+      <>
+        <rect class="box" x="20" y={28 + i * 37} width="220" height="29" rx="8" />
+        <text class={i === overlay.length - 1 ? "sub" : "code"} x="34" y={47 + i * 37}>{name}</text>
+        <path class="edge" d={`M240 ${42 + i * 37} C340 ${42 + i * 37} 340 98 428 98`} marker-end="url(#ef-arrow)" />
+      </>
+    ))
+  }
+
+  <text class="tag" x="430" y="16">4.0</text>
+  <rect class="box-accent" x="430" y="28" width="270" height="140" rx="14"></rect>
+  <text class="code" x="450" y="64" style="font-size:20px;font-weight:700">close</text>
+  <text class="sub" x="450" y="92">detail.reason =</text>
+  <text class="sub" x="450" y="112">escape · light-dismiss</text>
+  <text class="sub" x="450" y="132">action · timeout · api</text>
+
+  <line class="rule" x1="20" y1="198" x2="700" y2="198"></line>
+  <text class="tag" x="20" y="226">3.x · NOT OVERLAYS</text>
+
+  {
+    others.map((o, i) => (
+      <>
+        <rect class="box" x="20" y={240 + i * 42} width="220" height="29" rx="8" />
+        <text class="code" x="34" y={259 + i * 42}>{o.from}</text>
+        <path class="edge" d={`M240 ${254 + i * 42} L428 ${254 + i * 42}`} marker-end="url(#ef-arrow)" />
+        <text class="sub" x="270" y={248 + i * 42}>{o.note}</text>
+        <rect class="box-accent" x="430" y={240 + i * 42} width="270" height="29" rx="8" />
+        <text class="code" x="446" y={259 + i * 42}>{o.to}</text>
+      </>
+    ))
+  }
+</svg>

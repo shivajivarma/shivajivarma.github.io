@@ -1,90 +1,187 @@
 ---
-import DefaultWithTitle from "../../layouts/DefaultWithTitle.astro";
-import { getCollection } from "astro:content";
-import { BLOG_CATEGORIES } from "../../siteconfig";
+import Base from "../../layouts/Base.astro";
+import PostCard from "../../components/PostCard.astro";
+import { FORMATS, type Format } from "../../content.config";
+import { FEED_URL } from "../../siteconfig";
+import { getPosts, sheetNumber } from "../../utils/posts";
 
-const allPosts = await getCollection("blog");
+const posts = await getPosts();
+const [newest, ...rest] = posts;
 
-function getPostUrl(id: string): string {
-  const parts = id.split("/");
-  const category = parts[0];
-  const filename = parts[parts.length - 1].replace(/\.(html|mdx?|md)$/, "");
-  const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (!match) return "#";
-  const [, year, month, day, slug] = match;
-  return `/blog/${category}/${year}/${month}/${day}/${slug}/`;
-}
-
-function getPostTitle(id: string, title?: string): string {
-  if (title) return title;
-  const filename = id
-    .split("/")
-    .pop()!
-    .replace(/\.(html|mdx?|md)$/, "");
-  const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, "");
-  return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
-
-const sortedPosts = [...allPosts].sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-);
+const counts = Object.fromEntries(
+  (Object.keys(FORMATS) as Format[]).map((f) => [f, posts.filter((p) => p.data.format === f).length]),
+) as Record<Format, number>;
 ---
 
-<DefaultWithTitle
-  title="Blog"
-  description="My blog posts on programming, music, stories, and more."
+<Base
+  title="Journal"
+  description="White papers, case studies and field notes on how Shivaji Varma designs and builds platforms, design systems and web components."
 >
-  <style>
-    .blog-posts {
-      margin-top: var(--spacing-200);
-      .post {
-        margin-bottom: var(--spacing-200);
-        .post-title {
-          margin-bottom: var(--spacing-050);
+  <header class="journal-hero">
+    <div class="blueprint"></div>
+    <div class="glow"></div>
+    <div class="wrap journal-hero-inner">
+      <span class="eyebrow">Architecture journal</span>
+      <h1 class="journal-title">Notes from the <span class="grad">drawing board.</span></h1>
+      <p class="journal-lede">
+        How my projects are designed and built: the decisions, the trade-offs and what I'd do
+        differently. Written for engineers who build platforms and design systems.
+      </p>
+
+      <ul class="legend" aria-label="Kinds of posts">
+        {
+          (Object.keys(FORMATS) as Format[]).map((f) => (
+            <li>
+              <wc-icon name={FORMATS[f].icon} />
+              <span>{FORMATS[f].label}</span>
+              <span class="mono legend-count">{String(counts[f]).padStart(2, "0")}</span>
+            </li>
+          ))
         }
-      }
-    }
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-200);
-    }
-    .category-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.15rem 0.5rem;
-      border-radius: var(--shape-corner-full);
-      background: var(--color-secondary-container);
-      color: var(--color-on-secondary-container);
-    }
-  </style>
-  <div class="blog-posts">
+        <li class="legend-rss">
+          <a href={FEED_URL}>
+            <wc-icon name="rss_feed"></wc-icon>
+            RSS
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="wrap journal-body" aria-label="Posts">
     {
-      sortedPosts.map((post) => {
-        const category = post.id.split("/")[0];
-        return (
-          <div class="post">
-            <wc-link href={getPostUrl(post.id)}>
-              <h2 class="text-headline-large post-title">
-                {getPostTitle(post.id, post.data.title)}
-              </h2>
-            </wc-link>
-            <div class="post-meta">
-              <small class="text-muted">
-                {post.data.date.toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </small>
-              <span class="category-tag">{category}</span>
-            </div>
+      newest ? (
+        <>
+          <div class="newest" data-reveal>
+            <span class="mono list-label">Latest</span>
+            <PostCard post={newest} sheet={sheetNumber(newest, posts)} large headingLevel="h2" />
           </div>
-        );
-      })
+
+          {rest.length > 0 && (
+            <>
+              <span class="mono list-label">Earlier</span>
+              <div class="grid">
+                {rest.map((post, i) => (
+                  <div data-reveal style={`--reveal-index:${i % 3}`}>
+                    <PostCard post={post} sheet={sheetNumber(post, posts)} headingLevel="h2" />
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <div class="empty">
+          <wc-illustration name="coming-soon" size="md" />
+          <h2>The first notes are on the drawing board.</h2>
+          <p>Subscribe to the RSS feed to hear when they're published.</p>
+        </div>
+      )
     }
-  </div>
-</DefaultWithTitle>
+  </section>
+</Base>
+
+<style>
+  .journal-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4rem);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .journal-hero .glow {
+    top: -22rem;
+    right: -12rem;
+  }
+  .journal-hero-inner {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-250);
+    justify-items: start;
+  }
+  .journal-title {
+    max-width: 18ch;
+    font-size: clamp(2.5rem, 6.5vw, 4.75rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+  .journal-lede {
+    max-width: 40rem;
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    color: var(--ink-soft);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-100);
+    margin: var(--spacing-100) 0 0;
+    padding: 0;
+    list-style: none;
+
+    li,
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-100);
+    }
+    li {
+      padding: var(--spacing-075) var(--spacing-150);
+      border: 1px solid var(--hairline);
+      border-radius: var(--shape-corner-full);
+      background: color-mix(in srgb, var(--color-surface) 75%, transparent);
+      font-size: 0.875rem;
+      font-weight: 500;
+      --icon-size: 1.05rem;
+      --icon-color: var(--color-primary);
+    }
+    a {
+      text-decoration: none;
+    }
+    .legend-rss:hover {
+      border-color: var(--color-primary);
+    }
+  }
+  .legend-count {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+
+  .journal-body {
+    display: grid;
+    gap: var(--spacing-300);
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(4rem, 9vw, 7rem);
+  }
+  .newest {
+    display: grid;
+    gap: var(--spacing-200);
+    margin-bottom: var(--spacing-300);
+  }
+  .list-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .grid {
+    display: grid;
+    gap: var(--spacing-300);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  }
+
+  .empty {
+    display: grid;
+    justify-items: center;
+    gap: var(--spacing-150);
+    padding-block: var(--spacing-800);
+    text-align: center;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      color: var(--ink-soft);
+    }
+  }
+</style>

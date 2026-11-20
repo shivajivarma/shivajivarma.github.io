@@ -1,0 +1,76 @@
+---
+// The four kinds of part in Redvars: daemons drive the kernel through its public API, modules
+// extend it from inside, and the kernel owns the single data path to PostgreSQL and the cache.
+// Source: redvars/engineering ARCHITECTURE.md, section 2.
+const daemons = [
+  { x: 20, label: "gateway", sub: "HTTP, REST, sessions" },
+  { x: 265, label: "rules-worker", sub: "runs queued rule jobs" },
+  { x: 510, label: "scheduler", sub: "scheduled work (planned)" },
+];
+const modules = [
+  { x: 20, label: "identity", sub: "who you are" },
+  { x: 142, label: "access", sub: "permissions" },
+  { x: 264, label: "apps", sub: "app packages" },
+  { x: 386, label: "rules", sub: "around writes" },
+  { x: 508, label: "scripts", sub: "sandboxed" },
+  { x: 630, label: "core", sub: "table REST" },
+];
+---
+
+<svg class="diagram" viewBox="0 0 760 400" role="img" aria-labelledby="rl-title rl-desc">
+  <title id="rl-title">The parts of Redvars</title>
+  <desc id="rl-desc">
+    Daemons such as the gateway, the rules-worker and a planned scheduler sit on top and reach data
+    only through the kernel's public API. Modules such as identity, access, apps, rules, scripts and
+    core extend the kernel from inside through the module API. The kernel owns persistence, security,
+    scopes, schema loading, the service registry and the job queue, and it is the only thing that
+    talks to PostgreSQL and the cache.
+  </desc>
+  <defs>
+    <marker id="rl-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow-head-accent"></path>
+    </marker>
+  </defs>
+
+  <text class="tag" x="20" y="26">DAEMONS · DRIVE THE KERNEL, LIKE ANY OUTSIDE CALLER</text>
+  {
+    daemons.map((d) => (
+      <g>
+        <rect class="box" x={d.x} y="38" width="230" height="52" rx="12" />
+        <text class="code" x={d.x + 16} y="61">{d.label}</text>
+        <text class="sub" x={d.x + 16} y="79">{d.sub}</text>
+      </g>
+    ))
+  }
+
+  <line class="rule" x1="20" y1="110" x2="740" y2="110"></line>
+  <text class="sub" x="20" y="128">kernel.api · the public boundary, and the only way in for daemons</text>
+
+  <text class="tag" x="20" y="156">MODULES · EXTEND THE KERNEL FROM INSIDE</text>
+  {
+    modules.map((m) => (
+      <g>
+        <rect class="box" x={m.x} y="168" width="110" height="52" rx="12" />
+        <text class="code" x={m.x + 12} y="191">{m.label}</text>
+        <text class="sub" x={m.x + 12} y="209">{m.sub}</text>
+      </g>
+    ))
+  }
+
+  <line class="rule" x1="20" y1="238" x2="740" y2="238"></line>
+  <text class="sub" x="20" y="256">module API</text>
+
+  <rect class="box-accent" x="20" y="266" width="720" height="62" rx="14"></rect>
+  <text class="label" x="38" y="292">Kernel</text>
+  <text class="code" x="112" y="292" style="font-size:12.5px">persistence · security · scopes · schema · services · queue</text>
+  <text class="sub" x="38" y="314">in every process, never replaced: the single data path for every read and write</text>
+
+  <path class="edge-accent" d="M380 328 L380 348" marker-end="url(#rl-arrow)"></path>
+
+  <rect class="box" x="20" y="350" width="350" height="42" rx="12"></rect>
+  <text class="label-sm" x="36" y="370">PostgreSQL</text>
+  <text class="sub" x="36" y="385">data and metadata, real tables per app</text>
+  <rect class="box" x="390" y="350" width="350" height="42" rx="12"></rect>
+  <text class="label-sm" x="406" y="370">Cache</text>
+  <text class="sub" x="406" y="385">Redis, Valkey, or in memory on one node</text>
+</svg>

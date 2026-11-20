@@ -1,0 +1,44 @@
+---
+import Logo from "./Logo.astro";
+import { AUTHOR, NAV, SITE_TITLE } from "../siteconfig";
+
+const pathname = Astro.url.pathname;
+const isJournal = pathname === "/blog" || pathname.startsWith("/blog/");
+---
+
+<wc-site-header sticky label="Main">
+  <a slot="brand" class="brand" href="/" aria-label={`${SITE_TITLE}, home`}>
+    <Logo />
+    <span>Shivaji Varma<span class="brand-dot">.</span></span>
+  </a>
+
+  {
+    NAV.map((item) => (
+      <wc-site-nav-link
+        href={item.href}
+        current={item.href === "/blog/" && isJournal ? true : null}
+      >
+        {item.label}
+      </wc-site-nav-link>
+    ))
+  }
+
+  <wc-icon-button
+    slot="actions"
+    class="theme-toggle"
+    variant="text"
+    aria-label="Switch between light and dark theme"
+  >
+    <wc-icon name="dark_mode"></wc-icon>
+  </wc-icon-button>
+
+  <wc-link-button
+    slot="end"
+    href={AUTHOR.resume}
+    target="_blank"
+    variant="filled"
+    size="sm"
+  >
+    Résumé
+  </wc-link-button>
+</wc-site-header>

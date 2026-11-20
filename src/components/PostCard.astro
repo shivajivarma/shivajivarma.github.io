@@ -1,0 +1,211 @@
+---
+import { FORMATS } from "../content.config";
+import { formatDate, getPostUrl, readingTime, type Post } from "../utils/posts";
+
+interface Props {
+  post: Post;
+  /** Sheet number shown on the cover, e.g. "03". */
+  sheet: string;
+  /** The wide card at the top of the journal. */
+  large?: boolean;
+  headingLevel?: "h2" | "h3";
+}
+
+const { post, sheet, large = false, headingLevel = "h3" } = Astro.props;
+const format = FORMATS[post.data.format];
+const Heading = headingLevel;
+---
+
+<a class:list={["tile post-card", { large }]} href={getPostUrl(post)} data-format={post.data.format}>
+  <div class="cover" aria-hidden="true">
+    <span class="cover-sheet mono">S-{sheet}</span>
+    <wc-icon name={format.icon} class="cover-icon"></wc-icon>
+    <span class="cover-kind mono">{format.label}</span>
+  </div>
+  <div class="body">
+    <div class="meta-top">
+      <wc-tag size="sm" variant="tonal">{format.label}</wc-tag>
+      <span class="meta mono">
+        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, "short")}</time>
+        <span aria-hidden="true">·</span>
+        <span>{readingTime(post.body)} min read</span>
+      </span>
+    </div>
+    <Heading class="title">{post.data.title}</Heading>
+    <p class="desc">{post.data.description}</p>
+    <div class="foot">
+      {
+        post.data.updated && (
+          <span class="updated mono">
+            Updated <time datetime={post.data.updated.toISOString()}>{formatDate(post.data.updated, "short")}</time>
+          </span>
+        )
+      }
+      <span class="link-arrow">Read <wc-icon name="arrow_forward"></wc-icon></span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .post-card {
+    padding: 0;
+    overflow: hidden;
+    gap: 0;
+    height: 100%;
+  }
+
+  .cover {
+    --c1: var(--color-red-50);
+    --c2: var(--color-purple-40);
+    position: relative;
+    height: 9.5rem;
+    overflow: hidden;
+    background:
+      linear-gradient(color-mix(in srgb, white 14%, transparent) 1px, transparent 1px) 0 0 / 18px 18px,
+      linear-gradient(90deg, color-mix(in srgb, white 14%, transparent) 1px, transparent 1px) 0 0 / 18px 18px,
+      linear-gradient(135deg, var(--c1), var(--c2));
+    color: white;
+  }
+  [data-format="case-study"] .cover {
+    --c1: var(--color-red-40);
+    --c2: var(--color-orange-60);
+  }
+  [data-format="field-notes"] .cover {
+    --c1: var(--color-orange-50);
+    --c2: var(--color-yellow-50);
+  }
+
+  .cover::after {
+    content: "";
+    position: absolute;
+    right: -2.5rem;
+    bottom: -2.5rem;
+    width: 9rem;
+    height: 9rem;
+    border: 1px solid color-mix(in srgb, white 40%, transparent);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 18px color-mix(in srgb, white 6%, transparent),
+      0 0 0 36px color-mix(in srgb, white 4%, transparent);
+    transition: transform 600ms var(--easing-emphasized, ease);
+  }
+  .post-card:hover .cover::after {
+    transform: scale(1.15);
+  }
+
+  .cover-sheet {
+    position: absolute;
+    top: var(--spacing-150);
+    left: var(--spacing-200);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    opacity: 0.9;
+  }
+  .cover-kind {
+    position: absolute;
+    left: var(--spacing-200);
+    bottom: var(--spacing-150);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .cover-icon {
+    position: absolute;
+    right: var(--spacing-250);
+    top: 50%;
+    translate: 0 -50%;
+    --icon-size: 3rem;
+    --icon-color: white;
+    opacity: 0.95;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-150);
+    flex: 1;
+    padding: var(--spacing-250) var(--spacing-300) var(--spacing-300);
+  }
+
+  .meta-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-100);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+  .meta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4em;
+  }
+  .meta time {
+    color: var(--color-on-surface);
+  }
+
+  .title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .desc {
+    color: var(--ink-soft);
+    font-size: 0.975rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-100);
+    margin-top: auto;
+    padding-top: var(--spacing-100);
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+  }
+
+  .foot .link-arrow {
+    margin-left: auto;
+  }
+  .updated {
+    font-size: 0.75rem;
+  }
+
+  /* Wide card: cover beside the text */
+  @media (min-width: 52rem) {
+    .large {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+    }
+    .large .cover {
+      height: auto;
+      min-height: 20rem;
+    }
+    .large .cover-icon {
+      --icon-size: 5.5rem;
+      right: 50%;
+      translate: 50% -50%;
+    }
+    .large .body {
+      justify-content: center;
+      padding: var(--spacing-500);
+      gap: var(--spacing-200);
+    }
+    .large .title {
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    }
+    .large .desc {
+      font-size: 1.0625rem;
+      -webkit-line-clamp: 4;
+    }
+  }
+</style>

@@ -1,0 +1,102 @@
+// The site's colour theme: Peacock's palettes regenerated from a red seed.
+//
+// Generated with Peacock's own theme engine (@redvars/peacock/theme):
+//   paletteVariables({ primary: "#e32e25", variant: "classic" })
+// #e32e25 is Peacock's red-50. Peacock's colour roles (--color-primary, --color-surface, ...) are
+// aliases of these palette tones, in light and dark mode alike, so replacing the tones re-themes
+// every component without touching the roles. Regenerate with the engine or the docs theme builder
+// to change the seed; do not edit the values by hand.
+
+:root {
+  // primary
+  --color-primary-0: #000000;
+  --color-primary-10: #410001;
+  --color-primary-20: #690002;
+  --color-primary-30: #930005;
+  --color-primary-40: #be0b0e;
+  --color-primary-50: #e32e25;
+  --color-primary-60: #ff5545;
+  --color-primary-70: #ff8a7b;
+  --color-primary-80: #ffb4a9;
+  --color-primary-90: #ffdad5;
+  --color-primary-95: #ffedea;
+  --color-primary-98: #fff8f7;
+  --color-primary-100: #ffffff;
+  // secondary
+  --color-secondary-0: #000000;
+  --color-secondary-10: #2c1512;
+  --color-secondary-20: #442926;
+  --color-secondary-30: #5d3f3b;
+  --color-secondary-40: #775652;
+  --color-secondary-50: #926f6a;
+  --color-secondary-60: #ae8883;
+  --color-secondary-70: #caa29c;
+  --color-secondary-80: #e7bdb7;
+  --color-secondary-90: #ffdad5;
+  --color-secondary-95: #ffedea;
+  --color-secondary-98: #fff8f7;
+  --color-secondary-100: #ffffff;
+  // tertiary
+  --color-tertiary-0: #000000;
+  --color-tertiary-10: #261a00;
+  --color-tertiary-20: #3e2e04;
+  --color-tertiary-30: #574419;
+  --color-tertiary-40: #705c2e;
+  --color-tertiary-50: #8b7444;
+  --color-tertiary-60: #a68e5b;
+  --color-tertiary-70: #c2a873;
+  --color-tertiary-80: #dfc38c;
+  --color-tertiary-90: #fcdfa6;
+  --color-tertiary-95: #ffefd4;
+  --color-tertiary-98: #fff8f2;
+  --color-tertiary-100: #ffffff;
+  // neutral
+  --color-neutral-0: #000000;
+  --color-neutral-4: #120d0c;
+  --color-neutral-6: #181211;
+  --color-neutral-10: #201a19;
+  --color-neutral-12: #251e1d;
+  --color-neutral-17: #2f2827;
+  --color-neutral-20: #362f2e;
+  --color-neutral-22: #3b3332;
+  --color-neutral-24: #3f3736;
+  --color-neutral-30: #4d4544;
+  --color-neutral-40: #655c5b;
+  --color-neutral-50: #7f7573;
+  --color-neutral-60: #998e8d;
+  --color-neutral-70: #b4a9a7;
+  --color-neutral-80: #d0c4c2;
+  --color-neutral-87: #e4d7d5;
+  --color-neutral-90: #ede0de;
+  --color-neutral-92: #f3e5e3;
+  --color-neutral-94: #f8ebe9;
+  --color-neutral-95: #fbeeec;
+  --color-neutral-96: #fef1ef;
+  --color-neutral-98: #fff8f7;
+  --color-neutral-99: #fffbff;
+  --color-neutral-100: #ffffff;
+  // neutral-variant
+  --color-neutral-variant-0: #000000;
+  --color-neutral-variant-4: #160b0a;
+  --color-neutral-variant-6: #1c110f;
+  --color-neutral-variant-10: #251917;
+  --color-neutral-variant-12: #291d1b;
+  --color-neutral-variant-17: #342725;
+  --color-neutral-variant-20: #3b2d2b;
+  --color-neutral-variant-22: #40312f;
+  --color-neutral-variant-30: #534341;
+  --color-neutral-variant-40: #6b5a58;
+  --color-neutral-variant-50: #857370;
+  --color-neutral-variant-60: #a08c89;
+  --color-neutral-variant-70: #bba7a4;
+  --color-neutral-variant-80: #d8c2be;
+  --color-neutral-variant-87: #ecd5d2;
+  --color-neutral-variant-90: #f5ddda;
+  --color-neutral-variant-92: #fbe3e0;
+  --color-neutral-variant-94: #ffe9e6;
+  --color-neutral-variant-95: #ffedea;
+  --color-neutral-variant-96: #fff0ee;
+  --color-neutral-variant-98: #fff8f7;
+  --color-neutral-variant-99: #fffbff;
+  --color-neutral-variant-100: #ffffff;
+}

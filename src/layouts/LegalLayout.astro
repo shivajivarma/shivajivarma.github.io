@@ -1,0 +1,101 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  /** Headline with optional HTML for the gradient word. */
+  heading: string;
+  updated: string;
+}
+
+const { title, description, eyebrow, heading, updated } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <header class="legal-hero">
+    <div class="blueprint"></div>
+    <div class="wrap legal-hero-inner">
+      <span class="eyebrow">{eyebrow}</span>
+      <h1 class="legal-title" set:html={heading} />
+      <p class="legal-lede">{description}</p>
+      <p class="legal-updated mono">Last updated · {updated}</p>
+    </div>
+  </header>
+
+  <slot name="summary" />
+
+  <div class="wrap legal-grid">
+    <article class="prose legal-body" id="legal-body">
+      <slot />
+    </article>
+    <aside class="legal-aside">
+      <wc-anchor-nav for="legal-body" headline="On this page" class="toc"></wc-anchor-nav>
+    </aside>
+  </div>
+</Base>
+
+<style>
+  .legal-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 5vw, 3rem);
+  }
+  .legal-hero-inner {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-200);
+    justify-items: start;
+  }
+  .legal-title {
+    font-size: clamp(2.4rem, 6vw, 4.25rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.03;
+  }
+  .legal-lede {
+    max-width: 42rem;
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    color: var(--ink-soft);
+  }
+  .legal-updated {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .legal-grid {
+    display: grid;
+    gap: var(--spacing-500);
+    padding-block: clamp(2rem, 5vw, 3.5rem) clamp(4rem, 8vw, 6rem);
+  }
+  @media (min-width: 64rem) {
+    .legal-grid {
+      grid-template-columns: minmax(0, 46rem) minmax(13rem, 1fr);
+      justify-content: space-between;
+    }
+  }
+  .legal-body {
+    min-width: 0;
+
+    :global(h2:first-child) {
+      margin-top: 0;
+    }
+  }
+  .legal-aside {
+    display: none;
+  }
+  @media (min-width: 64rem) {
+    .legal-aside {
+      display: block;
+    }
+    .toc {
+      position: sticky;
+      top: calc(var(--header-height) + 2rem);
+      --anchor-nav-current-color: var(--color-primary);
+    }
+  }
+</style>
