@@ -14,8 +14,10 @@ import {
   yearsSince,
 } from "../siteconfig";
 import { getPosts, sheetNumber } from "../utils/posts";
+import { person, website } from "../utils/schema";
 
 const years = yearsSince(CAREER_START);
+const jsonLd = { "@context": "https://schema.org", "@graph": [website, person] };
 const posts = await getPosts();
 const latest = posts.slice(0, 3);
 
@@ -126,6 +128,8 @@ const awards = [
     "ServiceNow",
   ]}
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   <!-- ── Hero ─────────────────────────────────────────────────────────── -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="blueprint"></div>

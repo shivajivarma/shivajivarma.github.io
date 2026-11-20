@@ -1,7 +1,7 @@
 export const SITE_TITLE = "Shivaji Varma";
 export const SITE_TAGLINE = "Software Architect";
 export const SITE_DESCRIPTION =
-  "Shivaji Varma is a software architect with expertise in platform engineering and UI, designing platforms, design systems and web components, and writing about how they are built.";
+  "Shivaji Varma is a software architect with expertise in platform engineering and UI, designing platforms and design systems and writing about how they're built.";
 export const SITE_URL = "https://shivajivarma.com";
 export const SITE_TYPE = "website";
 export const SITE_DOMAIN = "shivajivarma.com";
